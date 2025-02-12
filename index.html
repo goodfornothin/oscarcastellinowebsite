@@ -1,223 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title id="pageTitle">Opera Singer Website</title>
-  <!-- Google Fonts for elegant typography -->
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Open+Sans:400,600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opera Singer Website</title>
   <style>
-    /* Reset and basic styling */
-    * {
-      box-sizing: border-box;
+    /* Importing Roboto Slab for an elegant look */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap');
+
+    /* Global Styles */
+    body {
+      font-family: 'Roboto Slab', serif;
+      line-height: 1.6;
       margin: 0;
       padding: 0;
-    }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f4f4f4;
+      background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
       color: #333;
-      line-height: 1.6;
     }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    /* Header Section */
+
+    /* Header */
     header {
-      background: url('https://via.placeholder.com/1200x400?text=Opera+Singer') no-repeat center center/cover;
-      padding: 100px 0;
       text-align: center;
+      padding: 2rem;
+      background-color: #333;
       color: #fff;
     }
     header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5em;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin: 0;
+      font-size: 2.8rem;
     }
-    /* Section Styling */
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Section Base Styles */
     section {
-      background-color: #fff;
-      margin: 30px 0;
-      padding: 30px;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     section h2 {
-      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       border-bottom: 2px solid #e0e0e0;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-size: 2em;
+      padding-bottom: 0.5rem;
     }
-    /* Biography Section */
-    .biography a {
-      color: #0066cc;
+
+    /* Link Buttons */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+    .links a {
       text-decoration: none;
+      color: #fff;
+      background: #007BFF;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s ease;
     }
-    .biography a:hover {
-      text-decoration: underline;
+    .links a:hover {
+      background: #0056b3;
     }
+
     /* Featured Photo */
-    .featured-photo img {
-      width: 100%;
-      max-width: 500px;
-      display: block;
-      margin: 0 auto;
+    .photo {
+      text-align: center;
+    }
+    .photo img {
+      max-width: 100%;
       border-radius: 8px;
     }
+
     /* Upcoming Events */
     .events-list {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
     }
     .events-list li {
-      margin: 10px 0;
-      font-weight: 600;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
     }
     .events-list li a {
       text-decoration: none;
-      color: #333;
-      transition: color 0.3s;
+      color: #007BFF;
+      transition: color 0.3s ease;
     }
     .events-list li a:hover {
-      color: #0066cc;
+      text-decoration: underline;
+      color: #0056b3;
     }
-    /* Featured Video */
-    iframe {
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-      display: block;
-      margin: 0 auto;
-      border: none;
-      border-radius: 8px;
-    }
+
     /* Contact Form */
-    .contact-form label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+      padding: 0.8rem;
+      font-size: 1rem;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-size: 1em;
     }
-    .contact-form input[type="submit"] {
-      background-color: #0066cc;
+    .contact-form button {
+      background: #007BFF;
       color: #fff;
       border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
       cursor: pointer;
-      font-size: 1em;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
     }
-    .contact-form input[type="submit"]:hover {
-      background-color: #004b99;
+    .contact-form button:hover {
+      background: #0056b3;
+      transform: scale(1.05);
     }
-    /* Responsive adjustments */
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2.5em;
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        margin: 1rem;
+        padding: 1rem;
+      }
+      .links a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        font-size: 0.9rem;
+        padding: 0.6rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header Section -->
+  <!-- Header with Title and Tagline -->
   <header>
-    <div class="container">
-      <h1 id="title">Loading...</h1>
-    </div>
+    <h1 id="title">Loading...</h1>
+    <p id="tagline"></p>
   </header>
 
-  <div class="container">
-    <!-- Biography Section -->
-    <section class="biography">
-      <h2>Biography</h2>
-      <p id="shortBio">Loading biography...</p>
-      <p><a id="bioLink" href="#" target="_blank">Read more</a></p>
-    </section>
+  <!-- About Me Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p id="shortBiography">Loading biography...</p>
+    <div class="links">
+      <a id="biographyLink" href="#" target="_blank">Read Full Biography</a>
+    </div>
+  </section>
 
-    <!-- Featured Photo Section -->
-    <section class="featured-photo">
-      <h2>Featured Photo</h2>
-      <a id="photosFolderLink" href="#" target="_blank">
-        <img id="featuredPhoto" src="https://via.placeholder.com/500x300?text=Featured+Photo" alt="Featured Photo">
-      </a>
-    </section>
+  <!-- Featured Photo Section -->
+  <section id="photo" class="photo">
+    <h2>Featured Photo</h2>
+    <img id="featuredPhoto" src="#" alt="Featured Photo" />
+    <div class="links">
+      <a id="photosFolder" href="#" target="_blank">View Publicity Photos</a>
+    </div>
+  </section>
 
-    <!-- Upcoming Events Section -->
-    <section class="upcoming-events">
-      <h2>Upcoming Events</h2>
-      <ul id="eventsList" class="events-list">
-        <!-- Events will be dynamically injected here -->
-      </ul>
-    </section>
+  <!-- Upcoming Events Section -->
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <ul id="eventsList" class="events-list">
+      <!-- Upcoming events will be injected here -->
+    </ul>
+  </section>
 
-    <!-- Featured Video Section -->
-    <section class="featured-video">
-      <h2>Featured Video</h2>
-      <iframe id="featuredVideo" src="" allowfullscreen></iframe>
-      <p style="text-align:center; margin-top: 15px;"><a id="playlistLink" href="#" target="_blank">View more videos on YouTube</a></p>
-    </section>
+  <!-- Featured Video Section -->
+  <section id="video">
+    <h2>Featured Video</h2>
+    <div style="text-align: center;">
+      <iframe id="featuredVideo" width="100%" height="315" src="#" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="links">
+      <a id="youtubePlaylist" href="#" target="_blank">Watch More Videos</a>
+    </div>
+  </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact-form">
-      <h2>Contact</h2>
-      <form id="contactForm" action="mailto:" method="post" enctype="text/plain">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-        
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5"></textarea>
-        
-        <input type="submit" value="Send">
-      </form>
-    </section>
-  </div>
+  <!-- Contact Form Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form" id="contactForm" action="mailto:" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
 
-  <!-- Script to load JSON data -->
+  <!-- Footer -->
+  <footer>
+    <p id="footer">© 2025 Opera Singer. All rights reserved.</p>
+  </footer>
+
+  <!-- Script to load JSON data and populate the page -->
   <script>
     fetch('data.json')
       .then(response => response.json())
       .then(data => {
-          document.getElementById('pageTitle').innerText = data.title;
-          document.getElementById('title').innerText = data.title;
-          document.getElementById('shortBio').innerText = data.shortBiography;
-          document.getElementById('bioLink').href = data.biographyLink;
-          document.getElementById('featuredPhoto').src = data.featuredPhoto;
-          document.getElementById('photosFolderLink').href = data.photosFolder;
+        // Header
+        document.title = data.title;
+        document.getElementById('title').innerText = data.title;
+        document.getElementById('tagline').innerText = data.tagline || '';
 
-          // Populate upcoming events
-          const eventsList = document.getElementById('eventsList');
-          data.upcomingEvents.forEach(event => {
-              const li = document.createElement('li');
-              const a = document.createElement('a');
-              a.href = event.bookingLink;
-              a.target = "_blank";
-              a.innerText = event.event;
-              li.appendChild(a);
-              eventsList.appendChild(li);
-          });
+        // About Me Section
+        document.getElementById('shortBiography').innerText = data.shortBiography;
+        document.getElementById('biographyLink').href = data.biographyLink;
 
-          // Set featured video and playlist link
-          document.getElementById('featuredVideo').src = data.featuredVideo;
-          document.getElementById('playlistLink').href = data.youtubePlaylist;
+        // Featured Photo Section
+        document.getElementById('featuredPhoto').src = data.featuredPhoto;
+        document.getElementById('photosFolder').href = data.photosFolder;
+
+        // Upcoming Events Section
+        const eventsList = document.getElementById('eventsList');
+        data.upcomingEvents.forEach(event => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = event.bookingLink;
+          a.target = "_blank";
+          a.innerText = event.event;
+          li.appendChild(a);
+          eventsList.appendChild(li);
+        });
+
+        // Featured Video Section
+        document.getElementById('featuredVideo').src = data.featuredVideo;
+        document.getElementById('youtubePlaylist').href = data.youtubePlaylist;
+
+        // Optional Footer Update
+        if (data.footer) {
+          document.getElementById('footer').innerHTML = data.footer;
+        }
       })
-      .catch(err => {
-          console.error('Error loading data.json:', err);
-      });
+      .catch(error => console.error('Error loading JSON data:', error));
   </script>
 </body>
 </html>
