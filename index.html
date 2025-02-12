@@ -252,4 +252,37 @@
         document.getElementById('shortBiography').innerHTML = data.shortBiography +
           ' <a id="biographyLink" href="' + data.biographyLink + '" target="_blank">more&gt;</a>';
 
-        // 
+        // Featured Photo Section
+        document.getElementById('featuredPhoto').src = data.featuredPhoto;
+        document.getElementById('photosFolder').href = data.photosFolder;
+
+        // Upcoming Events Section
+        const eventsList = document.getElementById('eventsList');
+        data.upcomingEvents.forEach(event => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = event.bookingLink;
+          a.target = "_blank";
+          a.innerText = event.event;
+          li.appendChild(a);
+          eventsList.appendChild(li);
+        });
+
+        // Featured Video Section
+        document.getElementById('featuredVideo').src = data.featuredVideo;
+        document.getElementById('youtubePlaylist').href = data.youtubePlaylist;
+
+        // Optional Footer Update
+        if (data.footer) {
+          document.getElementById('footer').innerHTML = data.footer + ' Version: v2.0';
+        }
+      })
+      .catch(error => {
+        console.error('Error loading JSON data:', error);
+        // Fallback content so the page isn't blank
+        document.getElementById('title').innerText = "Opera Singer";
+        document.getElementById('shortBiography').innerHTML = "Short biography not available.";
+      });
+  </script>
+</body>
+</html>
