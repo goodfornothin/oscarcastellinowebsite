@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Configuration - Opera Singer Website</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .hidden { display: none; }
+    form { margin-bottom: 20px; }
+    label { display: block; margin-top: 10px; }
+    input, textarea { width: 100%; padding: 5px; }
+    small { color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Configuration Page</h1>
+  
+  <!-- Login Section -->
+  <div id="loginDiv">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="password">Enter Password:</label>
+      <input type="password" id="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div id="loginError" style="color: red;"></div>
+  </div>
+  
+  <!-- Configuration Form -->
+  <div id="configDiv" class="hidden">
+    <h2>Edit Website Data</h2>
+    <form id="configForm">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+      
+      <label for="shortBiography">Short Biography:</label>
+      <textarea id="shortBiography" name="shortBiography" required></textarea>
+      
+      <label for="biographyLink">Biography Link:</label>
+      <input type="text" id="biographyLink" name="biographyLink" required>
+      
+      <label for="featuredPhoto">Featured Photo URL:</label>
+      <input type="text" id="featuredPhoto" name="featuredPhoto" required>
+      
+      <label for="photosFolder">Photos Folder URL:</label>
+      <input type="text" id="photosFolder" name="photosFolder" required>
+      
+      <label for="upcomingEvents">Upcoming Events (JSON Array):</label>
+      <textarea id="upcomingEvents" name="upcomingEvents" required></textarea>
+      <small>Example: <code>[{"event": "Event Name", "bookingLink": "https://link.com"}]</code></small>
+      
+      <label for="featuredVideo">Featured Video URL (Embed URL):</label>
+      <input type="text" id="featuredVideo" name="featuredVideo" required>
+      
+      <label for="youtubePlaylist">YouTube Playlist URL:</label>
+      <input type="text" id="youtubePlaylist" name="youtubePlaylist" required>
+      
+      <label for="contactEmail">Contact Email:</label>
+      <input type="email" id="contactEmail" name="contactEmail" required>
+      
+      <button type="submit">Save Changes</button>
+    </form>
+    
+    <h3>Updated data.json content:</h3>
+    <textarea id="updatedJson" rows="15" style="width:100%;"></textarea>
+    <p>Copy the above JSON and replace your <code>data.json</code> file with it.</p>
+  </div>
+  
+  <script>
+    // --- Simple Password Protection ---
+    const correctPassword = "admin"; // Change this password as needed
+    
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const enteredPassword = document.getElementById('password').value;
+      if (enteredPassword === correctPassword) {
+        document.getElementById('loginDiv').classList.add('hidden');
+        document.getElementById('configDiv').classList.remove('hidden');
+        loadConfigData();
+      } else {
+        document.getElementById('loginError').innerText = "Incorrect password.";
+      }
+    });
+    
+    // --- Load data from data.json and pre-fill the form ---
+    function loadConfigData() {
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('title').value = data.title;
+          document.getElementById('shortBiography').value = data.shortBiography;
+          document.getElementById('biographyLink').value = data.biographyLink;
+          document.getElementById('featuredPhoto').value = data.featuredPhoto;
+          document.getElementById('photosFolder').value = data.photosFolder;
+          document.getElementById('upcomingEvents').value = JSON.stringify(data.upcomingEvents, null, 2);
+          document.getElementById('featuredVideo').value = data.featuredVideo;
+          document.getElementById('youtubePlaylist').value = data.youtubePlaylist;
+          document.getElementById('contactEmail').value = data.contactEmail;
+        })
+        .catch(err => {
+          console.error('Error loading data.json:', err);
+        });
+    }
+    
+    // --- Handle form submission and generate updated JSON ---
+    document.getElementById('configForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Build updated data object
+      let updatedData = {
+        title: document.getElementById('title').value,
+        shortBiography: document.getElementById('shortBiography').value,
+        biographyLink: document.getElementById('biographyLink').value,
+        featuredPhoto: document.getElementById('featuredPhoto').value,
+        photosFolder: document.getElementById('photosFolder').value,
+        featuredVideo: document.getElementById('featuredVideo').value,
+        youtubePlaylist: document.getElementById('youtubePlaylist').value,
+        contactEmail: document.getElementById('contactEmail').value
+      };
+      
+      // Parse upcomingEvents as JSON
+      try {
+        updatedData.upcomingEvents = JSON.parse(document.getElementById('upcomingEvents').value);
+      } catch (err) {
+        alert("Invalid JSON format for Upcoming Events.");
+        return;
+      }
+      
+      // Display the updated JSON in the textarea
+      document.getElementById('updatedJson').value = JSON.stringify(updatedData, null, 2);
+    });
+  </script>
+</body>
+</html>
