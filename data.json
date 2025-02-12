@@ -1,9 +1,12 @@
 {
   "title": "Oscar Castellino",
-  "shortBiography": "This is a short biography about the opera singer. She has performed in many great operas.",
+  "shortBiography": "Oscar Castellino is an international baritone and composer of Mars Anthem \"Rise to Mars\". He was born in a car on a busy street in Mumbai and traces his roots to Goa. Earlier a software engineer, he was scouted for his operatic talent by Patricia Rozario on her concert tour of India.",
   "biographyLink": "https://example.com/full-biography",
   "featuredPhoto": "https://via.placeholder.com/300x200.png?text=Featured+Photo",
   "photosFolder": "https://drive.google.com/drive/folders/your-folder-id",
+  "featuredVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "youtubePlaylist": "https://www.youtube.com/playlist?list=PLxyz",
+  "contactEmail": "contact@example.com",
   "upcomingEvents": [
     {
       "event": "Opera Night - Gala",
@@ -13,8 +16,5 @@
       "event": "Summer Opera Festival",
       "bookingLink": "https://example.com/summer-opera-festival"
     }
-  ],
-  "featuredVideo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  "youtubePlaylist": "https://www.youtube.com/playlist?list=PLxyz",
-  "contactEmail": "contact@example.com"
+  ]
 }
