@@ -21,9 +21,9 @@
     /* Header Styles */
     header {
       background-color: #E5E4E2;
-      border-bottom: 1px solid #ccc;
+      /* Removed border */
+      padding: 0; /* No padding between the title and header borders */
     }
-    /* A container inside the header to align with section boxes */
     .header-container {
       max-width: 800px;
       margin: 0 auto;
@@ -32,10 +32,6 @@
     }
     header h1 {
       margin: 0;
-      /* Responsive font size: 
-         - minimum: 3rem,
-         - preferred: 8vw (8% of viewport width),
-         - maximum: 5rem */
       font-size: clamp(3rem, 8vw, 5rem);
       color: #333;
       line-height: 1.2;
@@ -52,17 +48,23 @@
     section {
       max-width: 800px;
       margin: 2rem auto;
-      padding: 1.5rem;
+      /* Top padding reduced by half (0.75rem) while preserving right, bottom, left padding */
+      padding: 0.75rem 1.5rem 1.5rem 1.5rem;
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    /* For sections with titles (Upcoming Events, Featured Video, Contact Me) */
     section h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       border-bottom: 2px solid #e0e0e0;
       padding-bottom: 0.5rem;
-      font-weight: 400; /* Regular 400 for subtitles */
+      font-weight: 400;
+    }
+    /* Remove top margin for About section so it touches the header */
+    #about {
+      margin-top: 0;
     }
 
     /* Link Buttons */
@@ -157,123 +159,7 @@
       }
       section {
         margin: 1rem;
-        padding: 1rem;
+        padding: 0.75rem 1rem 1.5rem 1rem;
       }
       .links a {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-      }
-      .contact-form input,
-      .contact-form textarea,
-      .contact-form button {
-        font-size: 0.9rem;
-        padding: 0.6rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <h1 id="title">Loading...</h1>
-      <p id="tagline"></p>
-    </div>
-  </header>
-
-  <!-- About Me Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p id="shortBiography">Loading biography...</p>
-    <div class="links">
-      <a id="biographyLink" href="#" target="_blank">Read Full Biography</a>
-    </div>
-  </section>
-
-  <!-- Featured Photo Section -->
-  <section id="photo" class="photo">
-    <h2>Featured Photo</h2>
-    <img id="featuredPhoto" src="#" alt="Featured Photo" />
-    <div class="links">
-      <a id="photosFolder" href="#" target="_blank">View Publicity Photos</a>
-    </div>
-  </section>
-
-  <!-- Upcoming Events Section -->
-  <section id="events">
-    <h2>Upcoming Events</h2>
-    <ul id="eventsList" class="events-list">
-      <!-- Events will be dynamically injected here -->
-    </ul>
-  </section>
-
-  <!-- Featured Video Section -->
-  <section id="video">
-    <h2>Featured Video</h2>
-    <div style="text-align: center;">
-      <iframe id="featuredVideo" width="100%" height="315" src="#" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="links">
-      <a id="youtubePlaylist" href="#" target="_blank">Watch More Videos</a>
-    </div>
-  </section>
-
-  <!-- Contact Form Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form class="contact-form" id="contactForm" action="mailto:" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p id="footer">© 2025 Opera Singer. All rights reserved.</p>
-  </footer>
-
-  <!-- Script to load JSON data -->
-  <script>
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        // Header
-        document.title = data.title;
-        document.getElementById('title').innerText = data.title;
-        document.getElementById('tagline').innerText = data.tagline || '';
-
-        // About Me Section
-        document.getElementById('shortBiography').innerText = data.shortBiography;
-        document.getElementById('biographyLink').href = data.biographyLink;
-
-        // Featured Photo Section
-        document.getElementById('featuredPhoto').src = data.featuredPhoto;
-        document.getElementById('photosFolder').href = data.photosFolder;
-
-        // Upcoming Events Section
-        const eventsList = document.getElementById('eventsList');
-        data.upcomingEvents.forEach(event => {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = event.bookingLink;
-          a.target = "_blank";
-          a.innerText = event.event;
-          li.appendChild(a);
-          eventsList.appendChild(li);
-        });
-
-        // Featured Video Section
-        document.getElementById('featuredVideo').src = data.featuredVideo;
-        document.getElementById('youtubePlaylist').href = data.youtubePlaylist;
-
-        // Optional Footer Update
-        if (data.footer) {
-          document.getElementById('footer').innerHTML = data.footer;
-        }
-      })
-      .catch(error => console.error('Error loading JSON data:', error));
-  </script>
-</body>
-</html>
+        padding: 0.5re
