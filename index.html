@@ -18,25 +18,34 @@
       color: #333;
     }
 
-    /* Header */
+    /* Header Styles */
     header {
-      text-align: center;
       background-color: #E5E4E2;
-      padding: 0; /* No padding between the title and header borders */
       border-bottom: 1px solid #ccc;
+    }
+    /* A container inside the header to align with section boxes */
+    .header-container {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 3.5rem; /* Increased font size */
+      /* Responsive font size: 
+         - minimum: 3rem,
+         - preferred: 8vw (8% of viewport width),
+         - maximum: 5rem */
+      font-size: clamp(3rem, 8vw, 5rem);
       color: #333;
       line-height: 1.2;
-      font-weight: 300; /* Title: Light 300 */
+      font-weight: 300; /* Light 300 for the title */
     }
     header p {
       margin: 0;
       font-size: 1.2rem;
       color: #333;
-      font-weight: 400; /* Subtitles: Regular 400 */
+      font-weight: 400; /* Regular 400 for subtitles */
     }
 
     /* Section Styles */
@@ -53,7 +62,7 @@
       margin-bottom: 1rem;
       border-bottom: 2px solid #e0e0e0;
       padding-bottom: 0.5rem;
-      font-weight: 400; /* Subtitles: Regular 400 */
+      font-weight: 400; /* Regular 400 for subtitles */
     }
 
     /* Link Buttons */
@@ -141,7 +150,7 @@
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2.5rem;
+        font-size: clamp(3rem, 8vw, 5rem);
       }
       header p {
         font-size: 1rem;
@@ -166,8 +175,10 @@
 <body>
   <!-- Header -->
   <header>
-    <h1 id="title">Loading...</h1>
-    <p id="tagline"></p>
+    <div class="header-container">
+      <h1 id="title">Loading...</h1>
+      <p id="tagline"></p>
+    </div>
   </header>
 
   <!-- About Me Section -->
