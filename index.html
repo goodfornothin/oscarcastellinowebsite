@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Opera Singer Website</title>
   <style>
-    /* Importing Roboto Slab for an elegant look */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap');
+    /* Import Playfair Display for an elegant look on all devices */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
     /* Global Styles */
     body {
-      font-family: 'Roboto Slab', serif;
+      font-family: 'Playfair Display', serif;
       line-height: 1.6;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+      background: #d8c4a5;  /* Dark cream background */
       color: #333;
     }
 
@@ -22,8 +22,8 @@
     header {
       text-align: center;
       padding: 2rem;
-      background-color: #333;
-      color: #fff;
+      background-color: #8C6B47; /* A darker cream tone */
+      color: #fff;  /* Title text in white */
     }
     header h1 {
       margin: 0;
@@ -34,14 +34,14 @@
       margin-top: 0.5rem;
     }
 
-    /* Section Base Styles */
+    /* Section Styles */
     section {
       max-width: 800px;
       margin: 2rem auto;
       padding: 1.5rem;
-      background: #fff;
+      background: #fff; /* White sections for contrast */
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     section h2 {
       font-size: 2rem;
@@ -70,7 +70,7 @@
       background: #0056b3;
     }
 
-    /* Featured Photo */
+    /* Photo Section */
     .photo {
       text-align: center;
     }
@@ -79,7 +79,7 @@
       border-radius: 8px;
     }
 
-    /* Upcoming Events */
+    /* Upcoming Events List */
     .events-list {
       list-style: none;
       padding: 0;
@@ -158,7 +158,7 @@
   </style>
 </head>
 <body>
-  <!-- Header with Title and Tagline -->
+  <!-- Header -->
   <header>
     <h1 id="title">Loading...</h1>
     <p id="tagline"></p>
@@ -186,7 +186,7 @@
   <section id="events">
     <h2>Upcoming Events</h2>
     <ul id="eventsList" class="events-list">
-      <!-- Upcoming events will be injected here -->
+      <!-- Events will be dynamically injected here -->
     </ul>
   </section>
 
@@ -217,7 +217,7 @@
     <p id="footer">© 2025 Opera Singer. All rights reserved.</p>
   </footer>
 
-  <!-- Script to load JSON data and populate the page -->
+  <!-- Script to Load JSON Data -->
   <script>
     fetch('data.json')
       .then(response => response.json())
