@@ -1,75 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Configuration - Opera Singer Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration - Oscar Castellino</title>
+  <!-- Version: v2.0 -->
+  <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
+    /* Additional styling specific to the configuration page */
+    .config-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
     .hidden { display: none; }
-    form { margin-bottom: 20px; }
-    label { display: block; margin-top: 10px; }
-    input, textarea { width: 100%; padding: 5px; }
-    small { color: #555; }
+    label { display: block; margin-top: 1rem; font-weight: 400; }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button { 
+      margin-top: 1rem; 
+      padding: 0.7rem 1.2rem;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover { background: #0056b3; }
+    #updatedJson { width: 100%; height: 300px; margin-top: 1rem; }
   </style>
 </head>
 <body>
-  <h1>Configuration Page</h1>
-  
-  <!-- Login Section -->
-  <div id="loginDiv">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="password">Enter Password:</label>
-      <input type="password" id="password" required>
-      <button type="submit">Login</button>
-    </form>
-    <div id="loginError" style="color: red;"></div>
-  </div>
-  
-  <!-- Configuration Form -->
-  <div id="configDiv" class="hidden">
-    <h2>Edit Website Data</h2>
-    <form id="configForm">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" required>
-      
-      <label for="shortBiography">Short Biography:</label>
-      <textarea id="shortBiography" name="shortBiography" required></textarea>
-      
-      <label for="biographyLink">Biography Link:</label>
-      <input type="text" id="biographyLink" name="biographyLink" required>
-      
-      <label for="featuredPhoto">Featured Photo URL:</label>
-      <input type="text" id="featuredPhoto" name="featuredPhoto" required>
-      
-      <label for="photosFolder">Photos Folder URL:</label>
-      <input type="text" id="photosFolder" name="photosFolder" required>
-      
-      <label for="upcomingEvents">Upcoming Events (JSON Array):</label>
-      <textarea id="upcomingEvents" name="upcomingEvents" required></textarea>
-      <small>Example: <code>[{"event": "Event Name", "bookingLink": "https://link.com"}]</code></small>
-      
-      <label for="featuredVideo">Featured Video URL (Embed URL):</label>
-      <input type="text" id="featuredVideo" name="featuredVideo" required>
-      
-      <label for="youtubePlaylist">YouTube Playlist URL:</label>
-      <input type="text" id="youtubePlaylist" name="youtubePlaylist" required>
-      
-      <label for="contactEmail">Contact Email:</label>
-      <input type="email" id="contactEmail" name="contactEmail" required>
-      
-      <button type="submit">Save Changes</button>
-    </form>
+  <div class="config-container">
+    <h1>Configuration Page - Oscar Castellino</h1>
     
-    <h3>Updated data.json content:</h3>
-    <textarea id="updatedJson" rows="15" style="width:100%;"></textarea>
-    <p>Copy the above JSON and replace your <code>data.json</code> file with it.</p>
+    <!-- Login Section -->
+    <div id="loginDiv">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" required />
+        <button type="submit">Login</button>
+      </form>
+      <div id="loginError" style="color: red;"></div>
+    </div>
+    
+    <!-- Configuration Form -->
+    <div id="configDiv" class="hidden">
+      <h2>Edit Site Content</h2>
+      <form id="configForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+
+        <label for="shortBiography">Short Biography:</label>
+        <textarea id="shortBiography" name="shortBiography" required></textarea>
+
+        <label for="longBiography">Long Biography:</label>
+        <textarea id="longBiography" name="longBiography" required></textarea>
+
+        <label for="biographyLink">Biography Link:</label>
+        <input type="text" id="biographyLink" name="biographyLink" required />
+
+        <label for="featuredPhoto">Featured Photo URL/Path:</label>
+        <input type="text" id="featuredPhoto" name="featuredPhoto" required />
+
+        <label for="photosFolder">Photos Folder URL:</label>
+        <input type="text" id="photosFolder" name="photosFolder" required />
+
+        <label for="featuredVideo">Featured Video (Embed URL):</label>
+        <input type="text" id="featuredVideo" name="featuredVideo" required />
+
+        <label for="youtubePlaylist">YouTube Playlist URL:</label>
+        <input type="text" id="youtubePlaylist" name="youtubePlaylist" required />
+
+        <label for="contactEmail">Contact Email:</label>
+        <input type="email" id="contactEmail" name="contactEmail" required />
+
+        <label for="upcomingEvents">Upcoming Events (JSON Array):</label>
+        <textarea id="upcomingEvents" name="upcomingEvents" required></textarea>
+        <small>Example: [{"event": "Event Name", "bookingLink": "https://link.com"}]</small>
+
+        <button type="submit">Generate Updated JSON</button>
+      </form>
+      <h3>Updated data.json content:</h3>
+      <textarea id="updatedJson" readonly></textarea>
+      <p>Copy the above JSON and replace your data.json file with it.</p>
+    </div>
   </div>
-  
+
   <script>
-    // --- Simple Password Protection ---
-    const correctPassword = "admin"; // Change this password as needed
-    
+    // Simple password protection
+    const correctPassword = "admin"; // Change as needed
+
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const enteredPassword = document.getElementById('password').value;
@@ -81,35 +114,36 @@
         document.getElementById('loginError').innerText = "Incorrect password.";
       }
     });
-    
-    // --- Load data from data.json and pre-fill the form ---
+
     function loadConfigData() {
       fetch('data.json')
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
         .then(data => {
           document.getElementById('title').value = data.title;
           document.getElementById('shortBiography').value = data.shortBiography;
+          document.getElementById('longBiography').value = data.longBiography;
           document.getElementById('biographyLink').value = data.biographyLink;
           document.getElementById('featuredPhoto').value = data.featuredPhoto;
           document.getElementById('photosFolder').value = data.photosFolder;
-          document.getElementById('upcomingEvents').value = JSON.stringify(data.upcomingEvents, null, 2);
           document.getElementById('featuredVideo').value = data.featuredVideo;
           document.getElementById('youtubePlaylist').value = data.youtubePlaylist;
           document.getElementById('contactEmail').value = data.contactEmail;
+          document.getElementById('upcomingEvents').value = JSON.stringify(data.upcomingEvents, null, 2);
         })
-        .catch(err => {
-          console.error('Error loading data.json:', err);
-        });
+        .catch(error => console.error('Error loading configuration data:', error));
     }
-    
-    // --- Handle form submission and generate updated JSON ---
+
     document.getElementById('configForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      // Build updated data object
       let updatedData = {
         title: document.getElementById('title').value,
         shortBiography: document.getElementById('shortBiography').value,
+        longBiography: document.getElementById('longBiography').value,
         biographyLink: document.getElementById('biographyLink').value,
         featuredPhoto: document.getElementById('featuredPhoto').value,
         photosFolder: document.getElementById('photosFolder').value,
@@ -117,17 +151,14 @@
         youtubePlaylist: document.getElementById('youtubePlaylist').value,
         contactEmail: document.getElementById('contactEmail').value
       };
-      
-      // Parse upcomingEvents as JSON
       try {
         updatedData.upcomingEvents = JSON.parse(document.getElementById('upcomingEvents').value);
-      } catch (err) {
+      } catch (error) {
         alert("Invalid JSON format for Upcoming Events.");
         return;
       }
-      
-      // Display the updated JSON in the textarea
-      document.getElementById('updatedJson').value = JSON.stringify(updatedData, null, 2);
+      const updatedJson = JSON.stringify(updatedData, null, 2);
+      document.getElementById('updatedJson').value = updatedJson;
     });
   </script>
 </body>
