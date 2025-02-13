@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opera Singer Website - Biography</title>
+  <!-- Version: v2.0 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <h1 id="title">Loading...</h1>
+      <p id="tagline"></p>
+    </div>
+  </header>
+
+  <!-- Biography Section -->
+  <section id="biography">
+    <p id="longBiography">Loading long biography...</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.0</p>
+  </footer>
+
+  <script>
+    fetch('data.json')
+      .then(response => {
+        if (!response.ok) { throw new Error('Network response was not ok'); }
+        return response.json();
+      })
+      .then(data => {
+        document.title = data.title + " - Biography";
+        document.getElementById('title').innerText = data.title;
+        document.getElementById('tagline').innerText = data.tagline || "";
+        document.getElementById('longBiography').innerHTML = data.longBiography;
+      })
+      .catch(error => {
+        console.error('Error loading JSON data:', error);
+        document.getElementById('title').innerText = "Opera Singer";
+        document.getElementById('longBiography').innerText = "Long biography not available.";
+      });
+  </script>
+</body>
+</html>
