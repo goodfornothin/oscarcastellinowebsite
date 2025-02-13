@@ -4,8 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Opera Singer Website</title>
-  <!-- Version: v2.0 -->
+  <!-- Version: v2.3 -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional overrides for the photo section */
+    #photo {
+      padding: 0; /* Remove padding so the image reaches the edges */
+    }
+    #photo img {
+      display: block;
+      width: 100%;
+      margin: 0;
+      border-radius: 0; /* Remove rounded corners */
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -21,25 +33,21 @@
     <p id="shortBiography">Loading biography...</p>
   </section>
 
-  <!-- Featured Photo Section (Title Removed) -->
+  <!-- Featured Photo Section (Link Removed, Photo extends to edges) -->
   <section id="photo" class="photo">
     <img id="featuredPhoto" src="#" alt="Featured Photo" />
-    <div class="links">
-      <a id="photosFolder" href="#" target="_blank">View Publicity Photos</a>
-    </div>
   </section>
 
-  <!-- Upcoming Events Section -->
+  <!-- Events Section (Renamed from Upcoming Events) -->
   <section id="events">
-    <h2>Upcoming Events</h2>
+    <h2>events</h2>
     <ul id="eventsList" class="events-list">
-      <!-- Events will be injected here -->
+      <!-- Events will be dynamically injected here -->
     </ul>
   </section>
 
-  <!-- Featured Video Section -->
+  <!-- Featured Video Section (Title Removed) -->
   <section id="video">
-    <h2>Featured Video</h2>
     <div style="text-align: center;">
       <iframe id="featuredVideo" width="100%" height="315" src="#" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -48,27 +56,23 @@
     </div>
   </section>
 
-  <!-- Contact Form Section -->
+  <!-- Contact Section with Mailto Link -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <!-- Replace the Formspree URL with your secure endpoint -->
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+    <p>If you have any questions, please <a id="contactLink" href="#">email me</a>.</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.0</p>
+    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.3</p>
   </footer>
 
   <script>
     fetch('data.json')
       .then(response => {
-        if (!response.ok) { throw new Error('Network response was not ok: ' + response.statusText); }
+        if (!response.ok) { 
+          throw new Error('Network response was not ok: ' + response.statusText); 
+        }
         return response.json();
       })
       .then(data => {
@@ -83,9 +87,8 @@
 
         // Featured Photo Section
         document.getElementById('featuredPhoto').src = data.featuredPhoto;
-        document.getElementById('photosFolder').href = data.photosFolder;
 
-        // Upcoming Events Section
+        // Events Section
         const eventsList = document.getElementById('eventsList');
         data.upcomingEvents.forEach(event => {
           const li = document.createElement('li');
@@ -100,6 +103,9 @@
         // Featured Video Section
         document.getElementById('featuredVideo').src = data.featuredVideo;
         document.getElementById('youtubePlaylist').href = data.youtubePlaylist;
+
+        // Contact Section: Set mailto link
+        document.getElementById('contactLink').href = "mailto:" + data.contactEmail;
       })
       .catch(error => {
         console.error('Error loading JSON data:', error);
