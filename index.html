@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Opera Singer Website</title>
-  <!-- Version: v2.4 -->
+  <!-- Version: v2.5 -->
   <link rel="stylesheet" href="style.css">
   <style>
     /* Additional overrides for the photo section */
@@ -16,6 +16,15 @@
       width: 100%;
       margin: 0;
       border-radius: 8px; /* Match the white container's rounded corners */
+    }
+    /* Event info styling */
+    .event-info {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.3rem;
+    }
+    .events-list li {
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -33,12 +42,12 @@
     <p id="shortBiography">Loading biography...</p>
   </section>
 
-  <!-- Featured Photo Section (Link Removed, Photo extends to edges with rounded corners) -->
+  <!-- Featured Photo Section -->
   <section id="photo" class="photo">
     <img id="featuredPhoto" src="#" alt="Featured Photo" />
   </section>
 
-  <!-- Events Section (Renamed from Upcoming Events) -->
+  <!-- Events Section -->
   <section id="events">
     <h2>Events</h2>
     <ul id="eventsList" class="events-list">
@@ -64,7 +73,7 @@
 
   <!-- Footer -->
   <footer>
-    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.4</p>
+    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.5</p>
   </footer>
 
   <script>
@@ -92,11 +101,26 @@
         const eventsList = document.getElementById('eventsList');
         data.upcomingEvents.forEach(event => {
           const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = event.bookingLink;
-          a.target = "_blank";
-          a.innerText = event.event;
-          li.appendChild(a);
+
+          if (event.bookingLink) {
+            const a = document.createElement('a');
+            a.href = event.bookingLink.startsWith('http') ? event.bookingLink : 'https://' + event.bookingLink;
+            a.target = "_blank";
+            a.innerText = event.event;
+            li.appendChild(a);
+          } else {
+            const span = document.createElement('span');
+            span.innerText = event.event;
+            li.appendChild(span);
+          }
+
+          if (event.information) {
+            const info = document.createElement('div');
+            info.className = 'event-info';
+            info.innerText = event.information;
+            li.appendChild(info);
+          }
+
           eventsList.appendChild(li);
         });
 
