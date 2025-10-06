@@ -11,8 +11,13 @@
   "upcomingEvents": [
     {
       "event": "El Godfather's Classico - Novemver 2025, The Royal Foundation of St Katharine",
-      "information": "Watch this space for information. This event will feature Oscar Castellino with organizers of the biggest fashion events of the world coming together to offer guests a delightful and relaxing evening of music and mingling",
-      "bookingLink": "https://www.rfsk.org.uk/"
+      "information": "A Special Event at the Queen's Charity ",
+      "bookingLink": "https://luma.com/bf0h30u7"
+    },
+    {
+      "event": "Bookings for Afternoon Tea and Sunday Lunch for the above concert",
+      "information": "PLease make suer to book lunch at 12 pm and Afternoon tea at 4 pm on the correct date Sunday, November 2 at this link",
+      "bookingLink": "https://www.opentable.com/r/afternoon-tea-at-the-royal-foundation-of-st-katharine-london"
     },
     {
       "event": "Goan Christmas Interactions, November 28, 2025",
@@ -27,5 +32,5 @@
       "event": "Goan Christmas - Museum of Goa - December 12 , Goa, India",
       "bookingLink": "https://museumofgoa.com/"
     }
-  ]
+    ]
 }
