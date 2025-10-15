@@ -26,6 +26,18 @@
     .events-list li {
       margin-bottom: 1rem;
     }
+    /* Loading state for photo */
+    #photo.loading::before {
+      content: 'Loading featured photo...';
+      display: block;
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      padding: 1rem;
+    }
+    #photo img.hidden {
+      display: none; /* Hide image until loaded */
+    }
   </style>
 </head>
 <body>
@@ -43,8 +55,8 @@
   </section>
 
   <!-- Featured Photo Section -->
-  <section id="photo" class="photo">
-    <img id="featuredPhoto" src="#" alt="Featured Photo" />
+  <section id="photo" class="photo loading">
+    <img id="featuredPhoto" src="#" alt="Featured Photo" class="hidden" />
   </section>
 
   <!-- Events Section -->
@@ -77,11 +89,15 @@
   </footer>
 
   <script>
-    // NEW: Function to convert Google Drive share link to direct image URL
+    // Function to convert Google Drive share link to direct image URL
     function convertDriveUrl(url) {
       // If it's already a direct URL (starts with uc?export), return as-is
       if (url.includes('uc?export=view&id=')) {
         return url;
+      }
+      // If it's a local repo file, prepend GitHub raw URL
+      if (!url.includes('drive.google.com')) {
+        return `https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/${url}`;
       }
       // Extract FILE_ID from share link like /file/d/FILE_ID/view?usp=sharing
       const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
@@ -91,7 +107,7 @@
       }
       // Fallback for invalid URLs
       console.error('Invalid Google Drive URL:', url);
-      return 'https://via.placeholder.com/800x600?text=Invalid+Image+URL';
+      return 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
     }
 
     fetch('data.json')
@@ -111,12 +127,22 @@
         document.getElementById('shortBiography').innerHTML = data.shortBiography +
           ' <a id="biographyLink" href="biography.html" target="_self">more&gt;</a>';
 
-        // Featured Photo Section - UPDATED: Auto-convert Drive share link to direct URL
+        // Featured Photo Section - Enhanced with loading state and error handling
+        const photoSection = document.getElementById('photo');
         const featuredImg = document.getElementById('featuredPhoto');
-        featuredImg.src = convertDriveUrl(data.featuredPhoto);
-        // Optional: Add error handling for loading failures
-        featuredImg.onerror = function() {
-          this.src = 'https://via.placeholder.com/800x600?text=No+Image+Available';
+        const photoUrl = convertDriveUrl(data.featuredPhoto);
+        featuredImg.src = photoUrl;
+        // Remove loading state when image loads successfully
+        featuredImg.onload = () => {
+          photoSection.classList.remove('loading');
+          featuredImg.classList.remove('hidden');
+        };
+        // Fallback for image load failure
+        featuredImg.onerror = () => {
+          console.error('Failed to load image:', photoUrl);
+          featuredImg.src = 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
+          photoSection.classList.remove('loading');
+          featuredImg.classList.remove('hidden');
         };
 
         // Events Section
@@ -157,6 +183,12 @@
         console.error('Error loading JSON data:', error);
         document.getElementById('title').innerText = "Opera Singer";
         document.getElementById('shortBiography').innerHTML = "Short biography not available.";
+        // Handle photo section on JSON failure
+        const photoSection = document.getElementById('photo');
+        const featuredImg = document.getElementById('featuredPhoto');
+        featuredImg.src = 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
+        photoSection.classList.remove('loading');
+        featuredImg.classList.remove('hidden');
       });
   </script>
 </body>
