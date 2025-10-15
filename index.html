@@ -77,6 +77,23 @@
   </footer>
 
   <script>
+    // NEW: Function to convert Google Drive share link to direct image URL
+    function convertDriveUrl(url) {
+      // If it's already a direct URL (starts with uc?export), return as-is
+      if (url.includes('uc?export=view&id=')) {
+        return url;
+      }
+      // Extract FILE_ID from share link like /file/d/FILE_ID/view?usp=sharing
+      const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
+      if (match) {
+        const fileId = match[1];
+        return `https://drive.google.com/uc?export=view&id=${fileId}`;
+      }
+      // Fallback for invalid URLs
+      console.error('Invalid Google Drive URL:', url);
+      return 'https://via.placeholder.com/800x600?text=Invalid+Image+URL';
+    }
+
     fetch('data.json')
       .then(response => {
         if (!response.ok) { 
@@ -94,8 +111,13 @@
         document.getElementById('shortBiography').innerHTML = data.shortBiography +
           ' <a id="biographyLink" href="biography.html" target="_self">more&gt;</a>';
 
-        // Featured Photo Section
-        document.getElementById('featuredPhoto').src = data.featuredPhoto;
+        // Featured Photo Section - UPDATED: Auto-convert Drive share link to direct URL
+        const featuredImg = document.getElementById('featuredPhoto');
+        featuredImg.src = convertDriveUrl(data.featuredPhoto);
+        // Optional: Add error handling for loading failures
+        featuredImg.onerror = function() {
+          this.src = 'https://via.placeholder.com/800x600?text=No+Image+Available';
+        };
 
         // Events Section
         const eventsList = document.getElementById('eventsList');
