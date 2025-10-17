@@ -45,6 +45,13 @@
       font-style: italic;
       padding: 1rem;
     }
+    .error {
+      color: #d00;
+      background: #fee;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
   </style>
 </head>
 <body>
@@ -75,12 +82,19 @@
   </footer>
 
   <script>
+    console.log('Script started');
+
     // Get eventId from URL query param
     const urlParams = new URLSearchParams(window.location.search);
     const eventId = urlParams.get('id');
+    console.log('Event ID from URL:', eventId);
+
     const detailsSection = document.getElementById('event-details');
+    const photoSection = document.getElementById('event-photo');
     if (!eventId) {
       detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
+      photoSection.innerHTML = '';
+      console.log('No event ID provided');
       return;
     }
 
@@ -92,15 +106,26 @@
       return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url;
     }
 
-    fetch('data.json')
+    // Fetch with timeout fallback
+    const fetchPromise = fetch('data.json');
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Fetch timeout: data.json took too long')), 5000)
+    );
+
+    Promise.race([fetchPromise, timeoutPromise])
       .then(response => {
-        if (!response.ok) throw new Error('Failed to load data');
+        console.log('Fetch response received:', response.ok ? 'Success' : 'Failed');
+        if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         return response.json();
       })
       .then(data => {
+        console.log('Data loaded, events count:', data.upcomingEvents.length);
         const event = data.upcomingEvents.find(e => e.eventId === eventId);
+        console.log('Matched event:', event ? event.event : 'Not found');
+
         if (!event) {
-          detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
+          detailsSection.innerHTML = '<p class="error">Event not found. <a href="index.html">Back to Home</a></p>';
+          photoSection.innerHTML = '';
           return;
         }
 
@@ -132,7 +157,7 @@
           `;
         }
 
-        // Artists (if present; renamed from performers)
+        // Artists (if present)
         if (event.artists) {
           detailsSection.innerHTML += `
             <div class="event-details">
@@ -179,30 +204,33 @@
         }
 
         // Photo (default prepend pictures/ to filename)
-        const photoSection = document.getElementById('event-photo');
         let photoUrl = event.photo;
+        photoSection.classList.remove('loading'); // Remove loading immediately for details priority
         if (photoUrl) {
           if (photoUrl.startsWith('http')) {
             photoUrl = convertDriveUrl(photoUrl);
           } else {
-            // Assume filename; prepend pictures/
             photoUrl = `pictures/${photoUrl}`;
           }
+          console.log('Photo URL:', photoUrl);
           const img = document.createElement('img');
           img.src = photoUrl;
           img.alt = `${event.event} Photo`;
-          img.onload = () => photoSection.classList.remove('loading');
+          img.onload = () => console.log('Photo loaded successfully');
           img.onerror = () => {
+            console.error('Photo load failed');
             photoSection.innerHTML = '<p>No photo available.</p>';
           };
+          photoSection.innerHTML = ''; // Clear loading text
           photoSection.appendChild(img);
         } else {
           photoSection.innerHTML = '<p>No photo available.</p>';
         }
       })
       .catch(error => {
-        console.error('Error:', error);
-        detailsSection.innerHTML = '<p>Error loading event. <a href="index.html">Back to Home</a></p>';
+        console.error('Fetch error:', error);
+        detailsSection.innerHTML = `<p class="error">Error loading event: ${error.message}. <a href="index.html">Back to Home</a></p>`;
+        photoSection.innerHTML = '';
       });
   </script>
 </body>
