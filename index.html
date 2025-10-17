@@ -3,192 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opera Singer Website</title>
-  <!-- Version: v2.5 -->
+  <title id="eventTitle">Event Details</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Additional overrides for the photo section */
-    #photo {
-      padding: 0; /* Remove padding so the image reaches the edges */
-    }
-    #photo img {
-      display: block;
+    /* Basic event page styles (extend your style.css as needed) */
+    #event-photo img {
       width: 100%;
-      margin: 0;
-      border-radius: 8px; /* Match the white container's rounded corners */
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
     }
-    /* Event info styling */
-    .event-info {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.3rem;
+    .event-details {
+      margin: 1rem 0;
     }
-    .events-list li {
-      margin-bottom: 1rem;
+    .event-details h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
     }
-    /* Loading state for photo */
-    #photo.loading::before {
-      content: 'Loading featured photo...';
-      display: block;
+    .program-list {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+    .artists {
+      font-style: italic;
+    }
+    .tickets-cta {
+      background: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+    .tickets-cta:hover {
+      background: #0056b3;
+    }
+    .loading {
       text-align: center;
       color: #666;
       font-style: italic;
       padding: 1rem;
     }
-    #photo img.hidden {
-      display: none; /* Hide image until loaded */
-    }
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header (consistent with index.html) -->
   <header>
     <div class="header-container">
-      <h1 id="title">Loading...</h1>
-      <p id="tagline"></p>
+      <h1><a href="index.html">Oscar Castellino</a></h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="biography.html">Biography</a>
+      </nav>
     </div>
   </header>
 
-  <!-- About Me Section (Title Removed) -->
-  <section id="about">
-    <p id="shortBiography">Loading biography...</p>
+  <!-- Event Photo -->
+  <section id="event-photo" class="loading">
+    Loading photo...
   </section>
 
-  <!-- Featured Photo Section -->
-  <section id="photo" class="photo loading">
-    <img id="featuredPhoto" src="#" alt="Featured Photo" class="hidden" />
-  </section>
-
-  <!-- Events Section -->
-  <section id="events">
-    <h2>Events</h2>
-    <ul id="eventsList" class="events-list">
-      <!-- Events will be dynamically injected here -->
-    </ul>
-  </section>
-
-  <!-- Featured Video Section (Title Removed) -->
-  <section id="video">
-    <div style="text-align: center;">
-      <iframe id="featuredVideo" width="100%" height="315" src="#" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="links">
-      <a id="youtubePlaylist" href="#" target="_blank">Watch More Videos</a>
-    </div>
-  </section>
-
-  <!-- Contact Section with Mailto Link -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>If you have any questions, please <a id="contactLink" href="#">email me</a>.</p>
+  <!-- Event Details -->
+  <section id="event-details" class="container loading">
+    Loading event...
   </section>
 
   <!-- Footer -->
   <footer>
-    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.5</p>
+    <p id="footer">© 2025 Oscar Castellino. All rights reserved. Version: v2.5</p>
   </footer>
 
   <script>
-    // Function to convert Google Drive share link to direct image URL
+    // Get eventId from URL query param
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventId = urlParams.get('id');
+    const detailsSection = document.getElementById('event-details');
+    if (!eventId) {
+      detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
+      return;
+    }
+
+    // Reuse convertDriveUrl for photo if needed
     function convertDriveUrl(url) {
-      // If it's already a direct URL (starts with uc?export), return as-is
-      if (url.includes('uc?export=view&id=')) {
-        return url;
-      }
-      // If it's a local repo file, prepend GitHub raw URL
-      if (!url.includes('drive.google.com')) {
-        return `https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/${url}`;
-      }
-      // Extract FILE_ID from share link like /file/d/FILE_ID/view?usp=sharing
+      if (url.includes('uc?export=view&id=')) return url;
+      if (!url.includes('drive.google.com')) return url;
       const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
-      if (match) {
-        const fileId = match[1];
-        return `https://drive.google.com/uc?export=view&id=${fileId}`;
-      }
-      // Fallback for invalid URLs
-      console.error('Invalid Google Drive URL:', url);
-      return 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
+      return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url;
     }
 
     fetch('data.json')
       .then(response => {
-        if (!response.ok) { 
-          throw new Error('Network response was not ok: ' + response.statusText); 
-        }
+        if (!response.ok) throw new Error('Failed to load data');
         return response.json();
       })
       .then(data => {
-        // Header
-        document.title = data.title;
-        document.getElementById('title').innerText = data.title;
-        document.getElementById('tagline').innerText = data.tagline || '';
+        const event = data.upcomingEvents.find(e => e.eventId === eventId);
+        if (!event) {
+          detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
+          return;
+        }
 
-        // About Me Section: Append a "more>" link that goes to biography.html
-        document.getElementById('shortBiography').innerHTML = data.shortBiography +
-          ' <a id="biographyLink" href="biography.html" target="_self">more&gt;</a>';
+        // Populate page
+        document.title = `${event.event} | Oscar Castellino`;
+        detailsSection.classList.remove('loading');
+        detailsSection.innerHTML = `
+          <h1>${event.event}</h1>
+          <p>${event.information || event.description || 'Event details coming soon.'}</p>
+        `;
 
-        // Featured Photo Section - Enhanced with loading state and error handling
-        const photoSection = document.getElementById('photo');
-        const featuredImg = document.getElementById('featuredPhoto');
-        const photoUrl = convertDriveUrl(data.featuredPhoto);
-        featuredImg.src = photoUrl;
-        // Remove loading state when image loads successfully
-        featuredImg.onload = () => {
-          photoSection.classList.remove('loading');
-          featuredImg.classList.remove('hidden');
-        };
-        // Fallback for image load failure
-        featuredImg.onerror = () => {
-          console.error('Failed to load image:', photoUrl);
-          featuredImg.src = 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
-          photoSection.classList.remove('loading');
-          featuredImg.classList.remove('hidden');
-        };
+        // Date & Time (if present)
+        if (event.date || event.time) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Date & Time</h3>
+              <p>${event.date || ''} ${event.time ? 'at ' + event.time : ''}</p>
+            </div>
+          `;
+        }
 
-        // Events Section
-        const eventsList = document.getElementById('eventsList');
-        data.upcomingEvents.forEach(event => {
-          const li = document.createElement('li');
+        // Venue & Address (if present)
+        if (event.venue || event.address) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Venue</h3>
+              <p><strong>${event.venue || ''}</strong><br>${event.address || ''}</p>
+            </div>
+          `;
+        }
 
-          if (event.bookingLink) {
-            const a = document.createElement('a');
-            a.href = event.bookingLink.startsWith('http') ? event.bookingLink : 'https://' + event.bookingLink;
-            a.target = "_blank";
-            a.innerText = event.event;
-            li.appendChild(a);
+        // Artists (if present; renamed from performers)
+        if (event.artists) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Artists</h3>
+              <p class="artists">${Array.isArray(event.artists) ? event.artists.join(', ') : event.artists}</p>
+            </div>
+          `;
+        }
+
+        // Program (if present)
+        if (event.program && event.program.length > 0) {
+          const programHtml = event.program.map(item => `<li>${item}</li>`).join('');
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Program</h3>
+              <ul class="program-list">${programHtml}</ul>
+            </div>
+          `;
+        }
+
+        // Tickets (use bookingLink as fallback)
+        const ticketsPrice = event.tickets ? event.tickets.price : 'TBD';
+        let ticketsLinkHtml = '';
+        const ticketsLink = event.tickets ? event.tickets.link : event.bookingLink;
+        if (ticketsLink) {
+          ticketsLinkHtml = `<a href="${ticketsLink.startsWith('http') ? ticketsLink : 'https://' + ticketsLink}" class="tickets-cta" target="_blank">Buy Tickets</a>`;
+        }
+        detailsSection.innerHTML += `
+          <div class="event-details">
+            <h3>Tickets</h3>
+            <p>${ticketsPrice}</p>
+            ${ticketsLinkHtml}
+          </div>
+        `;
+
+        // Contact Info (if present)
+        if (event.contactInfo) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Additional Info</h3>
+              <p>${event.contactInfo}</p>
+            </div>
+          `;
+        }
+
+        // Photo (default prepend pictures/ to filename)
+        const photoSection = document.getElementById('event-photo');
+        let photoUrl = event.photo;
+        if (photoUrl) {
+          if (photoUrl.startsWith('http')) {
+            photoUrl = convertDriveUrl(photoUrl);
           } else {
-            const span = document.createElement('span');
-            span.innerText = event.event;
-            li.appendChild(span);
+            // Assume filename; prepend pictures/
+            photoUrl = `pictures/${photoUrl}`;
           }
-
-          if (event.information) {
-            const info = document.createElement('div');
-            info.className = 'event-info';
-            info.innerText = event.information;
-            li.appendChild(info);
-          }
-
-          eventsList.appendChild(li);
-        });
-
-        // Featured Video Section
-        document.getElementById('featuredVideo').src = data.featuredVideo;
-        document.getElementById('youtubePlaylist').href = data.youtubePlaylist;
-
-        // Contact Section: Set mailto link
-        document.getElementById('contactLink').href = "mailto:" + data.contactEmail;
+          const img = document.createElement('img');
+          img.src = photoUrl;
+          img.alt = `${event.event} Photo`;
+          img.onload = () => photoSection.classList.remove('loading');
+          img.onerror = () => {
+            photoSection.innerHTML = '<p>No photo available.</p>';
+          };
+          photoSection.appendChild(img);
+        } else {
+          photoSection.innerHTML = '<p>No photo available.</p>';
+        }
       })
       .catch(error => {
-        console.error('Error loading JSON data:', error);
-        document.getElementById('title').innerText = "Opera Singer";
-        document.getElementById('shortBiography').innerHTML = "Short biography not available.";
-        // Handle photo section on JSON failure
-        const photoSection = document.getElementById('photo');
-        const featuredImg = document.getElementById('featuredPhoto');
-        featuredImg.src = 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
-        photoSection.classList.remove('loading');
-        featuredImg.classList.remove('hidden');
+        console.error('Error:', error);
+        detailsSection.innerHTML = '<p>Error loading event. <a href="index.html">Back to Home</a></p>';
       });
   </script>
 </body>
