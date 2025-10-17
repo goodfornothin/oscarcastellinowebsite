@@ -22,18 +22,18 @@
     {
       "event": "GOAN Christmas Concert",
       "information": "Konkani, Portuguese and Latin Carols. Goan Welfare Society and Baluji Music Foundation join hands to usher in the Christmas Spirit. Gorgeous music in a traditional Goan Style. Tickets include plate of snacks",
-      "eventId": "goan-christmas-interactions-2025", // Unique slug for URL
-      "date": "Friday, November 28, 2025", // Optional: Add for fuller page
+      "eventId": "goan-christmas-interactions-2025",
+      "date": "Friday, November 28, 2025", 
       "time": "18:30 Doors Open, 19:15 Concert Start",
       "venue": "Catholic Church of Immaculate Conception",
       "address": "114 Mount Street, Mayfair, London W1K 3AH",
-      "description": "To book make a bank transfer to THE GOAN WELFARE SOCIETY UK, Acc No: 01435981, Sort Code: 402230, Reference: MUSIC followed by YOUR NAME, PLease contact the team to confirm your transfer. Chloe: 07958453487, Neil: 07960736052, Rosy: 07815835820", // Optional: Expands information
-      "photo": "christmas-interations-poster.jpg", // Upload to pictures/
+      "description": "To book make a bank transfer to THE GOAN WELFARE SOCIETY UK, Acc No: 01435981, Sort Code: 402230, Reference: MUSIC followed by YOUR NAME, PLease contact the team to confirm your transfer. Chloe: 07958453487, Neil: 07960736052, Rosy: 07815835820", 
+      "photo": "christmas-interations-poster.jpg", 
       "artists": ["Oscar Castellino", "Baluji Shrivastav OBE","Goan Community Choir and Musicians - Coordinated and Conducted by Aldrich and Neil"],
       "program": ["Konkani Carols", "Portuguese Carols", "Latin and Traditional"],
       "tickets": {
         "price": "£15 until Nov 2, £20 from Nov 2 to Nov 28, £25 on door",
-        "link": null // Optional: External fallback if needed
+        "link": null 
       },
       "contactInfo": "Tickets at the door."
     }
