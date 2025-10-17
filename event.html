@@ -82,43 +82,43 @@
   </footer>
 
   <script>
-    console.log('Script started');
+    (async function() {
+      console.log('Script started');
 
-    // Get eventId from URL query param
-    const urlParams = new URLSearchParams(window.location.search);
-    const eventId = urlParams.get('id');
-    console.log('Event ID from URL:', eventId);
+      // Get eventId from URL query param
+      const urlParams = new URLSearchParams(window.location.search);
+      const eventId = urlParams.get('id');
+      console.log('Event ID from URL:', eventId);
 
-    const detailsSection = document.getElementById('event-details');
-    const photoSection = document.getElementById('event-photo');
-    if (!eventId) {
-      detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
-      photoSection.innerHTML = '';
-      console.log('No event ID provided');
-      return;
-    }
+      const detailsSection = document.getElementById('event-details');
+      const photoSection = document.getElementById('event-photo');
+      if (!eventId) {
+        detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
+        photoSection.innerHTML = '';
+        console.log('No event ID provided');
+        return;
+      }
 
-    // Reuse convertDriveUrl for photo if needed
-    function convertDriveUrl(url) {
-      if (url.includes('uc?export=view&id=')) return url;
-      if (!url.includes('drive.google.com')) return url;
-      const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
-      return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url;
-    }
+      // Reuse convertDriveUrl for photo if needed
+      function convertDriveUrl(url) {
+        if (url.includes('uc?export=view&id=')) return url;
+        if (!url.includes('drive.google.com')) return url;
+        const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
+        return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url;
+      }
 
-    // Fetch with timeout fallback
-    const fetchPromise = fetch('data.json');
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Fetch timeout: data.json took too long')), 5000)
-    );
+      try {
+        // Fetch with timeout (5 seconds)
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-    Promise.race([fetchPromise, timeoutPromise])
-      .then(response => {
+        const response = await fetch('data.json', { signal: controller.signal });
+        clearTimeout(timeoutId);
+
         console.log('Fetch response received:', response.ok ? 'Success' : 'Failed');
         if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        return response.json();
-      })
-      .then(data => {
+        const data = await response.json();
+
         console.log('Data loaded, events count:', data.upcomingEvents.length);
         const event = data.upcomingEvents.find(e => e.eventId === eventId);
         console.log('Matched event:', event ? event.event : 'Not found');
@@ -226,12 +226,12 @@
         } else {
           photoSection.innerHTML = '<p>No photo available.</p>';
         }
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Fetch error:', error);
         detailsSection.innerHTML = `<p class="error">Error loading event: ${error.message}. <a href="index.html">Back to Home</a></p>`;
         photoSection.innerHTML = '';
-      });
+      }
+    })();
   </script>
 </body>
 </html>
