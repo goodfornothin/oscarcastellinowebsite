@@ -9,8 +9,9 @@
     /* Basic event page styles (extend your style.css as needed) */
     #event-photo img {
       width: 100%;
-      max-height: 400px;
-      object-fit: cover;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain; /* Full image without cropping */
       border-radius: 8px;
     }
     .event-details {
@@ -132,9 +133,25 @@
         // Populate page
         document.title = `${event.event} | Oscar Castellino`;
         detailsSection.classList.remove('loading');
-        detailsSection.innerHTML = `
-          <h1>${event.event}</h1>
-          <p>${event.information || event.description || 'Event details coming soon.'}</p>
+        detailsSection.innerHTML = `<h1>${event.event}</h1>`;
+
+        // Overview (from information)
+        if (event.information) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Overview</h3>
+              <p>${event.information}</p>
+            </div>
+          `;
+        }
+
+        // Description (dedicated section)
+        const descText = event.description || event.information || 'Event details coming soon.';
+        detailsSection.innerHTML += `
+          <div class="event-details">
+            <h3>Description</h3>
+            <p>${descText}</p>
+          </div>
         `;
 
         // Date & Time (if present)
