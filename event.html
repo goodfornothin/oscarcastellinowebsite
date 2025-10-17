@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="eventTitle">Event Details</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Basic event page styles (extend your style.css as needed) */
+    #event-photo img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .event-details {
+      margin: 1rem 0;
+    }
+    .event-details h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .program-list {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+    .artists {
+      font-style: italic;
+    }
+    .tickets-cta {
+      background: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+    .tickets-cta:hover {
+      background: #0056b3;
+    }
+    .loading {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (consistent with index.html) -->
+  <header>
+    <div class="header-container">
+      <h1><a href="index.html">Oscar Castellino</a></h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="biography.html">Biography</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Event Photo -->
+  <section id="event-photo" class="loading">
+    Loading photo...
+  </section>
+
+  <!-- Event Details -->
+  <section id="event-details" class="container loading">
+    Loading event...
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p id="footer">© 2025 Oscar Castellino. All rights reserved. Version: v2.5</p>
+  </footer>
+
+  <script>
+    // Get eventId from URL query param
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventId = urlParams.get('id');
+    const detailsSection = document.getElementById('event-details');
+    if (!eventId) {
+      detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
+      return;
+    }
+
+    // Reuse convertDriveUrl for photo if needed
+    function convertDriveUrl(url) {
+      if (url.includes('uc?export=view&id=')) return url;
+      if (!url.includes('drive.google.com')) return url;
+      const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
+      return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url;
+    }
+
+    fetch('data.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load data');
+        return response.json();
+      })
+      .then(data => {
+        const event = data.upcomingEvents.find(e => e.eventId === eventId);
+        if (!event) {
+          detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
+          return;
+        }
+
+        // Populate page
+        document.title = `${event.event} | Oscar Castellino`;
+        detailsSection.classList.remove('loading');
+        detailsSection.innerHTML = `
+          <h1>${event.event}</h1>
+          <p>${event.information || event.description || 'Event details coming soon.'}</p>
+        `;
+
+        // Date & Time (if present)
+        if (event.date || event.time) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Date & Time</h3>
+              <p>${event.date || ''} ${event.time ? 'at ' + event.time : ''}</p>
+            </div>
+          `;
+        }
+
+        // Venue & Address (if present)
+        if (event.venue || event.address) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Venue</h3>
+              <p><strong>${event.venue || ''}</strong><br>${event.address || ''}</p>
+            </div>
+          `;
+        }
+
+        // Artists (if present; renamed from performers)
+        if (event.artists) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Artists</h3>
+              <p class="artists">${Array.isArray(event.artists) ? event.artists.join(', ') : event.artists}</p>
+            </div>
+          `;
+        }
+
+        // Program (if present)
+        if (event.program && event.program.length > 0) {
+          const programHtml = event.program.map(item => `<li>${item}</li>`).join('');
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Program</h3>
+              <ul class="program-list">${programHtml}</ul>
+            </div>
+          `;
+        }
+
+        // Tickets (use bookingLink as fallback)
+        const ticketsPrice = event.tickets ? event.tickets.price : 'TBD';
+        let ticketsLinkHtml = '';
+        const ticketsLink = event.tickets ? event.tickets.link : event.bookingLink;
+        if (ticketsLink) {
+          ticketsLinkHtml = `<a href="${ticketsLink.startsWith('http') ? ticketsLink : 'https://' + ticketsLink}" class="tickets-cta" target="_blank">Buy Tickets</a>`;
+        }
+        detailsSection.innerHTML += `
+          <div class="event-details">
+            <h3>Tickets</h3>
+            <p>${ticketsPrice}</p>
+            ${ticketsLinkHtml}
+          </div>
+        `;
+
+        // Contact Info (if present)
+        if (event.contactInfo) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Additional Info</h3>
+              <p>${event.contactInfo}</p>
+            </div>
+          `;
+        }
+
+        // Photo (default prepend pictures/ to filename)
+        const photoSection = document.getElementById('event-photo');
+        let photoUrl = event.photo;
+        if (photoUrl) {
+          if (photoUrl.startsWith('http')) {
+            photoUrl = convertDriveUrl(photoUrl);
+          } else {
+            // Assume filename; prepend pictures/
+            photoUrl = `pictures/${photoUrl}`;
+          }
+          const img = document.createElement('img');
+          img.src = photoUrl;
+          img.alt = `${event.event} Photo`;
+          img.onload = () => photoSection.classList.remove('loading');
+          img.onerror = () => {
+            photoSection.innerHTML = '<p>No photo available.</p>';
+          };
+          photoSection.appendChild(img);
+        } else {
+          photoSection.innerHTML = '<p>No photo available.</p>';
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        detailsSection.innerHTML = '<p>Error loading event. <a href="index.html">Back to Home</a></p>';
+      });
+  </script>
+</body>
+</html>
