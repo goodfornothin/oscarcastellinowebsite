@@ -5,7 +5,10 @@
   "biographyLink": "https://example.com/full-biography",
   "featuredPhoto": "https://drive.google.com/file/d/1XyjbQgCC1Namd-SAYp09wUuKXIXD0-T-/view?usp=drive_link",
   "photosFolder": "https://drive.google.com/drive/folders/your-folder-id",
-  "featuredVideo": "https://www.youtube.com/embed/eBUAmTUROGA?si=qjHD9Pp2Nez27wuI",
+  "featuredVideos": [
+    "https://www.youtube.com/embed/eIjWxs8DPXM",
+    "https://www.youtube.com/embed/eBUAmTUROGA?si=qjHD9Pp2Nez27wuI"
+  ],
   "youtubePlaylist": "https://www.youtube.com/@operawalaofindia1166/featured",
   "contactEmail": "voice@oscarcastellino.com",
   "upcomingEvents": [
@@ -35,7 +38,7 @@
         "price": "£15 until Nov 2, £20 from Nov 2 to Nov 28, £25 on door",
         "link": null
       },
-      "contactInfo": ""
+      "contactInfo": "Tickets at the door."
     },
     {
       "event": "OCT 17: Oscar performs lead role of Enrico in the opera Lucia",
