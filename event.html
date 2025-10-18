@@ -53,6 +53,63 @@
       border-radius: 4px;
       margin: 1rem 0;
     }
+    /* Carousel styles for event videos */
+    .event-carousel {
+      position: relative;
+      max-width: 100%;
+      margin: 1rem 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .event-carousel iframe {
+      width: 100%;
+      height: 315px;
+      display: none; /* Hide all except active */
+      border-radius: 8px;
+    }
+    .event-carousel iframe.active {
+      display: block;
+    }
+    .event-carousel-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+    .event-carousel-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .event-carousel-btn:hover {
+      background: #0056b3;
+    }
+    .event-carousel-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .event-carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .event-carousel-dot.active {
+      background: #007bff;
+    }
+    @media (max-width: 768px) {
+      .event-carousel iframe {
+        height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -106,6 +163,69 @@
         if (!url.includes('drive.google.com')) return url;
         const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
         return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url;
+      }
+
+      // Carousel functionality for event videos (reused from main page)
+      function initEventCarousel(videos, containerId) {
+        const carousel = document.getElementById(containerId);
+        const dotsContainer = carousel.parentElement.querySelector('.event-carousel-dots');
+        const prevBtn = carousel.parentElement.querySelector('.event-carousel-btn.prev');
+        const nextBtn = carousel.parentElement.querySelector('.event-carousel-btn.next');
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        // Create iframes and dots
+        videos.forEach((videoUrl, index) => {
+          const iframe = document.createElement('iframe');
+          iframe.src = videoUrl;
+          iframe.title = `Event Video ${index + 1}`;
+          iframe.frameBorder = '0';
+          iframe.allowFullscreen = true;
+          carousel.appendChild(iframe);
+
+          const dot = document.createElement('span');
+          dot.className = `event-carousel-dot ${index === 0 ? 'active' : ''}`;
+          dot.onclick = () => goToSlide(index);
+          dotsContainer.appendChild(dot);
+        });
+
+        function showSlide(index) {
+          const iframes = carousel.querySelectorAll('iframe');
+          const dots = dotsContainer.querySelectorAll('.event-carousel-dot');
+          iframes.forEach((iframe, i) => iframe.classList.toggle('active', i === index));
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+          currentIndex = index;
+        }
+
+        function goToSlide(index) {
+          clearInterval(autoPlayInterval);
+          showSlide(index);
+          startAutoPlay();
+        }
+
+        function nextSlide() {
+          const next = (currentIndex + 1) % videos.length;
+          showSlide(next);
+        }
+
+        function prevSlide() {
+          const prev = (currentIndex - 1 + videos.length) % videos.length;
+          showSlide(prev);
+        }
+
+        function startAutoPlay() {
+          autoPlayInterval = setInterval(nextSlide, 10000); // 10 seconds
+        }
+
+        // Event listeners
+        nextBtn.onclick = nextSlide;
+        prevBtn.onclick = prevSlide;
+        carousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        carousel.addEventListener('mouseleave', startAutoPlay);
+
+        // Initial setup
+        showSlide(0);
+        startAutoPlay();
       }
 
       try {
@@ -193,6 +313,23 @@
               <ul class="program-list">${programHtml}</ul>
             </div>
           `;
+        }
+
+        // Videos Carousel (if present, for internal events)
+        if (event.videos && event.videos.length > 0) {
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Videos</h3>
+              <div class="event-carousel" id="eventVideoCarousel"></div>
+              <div class="event-carousel-nav">
+                <button class="event-carousel-btn prev">&lt;</button>
+                <div class="event-carousel-dots"></div>
+                <button class="event-carousel-btn next">&gt;</button>
+              </div>
+            </div>
+          `;
+          // Initialize after DOM update
+          setTimeout(() => initEventCarousel(event.videos, 'eventVideoCarousel'), 0);
         }
 
         // Tickets (use bookingLink as fallback)
