@@ -110,6 +110,14 @@
         height: 200px;
       }
     }
+    /* Ensure links in text are styled */
+    .event-details p a {
+      color: #007bff;
+      text-decoration: underline;
+    }
+    .event-details p a:hover {
+      color: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -165,7 +173,18 @@
         return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url;
       }
 
-      // Carousel functionality for event videos (reused from main page)
+      // Function to convert URLs to clickable links and newlines to <br>
+      function renderTextWithLinksAndNewlines(text) {
+        if (!text) return text;
+        // Replace newlines with <br>
+        let formatted = text.replace(/\n/g, '<br>');
+        // Convert URLs to clickable links
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        formatted = formatted.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
+        return formatted;
+      }
+
+      // Carousel functionality for event videos
       function initEventCarousel(videos, containerId) {
         const carousel = document.getElementById(containerId);
         const dotsContainer = carousel.parentElement.querySelector('.event-carousel-dots');
@@ -260,7 +279,7 @@
           detailsSection.innerHTML += `
             <div class="event-details">
               <h3>Overview</h3>
-              <p>${event.information}</p>
+              <p>${renderTextWithLinksAndNewlines(event.information)}</p>
             </div>
           `;
         }
@@ -270,7 +289,7 @@
         detailsSection.innerHTML += `
           <div class="event-details">
             <h3>Description</h3>
-            <p>${descText}</p>
+            <p>${renderTextWithLinksAndNewlines(descText)}</p>
           </div>
         `;
 
@@ -279,7 +298,7 @@
           detailsSection.innerHTML += `
             <div class="event-details">
               <h3>Date & Time</h3>
-              <p>${event.date || ''} ${event.time ? 'at ' + event.time : ''}</p>
+              <p>${event.date || ''}${event.time ? ' ' + renderTextWithLinksAndNewlines(event.time) : ''}</p>
             </div>
           `;
         }
@@ -289,7 +308,7 @@
           detailsSection.innerHTML += `
             <div class="event-details">
               <h3>Venue</h3>
-              <p><strong>${event.venue || ''}</strong><br>${event.address || ''}</p>
+              <p><strong>${event.venue || ''}</strong>${event.address ? '<br>' + renderTextWithLinksAndNewlines(event.address) : ''}</p>
             </div>
           `;
         }
@@ -342,7 +361,7 @@
         detailsSection.innerHTML += `
           <div class="event-details">
             <h3>Tickets</h3>
-            <p>${ticketsPrice}</p>
+            <p>${renderTextWithLinksAndNewlines(ticketsPrice)}</p>
             ${ticketsLinkHtml}
           </div>
         `;
@@ -352,14 +371,14 @@
           detailsSection.innerHTML += `
             <div class="event-details">
               <h3>Additional Info</h3>
-              <p>${event.contactInfo}</p>
+              <p>${renderTextWithLinksAndNewlines(event.contactInfo)}</p>
             </div>
           `;
         }
 
         // Photo (default prepend pictures/ to filename)
         let photoUrl = event.photo;
-        photoSection.classList.remove('loading'); // Remove loading immediately for details priority
+        photoSection.classList.remove('loading');
         if (photoUrl) {
           if (photoUrl.startsWith('http')) {
             photoUrl = convertDriveUrl(photoUrl);
@@ -375,7 +394,7 @@
             console.error('Photo load failed');
             photoSection.innerHTML = '<p>No photo available.</p>';
           };
-          photoSection.innerHTML = ''; // Clear loading text
+          photoSection.innerHTML = '';
           photoSection.appendChild(img);
         } else {
           photoSection.innerHTML = '<p>No photo available.</p>';
