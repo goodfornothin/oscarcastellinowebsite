@@ -26,6 +26,63 @@
     .events-list li {
       margin-bottom: 1rem;
     }
+    /* Carousel styles for featured videos */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .carousel iframe {
+      width: 100%;
+      height: 315px;
+      display: none; /* Hide all except active */
+      border-radius: 8px;
+    }
+    .carousel iframe.active {
+      display: block;
+    }
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+    .carousel-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .carousel-btn:hover {
+      background: #0056b3;
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-dot.active {
+      background: #007bff;
+    }
+    @media (max-width: 768px) {
+      .carousel iframe {
+        height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -55,10 +112,15 @@
     </ul>
   </section>
 
-  <!-- Featured Video Section (Title Removed) -->
+  <!-- Featured Video Section (Updated to Carousel) -->
   <section id="video">
-    <div style="text-align: center;">
-      <iframe id="featuredVideo" width="100%" height="315" src="#" frameborder="0" allowfullscreen></iframe>
+    <div class="carousel" id="videoCarousel">
+      <!-- Videos will be dynamically inserted here -->
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="prevBtn">&lt;</button>
+      <div class="carousel-dots" id="videoDots"></div>
+      <button class="carousel-btn" id="nextBtn">&gt;</button>
     </div>
     <div class="links">
       <a id="youtubePlaylist" href="#" target="_blank">Watch More Videos</a>
@@ -92,6 +154,69 @@
       // Fallback for invalid URLs
       console.error('Invalid Google Drive URL:', url);
       return 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
+    }
+
+    // Carousel functionality for videos
+    function initCarousel(videos) {
+      const carousel = document.getElementById('videoCarousel');
+      const dotsContainer = document.getElementById('videoDots');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let currentIndex = 0;
+      let autoPlayInterval;
+
+      // Create iframes and dots
+      videos.forEach((videoUrl, index) => {
+        const iframe = document.createElement('iframe');
+        iframe.src = videoUrl;
+        iframe.title = `Featured Video ${index + 1}`;
+        iframe.frameBorder = '0';
+        iframe.allowFullscreen = true;
+        carousel.appendChild(iframe);
+
+        const dot = document.createElement('span');
+        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+        dot.onclick = () => goToSlide(index);
+        dotsContainer.appendChild(dot);
+      });
+
+      function showSlide(index) {
+        const iframes = carousel.querySelectorAll('iframe');
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        iframes.forEach((iframe, i) => iframe.classList.toggle('active', i === index));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        currentIndex = index;
+      }
+
+      function goToSlide(index) {
+        clearInterval(autoPlayInterval);
+        showSlide(index);
+        startAutoPlay();
+      }
+
+      function nextSlide() {
+        const next = (currentIndex + 1) % videos.length;
+        showSlide(next);
+      }
+
+      function prevSlide() {
+        const prev = (currentIndex - 1 + videos.length) % videos.length;
+        showSlide(prev);
+      }
+
+      function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 10000); // 10 seconds
+      }
+
+      // Event listeners
+      nextBtn.onclick = nextSlide;
+      prevBtn.onclick = prevSlide;
+      carousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+      carousel.addEventListener('mouseleave', startAutoPlay);
+
+      // Initial setup
+      showSlide(0);
+      startAutoPlay();
     }
 
     fetch('data.json')
@@ -157,8 +282,12 @@
           eventsList.appendChild(li);
         });
 
-        // Featured Video Section
-        document.getElementById('featuredVideo').src = data.featuredVideo;
+        // Featured Video Section - UPDATED: Carousel from featuredVideos array
+        if (data.featuredVideos && data.featuredVideos.length > 0) {
+          initCarousel(data.featuredVideos);
+        }
+
+        // Watch More Videos Link
         document.getElementById('youtubePlaylist').href = data.youtubePlaylist;
 
         // Contact Section: Set mailto link
