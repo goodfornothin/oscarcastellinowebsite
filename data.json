@@ -71,6 +71,9 @@
         "Portuguese Carols",
         "Latin and Traditional"
       ],
+      "videos": [
+        "https://youtu.be/o2rs2eyD_5U"
+      ],
       "tickets": {
         "price": "£15 until Nov 2, £20 from Nov 2 to Nov 28, £25 on door",
         "link": null
@@ -82,9 +85,14 @@
       "information": "This is a Barefoot Opera production at the Wooburn Festival. Bourne End Community Centre, Wakeman Road, Bourne End SL8 5SX",
       "bookingLink": "https://wooburn.com/etn/barefoot-opera-lucia-di-lammermoor/"
     },
+    
     {
       "event": "NOV 13, 14: Soloist at Faure Requiem.  Nov 15 - 5 pm at Swansea Minster and Nov 16 - 6 pm at Margam Abbey",
       "bookingLink": "https://www.facebook.com/SwanseaMinster/posts/a-date-for-your-diary-saturday-15th-november-at-swansea-minster-500pmconcert-per/786718213733753/"
     },
     {
-      "event": "Goan Christmas -
+      "event": "Goan Christmas - Museum of Goa - December 12 , Goa, India",
+      "bookingLink": "https://museumofgoa.com/"
+    }
+  ]
+}
