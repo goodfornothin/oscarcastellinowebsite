@@ -13,6 +13,35 @@
   "contactEmail": "voice@oscarcastellino.com",
   "upcomingEvents": [
     {
+      "event": "Nov 2 Royal Foundation Sunday Afternoon Concert and Food",
+      "information": "I would love for you to attend a concert I am putting together in support of the Royal Foundation of St. Katharine. I have planned a gorgeous afternoon of music and food at this serene venue near Limehouse Station. The music will range from Opera to music from Musicals and Movies.",
+      "eventId": "royal-foundation-concert-and-food",
+      "date": "Sunday, November 2, 2025",
+      "time": "12 pm Sunday Lunch book at the \"Experiences\" section at link below https://www.opentable.com/restaurant/profile/424755\n2 pm Free Brahms Concert\n4 pm Afternoon Tea book at the \"Experiences\" section at link below https://www.opentable.com/restaurant/profile/424755\n5 pm Concert book at https://luma.com/bf0h30u7\n6:30 pm Wine Tasting and Networking",
+      "venue": "The Royal Foundation of St. Katharine",
+      "address": "near Limehouse Station\n2 Butcher Row, London E14 8DS",
+      "description": "The concert at 5 pm will feature blind guitarist Luis Mosquera showcasing a new piece by Zahra Palmer and she will perform it.\nThis will be followed by a classical section with Baritone Oscar Castellino, Soprano Daniella Sicari and Pianist Gavin Roberts.",
+      "photo": "kat-concert-photo.jpeg",
+      "artists": [
+        "Gavin Roberts",
+        "Zahra Palmer",
+        "Daniella Sicari",
+        "Oscar Castellino",
+        "Luis Mosquera"
+      ],
+      "program": null,
+      "videos": [
+        "https://www.youtube.com/embed/eIjWxs8DPXM",
+        "https://www.youtube.com/embed/jgOmvdENJJc",
+        "https://www.youtube.com/embed/xqLvZfuNtkc"
+      ],
+      "tickets": {
+        "price": "£ 20 for the concert. The rest can be booked separately",
+        "link": "https://luma.com/bf0h30u7"
+      },
+      "contactInfo": null
+    },
+    {
       "event": "NOV 2: El Godfather's Classico - Novemver 2025, The Royal Foundation of St Katharine",
       "information": "A Special Event at the Queen's Charity ",
       "bookingLink": "https://luma.com/bf0h30u7"
@@ -32,8 +61,16 @@
       "address": "114 Mount Street, Mayfair, London W1K 3AH",
       "description": "To book make a bank transfer to THE GOAN WELFARE SOCIETY UK, Acc No: 01435981, Sort Code: 402230, Reference: MUSIC followed by YOUR NAME, PLease contact the team to confirm your transfer. Chloe: 07958453487, Neil: 07960736052, Rosy: 07815835820",
       "photo": "christmas-interations-poster.jpg",
-      "artists": ["Oscar Castellino", "Baluji Shrivastav OBE","Goan Community Choir and Musicians - Coordinated and Conducted by Aldrich and Neil"],
-      "program": ["Konkani Carols", "Portuguese Carols", "Latin and Traditional"],
+      "artists": [
+        "Oscar Castellino",
+        "Baluji Shrivastav OBE",
+        "Goan Community Choir and Musicians - Coordinated and Conducted by Aldrich and Neil"
+      ],
+      "program": [
+        "Konkani Carols",
+        "Portuguese Carols",
+        "Latin and Traditional"
+      ],
       "videos": [
         "https://www.youtube.com/embed/eIjWxs8DPXM"
       ],
@@ -58,8 +95,4 @@
       "bookingLink": "https://www.facebook.com/SwanseaMinster/posts/a-date-for-your-diary-saturday-15th-november-at-swansea-minster-500pmconcert-per/786718213733753/"
     },
     {
-      "event": "Goan Christmas - Museum of Goa - December 12 , Goa, India",
-      "bookingLink": "https://museumofgoa.com/"
-    }
-  ]
-}
+      "event": "Goan Christmas -
