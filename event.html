@@ -6,7 +6,7 @@
   <title id="eventTitle">Event Details</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Basic event page styles (extend your style.css as needed) */
+    /* Minimal inline styles - inherit theme from style.css for consistency */
     #event-photo img {
       width: 100%;
       height: auto;
@@ -16,10 +16,6 @@
     }
     .event-details {
       margin: 1rem 0;
-    }
-    .event-details h3 {
-      color: #333;
-      margin-bottom: 0.5rem;
     }
     .program-list {
       list-style-type: disc;
@@ -110,7 +106,7 @@
         height: 200px;
       }
     }
-    /* Ensure links in text are styled */
+    /* Ensure links in text are styled consistently with main page */
     .event-details p a {
       color: #007bff;
       text-decoration: underline;
@@ -121,10 +117,11 @@
   </style>
 </head>
 <body>
-  <!-- Header (consistent with index.html) -->
+  <!-- Header (matching main page structure for consistency) -->
   <header>
     <div class="header-container">
       <h1><a href="index.html">Oscar Castellino</a></h1>
+      <p id="tagline"></p> <!-- Matches main page tagline -->
       <nav>
         <a href="index.html">Home</a>
         <a href="biography.html">Biography</a>
@@ -138,11 +135,11 @@
   </section>
 
   <!-- Event Details -->
-  <section id="event-details" class="container loading">
+  <section id="event-details" class="loading">
     Loading event...
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (matching main page) -->
   <footer>
     <p id="footer">© 2025 Oscar Castellino. All rights reserved. Version: v2.5</p>
   </footer>
@@ -159,7 +156,7 @@
       const detailsSection = document.getElementById('event-details');
       const photoSection = document.getElementById('event-photo');
       if (!eventId) {
-        detailsSection.innerHTML = '<p class="error">Event not found. <a href="index.html">Back to Home</a></p>';
+        detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
         photoSection.innerHTML = '';
         console.log('No event ID provided');
         return;
