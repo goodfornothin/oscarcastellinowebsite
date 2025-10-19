@@ -159,7 +159,7 @@
       const detailsSection = document.getElementById('event-details');
       const photoSection = document.getElementById('event-photo');
       if (!eventId) {
-        detailsSection.innerHTML = '<p>Event not found. <a href="index.html">Back to Home</a></p>';
+        detailsSection.innerHTML = '<p class="error">Event not found. <a href="index.html">Back to Home</a></p>';
         photoSection.innerHTML = '';
         console.log('No event ID provided');
         return;
@@ -173,14 +173,19 @@
         return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url;
       }
 
-      // Function to convert URLs to clickable links and newlines to <br>
+      // Improved function to convert URLs to clickable links then handle newlines
       function renderTextWithLinksAndNewlines(text) {
         if (!text) return text;
-        // Replace newlines with <br>
-        let formatted = text.replace(/\n/g, '<br>');
-        // Convert URLs to clickable links
-        const urlRegex = /(https?:\/\/[^\s]+)/g;
-        formatted = formatted.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
+        // Step 1: Convert URLs to clickable links first
+        let formatted = text;
+        const urlRegex = /https?:\/\/[^\s<>"'.,?\\n]+/g;
+        formatted = formatted.replace(urlRegex, (url) => {
+          // Trim trailing punctuation if not part of URL
+          const cleanUrl = url.replace(/[.,?]+$/, '');
+          return `<a href="${cleanUrl}" target="_blank" rel="noopener">${cleanUrl}</a>`;
+        });
+        // Step 2: Replace newlines with <br> after links are processed
+        formatted = formatted.replace(/\n/g, '<br>');
         return formatted;
       }
 
@@ -298,7 +303,7 @@
           detailsSection.innerHTML += `
             <div class="event-details">
               <h3>Date & Time</h3>
-              <p>${event.date || ''}${event.time ? ' ' + renderTextWithLinksAndNewlines(event.time) : ''}</p>
+              <p>${event.date || ''}${event.time ? '<br>' + renderTextWithLinksAndNewlines(event.time) : ''}</p>
             </div>
           `;
         }
