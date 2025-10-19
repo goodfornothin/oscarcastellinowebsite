@@ -176,15 +176,15 @@
       // Improved function to convert URLs to clickable links then handle newlines
       function renderTextWithLinksAndNewlines(text) {
         if (!text) return text;
-        // Step 1: Convert URLs to clickable links first
+        // Step 1: Convert URLs to clickable links first (using regex that captures full URLs including periods)
         let formatted = text;
-        const urlRegex = /https?:\/\/[^\s<>"'.,?\\n]+/g;
+        const urlRegex = /https?:\/\/[^\s<>]+/g;
         formatted = formatted.replace(urlRegex, (url) => {
-          // Trim trailing punctuation if not part of URL
-          const cleanUrl = url.replace(/[.,?]+$/, '');
+          // Trim trailing punctuation if not part of URL (e.g., .,?,! after URL)
+          const cleanUrl = url.replace(/[.,?!;:\s]*$/, '');
           return `<a href="${cleanUrl}" target="_blank" rel="noopener">${cleanUrl}</a>`;
         });
-        // Step 2: Replace newlines with <br> after links are processed
+        // Step 2: Replace newlines with <br> after links are processed (avoids interference)
         formatted = formatted.replace(/\n/g, '<br>');
         return formatted;
       }
