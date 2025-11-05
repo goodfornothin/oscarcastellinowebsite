@@ -13,6 +13,39 @@
   "contactEmail": "voice@oscarcastellino.com",
   "upcomingEvents": [
     {
+      "event": "GOAN Christmas Concert",
+      "information": "Konkani, Portuguese and Latin Carols. Goan Welfare Society and Baluji Music Foundation join hands to usher in the Christmas Spirit. Gorgeous music in a traditional Goan Style. Tickets include plate of snacks",
+      "eventId": "goan-christmas-interactions-2025",
+      "date": "Friday, November 28, 2025",
+      "time": "18:30 Doors Open, 19:15 Concert Start",
+      "venue": "Catholic Church of Immaculate Conception",
+      "address": "114 Mount Street, Mayfair, London W1K 3AH",
+      "description": "To avoid platform fees the charity have requested direct bank transfer to\n THE GOAN WELFARE SOCIETY UK, \nAcc No: 01435981\nSort Code: 402230\nReference: MUSIC followed by YOUR NAME\nPlease email me at voice@oscarcastellino.com after paying, stating how much you have transfered and how many tickets you would like and I will confirm within a day.",
+      "photo": "christmas-interations-poster.jpg",
+      "artists": [
+        "Oscar Castellino",
+        "Baluji Shrivastav OBE",
+        "Goan Community Choir and Musicians - Coordinated and Conducted by Aldrich and Neil"
+      ],
+      "program": [
+        "Konkani Carols",
+        "Portuguese Carols",
+        "Latin and Traditional"
+      ],
+      "videos": [
+        "https://www.youtube.com/embed/o2rs2eyD_5U"
+      ],
+      "tickets": {
+        "price": "£15 until Nov 2, £20 from Nov 2 to Nov 28, £25 on door",
+        "link": null
+      },
+      "contactInfo": "Tickets at the door."
+    },
+    {
+      "event": "Oscar Castellino and the Time Makers - A Goan Christmas Experience - December 14 , Museum of Goa - Goa, India - More details soon",
+      "bookingLink": "https://museumofgoa.com/"
+    },
+    {
       "event": "Nov 2 Royal Foundation Sunday Afternoon Concert and Food",
       "information": "I would love for you to attend a concert I am putting together in support of the Royal Foundation of St. Katharine. I have planned a gorgeous afternoon of music and food at this serene venue near Limehouse Station. The music will range from Opera to music from Musicals and Movies. \nBook here https://luma.com/bf0h30u7 ",
       "eventId": "royal-foundation-concert-and-food",
@@ -52,35 +85,6 @@
       "bookingLink": "https://www.opentable.com/r/afternoon-tea-at-the-royal-foundation-of-st-katharine-london"
     },
     {
-      "event": "GOAN Christmas Concert",
-      "information": "Konkani, Portuguese and Latin Carols. Goan Welfare Society and Baluji Music Foundation join hands to usher in the Christmas Spirit. Gorgeous music in a traditional Goan Style. Tickets include plate of snacks",
-      "eventId": "goan-christmas-interactions-2025",
-      "date": "Friday, November 28, 2025",
-      "time": "18:30 Doors Open, 19:15 Concert Start",
-      "venue": "Catholic Church of Immaculate Conception",
-      "address": "114 Mount Street, Mayfair, London W1K 3AH",
-      "description": "To book make a bank transfer to\n THE GOAN WELFARE SOCIETY UK, \nAcc No: 01435981\nSort Code: 402230\nReference: MUSIC followed by YOUR NAME\nPlease email me at voice@oscarcastellino.com after paying, stating how much you have transfered and how many tickets you would like and I will confirm within a day.",
-      "photo": "christmas-interations-poster.jpg",
-      "artists": [
-        "Oscar Castellino",
-        "Baluji Shrivastav OBE",
-        "Goan Community Choir and Musicians - Coordinated and Conducted by Aldrich and Neil"
-      ],
-      "program": [
-        "Konkani Carols",
-        "Portuguese Carols",
-        "Latin and Traditional"
-      ],
-      "videos": [
-        "https://www.youtube.com/embed/o2rs2eyD_5U"
-      ],
-      "tickets": {
-        "price": "£15 until Nov 2, £20 from Nov 2 to Nov 28, £25 on door",
-        "link": null
-      },
-      "contactInfo": "Tickets at the door."
-    },
-    {
       "event": "OCT 17: Oscar performs lead role of Enrico in the opera Lucia",
       "information": "This is a Barefoot Opera production at the Wooburn Festival. Bourne End Community Centre, Wakeman Road, Bourne End SL8 5SX",
       "bookingLink": "https://wooburn.com/etn/barefoot-opera-lucia-di-lammermoor/"
@@ -89,10 +93,6 @@
     {
       "event": "NOV 15, 16: Soloist at Faure Requiem.  Nov 15 - 5 pm at Swansea Minster and Nov 16 - 6 pm at Margam Abbey",
       "bookingLink": "https://www.facebook.com/SwanseaMinster/posts/a-date-for-your-diary-saturday-15th-november-at-swansea-minster-500pmconcert-per/786718213733753/"
-    },
-    {
-      "event": "Goan Christmas - Museum of Goa - December 12 , Goa, India",
-      "bookingLink": "https://museumofgoa.com/"
     }
   ]
 }
