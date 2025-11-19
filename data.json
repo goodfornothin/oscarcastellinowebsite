@@ -67,7 +67,7 @@
     "Oscar Castellino"
   ],
   "program": null,
-"tickets":"contact Oscar",
+"tickets":{"price": "contact Oscar", "link": "null"},
   "videos": [],
   "contactInfo": "email voice@oscarcastellino.com for participation request"
 }
