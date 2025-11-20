@@ -354,19 +354,27 @@
         }
 
         // Tickets (use bookingLink as fallback)
-        const ticketsPrice = event.tickets ? event.tickets.price : 'TBD';
-        let ticketsLinkHtml = '';
-        const ticketsLink = event.tickets ? event.tickets.link : event.bookingLink;
-        if (ticketsLink) {
-          ticketsLinkHtml = `<a href="${ticketsLink.startsWith('http') ? ticketsLink : 'https://' + ticketsLink}" class="tickets-cta" target="_blank">Buy Tickets</a>`;
+        // Only render the Tickets section when there is meaningful ticket information available.
+        const hasTicketsObject = !!event.tickets && (event.tickets.price || event.tickets.link);
+        const hasBookingLink = !!event.bookingLink;
+        if (hasTicketsObject || hasBookingLink) {
+          const ticketsPrice = event.tickets && event.tickets.price ? event.tickets.price : 'TBD';
+          let ticketsLinkHtml = '';
+          const ticketsLink = event.tickets && event.tickets.link ? event.tickets.link : event.bookingLink;
+          if (ticketsLink) {
+            ticketsLinkHtml = `<a href="${ticketsLink.startsWith('http') ? ticketsLink : 'https://' + ticketsLink}" class="tickets-cta" target="_blank">Buy Tickets</a>`;
+          }
+          detailsSection.innerHTML += `
+            <div class="event-details">
+              <h3>Tickets</h3>
+              <p>${renderTextWithLinksAndNewlines(ticketsPrice)}</p>
+              ${ticketsLinkHtml}
+            </div>
+          `;
+        } else {
+          // No ticket info — don't render Tickets heading or section.
+          console.log('No ticket information for this event, skipping Tickets section');
         }
-        detailsSection.innerHTML += `
-          <div class="event-details">
-            <h3>Tickets</h3>
-            <p>${renderTextWithLinksAndNewlines(ticketsPrice)}</p>
-            ${ticketsLinkHtml}
-          </div>
-        `;
 
         // Contact Info (if present)
         if (event.contactInfo) {
