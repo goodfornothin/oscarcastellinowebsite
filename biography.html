@@ -10,15 +10,17 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="header-container">
-      <h1 id="title">Loading...</h1>
-      <p id="tagline"></p>
-    </div>
-  </header>
+      <div class="header-container" style="position:relative;">
+        <h1 id="title">Loading...</h1>
+        <p id="tagline"></p>
+        <!-- Home link moved below the title at the right side -->
+        <a href="index.html" id="homeLink" style="position:absolute; right:1.5rem; top:3.2rem; background:#007bff; color:#fff; padding:6px 10px; border-radius:6px; text-decoration:none; box-shadow:0 2px 6px rgba(0,0,0,0.2);">Home</a>
+      </div>
+    </header>
 
   <!-- Biography Section -->
   <section id="biography">
-    <p id="longBiography">Loading long biography...</p>
+    <div id="longBiography">Loading long biography...</div>
   </section>
 
   <!-- Footer -->
@@ -27,6 +29,7 @@
   </footer>
 
   <script>
+    // Load data.json to find the longBiography path (text file) and fullBiographyPage
     fetch('data.json')
       .then(response => {
         if (!response.ok) { throw new Error('Network response was not ok'); }
@@ -36,13 +39,152 @@
         document.title = data.title + " - Biography";
         document.getElementById('title').innerText = data.title;
         document.getElementById('tagline').innerText = data.tagline || "";
-        document.getElementById('longBiography').innerHTML = data.longBiography;
+
+        const longPath = data.longBiography || 'biographies/long.txt';
+        const fullPage = data.fullBiographyPage || 'full_biography.html';
+
+        fetch(longPath)
+          .then(r => {
+            if (!r.ok) throw new Error('Could not load long biography file: ' + longPath);
+            return r.text();
+          })
+          .then(text => {
+            const container = document.getElementById('longBiography');
+            container.innerHTML = '';
+
+            // Split into blocks by blank lines and render inline elements in order
+            const blocks = text.split(/\r?\n\s*\r?\n/);
+            blocks.forEach(block => {
+              const trimmed = block.trim();
+              if (!trimmed) return;
+
+              // Detect YouTube links on this block (single or comma-separated)
+              const parts = trimmed.split(',').map(p => p.trim()).filter(Boolean);
+              const ytIds = [];
+              parts.forEach(p => {
+                const m = p.match(/youtu\.be\/([A-Za-z0-9_-]{6,})/i) || p.match(/v=([A-Za-z0-9_-]{6,})/i);
+                if (m) ytIds.push(m[1]);
+              });
+              if (ytIds.length === 1) {
+                const iframe = document.createElement('iframe');
+                iframe.width = '560';
+                iframe.height = '315';
+                iframe.src = `https://www.youtube.com/embed/${ytIds[0]}`;
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                iframe.style.maxWidth = '100%';
+                iframe.style.margin = '0.5rem 0';
+                container.appendChild(iframe);
+                return;
+              } else if (ytIds.length > 1) {
+                const carousel = document.createElement('div');
+                carousel.className = 'yt-carousel';
+                carousel.style.position = 'relative';
+                carousel.style.maxWidth = '100%';
+                carousel.style.margin = '0.5rem 0';
+
+                ytIds.forEach((id, idx) => {
+                  const iframe = document.createElement('iframe');
+                  iframe.src = `https://www.youtube.com/embed/${id}`;
+                  iframe.frameBorder = '0';
+                  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                  iframe.allowFullscreen = true;
+                  iframe.style.width = '100%';
+                  iframe.style.height = '315px';
+                  iframe.style.display = idx === 0 ? 'block' : 'none';
+                  iframe.dataset.index = idx;
+                  carousel.appendChild(iframe);
+                });
+
+                const prev = document.createElement('button');
+                const next = document.createElement('button');
+                // Use more visible symbols
+                prev.textContent = '\u25C0'; // ◀
+                next.textContent = '\u25B6'; // ▶
+                prev.className = next.className = 'carousel-btn';
+                // Styling for visibility
+                [prev, next].forEach(btn => {
+                  btn.style.position = 'absolute';
+                  btn.style.top = '50%';
+                  btn.style.transform = 'translateY(-50%)';
+                  btn.style.background = 'rgba(0,0,0,0.6)';
+                  btn.style.color = '#fff';
+                  btn.style.border = 'none';
+                  btn.style.width = '40px';
+                  btn.style.height = '40px';
+                  btn.style.borderRadius = '20px';
+                  btn.style.cursor = 'pointer';
+                  btn.style.display = 'flex';
+                  btn.style.alignItems = 'center';
+                  btn.style.justifyContent = 'center';
+                  btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+                  btn.style.opacity = '0.95';
+                });
+                prev.style.left = '10px';
+                next.style.right = '10px';
+                prev.onclick = () => switchYtSlide(carousel, -1);
+                next.onclick = () => switchYtSlide(carousel, 1);
+                carousel.appendChild(prev);
+                carousel.appendChild(next);
+                // Auto-advance a bit on load for discoverability
+                setTimeout(() => switchYtSlide(carousel, 1), 900);
+                container.appendChild(carousel);
+                return;
+              }
+
+              // If block is a single image filename (e.g., RogueResonance.jpg) or a markdown image, insert an image
+              const mdImgMatch = trimmed.match(/!\[.*?\]\((.*?)\)/);
+              if (/^[\w\-./]+\.(jpg|jpeg|png|gif|webp)$/i.test(trimmed)) {
+                const img = document.createElement('img');
+                img.src = 'pictures/' + trimmed;
+                img.alt = trimmed;
+                img.style.maxWidth = '100%';
+                img.style.display = 'block';
+                img.style.margin = '0.5rem 0';
+                container.appendChild(img);
+                return;
+              } else if (mdImgMatch) {
+                let src = mdImgMatch[1];
+                // If relative to pictures folder, keep as-is; if just filename, prefix pictures/
+                if (!src.match(/^https?:\/\//) && !src.startsWith('pictures/')) {
+                  src = 'pictures/' + src;
+                }
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = '';
+                img.style.maxWidth = '100%';
+                img.style.display = 'block';
+                img.style.margin = '0.5rem 0';
+                container.appendChild(img);
+                return;
+              }
+
+              // Otherwise, treat as paragraph text. Allow basic inline HTML tags.
+              const p = document.createElement('p');
+              p.innerHTML = trimmed.replace(/\n/g, '<br>');
+              container.appendChild(p);
+            });
+          })
+          .catch(err => {
+            console.error(err);
+            document.getElementById('longBiography').innerText = 'Long biography not available.';
+          });
       })
       .catch(error => {
         console.error('Error loading JSON data:', error);
         document.getElementById('title').innerText = "Opera Singer";
         document.getElementById('longBiography').innerText = "Long biography not available.";
       });
+
+      // Helper to switch slides inside a yt-carousel element
+      function switchYtSlide(carousel, dir) {
+        const iframes = Array.from(carousel.querySelectorAll('iframe'));
+        if (!iframes.length) return;
+        const currentIndex = iframes.findIndex(f => f.style.display !== 'none');
+        let next = (currentIndex + dir + iframes.length) % iframes.length;
+        iframes.forEach((f, i) => f.style.display = i === next ? 'block' : 'none');
+      }
   </script>
 </body>
 </html>
