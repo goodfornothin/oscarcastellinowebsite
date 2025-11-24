@@ -43,11 +43,26 @@
         const longPath = data.longBiography || 'biographies/long.txt';
         const fullPage = data.fullBiographyPage || 'full_biography.html';
 
-        fetch(longPath)
-          .then(r => {
-            if (!r.ok) throw new Error('Could not load long biography file: ' + longPath);
-            return r.text();
-          })
+        // Robust fetch with small fallbacks and cache-busting retry for mobile browsers
+        function fetchWithRetry(path, attempts = 2) {
+          // Try original path, then prefixed with ./, then try with cache-bust timestamp
+          const tryPaths = [path, './' + path, path + '?_=' + Date.now()];
+          let idx = 0;
+          function attempt() {
+            const p = tryPaths[idx] || (path + '?_=' + Date.now());
+            return fetch(p).then(r => {
+              if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + p);
+              return r.text();
+            }).catch(err => {
+              idx++;
+              if (idx < tryPaths.length) return attempt();
+              throw err;
+            });
+          }
+          return attempt();
+        }
+
+        fetchWithRetry(longPath)
           .then(text => {
             const container = document.getElementById('longBiography');
             container.innerHTML = '';
@@ -167,8 +182,37 @@
             });
           })
           .catch(err => {
-            console.error(err);
-            document.getElementById('longBiography').innerText = 'Long biography not available.';
+            console.error('Error loading long biography:', err);
+            const container = document.getElementById('longBiography');
+            container.innerHTML = '';
+            const msg = document.createElement('div');
+            msg.style.padding = '1rem';
+            msg.style.background = '#fff3f3';
+            msg.style.border = '1px solid #f1c0c0';
+            msg.style.borderRadius = '6px';
+            msg.innerHTML = `<strong>Long biography not available.</strong><div style="margin-top:0.5rem">This may be due to a mobile caching or network issue. Try refreshing or tap Retry below.</div>`;
+            const retry = document.createElement('button');
+            retry.textContent = 'Retry';
+            retry.style.marginTop = '0.75rem';
+            retry.style.padding = '8px 12px';
+            retry.style.background = '#007bff';
+            retry.style.color = '#fff';
+            retry.style.border = 'none';
+            retry.style.borderRadius = '6px';
+            retry.onclick = () => {
+              // cache-bust by adding timestamp
+              container.innerHTML = 'Retrying...';
+              fetchWithRetry(longPath, 1).then(t => {
+                // re-run the same rendering path by calling the success handler inline
+                // For simplicity, reload the page so the full script re-runs (safe for mobile)
+                location.reload(true);
+              }).catch(e => {
+                console.error('Retry failed', e);
+                container.innerHTML = 'Retry failed. Please refresh the page.';
+              });
+            };
+            container.appendChild(msg);
+            container.appendChild(retry);
           });
       })
       .catch(error => {
