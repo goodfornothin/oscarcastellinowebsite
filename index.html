@@ -59,6 +59,12 @@
       font-weight: 700;
       line-height: 1;
     }
+    .sticker-link {
+      display: inline-block;
+      width: 72px;
+      text-decoration: none;
+      color: inherit;
+    }
     /* Inverse sticker for better contrast on small screens */
     @media (max-width: 480px) {
       .event-item { gap: 0.75rem; }
@@ -321,7 +327,28 @@
             const stickerDiv = document.createElement('div');
             stickerDiv.className = 'event-sticker';
             stickerDiv.innerHTML = `<div class="month">${sticker.month}</div><div class="day">${sticker.day}</div>`;
-            li.appendChild(stickerDiv);
+            // Make sticker clickable: link to bookingLink (external) or event landing page (internal)
+            let stickerWrapper = null;
+            if (event.bookingLink) {
+              stickerWrapper = document.createElement('a');
+              stickerWrapper.href = event.bookingLink.startsWith('http') ? event.bookingLink : 'https://' + event.bookingLink;
+              stickerWrapper.target = '_blank';
+            } else if (event.eventId) {
+              stickerWrapper = document.createElement('a');
+              stickerWrapper.href = `event.html?id=${event.eventId}`;
+              stickerWrapper.target = '_self';
+            }
+            if (stickerWrapper) {
+              stickerWrapper.className = 'sticker-link';
+              // Accessible label
+              const cleanTitle = (event.event || '').replace(/^(?:\s*)(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*\d{1,2}[:,]?\s*/i, '').trim() || 'Open event';
+              stickerWrapper.setAttribute('aria-label', `Open ${cleanTitle}`);
+              stickerWrapper.appendChild(stickerDiv);
+              li.appendChild(stickerWrapper);
+            } else {
+              // no link available, append as-is
+              li.appendChild(stickerDiv);
+            }
           } else {
             // placeholder spacer for alignment
             const spacer = document.createElement('div');
