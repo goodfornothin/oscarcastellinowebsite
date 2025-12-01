@@ -23,8 +23,47 @@
       color: #555;
       margin-top: 0.3rem;
     }
-    .events-list li { it should
+    .events-list li {
       margin-bottom: 1rem;
+    }
+
+    /* Calendar-style sticker for event dates */
+    .event-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    .event-sticker {
+      width: 72px;
+      min-width: 72px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      overflow: hidden;
+      font-family: inherit;
+    }
+    .event-sticker .month {
+      background: #222; /* dark */
+      color: #fff;
+      padding: 6px 4px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+    .event-sticker .day {
+      background: #fff; /* light */
+      color: #222;
+      padding: 10px 6px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    /* Inverse sticker for better contrast on small screens */
+    @media (max-width: 480px) {
+      .event-item { gap: 0.75rem; }
+      .event-sticker { width: 60px; min-width:60px; }
+      .event-sticker .day { font-size: 1.4rem; }
     }
     /* Carousel styles for featured videos */
     .carousel {
@@ -246,39 +285,86 @@
 
         // Events Section - UPDATED: Internal link if eventId present and no bookingLink
         const eventsList = document.getElementById('eventsList');
+        // Render events with a calendar-style sticker (month/day) at left and title + short info on right.
+        function parseDateSticker(event) {
+          if (!event) return null;
+          // Prefer explicit event.date
+          if (event.date) {
+            const parsed = new Date(event.date);
+            if (!isNaN(parsed)) {
+              const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+              return { month: months[parsed.getMonth()], day: parsed.getDate() };
+            }
+          }
+          // Fallback: try to extract from the event title (e.g., "NOV 28 ..." or "Nov 28")
+          const m = (event.event || '').match(/^(?:\s*)(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*(\d{1,2})/i);
+          if (m) {
+            return { month: m[1].slice(0,3).toUpperCase(), day: parseInt(m[2],10) };
+          }
+          // No date available
+          return null;
+        }
+
+        function stripLeadingDateTokens(title) {
+          if (!title) return title;
+          // Remove leading month/day tokens like "NOV 28", "Nov 28", "November 28" or "NOV 28:"
+          return title.replace(/^(?:\s*)(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*\d{1,2}[:,]?\s*/i, '').trim();
+        }
+
         data.upcomingEvents.forEach(event => {
           const li = document.createElement('li');
+          li.className = 'event-item';
 
-          let linkElement;
+          // Sticker
+          const sticker = parseDateSticker(event);
+          if (sticker) {
+            const stickerDiv = document.createElement('div');
+            stickerDiv.className = 'event-sticker';
+            stickerDiv.innerHTML = `<div class="month">${sticker.month}</div><div class="day">${sticker.day}</div>`;
+            li.appendChild(stickerDiv);
+          } else {
+            // placeholder spacer for alignment
+            const spacer = document.createElement('div');
+            spacer.style.width = '72px';
+            li.appendChild(spacer);
+          }
+
+          // Content container
+          const content = document.createElement('div');
+          content.style.flex = '1';
+
+          // Title (strip any leading date tokens if present in the event title)
+          const cleanTitle = stripLeadingDateTokens(event.event || 'Untitled Event');
+          let titleElement;
           if (!event.bookingLink && event.eventId) {
-            // Internal link to dynamic event page
             const a = document.createElement('a');
             a.href = `event.html?id=${event.eventId}`;
-            a.target = "_self"; // Stay on site
-            a.innerText = event.event;
-            linkElement = a;
+            a.target = "_self";
+            a.innerText = cleanTitle;
+            titleElement = a;
           } else if (event.bookingLink) {
-            // Existing external link
             const a = document.createElement('a');
             a.href = event.bookingLink.startsWith('http') ? event.bookingLink : 'https://' + event.bookingLink;
             a.target = "_blank";
-            a.innerText = event.event;
-            linkElement = a;
+            a.innerText = cleanTitle;
+            titleElement = a;
           } else {
-            // No link
             const span = document.createElement('span');
-            span.innerText = event.event;
-            linkElement = span;
+            span.innerText = cleanTitle;
+            titleElement = span;
           }
-          li.appendChild(linkElement);
+          titleElement.style.fontWeight = '700';
+          content.appendChild(titleElement);
 
+          // Short info/description next to title
           if (event.information) {
             const info = document.createElement('div');
             info.className = 'event-info';
             info.innerText = event.information;
-            li.appendChild(info);
+            content.appendChild(info);
           }
 
+          li.appendChild(content);
           eventsList.appendChild(li);
         });
 
