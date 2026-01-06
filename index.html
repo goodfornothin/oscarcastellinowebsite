@@ -27,6 +27,33 @@
       margin-bottom: 1rem;
     }
 
+    .events-subheading {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .events-list--past .event-item,
+    .event-item.past {
+      color: #666;
+      opacity: 0.75;
+    }
+
+    .event-item.past .event-sticker .month {
+      background: #555;
+    }
+
+    .event-item.past .event-sticker .day {
+      background: #f3f3f3;
+      color: #555;
+    }
+
+    .event-item.past a {
+      color: inherit;
+    }
+
     /* Calendar-style sticker for event dates */
     .event-item {
       display: flex;
@@ -289,18 +316,66 @@
           this.src = 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
         };
 
-        // Events Section - UPDATED: Internal link if eventId present and no bookingLink
+        // Events Section - UPDATED: split into upcoming and past, sorted by date
+        const eventsSection = document.getElementById('events');
         const eventsList = document.getElementById('eventsList');
-        // Render events with a calendar-style sticker (month/day) at left and title + short info on right.
-        function parseDateSticker(event) {
+        eventsList.innerHTML = '';
+
+        const monthLabels = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+        const monthMap = {
+          jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+          jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
+        };
+
+        function sanitizeDateString(str) {
+          return str ? str.replace(/(\d+)(st|nd|rd|th)/gi, '$1').replace(/\s+/g, ' ').trim() : '';
+        }
+
+        function extractEventDate(event) {
           if (!event) return null;
-          // Prefer explicit event.date
-          if (event.date) {
-            const parsed = new Date(event.date);
-            if (!isNaN(parsed)) {
-              const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-              return { month: months[parsed.getMonth()], day: parsed.getDate() };
+          const candidates = [];
+          if (event.date) candidates.push(event.date);
+          if (event.event) candidates.push(event.event);
+          if (event.time) candidates.push(event.time);
+
+          for (const candidateRaw of candidates) {
+            if (!candidateRaw) continue;
+            const candidate = sanitizeDateString(candidateRaw);
+            if (!candidate) continue;
+
+            const direct = new Date(candidate);
+            if (!isNaN(direct.getTime())) {
+              return new Date(direct.getFullYear(), direct.getMonth(), direct.getDate());
             }
+
+            const monthDayYearMatch = candidate.match(/(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.,-]*(\d{1,2})(?:\D*(\d{4}))?/i);
+            if (monthDayYearMatch) {
+              const monthKey = monthDayYearMatch[1].slice(0,3).toLowerCase();
+              const day = parseInt(monthDayYearMatch[2], 10);
+              const year = monthDayYearMatch[3] ? parseInt(monthDayYearMatch[3], 10) : null;
+              if (!Number.isNaN(day) && year && Object.prototype.hasOwnProperty.call(monthMap, monthKey)) {
+                return new Date(year, monthMap[monthKey], day);
+              }
+            }
+
+            const dayMonthYearMatch = candidate.match(/(\d{1,2})[\s.,-]*(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)(?:\D*(\d{4}))?/i);
+            if (dayMonthYearMatch) {
+              const day = parseInt(dayMonthYearMatch[1], 10);
+              const monthKey = dayMonthYearMatch[2].slice(0,3).toLowerCase();
+              const year = dayMonthYearMatch[3] ? parseInt(dayMonthYearMatch[3], 10) : null;
+              if (!Number.isNaN(day) && year && Object.prototype.hasOwnProperty.call(monthMap, monthKey)) {
+                return new Date(year, monthMap[monthKey], day);
+              }
+            }
+          }
+          return null;
+        }
+
+        // Render events with a calendar-style sticker (month/day) at left and title + short info on right.
+        function parseDateSticker(event, parsedDate) {
+          if (!event) return null;
+          if (parsedDate instanceof Date && !Number.isNaN(parsedDate.getTime())) {
+            return { month: monthLabels[parsedDate.getMonth()], day: parsedDate.getDate() };
           }
           // Fallback: try to extract from the event title (e.g., "NOV 28 ..." or "Nov 28")
           const m = (event.event || '').match(/^(?:\s*)(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*(\d{1,2})/i);
@@ -317,12 +392,15 @@
           return title.replace(/^(?:\s*)(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*\d{1,2}[:,]?\s*/i, '').trim();
         }
 
-        data.upcomingEvents.forEach(event => {
+        function createEventListItem(event, parsedDate, isPast = false) {
           const li = document.createElement('li');
           li.className = 'event-item';
+          if (isPast) {
+            li.classList.add('past');
+          }
 
           // Sticker
-          const sticker = parseDateSticker(event);
+          const sticker = parseDateSticker(event, parsedDate);
           if (sticker) {
             const stickerDiv = document.createElement('div');
             stickerDiv.className = 'event-sticker';
@@ -340,17 +418,14 @@
             }
             if (stickerWrapper) {
               stickerWrapper.className = 'sticker-link';
-              // Accessible label
-              const cleanTitle = (event.event || '').replace(/^(?:\s*)(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*\d{1,2}[:,]?\s*/i, '').trim() || 'Open event';
+              const cleanTitle = stripLeadingDateTokens(event.event || '').trim() || 'Open event';
               stickerWrapper.setAttribute('aria-label', `Open ${cleanTitle}`);
               stickerWrapper.appendChild(stickerDiv);
               li.appendChild(stickerWrapper);
             } else {
-              // no link available, append as-is
               li.appendChild(stickerDiv);
             }
           } else {
-            // placeholder spacer for alignment
             const spacer = document.createElement('div');
             spacer.style.width = '72px';
             li.appendChild(spacer);
@@ -392,8 +467,68 @@
           }
 
           li.appendChild(content);
-          eventsList.appendChild(li);
+          return li;
+        }
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const eventsWithMeta = data.upcomingEvents.map(event => {
+          const parsedDate = extractEventDate(event);
+          return { ...event, parsedDate };
         });
+
+        const upcomingEvents = [];
+        const pastEvents = [];
+
+        eventsWithMeta.forEach(event => {
+          if (event.parsedDate && event.parsedDate < today) {
+            pastEvents.push(event);
+          } else {
+            upcomingEvents.push(event);
+          }
+        });
+
+        upcomingEvents.sort((a, b) => {
+          if (a.parsedDate && b.parsedDate) return a.parsedDate - b.parsedDate;
+          if (a.parsedDate) return -1;
+          if (b.parsedDate) return 1;
+          return 0;
+        });
+
+        pastEvents.sort((a, b) => {
+          if (a.parsedDate && b.parsedDate) return b.parsedDate - a.parsedDate;
+          if (a.parsedDate) return -1;
+          if (b.parsedDate) return 1;
+          return 0;
+        });
+
+        if (upcomingEvents.length === 0) {
+          const emptyState = document.createElement('li');
+          emptyState.className = 'event-item';
+          emptyState.innerText = 'More events coming soon.';
+          eventsList.appendChild(emptyState);
+        } else {
+          upcomingEvents.forEach(event => {
+            eventsList.appendChild(createEventListItem(event, event.parsedDate, false));
+          });
+        }
+
+        if (pastEvents.length > 0) {
+          const pastHeading = document.createElement('h3');
+          pastHeading.className = 'events-subheading';
+          pastHeading.innerText = 'Past Events';
+          eventsSection.appendChild(pastHeading);
+
+          const pastList = document.createElement('ul');
+          pastList.className = 'events-list events-list--past';
+
+          pastEvents.forEach(event => {
+            pastList.appendChild(createEventListItem(event, event.parsedDate, true));
+          });
+
+          eventsSection.appendChild(pastList);
+        }
 
         // Featured Video Section - UPDATED: Carousel from featuredVideos array
         if (data.featuredVideos && data.featuredVideos.length > 0) {

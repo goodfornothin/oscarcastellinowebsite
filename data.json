@@ -15,6 +15,7 @@
   "upcomingEvents": [
     {
       "event": "DEC 14 Oscar Castellino and the Time Makers - A Goan Christmas Experience, Museum of Goa - Goa, India",
+      "date": "Sunday, December 14, 2025",
       "bookingLink": "https://www.district.in/play/concerto-de-natal-dec14-2025-buy-tickets?fbclid=PAb21jcAOHhi5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcIY2FsbHNpdGUCMTUAAafk5JDI27larvhBFs4hzqdK7mr-ZS4-EViC9acDXO3XOECnfDM3kF1sqFZ1TA_aem_jUTgF_i6wxbzrxs4Y4IRuQ"
     },
     {
@@ -73,30 +74,31 @@
     },
     {
       "event": "NOV 15 Soloist at Faure Requiem, 5 pm at Swansea Minster",
+      "date": "Saturday, November 15, 2025",
       "bookingLink": "https://www.eventbrite.com/e/gabriel-faures-requiem-and-music-by-wa-mozart-and-mervyn-burtch-tickets-1864405841059"
     },
     {
       "event": "NOV 16: Soloist at Faure Requiem, 6 pm at Margam Abbey tickets at door £7",
+      "date": "Sunday, November 16, 2025",
       "bookingLink": "https://www.facebook.com/MargamAbbey/posts/music-at-the-abbey-faure-requiem-sunday-16th-november-at-6pm-with-welsh-and-ital/824128563708478/"
     },
-{
-  "event": "Rogue Bachata Workshop",
-  "information": "Welcome to the Rogue-Style workshop with a focus on Bachata",
-  "eventId": "rogue-resonance-workshop",
-  "date": "Friday, November 21, 2025",
-  "time": "7 pm to 9 pm\nFriday November 21, 2025\nWe may take a few moments to set up and we will have a 10 minute break in between.",
-  "venue": "Our Lady of Hal R C Church",
-  "address": "165 Arlington Rd, London NW1 7EX\nnear Camden Town tube station",
-  "description": "About the Instructor.\n\nOscar Castellino is a performer with the Royal Ballet and Opera as an opera singer. Oscar has 20 years experience in salsa and bachata. Oscar’s Rogue style of dance evolved over the years bringing his experience on stage at the highest level as an actor-singer onto the dance floor. He developed a style that combines the best of both worlds into the Rogue style.\n\nThis particular workshop is titled Rogue Resonance\n\nMessage from Oscar:\n\nResonance is something second nature to a singer. The singer uses their surroundings to enhance their sound. It's no different with a dancer - the music, their partner, the temperature, their mood, the lighting and the overall atmosphere must be a part of the dance they create.\n\nThis workshop will take whatever skill level you have as a dancer and enhance it with better awareness of the concepts of Rogue Resonance. We will have 6 to 10 people to keep it effective.\n\nI advise easy clothing and shoes. We will work at a lovely church hall in Camden so we would prefer shoes that do not mark the wooden flooring. There will be a kitchenette with a kettle and I will bring along tea and coffee.\n\nDarryl will be taking some bits of footage that we can use for further promotion so please let me know if you do not wish to be included in the footage.",
-  "photo": "RogueResonance.jpg",
-  "artists": [
-    "Oscar Castellino"
-  ],
-  "program": null,
-  "videos": [],
-  "contactInfo": "email voice@oscarcastellino.com for participation request and registration details"
-}
-,
+    {
+      "event": "Rogue Bachata Workshop",
+      "information": "Welcome to the Rogue-Style workshop with a focus on Bachata",
+      "eventId": "rogue-resonance-workshop",
+      "date": "Wednesday, 14 January 2026",
+      "time": "7 pm to 9 pm\nWednesday January 14, 2026\nWe may take a few moments to set up and we will have a 10 minute break in between.",
+      "venue": "Our Lady of Hal R C Church",
+      "address": "165 Arlington Rd, London NW1 7EX\nnear Camden Town tube station",
+      "description": "About the Instructor.\n\nOscar Castellino is a performer with the Royal Ballet and Opera as an opera singer. Oscar has 20 years experience in salsa and bachata. Oscar’s Rogue style of dance evolved over the years bringing his experience on stage at the highest level as an actor-singer onto the dance floor. He developed a style that combines the best of both worlds into the Rogue style.\n\nThis particular workshop is titled Rogue Resonance\n\nMessage from Oscar:\n\nResonance is something second nature to a singer. The singer uses their surroundings to enhance their sound. It's no different with a dancer - the music, their partner, the temperature, their mood, the lighting and the overall atmosphere must be a part of the dance they create.\n\nThis workshop will take whatever skill level you have as a dancer and enhance it with better awareness of the concepts of Rogue Resonance. We will have 6 to 10 people to keep it effective.\n\nI advise easy clothing and shoes. We will work at a lovely church hall in Camden so we would prefer shoes that do not mark the wooden flooring. There will be a kitchenette with a kettle and I will bring along tea and coffee.\n\nDarryl will be taking some bits of footage that we can use for further promotion so please let me know if you do not wish to be included in the footage.",
+      "photo": "RogueResonance.jpg",
+      "artists": [
+        "Oscar Castellino"
+      ],
+      "program": null,
+      "videos": [],
+      "contactInfo": "email voice@oscarcastellino.com for participation request and registration details"
+    },
     {
       "event": "Nov 2 Royal Foundation Sunday Afternoon Concert and Food",
       "information": "I would love for you to attend a concert I am putting together in support of the Royal Foundation of St. Katharine. I have planned a gorgeous afternoon of music and food at this serene venue near Limehouse Station. The music will range from Opera to music from Musicals and Movies. \nBook here https://luma.com/bf0h30u7 ",
@@ -128,16 +130,19 @@
     },
     {
       "event": "NOV 2: El Godfather's Classico - Novemver 2025, The Royal Foundation of St Katharine",
+      "date": "Sunday, November 2, 2025",
       "information": "A Special Event at the Queen's Charity ",
       "bookingLink": "https://luma.com/bf0h30u7"
     },
     {
       "event": "NOV 2: Bookings for Afternoon Tea and Sunday Lunch for the above concert",
-      "information": "Please make sure to book lunch at 12 pm and Afternoon tea at 4 pm on the correct date Sunday, November 2 at this link",
+      "date": "Sunday, November 2, 2025",
+      "information": "Please make sure to book lunch at 12 pm and Afternoon tea at 4 pm on the correct date Sunday, November 2, 2025 at this link",
       "bookingLink": "https://www.opentable.com/r/afternoon-tea-at-the-royal-foundation-of-st-katharine-london"
     },
     {
       "event": "OCT 17: Oscar performs lead role of Enrico in the opera Lucia",
+      "date": "Friday, October 17, 2025",
       "information": "This is a Barefoot Opera production at the Wooburn Festival. Bourne End Community Centre, Wakeman Road, Bourne End SL8 5SX",
       "bookingLink": "https://wooburn.com/etn/barefoot-opera-lucia-di-lammermoor/"
     }
