@@ -14,6 +14,48 @@
   "contactEmail": "voice@oscarcastellino.com",
   "upcomingEvents": [
     {
+      "event": "Oscar Castellino | Voz de Ópera de Goa",
+      "information": "An evening where the grandeur of opera intertwines with the soul of Goa. Beloved operatic arias meet traditional Konkani and Goan-Portuguese songs.",
+      "eventId": "lisbon-fundacao-oriente-2026",
+      "date": "Sunday, March 8, 2026",
+      "time": "Time to be announced",
+      "venue": "Fundação Oriente",
+      "address": "Lisbon, Portugal",
+      "description": "Join acclaimed baritone Oscar Castellino for an evening where the grandeur of opera intertwines with the soul of Goa. This unique concert weaves together beloved operatic arias with traditional Konkani and Goan-Portuguese songs, creating a musical bridge between two cultures bound by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.",
+      "photo": "OscarBlack1.png",
+      "artists": [
+        "Oscar Castellino"
+      ],
+      "program": null,
+      "videos": [],
+      "tickets": {
+        "price": "To be announced",
+        "link": "https://www.foriente.pt"
+      },
+      "contactInfo": "For enquiries contact voice@oscarcastellino.com"
+    },
+    {
+      "event": "Concerto de Natal 2026",
+      "information": "A Christmas celebration featuring Konkani and Goan-Portuguese carols, reviving old traditions. Details to be announced.",
+      "eventId": "concerto-de-natal-2026",
+      "date": "December 2026",
+      "time": "To be announced",
+      "venue": "Goa, India",
+      "address": "Venue to be announced",
+      "description": "Following the huge success of Concerto de Natal 2025, Oscar Castellino returns to Goa for Christmas 2026 with another enchanting evening of Konkani and Goan-Portuguese carols. Stay tuned for more details.",
+      "photo": "OscarKonkaniPegasus.JPG",
+      "artists": [
+        "Oscar Castellino"
+      ],
+      "program": null,
+      "videos": [],
+      "tickets": {
+        "price": "To be announced",
+        "link": null
+      },
+      "contactInfo": "For enquiries contact voice@oscarcastellino.com"
+    },
+    {
       "event": "DEC 14 Oscar Castellino and the Time Makers - A Goan Christmas Experience, Museum of Goa - Goa, India",
       "date": "Sunday, December 14, 2025",
       "bookingLink": "https://www.district.in/play/concerto-de-natal-dec14-2025-buy-tickets?fbclid=PAb21jcAOHhi5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcIY2FsbHNpdGUCMTUAAafk5JDI27larvhBFs4hzqdK7mr-ZS4-EViC9acDXO3XOECnfDM3kF1sqFZ1TA_aem_jUTgF_i6wxbzrxs4Y4IRuQ"
