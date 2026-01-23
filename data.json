@@ -86,6 +86,27 @@
       "contactInfo": "Goan snacks available. For enquiries contact voice@oscarcastellino.com"
     },
     {
+      "event": "Rogue Resonance Workshop",
+      "information": "Join Oscar Castellino for an immersive Rogue Resonance workshop at Create Destroy Studios. Explore the core principles of groundedness, flow, and authentic connection.",
+      "eventId": "rogue-resonance-feb-2026",
+      "date": "February 2026",
+      "time": "Time to be announced",
+      "venue": "Create Destroy Studios",
+      "address": "Archway, London",
+      "description": "Join Oscar Castellino for an immersive Rogue Resonance workshop at Create Destroy Studios. This session will explore the core principles of Rogue Resonance—groundedness, flow, and authentic connection. Suitable for all levels.",
+      "photo": "RogueResonance.jpg",
+      "artists": [
+        "Oscar Castellino"
+      ],
+      "program": null,
+      "videos": [],
+      "tickets": {
+        "price": "Voluntary contribution",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSfkOaMA4Ry8oDw11oEzZ8SKroWk97GmllvqnuK0w3394_WbyA/viewform"
+      },
+      "contactInfo": "Register your interest at the link above. Visit roguebachata.com for more details."
+    },
+    {
       "event": "NOV 28 GOAN Christmas Concert Mayfair",
       "information": "Konkani, Portuguese and Latin Carols. Goan Welfare Society and Baluji Music Foundation join hands to usher in the Christmas Spirit. Gorgeous music in a traditional Goan Style. Tickets include plate of snacks",
       "eventId": "goan-christmas-interactions-2025",
