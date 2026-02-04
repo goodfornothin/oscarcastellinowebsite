@@ -670,6 +670,7 @@ section {
   border-radius: 4px;
   border: var(--border-subtle);
   transition: all var(--transition-smooth);
+  overflow: hidden;
 }
 
 .event-card:hover {
@@ -684,6 +685,7 @@ section {
   background: var(--color-bg-accent);
   border-radius: 4px;
   border-top: 3px solid var(--color-gold);
+  flex-shrink: 0;
 }
 
 .event-date-month {
@@ -710,9 +712,16 @@ section {
   color: var(--color-text-muted);
 }
 
+.event-content {
+  min-width: 0;
+  overflow: hidden;
+}
+
 .event-content h3 {
   margin-bottom: var(--spacing-xs);
   font-size: 1.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .event-content h3 a {
@@ -732,18 +741,23 @@ section {
   font-family: var(--font-ui);
   font-size: 0.85rem;
   color: var(--color-text-muted);
+  overflow: hidden;
 }
 
 .event-meta span {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  white-space: nowrap;
 }
 
 .event-description {
   font-size: 1rem;
   color: var(--color-text-secondary);
   margin-bottom: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
 }
 
 .event-cta {
