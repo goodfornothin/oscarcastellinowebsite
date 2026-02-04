@@ -1,27 +1,173 @@
 {
   "title": "Oscar Castellino",
-  "shortBiography": "Oscar Castellino is an international baritone and composer of Mars Anthem \"Rise to Mars\". He was born in a car on a busy street in Mumbai and traces his roots to Goa. Earlier a software engineer, he was scouted for his operatic talent by Patricia Rozario on her concert tour of India.",
+  "fullName": "Oscar Dom Victor Castellino",
+  "dateOfBirth": "8th May 1986",
+  "shortBiography": "Oscar Castellino is an international baritone, composer of Mars Anthem 'Rise to Mars', and ensemble singer at the Royal Opera House. Born in a car on a busy Mumbai street with roots tracing to Goa, Oscar's journey from software engineer to opera singer began when Patricia Rozario discovered his talent during her concert tour of India.",
   "longBiography": "biographies/long.txt",
   "fullBiographyPage": "full_biography.html",
   "biographyLink": "https://example.com/full-biography",
-  "featuredPhoto": "https://drive.google.com/file/d/1XyjbQgCC1Namd-SAYp09wUuKXIXD0-T-/view?usp=drive_link",
-  "photosFolder": "https://drive.google.com/drive/folders/your-folder-id",
+  "featuredPhoto": "pictures/OscarBlack1.png",
+  "photosFolder": "pictures/",
   "featuredVideos": [
     "https://www.youtube.com/embed/eIjWxs8DPXM",
-    "https://www.youtube.com/embed/eBUAmTUROGA?si=qjHD9Pp2Nez27wuI"
+    "https://www.youtube.com/embed/eBUAmTUROGA?si=qjHD9Pp2Nez27wuI",
+    "https://www.youtube.com/embed/fd5nRoXqWMA"
   ],
   "youtubePlaylist": "https://www.youtube.com/@operawalaofindia1166/featured",
   "contactEmail": "voice@oscarcastellino.com",
+  "pressQuotes": [
+    {
+      "quote": "A highlight",
+      "source": "The Times UK",
+      "context": "on Oscar's performance as James Meredith in Kommilitonen"
+    },
+    {
+      "quote": "Mesmerising as Meredith, has a commanding stage presence",
+      "source": "Morning Star"
+    },
+    {
+      "quote": "Rising star in the operatic world",
+      "source": "BBC News"
+    },
+    {
+      "quote": "Grit and determination",
+      "source": "The Telegraph",
+      "context": "on singing at Queen's Diamond Jubilee"
+    }
+  ],
+  "operaRoles": [
+    {
+      "role": "George Benton",
+      "opera": "Dead Man Walking",
+      "company": "Welsh National Opera (Solo Debut)"
+    },
+    {
+      "role": "James Meredith",
+      "opera": "Kommilitonen!",
+      "company": "Welsh National Opera Youth"
+    },
+    {
+      "role": "Enrico",
+      "opera": "Lucia di Lammermoor",
+      "company": "Barefoot Opera"
+    },
+    {
+      "role": "Belcore",
+      "opera": "L'Elisir d'Amore",
+      "company": "Barefoot Opera"
+    },
+    {
+      "role": "Dancairo",
+      "opera": "Carmen",
+      "company": "Opera at Bearwood / Barefoot Opera"
+    },
+    {
+      "role": "Mercutio",
+      "opera": "Romeo and Juliet",
+      "company": "Opera at Bearwood"
+    },
+    {
+      "role": "Aeneas",
+      "opera": "Dido and Aeneas",
+      "company": "Giving Voice Society (India Tour)"
+    },
+    {
+      "role": "Mahival",
+      "opera": "Sohini and Mahival (Urdu)",
+      "company": "Southbank Centre"
+    },
+    {
+      "role": "Niladri",
+      "opera": "Agnivarsha (Vanraj Bhatia)",
+      "company": ""
+    },
+    {
+      "role": "Pluto",
+      "opera": "Orpheus in the Underworld",
+      "company": "Opera at Bearwood"
+    },
+    {
+      "role": "Djami",
+      "opera": "Journeying Boys",
+      "company": "Iain Burnside"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Royal Welsh Conservatoire",
+      "degree": "Opera Training",
+      "teachers": "Adrian Thompson, Donald Maxwell",
+      "scholarship": "Christopher Ball Welsh National Opera Scholarship"
+    },
+    {
+      "institution": "Royal College of Music, London",
+      "degree": "Opera Training",
+      "teachers": "Patricia Rozario",
+      "awards": [
+        "Blair Wilson Award",
+        "Martin Harris Award",
+        "Lee Abbey Award"
+      ]
+    },
+    {
+      "institution": "St. Xavier's College, Mumbai",
+      "degree": "Physics"
+    },
+    {
+      "institution": "St. George's College, Mussoorie",
+      "degree": "Secondary Education"
+    }
+  ],
+  "supporters": [
+    "Lee Abbey London",
+    "Clive Richards Foundation",
+    "Tungare Manohar Family Foundation",
+    "Godrej",
+    "Navajbai Ratan Tata Trust",
+    "Sir Ratan Tata Trust"
+  ],
+  "_DUMMY_EVENT_TEMPLATE": {
+    "_comment": "TEMPLATE: Copy this object to create a new event. Remove fields you don't need. The eventPage field links to a dedicated HTML page if one exists.",
+    "event": "Event Title - Location/Description",
+    "eventId": "unique-event-id-for-url",
+    "eventPage": "events/event-page-name.html",
+    "date": "Saturday, January 15, 2026",
+    "time": "7:00 PM",
+    "venue": "Venue Name",
+    "address": "Full address including postcode",
+    "information": "Brief description of the event that appears on the card",
+    "description": "Detailed description including all relevant information",
+    "photo": "event-photo.jpg",
+    "artists": [
+      "Artist 1",
+      "Artist 2"
+    ],
+    "program": [
+      "Piece 1 | Composer",
+      "Piece 2 | Composer"
+    ],
+    "videos": [
+      "https://www.youtube.com/embed/VIDEO_ID"
+    ],
+    "tickets": {
+      "price": "\u00a320 / \u20ac25 / Free",
+      "link": "https://ticketing-site.com/event-link"
+    },
+    "bookingLink": "https://direct-booking-link.com (alternative to tickets object)",
+    "displayMedia": "https://youtube-link-for-promo-video",
+    "contactInfo": "For enquiries contact voice@oscarcastellino.com"
+  },
   "upcomingEvents": [
     {
-      "event": "LISBON CONCERT Oscar Castellino | Voz de Ópera de Goa",
-      "information": "ENGLISH: Join acclaimed baritone Oscar Castellino and pianist Rodrigo Ayala for a concert that unites the grandeur of opera with the soul of Goa. Enjoy a unique program of beloved lyrical arias and traditional Luso-Goan and Konkani songs, creating a musical bridge between two cultures united by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.\nPORTUGUÊS: Junte-se ao aclamado barítono Oscar Castellino e ao pianista Rodrigo Ayala para um espetáculo que une a grandiosidade da ópera à alma de Goa. Para ouvir, um programa singular de árias líricas bem conhecidas do público e canções tradicionais luso-goesas e Konkani, criando uma ponte musical entre duas culturas unidas pela história. Dos palcos da Royal Opera House às margens do Mar Arábico, viva a experiência de uma voz que transporta as tradições líricas da Europa e o coração de Goa.",
+      "event": "LISBON CONCERT Oscar Castellino | Voz de \u00d3pera de Goa",
+      "information": "ENGLISH: Join acclaimed baritone Oscar Castellino and pianist Rodrigo Ayala for a concert that unites the grandeur of opera with the soul of Goa. Enjoy a unique program of beloved lyrical arias and traditional Luso-Goan and Konkani songs, creating a musical bridge between two cultures united by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.\nPORTUGU\u00caS: Junte-se ao aclamado bar\u00edtono Oscar Castellino e ao pianista Rodrigo Ayala para um espet\u00e1culo que une a grandiosidade da \u00f3pera \u00e0 alma de Goa. Para ouvir, um programa singular de \u00e1rias l\u00edricas bem conhecidas do p\u00fablico e can\u00e7\u00f5es tradicionais luso-goesas e Konkani, criando uma ponte musical entre duas culturas unidas pela hist\u00f3ria. Dos palcos da Royal Opera House \u00e0s margens do Mar Ar\u00e1bico, viva a experi\u00eancia de uma voz que transporta as tradi\u00e7\u00f5es l\u00edricas da Europa e o cora\u00e7\u00e3o de Goa.",
       "eventId": "lisbon-fundacao-oriente-2026",
+      "eventPage": "events/lisbon-fundacao-oriente-2026.html",
       "date": "Sunday, 8 March 2026",
       "time": "18:00 (6pm)",
-      "venue": "Auditório Fundação Oriente",
-      "address": "Avenida Brasília, Doca de Alcântara (Norte) | 1350-352 Lisboa, Portugal",
-      "description": "ENGLISH: Oscar Castellino, baritone, and Rodrigo Ayala, piano.\nDuration: 90 minutes with a 10-minute interval.\nAudience: Ages 6 and up.\nCapacity: 355 seats.\nPrice: €15 (discounts available).\n\nPORTUGUÊS: Oscar Castellino, barítono, e Rodrigo Ayala, piano.\nDuração: 90 minutos com intervalo de 10 minutos.\nPúblico-alvo: M/6 anos.\nLotação: 355 lugares.\nPreço: €15 (descontos em vigor).",
+      "venue": "Audit\u00f3rio Funda\u00e7\u00e3o Oriente",
+      "address": "Avenida Bras\u00edlia, Doca de Alc\u00e2ntara (Norte) | 1350-352 Lisboa, Portugal",
+      "description": "ENGLISH: Oscar Castellino, baritone, and Rodrigo Ayala, piano.\nDuration: 90 minutes with a 10-minute interval.\nAudience: Ages 6 and up.\nCapacity: 355 seats.\nPrice: \u20ac15 (discounts available).\n\nPORTUGU\u00caS: Oscar Castellino, bar\u00edtono, e Rodrigo Ayala, piano.\nDura\u00e7\u00e3o: 90 minutos com intervalo de 10 minutos.\nP\u00fablico-alvo: M/6 anos.\nLota\u00e7\u00e3o: 355 lugares.\nPre\u00e7o: \u20ac15 (descontos em vigor).",
       "photo": "OscarBlack1.png",
       "artists": [
         "Oscar Castellino (Baritone)",
@@ -34,7 +180,7 @@
         "Piano Solo",
         "O Lisbona | Donizetti",
         "Food is my Fantasy | Verdi, Kordo",
-        "Abá-Logum | Waldemar Henrique",
+        "Ab\u00e1-Logum | Waldemar Henrique",
         "Malaika | Adam Salim",
         "Encosta tua Cabecinha | Paulo Borges",
         "Piano Solo",
@@ -44,15 +190,16 @@
       ],
       "videos": [],
       "tickets": {
-        "price": "€15 (discounts available)",
+        "price": "\u20ac15 (discounts available)",
         "link": "https://www.foriente.pt/detalhe.php?id=7279F145-FE79-4350-9567-DBA85BFC7140&area=espectaculos"
       },
-      "contactInfo": "ENGLISH: For enquiries contact voice@oscarcastellino.com or info@foriente.pt.\nPORTUGUÊS: Para informações contacte voice@oscarcastellino.com ou info@foriente.pt."
+      "contactInfo": "ENGLISH: For enquiries contact voice@oscarcastellino.com or info@foriente.pt.\nPORTUGU\u00caS: Para informa\u00e7\u00f5es contacte voice@oscarcastellino.com ou info@foriente.pt."
     },
     {
       "event": "Concerto de Natal 2026",
       "information": "A Christmas celebration featuring Konkani and Goan-Portuguese carols, reviving old traditions. Details to be announced.",
       "eventId": "concerto-de-natal-2026",
+      "eventPage": "events/concerto-de-natal-2026.html",
       "date": "December 2026",
       "time": "To be announced",
       "venue": "Goa, India",
@@ -79,6 +226,7 @@
       "event": "LONDON CONCERT Goan Interactions Dulwich",
       "information": "Following the grand success of Goan Interactions 2025, the Baluji Music Foundation in collaboration with Melville Rodrigues and Oscar Castellino present an enchanting evening of timeless Goan Konkani and Portuguese tunes.",
       "eventId": "goan-interactions-2026",
+      "eventPage": "events/goan-interactions-2026.html",
       "date": "Saturday, June 20, 2026",
       "time": "5:30 pm Doors Open\n6:00 pm Concert Starts\n6:50 pm Interval / Refreshments available\n7:25 pm Second Half\n8:15 pm Concert Concludes / Meet the artists",
       "venue": "St. Stephen's Church",
@@ -95,7 +243,7 @@
       "program": null,
       "videos": [],
       "tickets": {
-        "price": "£0.00 - £20.00",
+        "price": "\u00a30.00 - \u00a320.00",
         "link": "https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym"
       },
       "contactInfo": "Goan snacks available. For enquiries contact voice@oscarcastellino.com"
@@ -108,7 +256,7 @@
       "time": "18:30 Doors Open, 19:15 Concert Start",
       "venue": "Catholic Church of Immaculate Conception",
       "address": "114 Mount Street, Mayfair, London W1K 3AH",
-      "description": "Tickets £25 on door. Pre-booking £20. To avoid platform fees the charity have requested direct bank transfer to\n THE GOAN WELFARE SOCIETY UK, \nAcc No: 01435981\nSort Code: 402230\nReference: MUSIC followed by YOUR NAME\nPlease email me at voice@oscarcastellino.com after paying, stating how much you have transfered and how many tickets you would like and I will confirm within a day.",
+      "description": "Tickets \u00a325 on door. Pre-booking \u00a320. To avoid platform fees the charity have requested direct bank transfer to\n THE GOAN WELFARE SOCIETY UK, \nAcc No: 01435981\nSort Code: 402230\nReference: MUSIC followed by YOUR NAME\nPlease email me at voice@oscarcastellino.com after paying, stating how much you have transfered and how many tickets you would like and I will confirm within a day.",
       "photo": "christmas-interations-poster.jpg",
       "artists": [
         "Oscar Castellino",
@@ -124,7 +272,7 @@
         "https://www.youtube.com/embed/o2rs2eyD_5U"
       ],
       "tickets": {
-        "price": "£20 until Nov 27, £25 on door",
+        "price": "\u00a320 until Nov 27, \u00a325 on door",
         "link": null
       },
       "contactInfo": "Tickets at the door."
@@ -135,26 +283,9 @@
       "bookingLink": "https://www.eventbrite.com/e/gabriel-faures-requiem-and-music-by-wa-mozart-and-mervyn-burtch-tickets-1864405841059"
     },
     {
-      "event": "NOV 16: Soloist at Faure Requiem, 6 pm at Margam Abbey tickets at door £7",
+      "event": "NOV 16: Soloist at Faure Requiem, 6 pm at Margam Abbey tickets at door \u00a37",
       "date": "Sunday, November 16, 2025",
       "bookingLink": "https://www.facebook.com/MargamAbbey/posts/music-at-the-abbey-faure-requiem-sunday-16th-november-at-6pm-with-welsh-and-ital/824128563708478/"
-    },
-    {
-      "event": "Rogue Bachata Workshop",
-      "information": "Welcome to the Rogue-Style workshop with a focus on Bachata",
-      "eventId": "rogue-resonance-workshop",
-      "date": "Wednesday, 14 January 2026",
-      "time": "7 pm to 9 pm\nWednesday January 14, 2026\nWe may take a few moments to set up and we will have a 10 minute break in between.",
-      "venue": "Our Lady of Hal R C Church",
-      "address": "165 Arlington Rd, London NW1 7EX\nnear Camden Town tube station",
-      "description": "About the Instructor.\n\nOscar Castellino is a performer with the Royal Ballet and Opera as an opera singer. Oscar has 20 years experience in salsa and bachata. Oscar’s Rogue style of dance evolved over the years bringing his experience on stage at the highest level as an actor-singer onto the dance floor. He developed a style that combines the best of both worlds into the Rogue style.\n\nThis particular workshop is titled Rogue Resonance\n\nMessage from Oscar:\n\nResonance is something second nature to a singer. The singer uses their surroundings to enhance their sound. It's no different with a dancer - the music, their partner, the temperature, their mood, the lighting and the overall atmosphere must be a part of the dance they create.\n\nThis workshop will take whatever skill level you have as a dancer and enhance it with better awareness of the concepts of Rogue Resonance. We will have 6 to 10 people to keep it effective.\n\nI advise easy clothing and shoes. We will work at a lovely church hall in Camden so we would prefer shoes that do not mark the wooden flooring. There will be a kitchenette with a kettle and I will bring along tea and coffee.\n\nDarryl will be taking some bits of footage that we can use for further promotion so please let me know if you do not wish to be included in the footage.",
-      "photo": "RogueResonance.jpg",
-      "artists": [
-        "Oscar Castellino"
-      ],
-      "program": null,
-      "videos": [],
-      "contactInfo": "email voice@oscarcastellino.com for participation request and registration details, we suggest a voluntary contribution £10 towards expenses."
     },
     {
       "event": "Nov 2 Royal Foundation Sunday Afternoon Concert and Food",
@@ -180,7 +311,7 @@
         "https://www.youtube.com/embed/xqLvZfuNtkc"
       ],
       "tickets": {
-        "price": "£ 20 for the concert. The rest can be booked separately",
+        "price": "\u00a3 20 for the concert. The rest can be booked separately",
         "link": "https://luma.com/bf0h30u7"
       },
       "contactInfo": null
@@ -203,7 +334,5 @@
       "information": "This is a Barefoot Opera production at the Wooburn Festival. Bourne End Community Centre, Wakeman Road, Bourne End SL8 5SX",
       "bookingLink": "https://wooburn.com/etn/barefoot-opera-lucia-di-lammermoor/"
     }
-    
-    
   ]
 }

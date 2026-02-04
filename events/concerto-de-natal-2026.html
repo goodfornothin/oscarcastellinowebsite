@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Concerto de Natal 2026 | Oscar Castellino Christmas Concert</title>
+  <meta name="description" content="Oscar Castellino's annual Christmas concert - Concerto de Natal 2026. A festive evening of opera, carols, and holiday music. December 2026.">
+  <meta name="keywords" content="Oscar Castellino, Christmas concert, Concerto de Natal, holiday music, carols, festive opera">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="event">
+  <meta property="og:title" content="Concerto de Natal 2026 | Oscar Castellino">
+  <meta property="og:description" content="Annual Christmas concert featuring festive opera, beloved carols, and holiday music.">
+  <meta property="og:image" content="https://oscarcastellino.com/pictures/Oscar%20Grant%20singing%20close-up%20at%20Concerto%20de%20Natal.jpg">
+  
+  <link rel="stylesheet" href="../style.css">
+  
+  <style>
+    .event-page-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, #0d1a0d 0%, #1a0d0d 50%, #0d0d0d 100%);
+      overflow: hidden;
+    }
+    
+    .event-page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../pictures/Oscar%20Grant%20singing%20close-up%20at%20Concerto%20de%20Natal.jpg') center/cover;
+      opacity: 0.25;
+      filter: blur(5px);
+    }
+    
+    /* Snowfall effect */
+    .snowflakes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    
+    .snowflake {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.5rem;
+      animation: fall linear infinite;
+    }
+    
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
+    }
+    
+    .event-page-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 900px;
+    }
+    
+    .event-date-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(135deg, #c41e3a, #228b22);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+    }
+    
+    .event-date-badge .month {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .event-date-badge .day {
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+    
+    .event-date-badge .year {
+      font-size: 1rem;
+    }
+    
+    .event-page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-family: var(--font-heading);
+    }
+    
+    .event-page-subtitle {
+      font-size: 1.5rem;
+      color: #c41e3a;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    
+    .event-page-location {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    
+    .event-details {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .event-content h2 {
+      font-size: 2rem;
+      color: #c41e3a;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-heading);
+    }
+    
+    .event-content h3 {
+      font-size: 1.4rem;
+      color: var(--text-light);
+      margin: 2rem 0 1rem;
+      font-family: var(--font-heading);
+    }
+    
+    .event-content p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    .christmas-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .christmas-card {
+      background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(34, 139, 34, 0.05));
+      border: 1px solid rgba(196, 30, 58, 0.2);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .christmas-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(196, 30, 58, 0.2);
+    }
+    
+    .christmas-card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .christmas-card h4 {
+      color: #228b22;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+    
+    .christmas-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    
+    .gallery-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .gallery-preview img {
+      width: 100%;
+      border-radius: 0.5rem;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border: 1px solid rgba(196, 30, 58, 0.2);
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(34, 139, 34, 0.05));
+      border: 1px solid rgba(196, 30, 58, 0.3);
+      border-radius: 1rem;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    .cta-section h3 {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    
+    .btn-christmas {
+      background: linear-gradient(135deg, #c41e3a, #228b22);
+      color: #fff;
+      border: none;
+    }
+    
+    .btn-christmas:hover {
+      background: linear-gradient(135deg, #228b22, #c41e3a);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #c41e3a;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: gap 0.3s ease;
+    }
+    
+    .back-link:hover {
+      gap: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">Oscar <span>Castellino</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#gallery">Gallery</a></li>
+        <li><a href="../index.html#events">Events</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <a href="../index.html#contact" class="nav-cta">Book Oscar</a>
+    </div>
+  </nav>
+
+  <!-- Event Hero -->
+  <section class="event-page-hero">
+    <div class="snowflakes" id="snowflakes"></div>
+    <div class="event-page-hero-content">
+      <div class="event-date-badge">
+        <span class="month">December</span>
+        <span class="day">TBA</span>
+        <span class="year">2026</span>
+      </div>
+      <h1 class="event-page-title">Concerto de Natal</h1>
+      <p class="event-page-subtitle">A Festive Evening of Music & Joy</p>
+      <p class="event-page-location">🎄 Location to be announced</p>
+    </div>
+  </section>
+
+  <!-- Event Details -->
+  <section class="event-details">
+    <a href="../index.html#events" class="back-link">← Back to Events</a>
+    
+    <div class="event-content">
+      <h2>About This Concert</h2>
+      
+      <p>Oscar Castellino's annual <em>Concerto de Natal</em> (Christmas Concert) has become a beloved tradition, bringing together the magic of the holiday season with world-class operatic performance. This festive evening features a carefully curated program of opera arias, beloved carols, and seasonal favorites.</p>
+      
+      <p>From the grandeur of Handel's Messiah to the warmth of traditional Christmas carols, Oscar creates an intimate atmosphere where audiences can celebrate the spirit of the season through music.</p>
+      
+      <div class="christmas-features">
+        <div class="christmas-card">
+          <div class="christmas-card-icon">🎭</div>
+          <h4>Opera Highlights</h4>
+          <p>Beloved arias perfect for the festive season</p>
+        </div>
+        <div class="christmas-card">
+          <div class="christmas-card-icon">🎵</div>
+          <h4>Classic Carols</h4>
+          <p>Traditional favorites reimagined with operatic flair</p>
+        </div>
+        <div class="christmas-card">
+          <div class="christmas-card-icon">🎄</div>
+          <h4>Holiday Spirit</h4>
+          <p>A warm, festive atmosphere for all ages</p>
+        </div>
+        <div class="christmas-card">
+          <div class="christmas-card-icon">🌟</div>
+          <h4>Audience Singalong</h4>
+          <p>Join Oscar for beloved holiday classics</p>
+        </div>
+      </div>
+      
+      <h3>Previous Concerto de Natal Highlights</h3>
+      
+      <p>Oscar's Christmas concerts have delighted audiences with a mix of sacred and secular holiday music. Past programs have included:</p>
+      
+      <ul style="color: var(--text-muted); line-height: 2;">
+        <li>"O Holy Night" (Adolphe Adam)</li>
+        <li>"Ave Maria" (Schubert/Bach-Gounod)</li>
+        <li>"Panis Angelicus" (César Franck)</li>
+        <li>Selections from Handel's "Messiah"</li>
+        <li>Portuguese Christmas carols</li>
+        <li>Traditional carols with audience participation</li>
+      </ul>
+      
+      <div class="gallery-preview">
+        <img src="../pictures/Oscar Grant singing close-up at Concerto de Natal.jpg" alt="Oscar singing at Concerto de Natal" loading="lazy">
+        <img src="../pictures/Oscar closing eyes and looking up singing at Concerto de Natal.jpg" alt="Oscar performing at Christmas concert" loading="lazy">
+        <img src="../pictures/Oscar encouraging the audience at Concerto de Natal.jpg" alt="Oscar engaging with audience" loading="lazy">
+      </div>
+      
+      <div class="cta-section">
+        <h3>Be the First to Know</h3>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Date and venue for Concerto de Natal 2026 will be announced soon. Register your interest to receive priority booking access!</p>
+        <a href="mailto:voice@oscarcastellino.com?subject=Concerto%20de%20Natal%202026%20-%20Register%20Interest" class="btn btn-christmas">Register Interest</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Oscar Castellino</h3>
+        <p>International Opera Singer & Baritone</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html#events">All Events</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Oscar Castellino. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Create snowflakes
+    const snowflakesContainer = document.getElementById('snowflakes');
+    const snowflakeChars = ['❄', '❅', '❆', '✻', '✼'];
+    
+    for (let i = 0; i < 30; i++) {
+      const snowflake = document.createElement('span');
+      snowflake.className = 'snowflake';
+      snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+      snowflake.style.left = Math.random() * 100 + '%';
+      snowflake.style.animationDuration = (Math.random() * 5 + 8) + 's';
+      snowflake.style.animationDelay = (Math.random() * 10) + 's';
+      snowflake.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
+      snowflakesContainer.appendChild(snowflake);
+    }
+  </script>
+</body>
+</html>

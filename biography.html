@@ -1,234 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opera Singer Website - Biography</title>
-  <!-- Version: v2.0 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Biography | Oscar Castellino - International Opera Singer</title>
+  <meta name="description" content="Learn about Oscar Castellino's extraordinary journey from software engineer to international opera singer. Born in Mumbai, trained in London, performing worldwide.">
+  <meta name="keywords" content="Oscar Castellino biography, opera singer, baritone, Royal Opera House, Patricia Rozario, Goa, Mumbai, Royal College of Music">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Biography | Oscar Castellino">
+  <meta property="og:description" content="The extraordinary journey of Oscar Castellino - from Mumbai to the stages of the Royal Opera House.">
+  <meta property="og:image" content="https://oscarcastellino.com/pictures/Oscar%20bowtie%20walking%20in%20Highbury.jpg">
+  <meta property="og:url" content="https://oscarcastellino.com/biography.html">
+  
   <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .bio-hero {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1512 100%);
+      overflow: hidden;
+    }
+    
+    .bio-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('pictures/Oscar%20silhouette%20side%20view%20at%20Leeds%20lieder%20festival.jpg') center/cover;
+      opacity: 0.15;
+    }
+    
+    .bio-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    
+    .bio-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--text-light);
+      font-family: var(--font-heading);
+      margin-bottom: 1rem;
+    }
+    
+    .bio-hero p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .bio-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    
+    .bio-intro {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: start;
+    }
+    
+    @media (max-width: 768px) {
+      .bio-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .bio-intro img {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+    }
+    
+    .bio-intro img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(212, 168, 83, 0.3);
+    }
+    
+    .bio-intro-text h2 {
+      font-size: 2rem;
+      color: var(--accent-gold);
+      font-family: var(--font-heading);
+      margin-bottom: 1.5rem;
+    }
+    
+    .bio-intro-text p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .bio-section {
+      margin-bottom: 3rem;
+    }
+    
+    .bio-section h3 {
+      font-size: 1.6rem;
+      color: var(--accent-gold);
+      font-family: var(--font-heading);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+    }
+    
+    .bio-section p {
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    
+    .bio-quote {
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.1), rgba(26, 21, 18, 0.8));
+      border-left: 4px solid var(--accent-gold);
+      padding: 2rem;
+      margin: 3rem 0;
+      border-radius: 0 1rem 1rem 0;
+    }
+    
+    .bio-quote blockquote {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--text-light);
+      margin: 0 0 1rem 0;
+      font-family: var(--font-heading);
+    }
+    
+    .bio-quote cite {
+      color: var(--accent-gold);
+      font-size: 0.95rem;
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      margin: 2rem 0;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-gold), transparent);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -34px;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+    }
+    
+    .timeline-year {
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-title {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .bio-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 3rem 0;
+    }
+    
+    .bio-gallery img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(212, 168, 83, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .bio-gallery img:hover {
+      transform: scale(1.02);
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-gold);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: gap 0.3s ease;
+    }
+    
+    .back-link:hover {
+      gap: 0.8rem;
+    }
+    
+    .cta-box {
+      background: linear-gradient(135deg, var(--bg-card), #1a1512);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      border-radius: 1rem;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    
+    .cta-box h3 {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .cta-box p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-      <div class="header-container" style="position:relative;">
-        <h1 id="title">Loading...</h1>
-        <p id="tagline"></p>
-        <!-- Home link moved below the title at the right side -->
-        <a href="index.html" id="homeLink" style="position:absolute; right:1.5rem; top:3.2rem; background:#007bff; color:#fff; padding:6px 10px; border-radius:6px; text-decoration:none; box-shadow:0 2px 6px rgba(0,0,0,0.2);">Home</a>
-      </div>
-    </header>
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Oscar <span>Castellino</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#videos">Videos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="nav-cta">Book Oscar</a>
+    </div>
+  </nav>
 
-  <!-- Biography Section -->
-  <section id="biography">
-    <div id="longBiography">Loading long biography...</div>
+  <!-- Hero -->
+  <section class="bio-hero">
+    <div class="bio-hero-content">
+      <h1>The Story of Oscar Castellino</h1>
+      <p>From the streets of Mumbai to the stages of the Royal Opera House — an extraordinary journey of voice, passion, and purpose</p>
+    </div>
+  </section>
+
+  <!-- Biography Content -->
+  <section class="bio-content">
+    <a href="index.html" class="back-link">← Back to Home</a>
+    
+    <div class="bio-intro">
+      <img src="pictures/Oscar bowtie walking in Highbury.jpg" alt="Oscar Castellino">
+      <div class="bio-intro-text">
+        <h2>Oscar Dom Victor Castellino</h2>
+        <p><strong>Born:</strong> 8th May 1986, Santa Cruz West, Mumbai — in a car on the way to the hospital on Swami Vivekananda Road</p>
+        <p>Oscar Castellino is an international baritone, ensemble singer at the Royal Opera House, and composer of the Mars anthem "Rise to Mars". His journey from software engineer to opera singer began when Patricia Rozario discovered his extraordinary talent during her concert tour of India.</p>
+        <p>Today, Oscar has performed over 30 operatic roles across the UK, India, and beyond. He made his solo debut at Welsh National Opera as George Benton in <em>Dead Man Walking</em>, and The Times UK described his lead performance as James Meredith in <em>Kommilitonen!</em> as "a highlight."</p>
+      </div>
+    </div>
+    
+    <div class="bio-quote">
+      <blockquote>"Mesmerising as Meredith, has a commanding stage presence."</blockquote>
+      <cite>— Morning Star</cite>
+    </div>
+    
+    <div class="bio-section">
+      <h3>The Santa Cruz Connection</h3>
+      <p>Oscar's father, Edmund Castellino (1940–2011), moved to Santa Cruz from Ajmer to join the State Bank of India in 1969. The family became part of Sacred Heart Parish, where Oscar's musical journey began.</p>
+      <p>"The Santa Cruz music scene is very vibrant," Oscar recalls. "When attending church, I would hear wonderful singers. One I remember in particular was Gus D'Lima, who had a fabulous tenor voice. That made a lasting impact on me."</p>
+      <p>Santa Cruz was also home to Patricia Rozario, whom Oscar's family always looked up to. It was she who would later hear his voice and encourage him to pursue opera in London. Oscar also sang in the Sacred Heart Choir with Father Aniceto Nazareth — a composer whose hymns are sung worldwide — and with Mimosa Almeida Pinto for Christmas masses attended by large congregations.</p>
+      <p>Later, Oscar joined the Stop Gaps Choral Ensemble under Alfred D'Souza in Bandra, which enhanced his performance skills and stagecraft.</p>
+    </div>
+    
+    <div class="bio-section">
+      <h3>The Discovery</h3>
+      <p>Oscar studied physics at St. Xavier's College, Mumbai, and worked as an analytical software programmer. His life took a dramatic turn when renowned soprano Patricia Rozario heard him sing during her initiative "Giving Voice to India" in 2010. He received his first vocal lesson at the age of 23.</p>
+      <p>Oscar then worked with famed baritone Tom Krause and world-renowned pianist Norman Shetler at a masterclass in Salzburg. Both were keen that he pursue a career in singing. Guided by Rozario, he auditioned successfully for the prestigious Royal College of Music, London.</p>
+      <p>His father passed away in April 2011, just before Oscar left for London — but Edmund knew his son had been admitted to the Royal College of Music. "He was very keen on my opera singing and would play Pavarotti's sacred recordings like Panis Angelicus, hoping one day we could sing it together. It meant everything to me that he knew I was moving to London to study music before his death."</p>
+    </div>
+    
+    <div class="bio-quote">
+      <blockquote>"Grit and determination"</blockquote>
+      <cite>— The Telegraph, on Oscar's performance at the Queen's Diamond Jubilee</cite>
+    </div>
+    
+    <div class="bio-section">
+      <h3>Career Highlights</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2012</div>
+          <div class="timeline-title">Queen's Diamond Jubilee at the River Thames</div>
+          <div class="timeline-desc">Selected to sing for Queen Elizabeth II. The BBC called him one of the "soaked singers" acclaimed for their "grit and determination" (The Telegraph) when singing in harsh weather conditions.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2013</div>
+          <div class="timeline-title">London Roman Amphitheatre & BBC Radio 3</div>
+          <div class="timeline-desc">Acted and sang in BBC Radio 3 presenter Iain Burnside's <em>Journeying Boys</em>. Performed in <em>Medea</em>, the first play in 1,500 years at the recently discovered London Roman Amphitheatre.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-title">World's First Urdu Opera</div>
+          <div class="timeline-desc">Played the lead role of Mahival in <em>Sohini and Mahival</em>, an Urdu opera at London's Southbank Centre. Commissioned "The Little Big Man" song cycle based on Tagore poetry by award-winning composer Bertram Wee.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-title">Welsh National Opera Youth — Kommilitonen!</div>
+          <div class="timeline-desc">Played the lead role of James Meredith in Peter Maxwell Davies's <em>Kommilitonen!</em>. The Times UK called it "a highlight" and the Morning Star praised him as "mesmerising... with a commanding stage presence."</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2017</div>
+          <div class="timeline-title">"Rise to Mars" — Mars Anthem</div>
+          <div class="timeline-desc">Dr. Robert Zubrin, President of the Mars Society, suggested Oscar write an anthem for Mars. His composition "Rise to Mars" was given official status as the Mars Anthem by the International Mars Society. Premiered at the International Mars Conference in California.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020+</div>
+          <div class="timeline-title">Royal Opera House & Welsh National Opera</div>
+          <div class="timeline-desc">Joined the ensemble at the Royal Opera House. Recent productions include <em>Aida</em>, <em>Eugene Onegin</em>, and <em>Fidelio</em>. Made solo debut at Welsh National Opera as George Benton in <em>Dead Man Walking</em>.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024-2025</div>
+          <div class="timeline-title">Concerto de Natal & Goan Heritage</div>
+          <div class="timeline-desc">Launched "Concerto de Natal" in collaboration with Museum of Goa, featuring new compositions to poems by Manohar Rai Sardessai and grandfather Gabriel Pais. Founded "Oscar Castellino & The Timemakers" ensemble.</div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+    
+    <div class="bio-section">
+      <h3>Opera Roles</h3>
+      <p>Oscar has performed over 30 operatic roles across three continents. Notable roles include:</p>
+      <ul style="color: var(--text-muted); line-height: 2; columns: 2; column-gap: 2rem;">
+        <li><strong>George Benton</strong> — <em>Dead Man Walking</em> (Welsh National Opera, Solo Debut)</li>
+        <li><strong>James Meredith</strong> — <em>Kommilitonen!</em> (Welsh National Opera Youth)</li>
+        <li><strong>Enrico</strong> — <em>Lucia di Lammermoor</em> (Barefoot Opera)</li>
+        <li><strong>Belcore</strong> — <em>L'Elisir d'Amore</em> (Barefoot Opera)</li>
+        <li><strong>Dancairo</strong> — <em>Carmen</em> (Opera at Bearwood / Barefoot Opera)</li>
+        <li><strong>Mercutio</strong> — <em>Romeo and Juliet</em> (Opera at Bearwood)</li>
+        <li><strong>Aeneas</strong> — <em>Dido and Aeneas</em> (India Tour)</li>
+        <li><strong>Mahival</strong> — <em>Sohini and Mahival</em> (Urdu Opera, Southbank Centre)</li>
+        <li><strong>Niladri</strong> — <em>Agnivarsha</em> (Vanraj Bhatia)</li>
+        <li><strong>Pluto</strong> — <em>Orpheus in the Underworld</em></li>
+        <li><strong>Djami</strong> — <em>Journeying Boys</em> (Iain Burnside)</li>
+      </ul>
+    </div>
+    
+    <div class="bio-gallery">
+      <img src="pictures/Oscar Grand arm stretched out at Bradford Opera.jpg" alt="Oscar at Bradford Opera" loading="lazy">
+      <img src="pictures/Oscar Leeds leader festival powerful singing side view.jpg" alt="Oscar at Leeds Lieder Festival" loading="lazy">
+      <img src="pictures/Oscar smiling hands stretched out at Pegasus Christmas concert.JPG" alt="Oscar at Pegasus Concert" loading="lazy">
+    </div>
+    
+    <div class="bio-section">
+      <h3>A Voice for Goa — Konkani Heritage</h3>
+      <p>Goan Konkani and Portuguese music was part of Oscar's upbringing. His grandfather, Gabriel Pais (1919–2004) from Curtorim — grandson of a Mestri — introduced him to songs like "Encosta Tua Cabecinha", "Cadiza Za", and "Tambde Roza", and sang Konkani and Portuguese lullabies.</p>
+      <p>Oscar's first experience singing in Konkani was at the Commonwealth Christmas Concert in London in 2020. The organizers suggested he sing something from his culture, and he performed "Mari Matek Ballok Zala" by Manohar Rai Sardessai. Conductor Carlo Rizzi noted that "the Konkani language brought out something refreshing in his voice."</p>
+      <p>In 2025, Oscar unearthed writings by his grandfather Gabriel Pais in Portuguese and Konkani and adapted them to music. He also received poems from Manohar Rai Sardessai's son, Sunil Sardessai. Working with Professor Umesh Manohar Sardessai on pronunciation and delivery, Oscar created the "Concerto de Natal" with the Museum of Goa and founded "Oscar Castellino & The Timemakers" ensemble featuring Jason Quadros (piano), Chelsea D'Silva (vocals), Nahil Flores (ghumot), and Senon D'Souza (violin).</p>
+      <p>"I love when my performances resonate with people, bringing out memories and emotions or just entertaining them thoroughly... The hope is this music revisits Goan homes across the globe in a post-dinner sing along with friends and family."</p>
+    </div>
+    
+
+    
+    <div class="bio-section">
+      <h3>Education & Awards</h3>
+      <ul style="color: var(--text-muted); line-height: 2;">
+        <li><strong>Royal Welsh Conservatoire</strong> — Christopher Ball Welsh National Opera Scholarship (Adrian Thompson, Donald Maxwell)</li>
+        <li><strong>Royal College of Music, London</strong> — Studied with Patricia Rozario. Recipient of Blair Wilson Award, Martin Harris Award, Lee Abbey Award</li>
+        <li><strong>St. Xavier's College, Mumbai</strong> — Physics degree</li>
+        <li><strong>St. George's College, Mussoorie</strong> — Secondary education</li>
+      </ul>
+      <p style="margin-top: 1.5rem; color: var(--text-muted);">Oscar's training has been generously supported by Lee Abbey London, the Clive Richards Foundation, the Tungare Manohar Family Foundation, Godrej, the Navajbai Ratan Tata Trust, and Sir Ratan Tata Trust.</p>
+    </div>
+    
+    <div class="bio-section">
+      <h3>Beyond Music</h3>
+      <p style="color: var(--text-muted);">Oscar's interests include portrait drawing, art photography, long distance running, cooking dosas, and making chai. As he wrote in an early biography: "He loves to make and drink volumes of chai everyday."</p>
+    </div>
+    
+    <div class="bio-section">
+      <h3>Looking Forward</h3>
+      <p>Today, Oscar continues to perform internationally while nurturing the next generation of artists and maintaining his deep connection to both his operatic and Goan musical roots. Whether on the grand stages of European opera houses or intimate venues celebrating Goan culture, his voice continues to bridge worlds and touch hearts.</p>
+    </div>
+    
+    <div class="cta-box">
+      <h3>Book Oscar for Your Event</h3>
+      <p>From opera galas to intimate cultural evenings, Oscar brings world-class performance to every occasion.</p>
+      <a href="mailto:voice@oscarcastellino.com?subject=Booking%20Enquiry" class="btn btn-primary">Get in Touch</a>
+      <a href="index.html#events" class="btn btn-outline">View Upcoming Events</a>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.0</p>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Oscar Castellino</h3>
+        <p>International Opera Singer & Baritone</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Oscar Castellino. All rights reserved.</p>
+    </div>
   </footer>
-
-  <script>
-    // Load data.json to find the longBiography path (text file) and fullBiographyPage
-    fetch('data.json')
-      .then(response => {
-        if (!response.ok) { throw new Error('Network response was not ok'); }
-        return response.json();
-      })
-      .then(data => {
-        document.title = data.title + " - Biography";
-        document.getElementById('title').innerText = data.title;
-        document.getElementById('tagline').innerText = data.tagline || "";
-
-        const longPath = data.longBiography || 'biographies/long.txt';
-        const fullPage = data.fullBiographyPage || 'full_biography.html';
-
-        // Robust fetch with small fallbacks and cache-busting retry for mobile browsers
-        function fetchWithRetry(path, attempts = 2) {
-          // Try original path, then prefixed with ./, then try with cache-bust timestamp
-          const tryPaths = [path, './' + path, path + '?_=' + Date.now()];
-          let idx = 0;
-          function attempt() {
-            const p = tryPaths[idx] || (path + '?_=' + Date.now());
-            return fetch(p).then(r => {
-              if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + p);
-              return r.text();
-            }).catch(err => {
-              idx++;
-              if (idx < tryPaths.length) return attempt();
-              throw err;
-            });
-          }
-          return attempt();
-        }
-
-        fetchWithRetry(longPath)
-          .then(text => {
-            const container = document.getElementById('longBiography');
-            container.innerHTML = '';
-
-            // Split into blocks by blank lines and render inline elements in order
-            const blocks = text.split(/\r?\n\s*\r?\n/);
-            blocks.forEach(block => {
-              const trimmed = block.trim();
-              if (!trimmed) return;
-
-              // Detect YouTube links on this block (single or comma-separated)
-              const parts = trimmed.split(',').map(p => p.trim()).filter(Boolean);
-              const ytIds = [];
-              parts.forEach(p => {
-                const m = p.match(/youtu\.be\/([A-Za-z0-9_-]{6,})/i) || p.match(/v=([A-Za-z0-9_-]{6,})/i);
-                if (m) ytIds.push(m[1]);
-              });
-              if (ytIds.length === 1) {
-                const iframe = document.createElement('iframe');
-                iframe.width = '560';
-                iframe.height = '315';
-                iframe.src = `https://www.youtube.com/embed/${ytIds[0]}`;
-                iframe.frameBorder = '0';
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                iframe.allowFullscreen = true;
-                iframe.style.maxWidth = '100%';
-                iframe.style.margin = '0.5rem 0';
-                container.appendChild(iframe);
-                return;
-              } else if (ytIds.length > 1) {
-                const carousel = document.createElement('div');
-                carousel.className = 'yt-carousel';
-                carousel.style.position = 'relative';
-                carousel.style.maxWidth = '100%';
-                carousel.style.margin = '0.5rem 0';
-
-                ytIds.forEach((id, idx) => {
-                  const iframe = document.createElement('iframe');
-                  iframe.src = `https://www.youtube.com/embed/${id}`;
-                  iframe.frameBorder = '0';
-                  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                  iframe.allowFullscreen = true;
-                  iframe.style.width = '100%';
-                  iframe.style.height = '315px';
-                  iframe.style.display = idx === 0 ? 'block' : 'none';
-                  iframe.dataset.index = idx;
-                  carousel.appendChild(iframe);
-                });
-
-                const prev = document.createElement('button');
-                const next = document.createElement('button');
-                // Use more visible symbols
-                prev.textContent = '\u25C0'; // ◀
-                next.textContent = '\u25B6'; // ▶
-                prev.className = next.className = 'carousel-btn';
-                // Styling for visibility
-                [prev, next].forEach(btn => {
-                  btn.style.position = 'absolute';
-                  btn.style.top = '50%';
-                  btn.style.transform = 'translateY(-50%)';
-                  btn.style.background = 'rgba(0,0,0,0.6)';
-                  btn.style.color = '#fff';
-                  btn.style.border = 'none';
-                  btn.style.width = '40px';
-                  btn.style.height = '40px';
-                  btn.style.borderRadius = '20px';
-                  btn.style.cursor = 'pointer';
-                  btn.style.display = 'flex';
-                  btn.style.alignItems = 'center';
-                  btn.style.justifyContent = 'center';
-                  btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
-                  btn.style.opacity = '0.95';
-                });
-                prev.style.left = '10px';
-                next.style.right = '10px';
-                prev.onclick = () => switchYtSlide(carousel, -1);
-                next.onclick = () => switchYtSlide(carousel, 1);
-                carousel.appendChild(prev);
-                carousel.appendChild(next);
-                // Auto-advance a bit on load for discoverability
-                setTimeout(() => switchYtSlide(carousel, 1), 900);
-                container.appendChild(carousel);
-                return;
-              }
-
-              // If block is a single image filename (e.g., RogueResonance.jpg) or a markdown image, insert an image
-              const mdImgMatch = trimmed.match(/!\[.*?\]\((.*?)\)/);
-              if (/^[\w\-./]+\.(jpg|jpeg|png|gif|webp)$/i.test(trimmed)) {
-                const img = document.createElement('img');
-                img.src = 'pictures/' + trimmed;
-                img.alt = trimmed;
-                img.style.maxWidth = '100%';
-                img.style.display = 'block';
-                img.style.margin = '0.5rem 0';
-                container.appendChild(img);
-                return;
-              } else if (mdImgMatch) {
-                let src = mdImgMatch[1];
-                // If relative to pictures folder, keep as-is; if just filename, prefix pictures/
-                if (!src.match(/^https?:\/\//) && !src.startsWith('pictures/')) {
-                  src = 'pictures/' + src;
-                }
-                const img = document.createElement('img');
-                img.src = src;
-                img.alt = '';
-                img.style.maxWidth = '100%';
-                img.style.display = 'block';
-                img.style.margin = '0.5rem 0';
-                container.appendChild(img);
-                return;
-              }
-
-              // Otherwise, treat as paragraph text. Allow basic inline HTML tags.
-              const p = document.createElement('p');
-              p.innerHTML = trimmed.replace(/\n/g, '<br>');
-              container.appendChild(p);
-            });
-          })
-          .catch(err => {
-            console.error('Error loading long biography:', err);
-            const container = document.getElementById('longBiography');
-            container.innerHTML = '';
-            const msg = document.createElement('div');
-            msg.style.padding = '1rem';
-            msg.style.background = '#fff3f3';
-            msg.style.border = '1px solid #f1c0c0';
-            msg.style.borderRadius = '6px';
-            msg.innerHTML = `<strong>Long biography not available.</strong><div style="margin-top:0.5rem">This may be due to a mobile caching or network issue. Try refreshing or tap Retry below.</div>`;
-            const retry = document.createElement('button');
-            retry.textContent = 'Retry';
-            retry.style.marginTop = '0.75rem';
-            retry.style.padding = '8px 12px';
-            retry.style.background = '#007bff';
-            retry.style.color = '#fff';
-            retry.style.border = 'none';
-            retry.style.borderRadius = '6px';
-            retry.onclick = () => {
-              // cache-bust by adding timestamp
-              container.innerHTML = 'Retrying...';
-              fetchWithRetry(longPath, 1).then(t => {
-                // re-run the same rendering path by calling the success handler inline
-                // For simplicity, reload the page so the full script re-runs (safe for mobile)
-                location.reload(true);
-              }).catch(e => {
-                console.error('Retry failed', e);
-                container.innerHTML = 'Retry failed. Please refresh the page.';
-              });
-            };
-            container.appendChild(msg);
-            container.appendChild(retry);
-          });
-      })
-      .catch(error => {
-        console.error('Error loading JSON data:', error);
-        document.getElementById('title').innerText = "Opera Singer";
-        document.getElementById('longBiography').innerText = "Long biography not available.";
-      });
-
-      // Helper to switch slides inside a yt-carousel element
-      function switchYtSlide(carousel, dir) {
-        const iframes = Array.from(carousel.querySelectorAll('iframe'));
-        if (!iframes.length) return;
-        const currentIndex = iframes.findIndex(f => f.style.display !== 'none');
-        let next = (currentIndex + dir + iframes.length) % iframes.length;
-        iframes.forEach((f, i) => f.style.display = i === next ? 'block' : 'none');
-      }
-  </script>
 </body>
 </html>

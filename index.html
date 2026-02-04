@@ -1,234 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opera Singer Website</title>
-  <!-- Version: v2.5 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Oscar Castellino | International Opera Singer & Baritone</title>
+  <meta name="description" content="Oscar Castellino is an acclaimed international baritone, composer of the Mars anthem 'Rise to Mars', and regular performer with the Royal Opera House. Book for concerts, opera performances, and private events.">
+  <meta name="keywords" content="Oscar Castellino, opera singer, baritone, Royal Opera House, international singer, Goan music, Konkani songs, Rise to Mars, opera performances, classical music, concert booking">
+  <meta name="author" content="Oscar Castellino">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oscarcastellino.com/">
+  <meta property="og:title" content="Oscar Castellino | International Opera Singer & Baritone">
+  <meta property="og:description" content="Acclaimed international baritone and composer. Regular performer with the Royal Opera House. Book Oscar for your next concert or event.">
+  <meta property="og:image" content="https://oscarcastellino.com/pictures/Oscar%20Grand%20arm%20stretched%20out%20at%20Bradford%20Opera.jpg">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oscar Castellino | International Opera Singer">
+  <meta name="twitter:description" content="Acclaimed international baritone and composer. Book Oscar for your next concert or event.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://oscarcastellino.com/">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="pictures/OscarBlack1.png">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Additional overrides for the photo section */
-    #photo {
-      padding: 0; /* Remove padding so the image reaches the edges */
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Oscar Castellino",
+    "jobTitle": "Opera Singer, Baritone",
+    "description": "International opera singer and composer of Mars anthem Rise to Mars",
+    "url": "https://oscarcastellino.com",
+    "email": "voice@oscarcastellino.com",
+    "sameAs": [
+      "https://www.youtube.com/@operawalaofindia1166"
+    ],
+    "performerIn": {
+      "@type": "Organization",
+      "name": "Royal Opera House"
     }
-    #photo img {
-      display: block;
-      width: 100%;
-      margin: 0;
-      border-radius: 8px; /* Match the white container's rounded corners */
-    }
-    /* Event info styling */
-    .event-info {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.3rem;
-    }
-    .events-list li {
-      margin-bottom: 1rem;
-    }
-
-    .events-subheading {
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .events-list--past .event-item,
-    .event-item.past {
-      color: #666;
-      opacity: 0.75;
-    }
-
-    .event-item.past .event-sticker .month {
-      background: #555;
-    }
-
-    .event-item.past .event-sticker .day {
-      background: #f3f3f3;
-      color: #555;
-    }
-
-    .event-item.past a {
-      color: inherit;
-    }
-
-    /* Calendar-style sticker for event dates */
-    .event-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
-    }
-    .event-sticker {
-      width: 72px;
-      min-width: 72px;
-      text-align: center;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      overflow: hidden;
-      font-family: inherit;
-    }
-    .event-sticker .month {
-      background: #222; /* dark */
-      color: #fff;
-      padding: 6px 4px;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-    }
-    .event-sticker .day {
-      background: #fff; /* light */
-      color: #222;
-      padding: 10px 6px;
-      font-size: 1.6rem;
-      font-weight: 700;
-      line-height: 1;
-    }
-    .sticker-link {
-      display: inline-block;
-      width: 72px;
-      text-decoration: none;
-      color: inherit;
-    }
-    /* Inverse sticker for better contrast on small screens */
-    @media (max-width: 480px) {
-      .event-item { gap: 0.75rem; }
-      .event-sticker { width: 60px; min-width:60px; }
-      .event-sticker .day { font-size: 1.4rem; }
-    }
-    /* Carousel styles for featured videos */
-    .carousel {
-      position: relative;
-      max-width: 100%;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    .carousel iframe {
-      width: 100%;
-      height: 315px;
-      display: none; /* Hide all except active */
-      border-radius: 8px;
-    }
-    .carousel iframe.active {
-      display: block;
-    }
-    .carousel-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px;
-      gap: 10px;
-    }
-    .carousel-btn {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s;
-    }
-    .carousel-btn:hover {
-      background: #0056b3;
-    }
-    .carousel-dots {
-      display: flex;
-      gap: 5px;
-    }
-    .carousel-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ccc;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .carousel-dot.active {
-      background: #007bff;
-    }
-    @media (max-width: 768px) {
-      .carousel iframe {
-        height: 200px;
-      }
-    }
-  </style>
+  }
+  </script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <h1 id="title">Loading...</h1>
-      <p id="tagline"></p>
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Oscar <span>Castellino</span></a>
+      
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      
+      <a href="#contact" class="nav-cta">Book Oscar</a>
     </div>
-  </header>
+  </nav>
 
-  <!-- About Me Section (Title Removed) -->
-  <section id="about">
-    <p id="shortBiography">Loading biography...</p>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="pictures/Oscar Grand arm stretched out at Bradford Opera.jpg" alt="Oscar Castellino performing at Bradford Opera">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">International Baritone • Royal Opera House</p>
+      <h1 class="hero-title">Oscar Castellino</h1>
+      <p class="hero-subtitle">"Mesmerising... a commanding stage presence" — Morning Star</p>
+      <div class="hero-cta-group">
+        <a href="#events" class="btn btn-primary">Upcoming Events</a>
+        <a href="#contact" class="btn btn-outline">Book for Your Event</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Featured Photo Section -->
-  <section id="photo" class="photo">
-    <img id="featuredPhoto" src="#" alt="Featured Photo" />
+  <!-- Press Quotes Banner -->
+  <section class="press-quotes" style="background: linear-gradient(135deg, rgba(212,168,83,0.1), rgba(13,13,13,0.95)); padding: 2rem 0; border-bottom: 1px solid rgba(212,168,83,0.2);">
+    <div class="section-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; align-items: center;">
+      <div style="text-align: center;">
+        <p style="color: var(--text-light); font-style: italic; margin: 0;">"A highlight"</p>
+        <p style="color: var(--accent-gold); font-size: 0.85rem; margin: 0.3rem 0 0;">— The Times UK</p>
+      </div>
+      <div style="text-align: center;">
+        <p style="color: var(--text-light); font-style: italic; margin: 0;">"Grit and determination"</p>
+        <p style="color: var(--accent-gold); font-size: 0.85rem; margin: 0.3rem 0 0;">— The Telegraph</p>
+      </div>
+      <div style="text-align: center;">
+        <p style="color: var(--text-light); font-style: italic; margin: 0;">"Rising star in the operatic world"</p>
+        <p style="color: var(--accent-gold); font-size: 0.85rem; margin: 0.3rem 0 0;">— BBC News</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="section-container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="pictures/Oscar bowtie walking in Highbury.jpg" alt="Oscar Castellino portrait">
+        </div>
+        <div class="about-content">
+          <p class="eyebrow">About the Artist</p>
+          <h2>A Voice That Bridges Worlds</h2>
+          <p id="shortBiography">Oscar Dom Victor Castellino is an international baritone, ensemble singer at the Royal Opera House, and composer of the Mars anthem "Rise to Mars". Born in a car on a busy Mumbai street with roots tracing to Goa, Oscar's journey from software engineer to opera singer began when Patricia Rozario discovered his extraordinary talent.</p>
+          <p>Oscar made his solo debut at Welsh National Opera as George Benton in <em>Dead Man Walking</em>. The Times UK described his performance as James Meredith in <em>Kommilitonen!</em> as "a highlight", while the Morning Star praised him as "mesmerising... with a commanding stage presence."</p>
+          <p>A graduate of the Royal College of Music and recipient of the Christopher Ball Welsh National Opera Scholarship, Oscar was selected to sing for the late Queen's Diamond Jubilee at the River Thames in 2012.</p>
+          <p><a href="biography.html" class="btn btn-outline" style="margin-top: 1rem;">Read Full Biography →</a></p>
+          
+          <div class="about-credentials">
+            <div class="credential">
+              <span class="credential-number">30+</span>
+              <span class="credential-label">Opera Roles</span>
+            </div>
+            <div class="credential">
+              <span class="credential-number">15+</span>
+              <span class="credential-label">Years Performing</span>
+            </div>
+            <div class="credential">
+              <span class="credential-number">3</span>
+              <span class="credential-label">Continents</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery" id="gallery">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="eyebrow">Visual Journey</p>
+        <h2 class="section-title">Gallery</h2>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items will be dynamically populated -->
+      </div>
+    </div>
   </section>
 
   <!-- Events Section -->
-  <section id="events">
-    <h2>Events</h2>
-    <ul id="eventsList" class="events-list">
-      <!-- Events will be dynamically injected here -->
-    </ul>
-  </section>
-
-  <!-- Featured Video Section (Updated to Carousel) -->
-  <section id="video">
-    <div class="carousel" id="videoCarousel">
-      <!-- Videos will be dynamically inserted here -->
-    </div>
-    <div class="carousel-nav">
-      <button class="carousel-btn" id="prevBtn">&lt;</button>
-      <div class="carousel-dots" id="videoDots"></div>
-      <button class="carousel-btn" id="nextBtn">&gt;</button>
-    </div>
-    <div class="links">
-      <a id="youtubePlaylist" href="#" target="_blank">Watch More Videos</a>
+  <section class="events" id="events">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="eyebrow">Live Performances</p>
+        <h2 class="section-title">Upcoming Events</h2>
+      </div>
+      <div class="events-grid" id="eventsGrid">
+        <!-- Events will be dynamically populated -->
+      </div>
+      
+      <div class="section-header" style="margin-top: 4rem;" id="pastEventsHeader" hidden>
+        <p class="eyebrow">Previous Performances</p>
+        <h2 class="section-title">Past Events</h2>
+      </div>
+      <div class="events-grid" id="pastEventsGrid">
+        <!-- Past events will be dynamically populated -->
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section with Mailto Link -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>If you have any questions, please <a id="contactLink" href="#">email me</a>.</p>
+  <!-- Videos Section -->
+  <section class="videos" id="videos">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="eyebrow">Watch & Listen</p>
+        <h2 class="section-title">Featured Performances</h2>
+      </div>
+      <div class="carousel" id="videoCarousel">
+        <!-- Videos will be dynamically inserted -->
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="prevBtn">&#8592;</button>
+        <div class="carousel-dots" id="videoDots"></div>
+        <button class="carousel-btn" id="nextBtn">&#8594;</button>
+      </div>
+      <div class="text-center mt-md">
+        <a href="https://www.youtube.com/@operawalaofindia1166/featured" target="_blank" class="btn btn-outline">Watch More on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="eyebrow">Get in Touch</p>
+        <h2 class="section-title">Book Oscar for Your Event</h2>
+        <p class="text-center" style="max-width: 600px; margin: 0 auto;">Whether you're planning a concert, private event, wedding, or corporate function, Oscar brings world-class operatic excellence to every performance.</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>For bookings, collaborations, and enquiries, please reach out through any of the following channels:</p>
+          
+          <div class="contact-methods">
+            <a href="mailto:voice@oscarcastellino.com" class="contact-method">
+              <div class="contact-method-icon">✉</div>
+              <div class="contact-method-text">
+                <h4>Email</h4>
+                <p>voice@oscarcastellino.com</p>
+              </div>
+            </a>
+            
+            <a href="https://www.youtube.com/@operawalaofindia1166" target="_blank" class="contact-method">
+              <div class="contact-method-icon">▶</div>
+              <div class="contact-method-text">
+                <h4>YouTube</h4>
+                <p>@operawalaofindia1166</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <div class="contact-quick-actions">
+          <a href="mailto:voice@oscarcastellino.com?subject=Concert%20Booking%20Enquiry" class="quick-action">
+            <div class="quick-action-icon">🎭</div>
+            <span class="quick-action-text">Book for Concert</span>
+          </a>
+          <a href="mailto:voice@oscarcastellino.com?subject=Private%20Event%20Enquiry" class="quick-action">
+            <div class="quick-action-icon">🎩</div>
+            <span class="quick-action-text">Private Event</span>
+          </a>
+          <a href="mailto:voice@oscarcastellino.com?subject=Wedding%20Performance%20Enquiry" class="quick-action">
+            <div class="quick-action-icon">💒</div>
+            <span class="quick-action-text">Wedding</span>
+          </a>
+          <a href="mailto:voice@oscarcastellino.com?subject=Corporate%20Event%20Enquiry" class="quick-action">
+            <div class="quick-action-icon">🏢</div>
+            <span class="quick-action-text">Corporate Event</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.5</p>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Oscar Castellino</h3>
+        <p>International Opera Singer & Baritone<br>Composer of "Rise to Mars"<br>Regular performer with the Royal Opera House</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="biography.html">Full Biography</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:voice@oscarcastellino.com">Email Oscar</a></li>
+          <li><a href="#contact">Booking Enquiries</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/@operawalaofindia1166" target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Oscar Castellino. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@operawalaofindia1166" target="_blank" aria-label="YouTube">▶</a>
+        <a href="mailto:voice@oscarcastellino.com" aria-label="Email">✉</a>
+      </div>
+    </div>
   </footer>
 
+  <!-- Lightbox for Gallery -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</span>
+    <img src="" alt="" id="lightboxImage">
+    <span class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</span>
+  </div>
+
   <script>
-    // NEW: Function to convert Google Drive share link to direct image URL
-    function convertDriveUrl(url) {
-      // If it's already a direct URL (starts with uc?export), return as-is
-      if (url.includes('uc?export=view&id=')) {
-        return url;
+    // ============================================================
+    // NAVIGATION
+    // ============================================================
+    const nav = document.getElementById('mainNav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
       }
-      // Extract FILE_ID from share link like /file/d/FILE_ID/view?usp=sharing
-      const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
-      if (match) {
-        const fileId = match[1];
-        return `https://drive.google.com/uc?export=view&id=${fileId}`;
-      }
-      // Fallback for invalid URLs
-      console.error('Invalid Google Drive URL:', url);
-      return 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
+    });
+    
+    // Mobile toggle
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // ============================================================
+    // GALLERY DATA & RENDERING
+    // ============================================================
+    const galleryImages = [
+      { src: 'pictures/Oscar Grand arm stretched out at Bradford Opera.jpg', caption: 'Bradford Opera Performance', featured: true },
+      { src: 'pictures/Oscar Grant singing close-up at Concerto de Natal.jpg', caption: 'Concerto de Natal' },
+      { src: 'pictures/Oscar Leeds leader festival pensive look.jpg', caption: 'Leeds Lieder Festival' },
+      { src: 'pictures/Oscar closing eyes and looking up singing at Concerto de Natal.jpg', caption: 'Concerto de Natal' },
+      { src: 'pictures/Oscar Leeds leader festival powerful singing side view.jpg', caption: 'Leeds Lieder Festival' },
+      { src: 'pictures/Oscar smiling hands stretched out at Pegasus Christmas concert.JPG', caption: 'Pegasus Christmas Concert' },
+      { src: 'pictures/Oscar encouraging the audience at Concerto de Natal.jpg', caption: 'Concerto de Natal' },
+      { src: 'pictures/Oscar silhouette side view at Leeds lieder festival.jpg', caption: 'Leeds Lieder Festival', featured: true },
+      { src: 'pictures/Oscar powerful paws centred hand stretched up at Bradford Opera.jpg', caption: 'Bradford Opera' },
+      { src: 'pictures/Oscar Kommilitonen Welsh National Opera youth.jpg', caption: 'Welsh National Opera' },
+      { src: 'pictures/Oscar smiling looking sideways at Clissold Park.jpg', caption: 'Clissold Park' },
+      { src: 'pictures/OscarKonkaniPegasus.JPG', caption: 'Konkani Concert' },
+    ];
+
+    const galleryGrid = document.getElementById('galleryGrid');
+    let currentGalleryIndex = 0;
+
+    function renderGallery() {
+      galleryGrid.innerHTML = '';
+      galleryImages.forEach((img, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item' + (img.featured ? ' featured' : '');
+        item.innerHTML = `
+          <img src="${img.src}" alt="${img.caption}" loading="lazy">
+          <div class="gallery-caption">${img.caption}</div>
+        `;
+        item.addEventListener('click', () => openLightbox(index));
+        galleryGrid.appendChild(item);
+      });
     }
 
-    // Carousel functionality for videos
+    // ============================================================
+    // LIGHTBOX
+    // ============================================================
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+
+    function openLightbox(index) {
+      currentGalleryIndex = index;
+      lightboxImage.src = galleryImages[index].src;
+      lightboxImage.alt = galleryImages[index].caption;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(direction) {
+      currentGalleryIndex = (currentGalleryIndex + direction + galleryImages.length) % galleryImages.length;
+      lightboxImage.src = galleryImages[currentGalleryIndex].src;
+      lightboxImage.alt = galleryImages[currentGalleryIndex].caption;
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+    lightboxNext.addEventListener('click', () => navigateLightbox(1));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+
+    // ============================================================
+    // VIDEO CAROUSEL
+    // ============================================================
     function initCarousel(videos) {
       const carousel = document.getElementById('videoCarousel');
       const dotsContainer = document.getElementById('videoDots');
@@ -237,18 +422,19 @@
       let currentIndex = 0;
       let autoPlayInterval;
 
-      // Create iframes and dots
       videos.forEach((videoUrl, index) => {
         const iframe = document.createElement('iframe');
         iframe.src = videoUrl;
-        iframe.title = `Featured Video ${index + 1}`;
+        iframe.title = `Featured Performance ${index + 1}`;
         iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
+        if (index === 0) iframe.classList.add('active');
         carousel.appendChild(iframe);
 
         const dot = document.createElement('span');
-        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
-        dot.onclick = () => goToSlide(index);
+        dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToSlide(index));
         dotsContainer.appendChild(dot);
       });
 
@@ -267,285 +453,191 @@
       }
 
       function nextSlide() {
-        const next = (currentIndex + 1) % videos.length;
-        showSlide(next);
+        showSlide((currentIndex + 1) % videos.length);
       }
 
       function prevSlide() {
-        const prev = (currentIndex - 1 + videos.length) % videos.length;
-        showSlide(prev);
+        showSlide((currentIndex - 1 + videos.length) % videos.length);
       }
 
       function startAutoPlay() {
-        autoPlayInterval = setInterval(nextSlide, 10000); // 10 seconds
+        autoPlayInterval = setInterval(nextSlide, 10000);
       }
 
-      // Event listeners
-      nextBtn.onclick = nextSlide;
-      prevBtn.onclick = prevSlide;
+      nextBtn.addEventListener('click', () => { clearInterval(autoPlayInterval); nextSlide(); startAutoPlay(); });
+      prevBtn.addEventListener('click', () => { clearInterval(autoPlayInterval); prevSlide(); startAutoPlay(); });
       carousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
       carousel.addEventListener('mouseleave', startAutoPlay);
 
-      // Initial setup
-      showSlide(0);
       startAutoPlay();
     }
 
+    // ============================================================
+    // EVENT DATE PARSING & RENDERING
+    // ============================================================
+    const monthLabels = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    const monthMap = { jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11 };
+
+    function parseEventDate(dateStr) {
+      if (!dateStr) return null;
+      const clean = dateStr.replace(/(\d+)(st|nd|rd|th)/gi, '$1').replace(/\s+/g, ' ').trim();
+      
+      // Try standard Date parsing
+      const direct = new Date(clean);
+      if (!isNaN(direct.getTime())) {
+        return new Date(direct.getFullYear(), direct.getMonth(), direct.getDate());
+      }
+      
+      // Try Month Day Year pattern
+      const mdy = clean.match(/(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[,\s]+(\d{1,2})(?:[,\s]+(\d{4}))?/i);
+      if (mdy) {
+        const month = monthMap[mdy[1].slice(0,3).toLowerCase()];
+        const day = parseInt(mdy[2], 10);
+        const year = mdy[3] ? parseInt(mdy[3], 10) : new Date().getFullYear();
+        return new Date(year, month, day);
+      }
+      
+      // Try Day Month Year pattern
+      const dmy = clean.match(/(\d{1,2})[,\s]+(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[,\s]+(\d{4})/i);
+      if (dmy) {
+        const day = parseInt(dmy[1], 10);
+        const month = monthMap[dmy[2].slice(0,3).toLowerCase()];
+        const year = parseInt(dmy[3], 10);
+        return new Date(year, month, day);
+      }
+      
+      return null;
+    }
+
+    function renderEventCard(event, isPast = false) {
+      const parsedDate = parseEventDate(event.date);
+      const month = parsedDate ? monthLabels[parsedDate.getMonth()] : '—';
+      const day = parsedDate ? parsedDate.getDate() : '—';
+      const year = parsedDate ? parsedDate.getFullYear() : '';
+      
+      // Determine link - prefer eventPage, then eventId for event.html, then bookingLink
+      let eventLink = '';
+      if (event.eventPage) {
+        eventLink = event.eventPage;
+      } else if (event.eventId) {
+        eventLink = `event.html?id=${event.eventId}`;
+      } else if (event.bookingLink) {
+        eventLink = event.bookingLink;
+      }
+      
+      const card = document.createElement('div');
+      card.className = 'event-card' + (isPast ? ' past' : '');
+      
+      card.innerHTML = `
+        <div class="event-date">
+          <div class="event-date-month">${month}</div>
+          <div class="event-date-day">${day}</div>
+          <div class="event-date-year">${year}</div>
+        </div>
+        <div class="event-content">
+          <h3>${eventLink ? `<a href="${eventLink}"${event.bookingLink && !event.eventPage && !event.eventId ? ' target="_blank"' : ''}>${event.event}</a>` : event.event}</h3>
+          <div class="event-meta">
+            ${event.venue ? `<span>📍 ${event.venue}</span>` : ''}
+            ${event.time ? `<span>🕐 ${event.time.split('\n')[0]}</span>` : ''}
+          </div>
+          ${event.information ? `<p class="event-description">${event.information.split('\n')[0].substring(0, 150)}${event.information.length > 150 ? '...' : ''}</p>` : ''}
+        </div>
+        <div class="event-cta">
+          ${eventLink ? `<a href="${eventLink}" class="btn btn-${isPast ? 'outline' : 'primary'}"${event.bookingLink && !event.eventPage && !event.eventId ? ' target="_blank"' : ''}>${isPast ? 'View' : (event.tickets && event.tickets.link ? 'Get Tickets' : 'Learn More')}</a>` : ''}
+        </div>
+      `;
+      
+      return card;
+    }
+
+    // ============================================================
+    // LOAD DATA
+    // ============================================================
     fetch('data.json')
-      .then(response => {
-        if (!response.ok) { 
-          throw new Error('Network response was not ok: ' + response.statusText); 
-        }
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => {
-        // Header
-        document.title = data.title;
-        document.getElementById('title').innerText = data.title;
-        document.getElementById('tagline').innerText = data.tagline || '';
-
-        // About Me Section: Append a "more>" link that goes to biography.html
-        document.getElementById('shortBiography').innerHTML = data.shortBiography +
-          ' <a id="biographyLink" href="biography.html" target="_self">more&gt;</a>';
-
-        // Featured Photo Section - UPDATED: Auto-convert Drive share link to direct URL
-        const featuredImg = document.getElementById('featuredPhoto');
-        featuredImg.src = convertDriveUrl(data.featuredPhoto);
-        // Optional: Add error handling for loading failures
-        featuredImg.onerror = function() {
-          this.src = 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
-        };
-
-        // Events Section - UPDATED: split into upcoming and past, sorted by date
-        const eventsSection = document.getElementById('events');
-        const eventsList = document.getElementById('eventsList');
-        eventsList.innerHTML = '';
-
-        const monthLabels = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-        const monthMap = {
-          jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
-          jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
-        };
-
-        function sanitizeDateString(str) {
-          return str ? str.replace(/(\d+)(st|nd|rd|th)/gi, '$1').replace(/\s+/g, ' ').trim() : '';
+        // Update page title and bio if available
+        if (data.shortBiography) {
+          document.getElementById('shortBiography').textContent = data.shortBiography;
         }
-
-        function extractEventDate(event) {
-          if (!event) return null;
-          const candidates = [];
-          if (event.date) candidates.push(event.date);
-          if (event.event) candidates.push(event.event);
-          if (event.time) candidates.push(event.time);
-
-          for (const candidateRaw of candidates) {
-            if (!candidateRaw) continue;
-            const candidate = sanitizeDateString(candidateRaw);
-            if (!candidate) continue;
-
-            const direct = new Date(candidate);
-            if (!isNaN(direct.getTime())) {
-              return new Date(direct.getFullYear(), direct.getMonth(), direct.getDate());
-            }
-
-            const monthDayYearMatch = candidate.match(/(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.,-]*(\d{1,2})(?:\D*(\d{4}))?/i);
-            if (monthDayYearMatch) {
-              const monthKey = monthDayYearMatch[1].slice(0,3).toLowerCase();
-              const day = parseInt(monthDayYearMatch[2], 10);
-              const year = monthDayYearMatch[3] ? parseInt(monthDayYearMatch[3], 10) : null;
-              if (!Number.isNaN(day) && year && Object.prototype.hasOwnProperty.call(monthMap, monthKey)) {
-                return new Date(year, monthMap[monthKey], day);
-              }
-            }
-
-            const dayMonthYearMatch = candidate.match(/(\d{1,2})[\s.,-]*(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)(?:\D*(\d{4}))?/i);
-            if (dayMonthYearMatch) {
-              const day = parseInt(dayMonthYearMatch[1], 10);
-              const monthKey = dayMonthYearMatch[2].slice(0,3).toLowerCase();
-              const year = dayMonthYearMatch[3] ? parseInt(dayMonthYearMatch[3], 10) : null;
-              if (!Number.isNaN(day) && year && Object.prototype.hasOwnProperty.call(monthMap, monthKey)) {
-                return new Date(year, monthMap[monthKey], day);
-              }
-            }
-          }
-          return null;
+        
+        // Render gallery
+        renderGallery();
+        
+        // Render videos
+        if (data.featuredVideos && data.featuredVideos.length > 0) {
+          initCarousel(data.featuredVideos);
         }
-
-        // Render events with a calendar-style sticker (month/day) at left and title + short info on right.
-        function parseDateSticker(event, parsedDate) {
-          if (!event) return null;
-          if (parsedDate instanceof Date && !Number.isNaN(parsedDate.getTime())) {
-            return { month: monthLabels[parsedDate.getMonth()], day: parsedDate.getDate() };
-          }
-          // Fallback: try to extract from the event title (e.g., "NOV 28 ..." or "Nov 28")
-          const m = (event.event || '').match(/^(?:\s*)(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*(\d{1,2})/i);
-          if (m) {
-            return { month: m[1].slice(0,3).toUpperCase(), day: parseInt(m[2],10) };
-          }
-          // No date available
-          return null;
-        }
-
-        function stripLeadingDateTokens(title) {
-          if (!title) return title;
-          // Remove leading month/day tokens like "NOV 28", "Nov 28", "November 28" or "NOV 28:"
-          return title.replace(/^(?:\s*)(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*\d{1,2}[:,]?\s*/i, '').trim();
-        }
-
-        function createEventListItem(event, parsedDate, isPast = false) {
-          const li = document.createElement('li');
-          li.className = 'event-item';
-          if (isPast) {
-            li.classList.add('past');
-          }
-
-          // Sticker
-          const sticker = parseDateSticker(event, parsedDate);
-          if (sticker) {
-            const stickerDiv = document.createElement('div');
-            stickerDiv.className = 'event-sticker';
-            stickerDiv.innerHTML = `<div class="month">${sticker.month}</div><div class="day">${sticker.day}</div>`;
-            // Make sticker clickable: link to bookingLink (external) or event landing page (internal)
-            let stickerWrapper = null;
-            if (event.bookingLink) {
-              stickerWrapper = document.createElement('a');
-              stickerWrapper.href = event.bookingLink.startsWith('http') ? event.bookingLink : 'https://' + event.bookingLink;
-              stickerWrapper.target = '_blank';
-            } else if (event.eventId) {
-              stickerWrapper = document.createElement('a');
-              stickerWrapper.href = `event.html?id=${event.eventId}`;
-              stickerWrapper.target = '_self';
-            }
-            if (stickerWrapper) {
-              stickerWrapper.className = 'sticker-link';
-              const cleanTitle = stripLeadingDateTokens(event.event || '').trim() || 'Open event';
-              stickerWrapper.setAttribute('aria-label', `Open ${cleanTitle}`);
-              stickerWrapper.appendChild(stickerDiv);
-              li.appendChild(stickerWrapper);
-            } else {
-              li.appendChild(stickerDiv);
-            }
-          } else {
-            const spacer = document.createElement('div');
-            spacer.style.width = '72px';
-            li.appendChild(spacer);
-          }
-
-          // Content container
-          const content = document.createElement('div');
-          content.style.flex = '1';
-
-          // Title (strip any leading date tokens if present in the event title)
-          const cleanTitle = stripLeadingDateTokens(event.event || 'Untitled Event');
-          let titleElement;
-          if (!event.bookingLink && event.eventId) {
-            const a = document.createElement('a');
-            a.href = `event.html?id=${event.eventId}`;
-            a.target = "_self";
-            a.innerText = cleanTitle;
-            titleElement = a;
-          } else if (event.bookingLink) {
-            const a = document.createElement('a');
-            a.href = event.bookingLink.startsWith('http') ? event.bookingLink : 'https://' + event.bookingLink;
-            a.target = "_blank";
-            a.innerText = cleanTitle;
-            titleElement = a;
-          } else {
-            const span = document.createElement('span');
-            span.innerText = cleanTitle;
-            titleElement = span;
-          }
-          titleElement.style.fontWeight = '700';
-          content.appendChild(titleElement);
-
-          // Short info/description next to title
-          if (event.information) {
-            const info = document.createElement('div');
-            info.className = 'event-info';
-            info.innerText = event.information;
-            content.appendChild(info);
-          }
-
-          li.appendChild(content);
-          return li;
-        }
-
+        
+        // Process events
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-
-        const eventsWithMeta = data.upcomingEvents.map(event => {
-          const parsedDate = extractEventDate(event);
-          return { ...event, parsedDate };
-        });
-
+        
         const upcomingEvents = [];
         const pastEvents = [];
-
-        eventsWithMeta.forEach(event => {
-          if (event.parsedDate && event.parsedDate < today) {
-            pastEvents.push(event);
+        
+        (data.upcomingEvents || []).forEach(event => {
+          const parsedDate = parseEventDate(event.date);
+          if (parsedDate && parsedDate < today) {
+            pastEvents.push({ ...event, parsedDate });
           } else {
-            upcomingEvents.push(event);
+            upcomingEvents.push({ ...event, parsedDate });
           }
         });
-
+        
+        // Sort upcoming by date ascending
         upcomingEvents.sort((a, b) => {
           if (a.parsedDate && b.parsedDate) return a.parsedDate - b.parsedDate;
           if (a.parsedDate) return -1;
           if (b.parsedDate) return 1;
           return 0;
         });
-
+        
+        // Sort past by date descending
         pastEvents.sort((a, b) => {
           if (a.parsedDate && b.parsedDate) return b.parsedDate - a.parsedDate;
           if (a.parsedDate) return -1;
           if (b.parsedDate) return 1;
           return 0;
         });
-
+        
+        // Render upcoming events
+        const eventsGrid = document.getElementById('eventsGrid');
         if (upcomingEvents.length === 0) {
-          const emptyState = document.createElement('li');
-          emptyState.className = 'event-item';
-          emptyState.innerText = 'More events coming soon.';
-          eventsList.appendChild(emptyState);
+          eventsGrid.innerHTML = '<p class="text-center text-muted">New events coming soon. Check back later!</p>';
         } else {
           upcomingEvents.forEach(event => {
-            eventsList.appendChild(createEventListItem(event, event.parsedDate, false));
+            eventsGrid.appendChild(renderEventCard(event, false));
           });
         }
-
+        
+        // Render past events (limit to 5)
+        const pastEventsGrid = document.getElementById('pastEventsGrid');
+        const pastEventsHeader = document.getElementById('pastEventsHeader');
         if (pastEvents.length > 0) {
-          const pastHeading = document.createElement('h3');
-          pastHeading.className = 'events-subheading';
-          pastHeading.innerText = 'Past Events';
-          eventsSection.appendChild(pastHeading);
-
-          const pastList = document.createElement('ul');
-          pastList.className = 'events-list events-list--past';
-
-          pastEvents.forEach(event => {
-            pastList.appendChild(createEventListItem(event, event.parsedDate, true));
+          pastEventsHeader.hidden = false;
+          pastEvents.slice(0, 5).forEach(event => {
+            pastEventsGrid.appendChild(renderEventCard(event, true));
           });
-
-          eventsSection.appendChild(pastList);
         }
-
-        // Featured Video Section - UPDATED: Carousel from featuredVideos array
-        if (data.featuredVideos && data.featuredVideos.length > 0) {
-          initCarousel(data.featuredVideos);
-        }
-
-        // Watch More Videos Link
-        document.getElementById('youtubePlaylist').href = data.youtubePlaylist;
-
-        // Contact Section: Set mailto link
-        document.getElementById('contactLink').href = "mailto:" + data.contactEmail;
       })
       .catch(error => {
-        console.error('Error loading JSON data:', error);
-        document.getElementById('title').innerText = "Opera Singer";
-        document.getElementById('shortBiography').innerHTML = "Short biography not available.";
+        console.error('Error loading data:', error);
       });
+
+    // ============================================================
+    // SCROLL ANIMATIONS
+    // ============================================================
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animateElements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

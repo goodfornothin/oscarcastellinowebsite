@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Goan Interactions - Konkani Music Evening | Oscar Castellino | June 2026</title>
+  <meta name="description" content="Oscar Castellino presents Goan Interactions - an evening celebrating Goan heritage through traditional Konkani songs and music. June 20, 2026.">
+  <meta name="keywords" content="Oscar Castellino, Goan music, Konkani songs, Goa, cultural event, traditional music, Indian heritage">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="event">
+  <meta property="og:title" content="Goan Interactions | Oscar Castellino">
+  <meta property="og:description" content="An evening celebrating Goan heritage through traditional Konkani songs and music.">
+  <meta property="og:image" content="https://oscarcastellino.com/pictures/OscarKonkaniPegasus.JPG">
+  <meta property="og:url" content="https://oscarcastellino.com/events/goan-interactions-2026.html">
+  
+  <!-- Event Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Goan Interactions",
+    "startDate": "2026-06-20T19:00:00+01:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "TBA",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "London",
+        "addressCountry": "UK"
+      }
+    },
+    "performer": {
+      "@type": "Person",
+      "name": "Oscar Castellino"
+    },
+    "description": "An evening celebrating Goan heritage through traditional Konkani songs and music."
+  }
+  </script>
+  
+  <link rel="stylesheet" href="../style.css">
+  
+  <style>
+    .event-page-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, #1a1512 0%, #2a1a10 50%, #0d0d0d 100%);
+      overflow: hidden;
+    }
+    
+    .event-page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../pictures/OscarKonkaniPegasus.JPG') center/cover;
+      opacity: 0.25;
+      filter: blur(5px);
+    }
+    
+    .event-page-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 900px;
+    }
+    
+    .event-date-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(135deg, #c75b39, #e07b4f);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(199, 91, 57, 0.3);
+    }
+    
+    .event-date-badge .month {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .event-date-badge .day {
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+    
+    .event-date-badge .year {
+      font-size: 1rem;
+    }
+    
+    .event-page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-family: var(--font-heading);
+    }
+    
+    .event-page-subtitle {
+      font-size: 1.5rem;
+      color: #e07b4f;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    
+    .event-page-location {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    
+    .event-details {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .event-content h2 {
+      font-size: 2rem;
+      color: #e07b4f;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-heading);
+    }
+    
+    .event-content h3 {
+      font-size: 1.4rem;
+      color: var(--text-light);
+      margin: 2rem 0 1rem;
+      font-family: var(--font-heading);
+    }
+    
+    .event-content p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    .cultural-feature {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .cultural-card {
+      background: linear-gradient(135deg, rgba(199, 91, 57, 0.1), rgba(224, 123, 79, 0.05));
+      border: 1px solid rgba(224, 123, 79, 0.2);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .cultural-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(199, 91, 57, 0.2);
+    }
+    
+    .cultural-card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .cultural-card h4 {
+      color: #e07b4f;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+    
+    .cultural-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, rgba(199, 91, 57, 0.1), rgba(26, 21, 18, 0.9));
+      border: 1px solid rgba(224, 123, 79, 0.3);
+      border-radius: 1rem;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    .cta-section h3 {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section p {
+      margin-bottom: 2rem;
+    }
+    
+    .btn-goan {
+      background: linear-gradient(135deg, #c75b39, #e07b4f);
+      color: #fff;
+      border: none;
+    }
+    
+    .btn-goan:hover {
+      background: linear-gradient(135deg, #e07b4f, #c75b39);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(199, 91, 57, 0.3);
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #e07b4f;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: gap 0.3s ease;
+    }
+    
+    .back-link:hover {
+      gap: 0.8rem;
+    }
+    
+    .poster-container {
+      text-align: center;
+      margin: 3rem 0;
+    }
+    
+    .poster-container img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(224, 123, 79, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">Oscar <span>Castellino</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#gallery">Gallery</a></li>
+        <li><a href="../index.html#events">Events</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <a href="../index.html#contact" class="nav-cta">Book Oscar</a>
+    </div>
+  </nav>
+
+  <!-- Event Hero -->
+  <section class="event-page-hero">
+    <div class="event-page-hero-content">
+      <div class="event-date-badge">
+        <span class="month">June</span>
+        <span class="day">20</span>
+        <span class="year">2026</span>
+      </div>
+      <h1 class="event-page-title">Goan Interactions</h1>
+      <p class="event-page-subtitle">A Celebration of Konkani Music & Culture</p>
+      <p class="event-page-location">London, United Kingdom 🇬🇧</p>
+    </div>
+  </section>
+
+  <!-- Event Details -->
+  <section class="event-details">
+    <a href="../index.html#events" class="back-link">← Back to Events</a>
+    
+    <div class="event-content">
+      <h2>About This Event</h2>
+      
+      <p>Oscar Castellino brings his Goan heritage to life in this special evening celebrating the rich musical traditions of Goa through traditional Konkani songs, mandos, and dulpods.</p>
+      
+      <p>Born to a Goan family with roots tracing to the vibrant coastal villages of Goa, Oscar has made it his mission to preserve and share the beautiful musical heritage of his ancestors. This concert features beloved Konkani songs passed down through generations, performed with the passion and authenticity that only a true son of Goa can deliver.</p>
+      
+      <div class="cultural-feature">
+        <div class="cultural-card">
+          <div class="cultural-card-icon">🎶</div>
+          <h4>Traditional Mandos</h4>
+          <p>Classic Goan love songs with Portuguese-influenced melodies</p>
+        </div>
+        <div class="cultural-card">
+          <div class="cultural-card-icon">💃</div>
+          <h4>Dulpods</h4>
+          <p>Lively folk songs celebrating Goan life and festivals</p>
+        </div>
+        <div class="cultural-card">
+          <div class="cultural-card-icon">🌴</div>
+          <h4>Cultural Stories</h4>
+          <p>Tales and anecdotes from Goan history and tradition</p>
+        </div>
+      </div>
+      
+      <h3>What to Expect</h3>
+      
+      <p>This isn't just a concert—it's a cultural journey. Oscar weaves together music, storytelling, and personal anecdotes to create an immersive experience that transports audiences to the sun-drenched beaches and coconut groves of Goa.</p>
+      
+      <p>Whether you're part of the Goan diaspora longing for the sounds of home, or simply curious about this fascinating musical tradition, Goan Interactions promises an evening of joy, nostalgia, and cultural discovery.</p>
+      
+      <div class="poster-container">
+        <img src="../pictures/OscarKonkaniPegasus.JPG" alt="Goan Interactions Event Poster" loading="lazy">
+      </div>
+      
+      <div class="cta-section">
+        <h3>Stay Informed</h3>
+        <p>Venue and ticket details will be announced soon. Register your interest to be the first to know!</p>
+        <a href="mailto:voice@oscarcastellino.com?subject=Goan%20Interactions%20-%20Register%20Interest" class="btn btn-goan">Register Interest</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Oscar Castellino</h3>
+        <p>International Opera Singer & Baritone</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html#events">All Events</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Oscar Castellino. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
