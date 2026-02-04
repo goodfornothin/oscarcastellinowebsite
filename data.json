@@ -15,24 +15,39 @@
   "upcomingEvents": [
     {
       "event": "LISBON CONCERT Oscar Castellino | Voz de Ópera de Goa",
-      "information": "An evening where the grandeur of opera intertwines with the soul of Goa. Beloved operatic arias meet traditional Konkani and Goan-Portuguese songs.",
+      "information": "ENGLISH: Join acclaimed baritone Oscar Castellino and pianist Rodrigo Ayala for a concert that unites the grandeur of opera with the soul of Goa. Enjoy a unique program of beloved lyrical arias and traditional Luso-Goan and Konkani songs, creating a musical bridge between two cultures united by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.\nPORTUGUÊS: Junte-se ao aclamado barítono Oscar Castellino e ao pianista Rodrigo Ayala para um espetáculo que une a grandiosidade da ópera à alma de Goa. Para ouvir, um programa singular de árias líricas bem conhecidas do público e canções tradicionais luso-goesas e Konkani, criando uma ponte musical entre duas culturas unidas pela história. Dos palcos da Royal Opera House às margens do Mar Arábico, viva a experiência de uma voz que transporta as tradições líricas da Europa e o coração de Goa.",
       "eventId": "lisbon-fundacao-oriente-2026",
-      "date": "Sunday, March 8, 2026",
-      "time": "Time to be announced",
-      "venue": "Fundação Oriente",
-      "address": "Lisbon, Portugal",
-      "description": "Join acclaimed baritone Oscar Castellino for an evening where the grandeur of opera intertwines with the soul of Goa. This unique concert weaves together beloved operatic arias with traditional Konkani and Goan-Portuguese songs, creating a musical bridge between two cultures bound by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.",
+      "date": "Sunday, 8 March 2026",
+      "time": "18:00 (6pm)",
+      "venue": "Auditório Fundação Oriente",
+      "address": "Avenida Brasília, Doca de Alcântara (Norte) | 1350-352 Lisboa, Portugal",
+      "description": "ENGLISH: Oscar Castellino, baritone, and Rodrigo Ayala, piano.\nDuration: 90 minutes with a 10-minute interval.\nAudience: Ages 6 and up.\nCapacity: 355 seats.\nPrice: €15 (discounts available).\n\nPORTUGUÊS: Oscar Castellino, barítono, e Rodrigo Ayala, piano.\nDuração: 90 minutos com intervalo de 10 minutos.\nPúblico-alvo: M/6 anos.\nLotação: 355 lugares.\nPreço: €15 (descontos em vigor).",
       "photo": "OscarBlack1.png",
       "artists": [
-        "Oscar Castellino"
+        "Oscar Castellino (Baritone)",
+        "Rodrigo Ayala (Piano)"
       ],
-      "program": null,
+      "program": [
+        "Largo al factotum | Rossini",
+        "Deh Vieni Alla Finestra, Don Giovanni | Mozart",
+        "Claudia Mogachea | C. Alvares",
+        "Piano Solo",
+        "O Lisbona | Donizetti",
+        "Food is my Fantasy | Verdi, Kordo",
+        "Abá-Logum | Waldemar Henrique",
+        "Malaika | Adam Salim",
+        "Encosta tua Cabecinha | Paulo Borges",
+        "Piano Solo",
+        "Adeus Korcho Vellu Paulo | Torquato de Figueiredo",
+        "Cade Za Za | Traditional",
+        "Jinnen Maka Sogle Dile | Sardessai, Castellino"
+      ],
       "videos": [],
       "tickets": {
-        "price": "To be announced",
+        "price": "€15 (discounts available)",
         "link": "https://www.foriente.pt/detalhe.php?id=7279F145-FE79-4350-9567-DBA85BFC7140&area=espectaculos"
       },
-      "contactInfo": "For enquiries contact voice@oscarcastellino.com"
+      "contactInfo": "ENGLISH: For enquiries contact voice@oscarcastellino.com or info@foriente.pt.\nPORTUGUÊS: Para informações contacte voice@oscarcastellino.com ou info@foriente.pt."
     },
     {
       "event": "Concerto de Natal 2026",
