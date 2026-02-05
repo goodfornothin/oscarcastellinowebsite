@@ -512,8 +512,12 @@
     function renderEventCard(event, isPast = false) {
       const parsedDate = parseEventDate(event.date);
       const month = parsedDate ? monthLabels[parsedDate.getMonth()] : '—';
-      const day = parsedDate ? parsedDate.getDate() : '—';
+      let day = parsedDate ? parsedDate.getDate() : '—';
       const year = parsedDate ? parsedDate.getFullYear() : '';
+
+      if (event.eventId === 'concerto-de-natal-2026') {
+        day = '';
+      }
       
       // Determine link - prefer eventPage, then eventId for event.html, then bookingLink
       let eventLink = '';
