@@ -94,6 +94,13 @@ Go beyond the basics to ensure maximum visibility.
 
 ---
 
+## 🚀 DEPLOYMENT
+
+- **Static Site:** This is a static website hosted on GitHub Pages.
+- **Workflow:** Changes are only visible on the live site after they have been committed and **pushed** to the `main` branch of the GitHub repository.
+
+---
+
 ## 🔄 EVENT MANAGEMENT WORKFLOW
 ...(Content from original file remains here)...
 ---
@@ -126,18 +133,19 @@ Go beyond the basics to ensure maximum visibility.
 
 When an AI agent works on this site:
 1.  **Always read this checklist first.**
-2.  **Commit each individual change to the repository with a clear commit message.**
-3.  **Review the '🏆 World-Class Website Standards' section for every task.**
-4.  **Review the '🌐 Multi-Site Management' guidelines when applicable.**
-5.  Backup files before major changes.
-6.  Test locally if possible before pushing.
-7.  Verify JSON syntax with a validator.
-8.  Check all links after changes.
-9.  Maintain the elegant, dark opera aesthetic.
-10. Keep the gold (#d4a853) as the accent color.
-11. Preserve responsive design.
-12. Don't remove any working features.
-13. Update this checklist if you add new features.
+2.  **At the end of a completed prompt, commit all related changes.**
+3.  **After committing, push the changes to the remote repository to make them live.**
+4.  **Review the '🏆 World-Class Website Standards' section for every task.**
+5.  **Review the '🌐 Multi-Site Management' guidelines when applicable.**
+6.  Backup files before major changes.
+7.  Test locally if possible before pushing.
+8.  Verify JSON syntax with a validator.
+9.  Check all links after changes.
+10. Maintain the elegant, dark opera aesthetic.
+11. Keep the gold (#d4a853) as the accent color.
+12. Preserve responsive design.
+13. Don't remove any working features.
+14. Update this checklist if you add new features.
 
 ---
 
