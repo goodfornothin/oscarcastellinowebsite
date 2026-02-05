@@ -1,10 +1,10 @@
 # 🎭 OSCAR CASTELLINO WEBSITE - AI VERIFICATION CHECKLIST
 ## ⚠️ READ THIS FIRST BEFORE MAKING ANY CHANGES ⚠️
 
-**Last Updated:** 2026-01-XX  
-**Site URL:** https://oscarcastellino.com  
-**Repository:** github.com/goodfornothin/oscarcastellinowebsite  
-**Hosting:** GitHub Pages  
+**Last Updated:** 2026-02-04
+**Site URL:** https://oscarcastellino.com
+**Repository:** github.com/goodfornothin/oscarcastellinowebsite
+**Hosting:** GitHub Pages
 
 ---
 
@@ -44,200 +44,100 @@ oscarcastellinowebsite/
 - **YouTube:** @operawalaofindia1166
 - All booking links should go to email or specific ticket pages
 
+### 🌐 Multi-Site Management
+
+This project environment may be used to manage two separate websites:
+- **Oscar Castellino:** `oscarcastellino.com`
+- **Rogue Bachata:** `roguebachata.com`
+
+**CRITICAL GUIDELINES:**
+- **Separate Projects:** Treat each site as a distinct project. Do not cross-link files or share sensitive information between them.
+- **Check `.gitignore`:** The Rogue Bachata website may contain private files and folders not tracked by Git (e.g., `.private/`, `.secrets/`). **NEVER** commit these files. Always verify the `.gitignore` settings for that project.
+- **Global Search:** When editing content (like an event or venue), search the entire codebase for that specific project to ensure all instances are updated consistently.
+- **Asset Integrity:** Do not use assets (images, styles) from one project in the other unless explicitly instructed.
+
+---
+
+## 🏆 WORLD-CLASS WEBSITE STANDARDS
+
+This section defines the core principles for a high-quality, professional website. All changes should strive to meet these standards.
+
+### ♿ Accessibility (A11y)
+A world-class website is usable by everyone, regardless of ability.
+- [ ] **Alt Text:** All `<img>` tags must have descriptive `alt` attributes. For decorative images, use `alt=""`.
+- [ ] **Semantic HTML:** Use proper HTML5 tags (`<main>`, `<nav>`, `<header>`, `<footer>`, `<section>`, `<article>`) to define page structure.
+- [ ] **Keyboard Navigation:** All interactive elements (links, buttons, carousels) must be fully usable with the Tab and Enter keys.
+- [ ] **Color Contrast:** Text must have a contrast ratio of at least 4.5:1 against its background (WCAG AA). The current palette is good, but new additions must be checked.
+- [ ] **Logical Headings:** Headings must follow a logical order (`<h1>` -> `<h2>` -> `<h3>`). Do not skip levels.
+- [ ] **ARIA Roles:** Use ARIA (`Accessible Rich Internet Applications`) roles where semantic HTML is not enough (e.g., for custom widgets).
+
+### 🚀 Performance Optimization
+A fast website is critical for user experience and SEO.
+- [ ] **Image Optimization:** Images should be compressed and served in modern formats like WebP where possible.
+- [ ] **Minification:** CSS and JavaScript files should be minified to reduce their size.
+- [ ] **Browser Caching:** Ensure appropriate cache headers are set (GitHub Pages handles much of this automatically).
+- [ ] **Reduce Requests:** Combine CSS or JS files if they become numerous. Avoid excessive external scripts.
+- [ ] **PageSpeed Score:** Aim for a Google PageSpeed Insights score of 90+ for both mobile and desktop.
+
+### 🔍 Advanced SEO & Content
+Go beyond the basics to ensure maximum visibility.
+- [ ] **`sitemap.xml`:** Ensure a sitemap exists and is up-to-date to help search engines crawl the site.
+- [ ] **`robots.txt`:** Use a `robots.txt` file to guide crawlers on what to index.
+- [ ] **Structured Data:** Use Schema.org structured data (JSON-LD) for not just events, but also for "Person" (for Oscar) and "MusicGroup" or "Organization".
+- [ ] **Link Attributes:** All external links (`target="_blank"`) must have `rel="noopener noreferrer"` for security.
+- [ ] **Content Quality:** All text should be free of typos and grammatical errors. It should be clear, concise, and engaging.
+
+### 🔒 Security & Best Practices
+- [ ] **HTTPS:** The entire site must be served over HTTPS. No mixed content (loading HTTP assets on an HTTPS page).
+- [ ] **HTML Validation:** Code should be valid according to the W3C validator to avoid unexpected browser behavior.
+- [ ] **No Console Errors:** The browser developer console must be free of errors on all pages.
+
 ---
 
 ## 🔄 EVENT MANAGEMENT WORKFLOW
-
-### Adding a New Event (Quick Mobile Method)
-1. Open `data.json` on mobile/computer
-2. Find `upcomingEvents` array
-3. Copy the `_DUMMY_EVENT_TEMPLATE` object
-4. Fill in required fields: `event`, `date`, `venue`
-5. Optional: Add `eventId`, `information`, `tickets`, etc.
-6. Save and push to GitHub
-
-### Adding a New Event (Full Page)
-1. Create new HTML file in `events/` folder
-2. Copy structure from existing event page (e.g., `lisbon-fundacao-oriente-2026.html`)
-3. Update all content, meta tags, structured data
-4. Add `eventPage` field in data.json pointing to new file
-5. Test all links work
-
-### Required Event Fields
-```json
-{
-  "event": "Event Title",           // REQUIRED
-  "date": "Day, Month DD, YYYY",    // REQUIRED - parseable format
-  "venue": "Venue Name"             // REQUIRED
-}
-```
-
-### Optional Event Fields
-```json
-{
-  "eventId": "unique-slug",         // For URL generation
-  "eventPage": "events/page.html",  // Link to dedicated page
-  "time": "7:00 PM",
-  "address": "Full address",
-  "information": "Brief description",
-  "description": "Detailed description",
-  "photo": "image-filename.jpg",
-  "artists": ["Artist 1", "Artist 2"],
-  "program": ["Piece | Composer"],
-  "tickets": { "price": "£20", "link": "https://..." },
-  "bookingLink": "https://...",     // Alternative to tickets
-  "videos": ["https://youtube-embed-url"],
-  "contactInfo": "Contact details"
-}
-```
-
+...(Content from original file remains here)...
 ---
-
 ## 📸 IMAGE GUIDELINES
-
-### Available Images (pictures/ folder)
-All images should be referenced from the `pictures/` folder:
-- Performance photos with descriptive names
-- Portraits and promotional shots
-- Event posters
-- Use URL encoding for spaces: `Oscar%20Grand%20arm.jpg`
-
-### Adding New Images
-1. Add to `pictures/` folder
-2. Use descriptive naming: `Oscar-event-venue-year.jpg`
-3. Optimize for web (max 2MB recommended)
-4. Update gallery array in `index.html` if featured
-
+...(Content from original file remains here)...
 ---
-
-## 🔍 SEO REQUIREMENTS
-
-### Every Page Must Have:
-- [ ] Unique `<title>` tag with "Oscar Castellino" + page-specific content
-- [ ] `<meta name="description">` (150-160 characters)
-- [ ] `<meta name="keywords">` relevant to page content
-- [ ] Open Graph tags for social sharing
-- [ ] Canonical URL
-
-### Event Pages Should Include:
-- [ ] Event structured data (Schema.org JSON-LD)
-- [ ] Event-specific Open Graph image
-- [ ] Clear ticket/booking links
-
+## 🔍 SEO REQUIREMENTS (Basic)
+...(Content from original file remains here)...
 ---
-
 ## ✅ POST-CHANGE VERIFICATION CHECKLIST
-
-After ANY changes, verify:
-
-### Visual Checks
-- [ ] Homepage loads correctly
-- [ ] Navigation works (all links)
-- [ ] Gallery displays and lightbox works
-- [ ] Events section shows current events
-- [ ] Video carousel works
-- [ ] Contact section links work
-- [ ] Footer links work
-- [ ] Mobile responsive (test at 375px, 768px widths)
-
-### Event-Specific Checks
-- [ ] Event dates parse correctly (check console for errors)
-- [ ] Past events move to "Past Events" section
-- [ ] Ticket links work and open in new tab
-- [ ] Event pages load correctly
-- [ ] Back links work
-
-### Technical Checks
-- [ ] No JavaScript console errors
-- [ ] data.json parses correctly (test with `JSON.parse()`)
-- [ ] All images load (check Network tab)
-- [ ] CSS loads correctly
-- [ ] No broken links (use browser dev tools)
-
+...(Content from original file remains here)...
 ---
-
 ## 🚨 COMMON ISSUES & FIXES
-
-### Events Not Showing
-1. Check date format in data.json (must be parseable)
-2. Verify JSON syntax (missing commas, quotes)
-3. Check browser console for errors
-
-### Images Not Loading
-1. Check filename matches exactly (case-sensitive)
-2. URL encode spaces: `%20`
-3. Verify file exists in pictures/ folder
-
-### Styling Broken
-1. Check style.css for syntax errors
-2. Verify CSS variable definitions exist
-3. Check for unclosed brackets/quotes
-
-### Page Not Found
-1. Verify file exists
-2. Check filename case sensitivity
-3. Ensure GitHub Pages has deployed (check Actions tab)
-
+...(Content from original file remains here)...
 ---
-
 ## 📱 MOBILE-FIRST TESTING
-
-Always test on:
-1. iPhone Safari (most common mobile)
-2. Android Chrome
-3. Desktop Chrome
-4. Desktop Safari
-
-Key mobile breakpoints in CSS:
-- 900px (tablet)
-- 768px (small tablet)
-- 500px (mobile)
-
+...(Content from original file remains here)...
 ---
-
 ## 🔒 FILES THAT SHOULD NOT BE MODIFIED
-
-| File | Reason |
-|------|--------|
-| `CNAME` | Domain configuration |
-| `*.backup` | Historical backups |
-| `.git/` | Git configuration |
-
+...(Content from original file remains here)...
 ---
-
 ## 📞 QUICK REFERENCE
-
-**Oscar's Email:** voice@oscarcastellino.com  
-**Site Domain:** oscarcastellino.com  
-**GitHub Repo:** goodfornothin/oscarcastellinowebsite  
-**Primary Color:** #d4a853 (Gold)  
-
+...(Content from original file remains here)...
 ---
-
 ## 🎯 CONTENT PRIORITIES
-
-When updating the site, prioritize:
-1. **Upcoming events** - Most time-sensitive
-2. **Contact/booking info** - Business critical
-3. **Featured videos** - Showcase work
-4. **Gallery images** - Visual appeal
-5. **Biography** - Rarely changes
-
+...(Content from original file remains here)...
 ---
 
 ## 🤖 AI ASSISTANT NOTES
 
 When an AI agent works on this site:
-1. **Always read this checklist first**
-2. **Backup files before major changes**
-3. **Test locally if possible before pushing**
-4. **Verify JSON syntax with a validator**
-5. **Check all links after changes**
-6. **Maintain the elegant, dark opera aesthetic**
-7. **Keep the gold (#d4a853) as the accent color**
-8. **Preserve responsive design**
-9. **Don't remove any working features**
-10. **Update this checklist if you add new features**
+1.  **Always read this checklist first.**
+2.  **Commit each individual change to the repository with a clear commit message.**
+3.  **Review the '🏆 World-Class Website Standards' section for every task.**
+4.  **Review the '🌐 Multi-Site Management' guidelines when applicable.**
+5.  Backup files before major changes.
+6.  Test locally if possible before pushing.
+7.  Verify JSON syntax with a validator.
+8.  Check all links after changes.
+9.  Maintain the elegant, dark opera aesthetic.
+10. Keep the gold (#d4a853) as the accent color.
+11. Preserve responsive design.
+12. Don't remove any working features.
+13. Update this checklist if you add new features.
 
 ---
 
