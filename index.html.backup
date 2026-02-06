@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opera Singer Website</title>
+  <!-- Version: v2.5 -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional overrides for the photo section */
+    #photo {
+      padding: 0; /* Remove padding so the image reaches the edges */
+    }
+    #photo img {
+      display: block;
+      width: 100%;
+      margin: 0;
+      border-radius: 8px; /* Match the white container's rounded corners */
+    }
+    /* Event info styling */
+    .event-info {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.3rem;
+    }
+    .events-list li {
+      margin-bottom: 1rem;
+    }
+
+    .events-subheading {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .events-list--past .event-item,
+    .event-item.past {
+      color: #666;
+      opacity: 0.75;
+    }
+
+    .event-item.past .event-sticker .month {
+      background: #555;
+    }
+
+    .event-item.past .event-sticker .day {
+      background: #f3f3f3;
+      color: #555;
+    }
+
+    .event-item.past a {
+      color: inherit;
+    }
+
+    /* Calendar-style sticker for event dates */
+    .event-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    .event-sticker {
+      width: 72px;
+      min-width: 72px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      overflow: hidden;
+      font-family: inherit;
+    }
+    .event-sticker .month {
+      background: #222; /* dark */
+      color: #fff;
+      padding: 6px 4px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+    .event-sticker .day {
+      background: #fff; /* light */
+      color: #222;
+      padding: 10px 6px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .sticker-link {
+      display: inline-block;
+      width: 72px;
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Inverse sticker for better contrast on small screens */
+    @media (max-width: 480px) {
+      .event-item { gap: 0.75rem; }
+      .event-sticker { width: 60px; min-width:60px; }
+      .event-sticker .day { font-size: 1.4rem; }
+    }
+    /* Carousel styles for featured videos */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .carousel iframe {
+      width: 100%;
+      height: 315px;
+      display: none; /* Hide all except active */
+      border-radius: 8px;
+    }
+    .carousel iframe.active {
+      display: block;
+    }
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+    .carousel-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .carousel-btn:hover {
+      background: #0056b3;
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-dot.active {
+      background: #007bff;
+    }
+    @media (max-width: 768px) {
+      .carousel iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <h1 id="title">Loading...</h1>
+      <p id="tagline"></p>
+    </div>
+  </header>
+
+  <!-- About Me Section (Title Removed) -->
+  <section id="about">
+    <p id="shortBiography">Loading biography...</p>
+  </section>
+
+  <!-- Featured Photo Section -->
+  <section id="photo" class="photo">
+    <img id="featuredPhoto" src="#" alt="Featured Photo" />
+  </section>
+
+  <!-- Events Section -->
+  <section id="events">
+    <h2>Events</h2>
+    <ul id="eventsList" class="events-list">
+      <!-- Events will be dynamically injected here -->
+    </ul>
+  </section>
+
+  <!-- Featured Video Section (Updated to Carousel) -->
+  <section id="video">
+    <div class="carousel" id="videoCarousel">
+      <!-- Videos will be dynamically inserted here -->
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="prevBtn">&lt;</button>
+      <div class="carousel-dots" id="videoDots"></div>
+      <button class="carousel-btn" id="nextBtn">&gt;</button>
+    </div>
+    <div class="links">
+      <a id="youtubePlaylist" href="#" target="_blank">Watch More Videos</a>
+    </div>
+  </section>
+
+  <!-- Contact Section with Mailto Link -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you have any questions, please <a id="contactLink" href="#">email me</a>.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p id="footer">© 2025 Opera Singer. All rights reserved. Version: v2.5</p>
+  </footer>
+
+  <script>
+    // NEW: Function to convert Google Drive share link to direct image URL
+    function convertDriveUrl(url) {
+      // If it's already a direct URL (starts with uc?export), return as-is
+      if (url.includes('uc?export=view&id=')) {
+        return url;
+      }
+      // Extract FILE_ID from share link like /file/d/FILE_ID/view?usp=sharing
+      const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
+      if (match) {
+        const fileId = match[1];
+        return `https://drive.google.com/uc?export=view&id=${fileId}`;
+      }
+      // Fallback for invalid URLs
+      console.error('Invalid Google Drive URL:', url);
+      return 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
+    }
+
+    // Carousel functionality for videos
+    function initCarousel(videos) {
+      const carousel = document.getElementById('videoCarousel');
+      const dotsContainer = document.getElementById('videoDots');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let currentIndex = 0;
+      let autoPlayInterval;
+
+      // Create iframes and dots
+      videos.forEach((videoUrl, index) => {
+        const iframe = document.createElement('iframe');
+        iframe.src = videoUrl;
+        iframe.title = `Featured Video ${index + 1}`;
+        iframe.frameBorder = '0';
+        iframe.allowFullscreen = true;
+        carousel.appendChild(iframe);
+
+        const dot = document.createElement('span');
+        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+        dot.onclick = () => goToSlide(index);
+        dotsContainer.appendChild(dot);
+      });
+
+      function showSlide(index) {
+        const iframes = carousel.querySelectorAll('iframe');
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        iframes.forEach((iframe, i) => iframe.classList.toggle('active', i === index));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        currentIndex = index;
+      }
+
+      function goToSlide(index) {
+        clearInterval(autoPlayInterval);
+        showSlide(index);
+        startAutoPlay();
+      }
+
+      function nextSlide() {
+        const next = (currentIndex + 1) % videos.length;
+        showSlide(next);
+      }
+
+      function prevSlide() {
+        const prev = (currentIndex - 1 + videos.length) % videos.length;
+        showSlide(prev);
+      }
+
+      function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 10000); // 10 seconds
+      }
+
+      // Event listeners
+      nextBtn.onclick = nextSlide;
+      prevBtn.onclick = prevSlide;
+      carousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+      carousel.addEventListener('mouseleave', startAutoPlay);
+
+      // Initial setup
+      showSlide(0);
+      startAutoPlay();
+    }
+
+    fetch('data.json')
+      .then(response => {
+        if (!response.ok) { 
+          throw new Error('Network response was not ok: ' + response.statusText); 
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Header
+        document.title = data.title;
+        document.getElementById('title').innerText = data.title;
+        document.getElementById('tagline').innerText = data.tagline || '';
+
+        // About Me Section: Append a "more>" link that goes to biography.html
+        document.getElementById('shortBiography').innerHTML = data.shortBiography +
+          ' <a id="biographyLink" href="biography.html" target="_self">more&gt;</a>';
+
+        // Featured Photo Section - UPDATED: Auto-convert Drive share link to direct URL
+        const featuredImg = document.getElementById('featuredPhoto');
+        featuredImg.src = convertDriveUrl(data.featuredPhoto);
+        // Optional: Add error handling for loading failures
+        featuredImg.onerror = function() {
+          this.src = 'https://raw.githubusercontent.com/goodfornothin/oscarcastellinowebsite/main/Oscar%20Castellino%20Smiling%20HD.jpg';
+        };
+
+        // Events Section - UPDATED: split into upcoming and past, sorted by date
+        const eventsSection = document.getElementById('events');
+        const eventsList = document.getElementById('eventsList');
+        eventsList.innerHTML = '';
+
+        const monthLabels = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+        const monthMap = {
+          jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+          jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
+        };
+
+        function sanitizeDateString(str) {
+          return str ? str.replace(/(\d+)(st|nd|rd|th)/gi, '$1').replace(/\s+/g, ' ').trim() : '';
+        }
+
+        function extractEventDate(event) {
+          if (!event) return null;
+          const candidates = [];
+          if (event.date) candidates.push(event.date);
+          if (event.event) candidates.push(event.event);
+          if (event.time) candidates.push(event.time);
+
+          for (const candidateRaw of candidates) {
+            if (!candidateRaw) continue;
+            const candidate = sanitizeDateString(candidateRaw);
+            if (!candidate) continue;
+
+            const direct = new Date(candidate);
+            if (!isNaN(direct.getTime())) {
+              return new Date(direct.getFullYear(), direct.getMonth(), direct.getDate());
+            }
+
+            const monthDayYearMatch = candidate.match(/(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.,-]*(\d{1,2})(?:\D*(\d{4}))?/i);
+            if (monthDayYearMatch) {
+              const monthKey = monthDayYearMatch[1].slice(0,3).toLowerCase();
+              const day = parseInt(monthDayYearMatch[2], 10);
+              const year = monthDayYearMatch[3] ? parseInt(monthDayYearMatch[3], 10) : null;
+              if (!Number.isNaN(day) && year && Object.prototype.hasOwnProperty.call(monthMap, monthKey)) {
+                return new Date(year, monthMap[monthKey], day);
+              }
+            }
+
+            const dayMonthYearMatch = candidate.match(/(\d{1,2})[\s.,-]*(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)(?:\D*(\d{4}))?/i);
+            if (dayMonthYearMatch) {
+              const day = parseInt(dayMonthYearMatch[1], 10);
+              const monthKey = dayMonthYearMatch[2].slice(0,3).toLowerCase();
+              const year = dayMonthYearMatch[3] ? parseInt(dayMonthYearMatch[3], 10) : null;
+              if (!Number.isNaN(day) && year && Object.prototype.hasOwnProperty.call(monthMap, monthKey)) {
+                return new Date(year, monthMap[monthKey], day);
+              }
+            }
+          }
+          return null;
+        }
+
+        // Render events with a calendar-style sticker (month/day) at left and title + short info on right.
+        function parseDateSticker(event, parsedDate) {
+          if (!event) return null;
+          if (parsedDate instanceof Date && !Number.isNaN(parsedDate.getTime())) {
+            return { month: monthLabels[parsedDate.getMonth()], day: parsedDate.getDate() };
+          }
+          // Fallback: try to extract from the event title (e.g., "NOV 28 ..." or "Nov 28")
+          const m = (event.event || '').match(/^(?:\s*)(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*(\d{1,2})/i);
+          if (m) {
+            return { month: m[1].slice(0,3).toUpperCase(), day: parseInt(m[2],10) };
+          }
+          // No date available
+          return null;
+        }
+
+        function stripLeadingDateTokens(title) {
+          if (!title) return title;
+          // Remove leading month/day tokens like "NOV 28", "Nov 28", "November 28" or "NOV 28:"
+          return title.replace(/^(?:\s*)(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[\s.-]*\d{1,2}[:,]?\s*/i, '').trim();
+        }
+
+        function createEventListItem(event, parsedDate, isPast = false) {
+          const li = document.createElement('li');
+          li.className = 'event-item';
+          if (isPast) {
+            li.classList.add('past');
+          }
+
+          // Sticker
+          const sticker = parseDateSticker(event, parsedDate);
+          if (sticker) {
+            const stickerDiv = document.createElement('div');
+            stickerDiv.className = 'event-sticker';
+            stickerDiv.innerHTML = `<div class="month">${sticker.month}</div><div class="day">${sticker.day}</div>`;
+            // Make sticker clickable: link to bookingLink (external) or event landing page (internal)
+            let stickerWrapper = null;
+            if (event.bookingLink) {
+              stickerWrapper = document.createElement('a');
+              stickerWrapper.href = event.bookingLink.startsWith('http') ? event.bookingLink : 'https://' + event.bookingLink;
+              stickerWrapper.target = '_blank';
+            } else if (event.eventId) {
+              stickerWrapper = document.createElement('a');
+              stickerWrapper.href = `event.html?id=${event.eventId}`;
+              stickerWrapper.target = '_self';
+            }
+            if (stickerWrapper) {
+              stickerWrapper.className = 'sticker-link';
+              const cleanTitle = stripLeadingDateTokens(event.event || '').trim() || 'Open event';
+              stickerWrapper.setAttribute('aria-label', `Open ${cleanTitle}`);
+              stickerWrapper.appendChild(stickerDiv);
+              li.appendChild(stickerWrapper);
+            } else {
+              li.appendChild(stickerDiv);
+            }
+          } else {
+            const spacer = document.createElement('div');
+            spacer.style.width = '72px';
+            li.appendChild(spacer);
+          }
+
+          // Content container
+          const content = document.createElement('div');
+          content.style.flex = '1';
+
+          // Title (strip any leading date tokens if present in the event title)
+          const cleanTitle = stripLeadingDateTokens(event.event || 'Untitled Event');
+          let titleElement;
+          if (!event.bookingLink && event.eventId) {
+            const a = document.createElement('a');
+            a.href = `event.html?id=${event.eventId}`;
+            a.target = "_self";
+            a.innerText = cleanTitle;
+            titleElement = a;
+          } else if (event.bookingLink) {
+            const a = document.createElement('a');
+            a.href = event.bookingLink.startsWith('http') ? event.bookingLink : 'https://' + event.bookingLink;
+            a.target = "_blank";
+            a.innerText = cleanTitle;
+            titleElement = a;
+          } else {
+            const span = document.createElement('span');
+            span.innerText = cleanTitle;
+            titleElement = span;
+          }
+          titleElement.style.fontWeight = '700';
+          content.appendChild(titleElement);
+
+          // Short info/description next to title
+          if (event.information) {
+            const info = document.createElement('div');
+            info.className = 'event-info';
+            info.innerText = event.information;
+            content.appendChild(info);
+          }
+
+          li.appendChild(content);
+          return li;
+        }
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const eventsWithMeta = data.upcomingEvents.map(event => {
+          const parsedDate = extractEventDate(event);
+          return { ...event, parsedDate };
+        });
+
+        const upcomingEvents = [];
+        const pastEvents = [];
+
+        eventsWithMeta.forEach(event => {
+          if (event.parsedDate && event.parsedDate < today) {
+            pastEvents.push(event);
+          } else {
+            upcomingEvents.push(event);
+          }
+        });
+
+        upcomingEvents.sort((a, b) => {
+          if (a.parsedDate && b.parsedDate) return a.parsedDate - b.parsedDate;
+          if (a.parsedDate) return -1;
+          if (b.parsedDate) return 1;
+          return 0;
+        });
+
+        pastEvents.sort((a, b) => {
+          if (a.parsedDate && b.parsedDate) return b.parsedDate - a.parsedDate;
+          if (a.parsedDate) return -1;
+          if (b.parsedDate) return 1;
+          return 0;
+        });
+
+        if (upcomingEvents.length === 0) {
+          const emptyState = document.createElement('li');
+          emptyState.className = 'event-item';
+          emptyState.innerText = 'More events coming soon.';
+          eventsList.appendChild(emptyState);
+        } else {
+          upcomingEvents.forEach(event => {
+            eventsList.appendChild(createEventListItem(event, event.parsedDate, false));
+          });
+        }
+
+        if (pastEvents.length > 0) {
+          const pastHeading = document.createElement('h3');
+          pastHeading.className = 'events-subheading';
+          pastHeading.innerText = 'Past Events';
+          eventsSection.appendChild(pastHeading);
+
+          const pastList = document.createElement('ul');
+          pastList.className = 'events-list events-list--past';
+
+          pastEvents.forEach(event => {
+            pastList.appendChild(createEventListItem(event, event.parsedDate, true));
+          });
+
+          eventsSection.appendChild(pastList);
+        }
+
+        // Featured Video Section - UPDATED: Carousel from featuredVideos array
+        if (data.featuredVideos && data.featuredVideos.length > 0) {
+          initCarousel(data.featuredVideos);
+        }
+
+        // Watch More Videos Link
+        document.getElementById('youtubePlaylist').href = data.youtubePlaylist;
+
+        // Contact Section: Set mailto link
+        document.getElementById('contactLink').href = "mailto:" + data.contactEmail;
+      })
+      .catch(error => {
+        console.error('Error loading JSON data:', error);
+        document.getElementById('title').innerText = "Opera Singer";
+        document.getElementById('shortBiography').innerHTML = "Short biography not available.";
+      });
+  </script>
+</body>
+</html>
