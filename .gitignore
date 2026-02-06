@@ -1,4 +1,15 @@
 
-# Symlinks to other projects
+# macOS system files
+.DS_Store
+
+# Symlinks to other projects (these are separate git repositories)
 rogue-private
 rogue-site
+
+# Logs
+*.log
+
+# Editor backup files
+*.swp
+*.swo
+*~

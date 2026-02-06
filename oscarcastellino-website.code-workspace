@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "name": "Oscar Castellino Website",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "rogue-site": true,
+      "rogue-private": true
+    },
+    "editor.formatOnSave": true,
+    "html.format.wrapLineLength": 120
+  },
+  "extensions": {
+    "recommendations": [
+      "ritwickdey.liveserver",
+      "esbenp.prettier-vscode",
+      "formulahendry.auto-rename-tag"
+    ]
+  }
+}
