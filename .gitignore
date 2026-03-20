@@ -13,3 +13,6 @@ rogue-site
 *.swp
 *.swo
 *~
+
+# Source video files (too large for git, use compressed versions)
+videos/Ya Ya  Maya Ya.mp4
