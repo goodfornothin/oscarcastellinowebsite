@@ -295,9 +295,9 @@
     }
 
     .gi-hero-title {
-      font-family: var(--font-display, 'Playfair Display', serif);
+      font-family: 'Montserrat', sans-serif;
       font-size: clamp(3rem, 8vw, 6.5rem);
-      font-weight: 400;
+      font-weight: 700;
       color: var(--gi-cream);
       line-height: 0.95;
       margin-bottom: 1.5rem;
@@ -311,14 +311,14 @@
     }
 
     .gi-hero-subtitle {
-      font-family: var(--font-body, 'Cormorant Garamond', serif);
-      font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
       font-weight: 300;
-      font-style: italic;
-      color: rgba(248, 240, 227, 0.7);
+      font-style: normal;
+      color: rgba(248, 240, 227, 0.85);
       max-width: 650px;
       margin: 0 auto 2.5rem;
-      line-height: 1.6;
+      line-height: 1.7;
       opacity: 0;
       animation: giFadeUp 1s ease 0.9s forwards;
     }
@@ -1001,6 +1001,82 @@
       .gi-price-card { width: 100%; max-width: 300px; }
       .gi-video-wrapper-short iframe { height: 500px; }
     }
+
+    /* ============================================================
+       MOBILE — VIDEO FULL-WIDTH + VIGNETTE
+       ============================================================ */
+    @media (max-width: 768px) {
+      /* Dark background fills the letterbox areas above/below the video */
+      .gi-hero-video-wrap {
+        background-color: #0d0a08;
+      }
+
+      /* contain = full video width visible, no cropping */
+      .gi-hero-video {
+        width: 100%;
+        height: 100%;
+        min-width: unset;
+        min-height: unset;
+        object-fit: contain;
+        top: 0;
+        left: 0;
+        transform: none;
+      }
+
+      /* Darker overlay so text is always legible against the video */
+      .gi-hero-overlay {
+        background: linear-gradient(
+          to bottom,
+          #0d0a08 0%,
+          rgba(13,10,8,0.72) 25%,
+          rgba(13,10,8,0.72) 75%,
+          #0d0a08 100%
+        );
+      }
+    }
+
+    /* ============================================================
+       MOBILE — IMPROVED READABILITY
+       ============================================================ */
+    @media (max-width: 600px) {
+      /* Title — switch to clean heavy Montserrat, large + drop shadow */
+      .gi-hero-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: clamp(2.8rem, 10vw, 6.5rem);
+        letter-spacing: -0.01em;
+        text-shadow: 0 3px 20px rgba(0,0,0,0.9), 0 1px 6px rgba(0,0,0,0.8);
+      }
+
+      /* Subtitle — Montserrat is much easier to read than Cormorant Garamond */
+      .gi-hero-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        text-shadow: 0 1px 10px rgba(0,0,0,0.9);
+      }
+
+      .gi-hero-eyebrow {
+        font-size: 1rem;
+        letter-spacing: 0.2em;
+      }
+      .gi-badge-date   { font-size: 1.25rem !important; }
+      .gi-badge-venue  { font-size: 1rem    !important; }
+
+      /* Section labels */
+      .gi-section-eyebrow { font-size: 0.95rem; }
+
+      /* Performer cards */
+      .gi-performer-name { font-size: 1.5rem; }
+      .gi-performer-role { font-size: 0.85rem; letter-spacing: 0.1em; }
+      .gi-performer-bio  { font-size: 1.05rem; line-height: 1.65; }
+
+      /* Buttons */
+      .gi-btn-ticket,
+      .gi-btn-outline { font-size: 1rem; padding: 1.2rem 2rem; }
+    }
   </style>
 </head>
 <body>
@@ -1180,6 +1256,11 @@
       </div>
     </div>
   </section>
+
+  <!-- MIDPAGE TICKET CTA -->
+  <div style="text-align:center; padding: 3rem 2rem; background: var(--gi-dark);">
+    <a href="https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym" target="_blank" class="gi-btn-ticket">Book Tickets &rarr;</a>
+  </div>
 
   <!-- ============================================================
        SCHEDULE
@@ -1376,6 +1457,12 @@
 
     </div>
   </section>
+
+  <!-- END-OF-PAGE TICKET CTA -->
+  <div style="text-align:center; padding: 4rem 2rem; background: var(--gi-deep);">
+    <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(248,240,227,0.5); margin-bottom:1.5rem;">Secure your place</p>
+    <a href="https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym" target="_blank" class="gi-btn-ticket">Book Tickets &rarr;</a>
+  </div>
 
   <!-- ============================================================
        FOOTER
