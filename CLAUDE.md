@@ -31,6 +31,12 @@ Oscar Castellino (baritone, performing since inception), Mark Troop (pianist),
 Baluji Shrivastav OBE (sitar), Chelsea D'Silva (vocalist, debut),
 Takashi Kikuchi (viola, debut), Yusuf Ali Khan (tabla)
 
+## Integrations available
+You have access to:
+- Gmail (read/send emails via MCP)
+- Google Calendar (read/create/edit events via MCP)
+- GitHub (via git commands — commit, push, pull)
+
 ## Telegram access
 You are connected via Telegram. The user (elpadrinosalsero) owns this project.
 When asked to make changes: edit files, commit, push. No approval needed.
