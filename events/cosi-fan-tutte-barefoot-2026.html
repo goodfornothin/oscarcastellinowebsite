@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Così fan tutte | Barefoot Opera 2026 | Oscar Castellino</title>
+  <meta name="description" content="Oscar Castellino performs in Barefoot Opera's fully-staged Così fan tutte — a summer and autumn 2026 tour including Battle Festival, Grimeborne at the Arcola Theatre, Maidenhead, and more.">
+  <meta name="keywords" content="Oscar Castellino, Così fan tutte, Barefoot Opera, Mozart opera, Grimeborne, Arcola Theatre, Battle Festival, opera 2026">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="event">
+  <meta property="og:title" content="Così fan tutte | Barefoot Opera 2026 | Oscar Castellino">
+  <meta property="og:description" content="Oscar Castellino performs in Barefoot Opera's fully-staged Così fan tutte — tour dates across London and beyond in summer and autumn 2026.">
+  <meta property="og:image" content="https://oscarcastellino.com/pictures/Oscar%20Grand%20arm%20stretched%20out%20at%20Bradford%20Opera.jpg">
+  <meta property="og:url" content="https://oscarcastellino.com/events/cosi-fan-tutte-barefoot-2026.html">
+
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    .event-page-hero {
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1218 100%);
+      overflow: hidden;
+    }
+
+    .event-page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('../pictures/Oscar%20Grand%20arm%20stretched%20out%20at%20Bradford%20Opera.jpg') center/cover;
+      opacity: 0.15;
+      filter: blur(6px);
+    }
+
+    .event-page-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 5rem 2rem;
+      max-width: 860px;
+    }
+
+    .opera-label {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .event-page-title {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+
+    .event-page-subtitle {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--accent-gold);
+      margin-bottom: 1rem;
+    }
+
+    .event-page-composer {
+      color: rgba(245,245,245,0.5);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: var(--font-ui);
+    }
+
+    /* ── Main layout ── */
+    .cosi-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-gold);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      transition: gap 0.3s ease;
+    }
+
+    .back-link:hover { gap: 0.8rem; }
+
+    .cosi-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .cosi-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    /* ── About section ── */
+    .section-heading {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .cosi-about p {
+      color: rgba(245,245,245,0.7);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+    }
+
+    /* ── Dates list ── */
+    .dates-heading {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+      margin: 3rem 0 1.5rem;
+    }
+
+    .date-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,168,83,0.2);
+      border-radius: 0.75rem;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 1rem;
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      gap: 1.2rem;
+      align-items: center;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .date-card:hover {
+      border-color: rgba(212,168,83,0.5);
+      background: rgba(212,168,83,0.05);
+    }
+
+    @media (max-width: 640px) {
+      .date-card {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+    }
+
+    .date-badge {
+      text-align: center;
+      background: rgba(212,168,83,0.12);
+      border-radius: 0.5rem;
+      padding: 0.6rem 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .date-badge .db-day {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-light);
+      line-height: 1;
+      display: block;
+    }
+
+    .date-badge .db-month {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-gold);
+      font-family: var(--font-ui);
+    }
+
+    .date-info .di-venue {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--text-light);
+      margin-bottom: 0.2rem;
+    }
+
+    .date-info .di-location {
+      color: rgba(245,245,245,0.55);
+      font-size: 0.9rem;
+      font-family: var(--font-ui);
+    }
+
+    .date-info .di-note {
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      font-family: var(--font-ui);
+      margin-top: 0.3rem;
+    }
+
+    .date-link {
+      display: inline-block;
+      padding: 0.5rem 1.1rem;
+      border: 1px solid rgba(212,168,83,0.5);
+      border-radius: 0.4rem;
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .date-link:hover {
+      background: var(--accent-gold);
+      color: #0d0d0d;
+    }
+
+    .date-link.coming-soon {
+      opacity: 0.45;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* Multi-perf grouping */
+    .date-card.multi {
+      grid-template-columns: 90px 1fr auto;
+    }
+
+    .multi-dates {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .multi-dates .md-row {
+      font-size: 0.95rem;
+      color: rgba(245,245,245,0.75);
+      font-family: var(--font-ui);
+    }
+
+    /* ── Sidebar ── */
+    .cosi-sidebar {
+      position: sticky;
+      top: 120px;
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(212,168,83,0.04) 100%);
+      border: 2px solid rgba(212,168,83,0.35);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .info-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--accent-gold);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(212,168,83,0.1);
+    }
+
+    .info-row:last-of-type { border-bottom: none; }
+
+    .info-icon { font-size: 1.3rem; width: 36px; text-align: center; flex-shrink: 0; }
+
+    .info-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(245,245,245,0.4);
+      font-family: var(--font-ui);
+      margin-bottom: 0.2rem;
+    }
+
+    .info-value {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .info-value a {
+      color: var(--accent-gold);
+      text-decoration: none;
+    }
+
+    .info-value a:hover { text-decoration: underline; }
+
+    .sidebar-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 0.9rem 1.5rem;
+      background: var(--accent-gold);
+      color: #0d0d0d;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .sidebar-cta:hover { opacity: 0.85; }
+
+    .sidebar-cta.outline {
+      background: transparent;
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      margin-top: 0.75rem;
+    }
+
+    .sidebar-cta.outline:hover {
+      background: var(--accent-gold);
+      color: #0d0d0d;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">Oscar <span>Castellino</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#gallery">Gallery</a></li>
+        <li><a href="../index.html#events">Events</a></li>
+        <li><a href="../index.html#videos">Videos</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <a href="../index.html#contact" class="nav-cta">Book Oscar</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="event-page-hero">
+    <div class="event-page-hero-content">
+      <span class="opera-label">Barefoot Opera &mdash; Advanced Performance Course</span>
+      <h1 class="event-page-title">Così fan tutte</h1>
+      <p class="event-page-subtitle">W. A. Mozart</p>
+      <p class="event-page-composer">Summer &amp; Autumn 2026</p>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <div class="cosi-wrap">
+    <a href="../index.html#events" class="back-link">&#8592; Back to Events</a>
+
+    <div class="cosi-grid">
+
+      <!-- Left column -->
+      <div>
+        <div class="cosi-about">
+          <h2 class="section-heading">About the Production</h2>
+          <p>Oscar Castellino joins <a href="https://barefootopera.com" target="_blank" rel="noopener" style="color:var(--accent-gold)">Barefoot Opera</a> for their fully-staged production of Mozart's <em>Così fan tutte</em>, performed as an intimate physical-theatre opera condensed into two vivid 50-minute halves and sung in the original Italian.</p>
+          <p>The production is directed by Jenny Miller, with musical direction by Lesley-Anne Sammons, and coached by Satoshi Kubo and vocal specialist Penny Randall Davis. Following an intensive April rehearsal week in South London, the cast performs across a summer and autumn tour spanning London and the South East.</p>
+        </div>
+
+        <!-- Performance Dates -->
+        <h2 class="dates-heading">Performance Dates</h2>
+
+        <!-- Battle Festival -->
+        <div class="date-card">
+          <div class="date-badge">
+            <span class="db-day">12</span>
+            <span class="db-month">Jul 2026</span>
+          </div>
+          <div class="date-info">
+            <div class="di-venue">Battle Festival</div>
+            <div class="di-location">Battle, East Sussex</div>
+            <div class="di-note">Sunday</div>
+          </div>
+          <a href="https://www.battlefestival.co.uk" target="_blank" rel="noopener" class="date-link">Festival Website</a>
+        </div>
+
+        <!-- Grimeborne / Arcola -->
+        <div class="date-card">
+          <div class="date-badge">
+            <span class="db-day">21–25</span>
+            <span class="db-month">Jul 2026</span>
+          </div>
+          <div class="date-info">
+            <div class="di-venue">Grimeborne Festival — Arcola Theatre</div>
+            <div class="di-location">Dalston, London</div>
+            <div class="multi-dates" style="margin-top:0.4rem">
+              <span class="md-row">Tuesday 21 July</span>
+              <span class="md-row">Wednesday 22 July</span>
+              <span class="md-row">Friday 24 July</span>
+              <span class="md-row">Saturday 25 July</span>
+            </div>
+          </div>
+          <a href="https://www.arcolatheatre.com" target="_blank" rel="noopener" class="date-link">Arcola Theatre</a>
+        </div>
+
+        <!-- Bigwood Estate -->
+        <div class="date-card">
+          <div class="date-badge">
+            <span class="db-day">6</span>
+            <span class="db-month">Sep 2026</span>
+          </div>
+          <div class="date-info">
+            <div class="di-venue">Bigwood Estate</div>
+            <div class="di-location">Lingfield, Surrey</div>
+            <div class="di-note">Sunday &mdash; from 1pm</div>
+          </div>
+          <span class="date-link coming-soon">Tickets Soon</span>
+        </div>
+
+        <!-- Norden Farm -->
+        <div class="date-card">
+          <div class="date-badge">
+            <span class="db-day">23</span>
+            <span class="db-month">Sep 2026</span>
+          </div>
+          <div class="date-info">
+            <div class="di-venue">Norden Farm Arts Centre</div>
+            <div class="di-location">Maidenhead, Berkshire</div>
+            <div class="di-note">Wednesday</div>
+          </div>
+          <a href="https://nordenfarm.org" target="_blank" rel="noopener" class="date-link">Venue Website</a>
+        </div>
+
+        <!-- Bourne End -->
+        <div class="date-card">
+          <div class="date-badge">
+            <span class="db-day">3</span>
+            <span class="db-month">Oct 2026</span>
+          </div>
+          <div class="date-info">
+            <div class="di-venue">Firestation Arts Centre</div>
+            <div class="di-location">Bourne End, Maidenhead</div>
+            <div class="di-note">Saturday</div>
+          </div>
+          <span class="date-link coming-soon">Tickets Soon</span>
+        </div>
+
+      </div><!-- /left column -->
+
+      <!-- Sidebar -->
+      <aside class="cosi-sidebar">
+        <div class="info-box">
+          <h3>Event Information</h3>
+
+          <div class="info-row">
+            <span class="info-icon">🎭</span>
+            <div>
+              <div class="info-label">Opera</div>
+              <div class="info-value"><em>Così fan tutte</em> — W. A. Mozart</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <span class="info-icon">🗓️</span>
+            <div>
+              <div class="info-label">Tour Period</div>
+              <div class="info-value">July &ndash; October 2026</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <span class="info-icon">🗣️</span>
+            <div>
+              <div class="info-label">Language</div>
+              <div class="info-value">Sung in Italian</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <span class="info-icon">⏱️</span>
+            <div>
+              <div class="info-label">Duration</div>
+              <div class="info-value">Two 50-minute halves</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <span class="info-icon">🎼</span>
+            <div>
+              <div class="info-label">Company</div>
+              <div class="info-value"><a href="https://barefootopera.com" target="_blank" rel="noopener">Barefoot Opera</a></div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <span class="info-icon">🎤</span>
+            <div>
+              <div class="info-label">Director</div>
+              <div class="info-value">Jenny Miller</div>
+            </div>
+          </div>
+
+          <a href="https://barefootopera.com/workshops-courses/cosi-fan-tutte-ensemble-performance-advanced-course/" target="_blank" rel="noopener" class="sidebar-cta">Barefoot Opera Info</a>
+          <a href="mailto:voice@oscarcastellino.com?subject=Cos%C3%AC%20fan%20tutte%20Enquiry" class="sidebar-cta outline">Contact Oscar</a>
+        </div>
+      </aside>
+
+    </div><!-- /cosi-grid -->
+  </div><!-- /cosi-wrap -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Oscar Castellino</h3>
+        <p>International Opera Singer &amp; Baritone</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html#events">All Events</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Oscar Castellino. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
