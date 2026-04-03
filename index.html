@@ -589,8 +589,11 @@
           }
         });
         
-        // Sort upcoming by date ascending
+        // Sort upcoming: displayOrder first, then by date ascending
         upcomingEvents.sort((a, b) => {
+          const aOrder = a.displayOrder ?? 99;
+          const bOrder = b.displayOrder ?? 99;
+          if (aOrder !== bOrder) return aOrder - bOrder;
           if (a.parsedDate && b.parsedDate) return a.parsedDate - b.parsedDate;
           if (a.parsedDate) return -1;
           if (b.parsedDate) return 1;

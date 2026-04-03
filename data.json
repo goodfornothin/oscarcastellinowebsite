@@ -169,7 +169,8 @@
       "address": "Oxford Road, Gerrards Cross, Buckinghamshire, SL9 7PA",
       "description": "Lo\u2019Mas Event presents Party & Celebrations 2026 \u2014 Easter Night. An evening of live music and dance featuring baritone Oscar Castellino alongside DJ Allan, DJ Warren-X, DJ Calliston, Edu Drummer Boy, Boadicea Richards and Emcee Liz. Includes buffet dinner, Easter egg hunt, housie & raffle, face painting, photo booth, and free parking. Tickets: Early Bird \u00a320, General \u00a325, Children under 10 \u00a310.",
       "ticketsUrl": "",
-      "ticketPrice": "\u00a320\u2013\u00a325"
+      "ticketPrice": "\u00a320\u2013\u00a325",
+      "displayOrder": 2
     },
     {
       "event": "LISBON CONCERT Oscar Castellino | Voz de \u00d3pera de Goa",
@@ -259,7 +260,8 @@
         "price": "\u00a30.00 - \u00a320.00",
         "link": "https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym"
       },
-      "contactInfo": "Goan snacks available. For enquiries contact voice@oscarcastellino.com"
+      "contactInfo": "Goan snacks available. For enquiries contact voice@oscarcastellino.com",
+      "displayOrder": 1
     },
     {
       "event": "Così fan tutte — Barefoot Opera 2026 Tour",
