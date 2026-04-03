@@ -159,6 +159,19 @@
   },
   "upcomingEvents": [
     {
+      "event": "Easter Party & Celebrations 2026",
+      "information": "Lo'Mas Event presents an unforgettable Easter night of live music, opera, dance and family entertainment at The Bull Hotel, Gerrards Cross. Featuring baritone Oscar Castellino, live DJs, buffet dinner, Easter egg hunt, photo booth and more.",
+      "eventId": "easter-party-2026",
+      "eventPage": "events/easter-party-2026.html",
+      "date": "Sunday, 5 April 2026",
+      "time": "6:00 PM \u2013 1:00 AM",
+      "venue": "The Bull Hotel",
+      "address": "Oxford Road, Gerrards Cross, Buckinghamshire, SL9 7PA",
+      "description": "Lo\u2019Mas Event presents Party & Celebrations 2026 \u2014 Easter Night. An evening of live music and dance featuring baritone Oscar Castellino alongside DJ Allan, DJ Warren-X, DJ Calliston, Edu Drummer Boy, Boadicea Richards and Emcee Liz. Includes buffet dinner, Easter egg hunt, housie & raffle, face painting, photo booth, and free parking. Tickets: Early Bird \u00a320, General \u00a325, Children under 10 \u00a310.",
+      "ticketsUrl": "",
+      "ticketPrice": "\u00a320\u2013\u00a325"
+    },
+    {
       "event": "LISBON CONCERT Oscar Castellino | Voz de \u00d3pera de Goa",
       "information": "ENGLISH: Join acclaimed baritone Oscar Castellino and pianist Rodrigo Ayala for a concert that unites the grandeur of opera with the soul of Goa. Enjoy a unique program of beloved lyrical arias and traditional Luso-Goan and Konkani songs, creating a musical bridge between two cultures united by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.\nPORTUGU\u00caS: Junte-se ao aclamado bar\u00edtono Oscar Castellino e ao pianista Rodrigo Ayala para um espet\u00e1culo que une a grandiosidade da \u00f3pera \u00e0 alma de Goa. Para ouvir, um programa singular de \u00e1rias l\u00edricas bem conhecidas do p\u00fablico e can\u00e7\u00f5es tradicionais luso-goesas e Konkani, criando uma ponte musical entre duas culturas unidas pela hist\u00f3ria. Dos palcos da Royal Opera House \u00e0s margens do Mar Ar\u00e1bico, viva a experi\u00eancia de uma voz que transporta as tradi\u00e7\u00f5es l\u00edricas da Europa e o cora\u00e7\u00e3o de Goa.",
       "eventId": "lisbon-fundacao-oriente-2026",
