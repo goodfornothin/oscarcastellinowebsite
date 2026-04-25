@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Font Palette Demo — Oscar Castellino</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { display: flex; height: 100vh; background: #0a0a0a; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+
+    /* SIDEBAR */
+    #sidebar {
+      width: 260px;
+      min-width: 260px;
+      background: #111;
+      border-right: 1px solid #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #sidebar-header {
+      padding: 16px;
+      border-bottom: 1px solid #2a2a2a;
+      background: #0d0d0d;
+    }
+    #sidebar-header h2 {
+      color: #d4a853;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    #sidebar-header p {
+      color: #555;
+      font-size: 11px;
+    }
+    #palette-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px;
+    }
+    #palette-list::-webkit-scrollbar { width: 4px; }
+    #palette-list::-webkit-scrollbar-track { background: #111; }
+    #palette-list::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+    .palette-btn {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid #252525;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+    .palette-btn:hover { background: #222; border-color: #d4a853; }
+    .palette-btn.active { background: #1e1a10; border-color: #d4a853; box-shadow: 0 0 0 1px #d4a853; }
+    .palette-btn .num {
+      font-size: 9px;
+      color: #444;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .palette-btn .name {
+      font-size: 13px;
+      color: #e0e0e0;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    .palette-btn.active .name { color: #d4a853; }
+    .palette-btn .tagline {
+      font-size: 10px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+    .palette-btn .preview-text {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #888;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .active-dot {
+      width: 6px; height: 6px;
+      background: #d4a853;
+      border-radius: 50%;
+      position: absolute;
+      right: 10px; top: 50%;
+      transform: translateY(-50%);
+      display: none;
+    }
+    .palette-btn.active .active-dot { display: block; }
+
+    /* MAIN IFRAME */
+    #preview-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #preview-bar {
+      height: 38px;
+      background: #0d0d0d;
+      border-bottom: 1px solid #1e1e1e;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+    }
+    #preview-bar .dots { display: flex; gap: 5px; }
+    #preview-bar .dot { width: 10px; height: 10px; border-radius: 50%; }
+    #preview-bar .dot.r { background: #ff5f57; }
+    #preview-bar .dot.y { background: #febc2e; }
+    #preview-bar .dot.g { background: #28c840; }
+    #preview-label {
+      color: #444;
+      font-size: 11px;
+      letter-spacing: 1px;
+      flex: 1;
+      text-align: center;
+    }
+    #site-frame {
+      flex: 1;
+      width: 100%;
+      border: none;
+      background: #0d0d0d;
+    }
+    #loading-overlay {
+      position: absolute;
+      top: 38px; left: 260px; right: 0; bottom: 0;
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 13px;
+      letter-spacing: 2px;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    #loading-overlay.hidden { opacity: 0; }
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <div id="sidebar-header">
+    <h2>Font Palettes</h2>
+    <p>Click to preview on full site</p>
+  </div>
+  <div id="palette-list"></div>
+</div>
+
+<div id="preview-wrap">
+  <div id="preview-bar">
+    <div class="dots">
+      <div class="dot r"></div>
+      <div class="dot y"></div>
+      <div class="dot g"></div>
+    </div>
+    <div id="preview-label">loading…</div>
+  </div>
+  <iframe id="site-frame" src="index.html"></iframe>
+</div>
+
+<div id="loading-overlay">LOADING…</div>
+
+<script>
+const PALETTES = [
+  {
+    id: 1,
+    name: "ORBITRON",
+    tagline: "Space Age / Futuristic",
+    preview: "Opera Awaits",
+    display: "'Orbitron', sans-serif",
+    body: "'Exo 2', sans-serif",
+    ui: "'Exo 2', sans-serif",
+    weights: "Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400"
+  },
+  {
+    id: 2,
+    name: "RUSSO ONE",
+    tagline: "Bold / Monolithic",
+    preview: "Opera Awaits",
+    display: "'Russo One', sans-serif",
+    body: "'Rajdhani', sans-serif",
+    ui: "'Rajdhani', sans-serif",
+    weights: "Russo+One&family=Rajdhani:wght@300;400;500;600;700"
+  },
+  {
+    id: 3,
+    name: "BEBAS NEUE",
+    tagline: "Tall / Editorial / Condensed",
+    preview: "Opera Awaits",
+    display: "'Bebas Neue', sans-serif",
+    body: "'Barlow Condensed', sans-serif",
+    ui: "'Barlow', sans-serif",
+    weights: "Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600"
+  },
+  {
+    id: 4,
+    name: "UNICA ONE",
+    tagline: "Geometric / Pure / Swiss",
+    preview: "Opera Awaits",
+    display: "'Unica One', sans-serif",
+    body: "'Space Grotesk', sans-serif",
+    ui: "'Space Grotesk', sans-serif",
+    weights: "Unica+One&family=Space+Grotesk:wght@300;400;500;600;700"
+  },
+  {
+    id: 5,
+    name: "AUDIOWIDE",
+    tagline: "Sci-Fi / Smooth Angular",
+    preview: "Opera Awaits",
+    display: "'Audiowide', sans-serif",
+    body: "'Jura', sans-serif",
+    ui: "'Jura', sans-serif",
+    weights: "Audiowide&family=Jura:wght@300;400;500;600;700"
+  },
+  {
+    id: 6,
+    name: "BLACK OPS ONE",
+    tagline: "Heavy / Aggressive / Military",
+    preview: "Opera Awaits",
+    display: "'Black Ops One', sans-serif",
+    body: "'Titillium Web', sans-serif",
+    ui: "'Titillium Web', sans-serif",
+    weights: "Black+Ops+One&family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400"
+  },
+  {
+    id: 7,
+    name: "CHAKRA PETCH",
+    tagline: "Angular / Multi-script Tech",
+    preview: "Opera Awaits",
+    display: "'Chakra Petch', sans-serif",
+    body: "'Quantico', sans-serif",
+    ui: "'Quantico', sans-serif",
+    weights: "Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Quantico:ital,wght@0,400;0,700;1,400;1,700"
+  },
+  {
+    id: 8,
+    name: "MICHROMA",
+    tagline: "Precision / Ultra-Technical",
+    preview: "Opera Awaits",
+    display: "'Michroma', sans-serif",
+    body: "'Oxanium', sans-serif",
+    ui: "'Oxanium', sans-serif",
+    weights: "Michroma&family=Oxanium:wght@300;400;500;600;700;800"
+  },
+  {
+    id: 9,
+    name: "SYNCOPATE",
+    tagline: "Wide / Spaced / Minimal",
+    preview: "Opera",
+    display: "'Syncopate', sans-serif",
+    body: "'Exo 2', sans-serif",
+    ui: "'Exo 2', sans-serif",
+    weights: "Syncopate:wght@400;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400"
+  },
+  {
+    id: 10,
+    name: "ANTON",
+    tagline: "Heavy / Editorial / Impact",
+    preview: "Opera Awaits",
+    display: "'Anton', sans-serif",
+    body: "'Barlow', sans-serif",
+    ui: "'Barlow', sans-serif",
+    weights: "Anton&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400"
+  },
+  {
+    id: 11,
+    name: "JOSEFIN SANS",
+    tagline: "Art Deco / Geometric / Clean",
+    preview: "Opera Awaits",
+    display: "'Josefin Sans', sans-serif",
+    body: "'DM Sans', sans-serif",
+    ui: "'DM Sans', sans-serif",
+    weights: "Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400"
+  },
+  {
+    id: 12,
+    name: "ELECTROLIZE",
+    tagline: "Digital / Circuit Board",
+    preview: "Opera Awaits",
+    display: "'Electrolize', sans-serif",
+    body: "'Share Tech', sans-serif",
+    ui: "'Share Tech', sans-serif",
+    weights: "Electrolize&family=Share+Tech"
+  },
+  {
+    id: 13,
+    name: "BAI JAMJUREE",
+    tagline: "Sharp / Mixed Script / Modern",
+    preview: "Opera Awaits",
+    display: "'Bai Jamjuree', sans-serif",
+    body: "'Space Mono', monospace",
+    ui: "'Bai Jamjuree', sans-serif",
+    weights: "Bai+Jamjuree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700"
+  },
+  {
+    id: 14,
+    name: "BARLOW CONDENSED",
+    tagline: "Sleek / Condensed / Versatile",
+    preview: "Opera Awaits",
+    display: "'Barlow Condensed', sans-serif",
+    body: "'Barlow Semi Condensed', sans-serif",
+    ui: "'Barlow', sans-serif",
+    weights: "Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Barlow+Semi+Condensed:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600"
+  },
+  {
+    id: 15,
+    name: "OXANIUM",
+    tagline: "Curved Angular / Gaming / Modern",
+    preview: "Opera Awaits",
+    display: "'Oxanium', sans-serif",
+    body: "'Rajdhani', sans-serif",
+    ui: "'Rajdhani', sans-serif",
+    weights: "Oxanium:wght@300;400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700"
+  }
+];
+
+const frame = document.getElementById('site-frame');
+const label = document.getElementById('preview-label');
+const overlay = document.getElementById('loading-overlay');
+let activeId = null;
+let injectedStyleId = 'font-override';
+
+function buildFontCSS(p) {
+  return `
+    @import url('https://fonts.googleapis.com/css2?family=${p.weights}&display=swap');
+    :root {
+      --font-display: ${p.display};
+      --font-body: ${p.body};
+      --font-ui: ${p.ui};
+    }
+    h1, h2, h3, h4, h5, h6,
+    .nav-logo, .hero-title, .section-title, .event-title, .gallery-title {
+      font-family: ${p.display} !important;
+    }
+    body, p, li, td, th, input, textarea, select, button {
+      font-family: ${p.body} !important;
+    }
+    nav, .nav, .nav-links, .btn, .cta, footer {
+      font-family: ${p.ui} !important;
+    }
+  `;
+}
+
+function applyPalette(p) {
+  const iframeDoc = frame.contentDocument || frame.contentWindow.document;
+  let styleEl = iframeDoc.getElementById(injectedStyleId);
+  if (!styleEl) {
+    styleEl = iframeDoc.createElement('style');
+    styleEl.id = injectedStyleId;
+    iframeDoc.head.appendChild(styleEl);
+  }
+  styleEl.textContent = buildFontCSS(p);
+
+  // Update active state in sidebar
+  document.querySelectorAll('.palette-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.querySelector(`[data-id="${p.id}"]`);
+  if (activeBtn) activeBtn.classList.add('active');
+  activeBtn?.scrollIntoView({ block: 'nearest' });
+
+  label.textContent = `${p.name} — ${p.tagline}`;
+  activeId = p.id;
+}
+
+function renderSidebar() {
+  const list = document.getElementById('palette-list');
+  list.innerHTML = '';
+  PALETTES.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'palette-btn';
+    btn.dataset.id = p.id;
+    btn.innerHTML = `
+      <div class="num">${String(p.id).padStart(2, '0')}</div>
+      <div class="name">${p.name}</div>
+      <div class="tagline">${p.tagline}</div>
+      <div class="preview-text" style="font-family: system-ui">${p.preview}</div>
+      <div class="active-dot"></div>
+    `;
+    btn.onclick = () => applyPalette(p);
+    list.appendChild(btn);
+  });
+}
+
+frame.addEventListener('load', () => {
+  overlay.classList.add('hidden');
+  // Apply first palette on initial load
+  if (activeId === null) {
+    applyPalette(PALETTES[0]);
+  } else {
+    const current = PALETTES.find(p => p.id === activeId);
+    if (current) applyPalette(current);
+  }
+});
+
+renderSidebar();
+label.textContent = 'Loading site…';
+</script>
+</body>
+</html>
