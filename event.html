@@ -151,6 +151,15 @@
       // Get eventId from URL query param
       const urlParams = new URLSearchParams(window.location.search);
       const eventId = urlParams.get('id');
+
+      // Redirect map: old ?id= values → new canonical URLs
+      const redirects = {
+        'goan-interactions-2026': 'events/goan-interactions-2026.html'
+      };
+      if (eventId && redirects[eventId]) {
+        window.location.replace(redirects[eventId]);
+        return;
+      }
       console.log('Event ID from URL:', eventId);
 
       const detailsSection = document.getElementById('event-details');
