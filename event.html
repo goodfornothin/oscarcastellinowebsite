@@ -6,7 +6,7 @@
   <script>
     // Redirect archived event IDs to their new canonical pages — runs before page renders
     (function() {
-      var redirects = { 'goan-interactions-2026': 'events/goan-interactions-2026.html' };
+      var redirects = { 'goan-interactions-2026': 'events/goan-interactions-2026.html', 'rogue-resonance-workshop': 'events/goan-interactions-2026.html' };
       var id = new URLSearchParams(window.location.search).get('id');
       if (id && redirects[id]) { window.location.replace(redirects[id]); }
     })();
