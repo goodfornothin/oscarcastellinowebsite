@@ -10,38 +10,38 @@
    CSS VARIABLES - ELEGANT OPERA THEME
    ============================================================ */
 :root {
-  /* Primary Colors — Ocean Abyss */
-  --color-gold: #0088cc;
-  --color-gold-light: #44aaee;
-  --color-gold-dark: #005588;
+  /* Primary Colors — Burgundy Opera */
+  --color-gold: #C9922A;
+  --color-gold-light: #E0B050;
+  --color-gold-dark: #9A6E1A;
 
   /* Background Colors */
-  --color-bg-primary: #000810;
-  --color-bg-secondary: #001020;
-  --color-bg-card: #000c18;
-  --color-bg-accent: #001828;
+  --color-bg-primary: #080408;
+  --color-bg-secondary: #100810;
+  --color-bg-card: #0E0610;
+  --color-bg-accent: #180C18;
 
   /* Text Colors */
-  --color-text-primary: #d8f0ff;
-  --color-text-secondary: #4888aa;
-  --color-text-muted: #1a4866;
+  --color-text-primary: #FFF5E6;
+  --color-text-secondary: #BFA888;
+  --color-text-muted: #7A5548;
 
   /* Accent Colors */
-  --color-burgundy: #005588;
-  --color-burgundy-light: #0088cc;
-  --color-cream: #d8f0ff;
+  --color-burgundy: #7B1B2E;
+  --color-burgundy-light: #B03048;
+  --color-cream: #FFF5E6;
 
   /* Gradients */
-  --gradient-gold: linear-gradient(135deg, #005588 0%, #0088cc 50%, #44aaee 100%);
+  --gradient-gold: linear-gradient(135deg, #7B1B2E 0%, #C9922A 50%, #E0B050 100%);
   --gradient-dark: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-  --gradient-overlay: linear-gradient(180deg, transparent 0%, rgba(0, 8, 16, 0.7) 50%, rgba(0, 8, 16, 0.95) 100%);
+  --gradient-overlay: linear-gradient(180deg, transparent 0%, rgba(8, 4, 8, 0.7) 50%, rgba(8, 4, 8, 0.95) 100%);
 
   /* Legacy aliases for older pages */
-  --bg-dark: #000810;
-  --bg-card: #000c18;
-  --accent-gold: #0088cc;
-  --text-light: #d8f0ff;
-  --text-muted: #4888aa;
+  --bg-dark: #080408;
+  --bg-card: #0E0610;
+  --accent-gold: #C9922A;
+  --text-light: #FFF5E6;
+  --text-muted: #BFA888;
   --font-heading: 'Michroma', sans-serif;
   
   /* Typography */
@@ -62,11 +62,11 @@
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   
   /* Borders & Shadows */
-  --border-subtle: 1px solid rgba(0, 136, 204, 0.2);
+  --border-subtle: 1px solid rgba(201, 146, 42, 0.2);
   --border-gold: 1px solid var(--color-gold);
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
   --shadow-elevated: 0 10px 40px rgba(0, 0, 0, 0.6);
-  --shadow-gold: 0 4px 20px rgba(0, 136, 204, 0.25);
+  --shadow-gold: 0 4px 20px rgba(201, 146, 42, 0.25);
 }
 
 /* ============================================================
@@ -93,7 +93,7 @@ body {
     circle at 50% 50%,
     transparent 0,
     transparent 28px,
-    rgba(0, 136, 204, 0.04) 29px,
+    rgba(123, 27, 46, 0.04) 29px,
     transparent 30px
   );
   background-size: 120px 120px;
@@ -180,7 +180,7 @@ a:hover {
   right: 0;
   z-index: 1000;
   padding: var(--spacing-sm) var(--spacing-md);
-  background: rgba(13, 13, 13, 0.95);
+  background: rgba(8, 4, 8, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: var(--border-subtle);
   transition: all var(--transition-smooth);
@@ -188,7 +188,7 @@ a:hover {
 
 .nav.scrolled {
   padding: var(--spacing-xs) var(--spacing-md);
-  background: rgba(13, 13, 13, 0.98);
+  background: rgba(8, 4, 8, 0.98);
 }
 
 .nav-container {
@@ -297,7 +297,7 @@ a:hover {
     top: 70px;
     left: 0;
     right: 0;
-    background: rgba(13, 13, 13, 0.98);
+    background: rgba(8, 4, 8, 0.98);
     flex-direction: column;
     padding: var(--spacing-md);
     gap: var(--spacing-sm);
