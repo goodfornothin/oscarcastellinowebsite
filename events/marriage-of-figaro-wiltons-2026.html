@@ -147,11 +147,20 @@
 
     /* HERO */
     .fig-hero {
-      min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 6rem 2rem 4rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      text-align: center; padding: 6rem 2rem 2.5rem;
       background: radial-gradient(ellipse at 50% 30%, rgba(123,27,46,0.22) 0%, transparent 60%),
                   radial-gradient(ellipse at 80% 70%, rgba(201,146,42,0.1) 0%, transparent 50%),
                   #080408;
+    }
+    .fig-scroll-hint {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,245,230,0.3); margin-top: 0.5rem; margin-bottom: 0.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    }
+    .fig-scroll-hint::after {
+      content: ''; display: block; width: 1px; height: 32px;
+      background: linear-gradient(to bottom, rgba(201,146,42,0.4), transparent);
     }
     .fig-hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: #C9922A; margin-bottom: 1.5rem; }
     .fig-hero h1 {
@@ -340,6 +349,7 @@
         <a href="https://wiltons.org.uk/booking/?event-id=7172&instances-id=342150" target="_blank" class="btn">Book Tickets</a>
       </div>
     </div>
+    <p class="fig-scroll-hint">Synopsis · Cast · Arias · Fun Facts · Wilton's History</p>
   </section>
 
   <!-- Production Photo -->

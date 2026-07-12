@@ -126,11 +126,20 @@
 
     /* HERO */
     .cf-hero {
-      min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 6rem 2rem 4rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      text-align: center; padding: 6rem 2rem 2.5rem;
       background: radial-gradient(ellipse at 50% 30%, rgba(204,34,0,0.18) 0%, transparent 60%),
                   radial-gradient(ellipse at 80% 70%, rgba(212,160,48,0.1) 0%, transparent 50%),
                   #0a0400;
+    }
+    .cf-scroll-hint {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,248,238,0.3); margin-top: 0.5rem; margin-bottom: 0.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    }
+    .cf-scroll-hint::after {
+      content: ''; display: block; width: 1px; height: 32px;
+      background: linear-gradient(to bottom, rgba(212,160,48,0.4), transparent);
     }
     .cf-hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d4a030; margin-bottom: 1.5rem; }
     .cf-hero h1 {
@@ -276,6 +285,7 @@
     </div>
 
     <span class="cf-badge">Red Cast Only · Oscar performs 21 &amp; 24 July</span>
+    <p class="cf-scroll-hint">Synopsis · Cast · Arias · Fun Facts · Venue</p>
   </section>
 
   <hr class="cf-divider">
