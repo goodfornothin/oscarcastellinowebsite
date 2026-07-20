@@ -335,5 +335,18 @@
       "information": "This is a Barefoot Opera production at the Wooburn Festival. Bourne End Community Centre, Wakeman Road, Bourne End SL8 5SX",
       "bookingLink": "https://wooburn.com/etn/barefoot-opera-lucia-di-lammermoor/"
     }
+  ],
+  "projects": [
+    {
+      "id": "goa-portuguesa-2026",
+      "title": "Goa Portuguesa",
+      "subtitle": "Goan Interactions 2026",
+      "description": "The 6th edition of Goan Interactions — an enchanting evening of Konkani and Portuguese music with Oscar Castellino, Baluji Shrivastav OBE, Chelsea D'Silva, Mark Troop, Takashi Kikuchi & Manmohan Dogra. Watch the full concert and download the lyrics booklet.",
+      "date": "20 June 2026",
+      "venue": "St. Stephen's Church, Dulwich, London",
+      "image": "pictures/New Goan Interactions Poster.png",
+      "page": "events/goan-interactions-2026.html",
+      "tags": ["Concert", "Goan Music", "Archive", "Konkani", "Portuguese"]
+    }
   ]
 }
