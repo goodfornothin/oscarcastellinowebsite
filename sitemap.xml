@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://oscarcastellino.com/blog/the-melocchi-method-a-discussion.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://oscarcastellino.com/blog/vocal-technique-and-the-discipline-of-freedom.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

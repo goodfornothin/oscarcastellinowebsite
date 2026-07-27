@@ -1569,6 +1569,17 @@ section {
   color: var(--color-text-secondary);
 }
 
+.qa-speaker {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0.85;
+  margin-bottom: 0.35rem;
+}
+
 .research-callout {
   background: var(--color-bg-card);
   border: var(--border-subtle);
