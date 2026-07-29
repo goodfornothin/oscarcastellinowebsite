@@ -311,31 +311,35 @@
       "bookingLink": "https://www.district.in/play/concerto-de-natal-dec14-2025-buy-tickets?fbclid=PAb21jcAOHhi5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcIY2FsbHNpdGUCMTUAAafk5JDI27larvhBFs4hzqdK7mr-ZS4-EViC9acDXO3XOECnfDM3kF1sqFZ1TA_aem_jUTgF_i6wxbzrxs4Y4IRuQ"
     },
     {
-      "event": "LONDON CONCERT Goan Interactions Dulwich",
-      "information": "Following the grand success of Goan Interactions 2025, the Baluji Music Foundation in collaboration with Melville Rodrigues and Oscar Castellino present an enchanting evening of timeless Goan Konkani and Portuguese tunes.",
+      "event": "Goan London Concert Grand YouTube Premiere",
+      "information": "Free online YouTube premiere of Goan Interactions 2026 — international artists performing Goan Konkani and Portuguese music. Download the lyrics and sing along!",
       "eventId": "goan-interactions-2026",
       "eventPage": "events/goan-interactions-2026.html",
-      "date": "Saturday, June 20, 2026",
-      "time": "5:30 pm Doors Open\n6:00 pm Concert Starts\n6:50 pm Interval / Refreshments available\n7:25 pm Second Half\n8:15 pm Concert Concludes / Meet the artists",
-      "venue": "St. Stephen's Church",
-      "address": "St. Stephen's Church\nLondon SE21 7HW",
-      "description": "Following the grand success of Goan Interactions 2025, the Baluji Music Foundation in collaboration with Melville Rodrigues and Oscar Castellino bring to you an enchanting evening of timeless Goan Konkani and Portuguese tunes, featuring baritone Oscar Castellino, sitar maestro Baluji Shrivastav OBE, vocalist Chelsea D'Silva, pianist Mark Troop and tabla maestro Yusuf Ali Khan. Celebrate Goa's unique European-Indian musical tapestry in a countryside-like London setting. Goan snacks available.",
-      "displayMedia": "New Goan Interactions Poster.png",
+      "date": "Saturday, August 1, 2026",
+      "time": "16:30 BST",
+      "venue": "Online — YouTube Premiere",
+      "address": "Online",
+      "description": "Now in its 6th year, Goan Interactions celebrates Goa's unique Konkani and Portuguese musical heritage — an evening of song, traditional mandos, Portuguese fado-adjacent numbers, and Indian classical improvisation. The Grand YouTube Premiere of the London concert streams free on 1 August 2026 at 16:30 BST. Brought to you by Melville Rodrigues and Baluji Music Foundation. Video by BGU Media. Artists: Oscar Castellino, Mark Troop, Chelsea D'Silva, Takashi Kikuchi, Manmohan Dogra, Etienne Bartholomew.",
+      "displayMedia": "Goan Interactions YouTube Premiere Cover.webp",
       "artists": [
         "Oscar Castellino",
-        "Baluji Shrivastav OBE",
-        "Chelsea D'Silva",
         "Mark Troop",
+        "Chelsea D'Silva",
         "Takashi Kikuchi",
-        "Manmohan Dogra"
+        "Manmohan Dogra",
+        "Etienne Bartholomew"
       ],
-      "program": null,
+      "program": [
+        "First Half: Jinnen Maka Sogle Dile; Tuzo Mog; Tambde Rosa; On the Spring Wind; Encosta Tua Cabecinha; Noxibak Rodtam; Toch Mhojo Ganv; Ya Ya Maya Ya",
+        "Second Half: Indian Classical Improvisation; Terra Mae; Voce Nao; The Prayer; Portuguese Medley; Adeus Korcho; Susegado Goa"
+      ],
       "videos": [],
       "tickets": {
-        "price": "\u00a30.00 - \u00a320.00",
-        "link": "https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym"
+        "price": "Free — register on Aalaap",
+        "link": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky"
       },
-      "contactInfo": "Goan snacks available. For enquiries contact voice@oscarcastellino.com"
+      "bookingLink": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky",
+      "contactInfo": "Please download the lyrics and print and sing along. For enquiries contact voice@oscarcastellino.com"
     },
     {
       "event": "NOV 28 GOAN Christmas Concert Mayfair",

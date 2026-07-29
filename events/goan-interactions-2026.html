@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
-  <title>Goan Interactions 2026 | An Evening of Goan Konkani & Portuguese Music | June 20, London</title>
-  <meta name="description" content="Experience the magic of Goan Interactions 2026 — an enchanting evening of timeless Goan Konkani and Portuguese music featuring Oscar Castellino, Baluji Shrivastav OBE, Chelsea D'Silva, Mark Troop & Manmohan Dogra. St. Stephen's Church, Dulwich. June 20, 2026.">
-  <meta name="keywords" content="Goan Interactions, Oscar Castellino, Goan music, Konkani songs, Portuguese music, Baluji Shrivastav, Chelsea D'Silva, Mark Troop, Dulwich concert, London cultural event">
+  <title>Goan London Concert Grand YouTube Premiere | Goan Interactions 2026 | 1 August</title>
+  <meta name="description" content="Free YouTube premiere of Goan Interactions 2026 — international artists performing Goan Konkani and Portuguese music. Saturday 1 August 2026, 16:30 BST. Online. Register free on Aalaap.">
+  <meta name="keywords" content="Goan Interactions, YouTube Premiere, Oscar Castellino, Goan music, Konkani songs, Portuguese music, Chelsea D'Silva, Mark Troop, Etienne Bartholomew, online concert">
 
   <!-- Open Graph -->
   <meta property="og:type" content="event">
-  <meta property="og:title" content="Goan Interactions 2026 | Konkani & Portuguese Music Evening">
-  <meta property="og:description" content="An enchanting evening celebrating Goa's unique European-Indian musical tapestry. World-class musicians, timeless melodies, Dulwich London.">
-  <meta property="og:image" content="https://oscarcastellino.com/pictures/New Goan Interactions Poster.png">
+  <meta property="og:title" content="Goan London Concert Grand YouTube Premiere | 1 August 2026">
+  <meta property="og:description" content="International artists perform Goan music. Free online YouTube premiere — Saturday 1 August 2026 at 16:30 BST. Download the lyrics and sing along!">
+  <meta property="og:image" content="https://oscarcastellino.com/pictures/Goan%20Interactions%20YouTube%20Premiere%20Cover.webp">
   <meta property="og:url" content="https://oscarcastellino.com/events/goan-interactions-2026.html">
 
   <!-- Event Structured Data -->
@@ -21,38 +21,30 @@
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "Goan Interactions 2026",
-    "startDate": "2026-06-20T18:00:00+01:00",
+    "name": "Goan London Concert Grand YouTube Premiere",
+    "startDate": "2026-08-01T16:30:00+01:00",
     "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
     "location": {
-      "@type": "Place",
-      "name": "St. Stephen's Church",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "College Road",
-        "addressLocality": "Dulwich, London",
-        "postalCode": "SE21 7HW",
-        "addressCountry": "UK"
-      }
+      "@type": "VirtualLocation",
+      "url": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky"
     },
     "performer": [
-      { "@type": "Person", "name": "Oscar Castellino", "jobTitle": "Baritone" },
-      { "@type": "Person", "name": "Baluji Shrivastav OBE", "jobTitle": "Sitar" },
-      { "@type": "Person", "name": "Chelsea D'Silva", "jobTitle": "Vocalist" },
+      { "@type": "Person", "name": "Oscar Castellino", "jobTitle": "Baritone / Vocals" },
       { "@type": "Person", "name": "Mark Troop", "jobTitle": "Piano" },
+      { "@type": "Person", "name": "Chelsea D'Silva", "jobTitle": "Vocals" },
       { "@type": "Person", "name": "Takashi Kikuchi", "jobTitle": "Viola" },
-      { "@type": "Person", "name": "Manmohan Dogra", "jobTitle": "Tabla" }
+      { "@type": "Person", "name": "Manmohan Dogra", "jobTitle": "Tabla & Percussion" },
+      { "@type": "Person", "name": "Etienne Bartholomew", "jobTitle": "Sitar" }
     ],
     "offers": {
       "@type": "Offer",
-      "url": "https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym",
+      "url": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky",
+      "price": "0",
       "priceCurrency": "GBP",
-      "lowPrice": "0",
-      "highPrice": "20",
       "availability": "https://schema.org/InStock"
     },
-    "description": "Following the grand success of Goan Interactions 2025, an enchanting evening of timeless Goan Konkani and Portuguese tunes at St. Stephen's Church, Dulwich."
+    "description": "Now in its 6th year, Goan Interactions celebrates Goa's unique Konkani and Portuguese musical heritage. Free Grand YouTube Premiere of the London concert — 1 August 2026 at 16:30 BST. Brought to you by Melville Rodrigues and Baluji Music Foundation. Video by BGU Media."
   }
   </script>
 
@@ -426,6 +418,178 @@
     @keyframes giScrollBounce {
       0%, 100% { transform: rotate(45deg) translateY(0); }
       50% { transform: rotate(45deg) translateY(6px); }
+    }
+    @keyframes giPremierePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ============================================================
+       YOUTUBE PREMIERE BANNER
+       ============================================================ */
+    .gi-premiere-banner {
+      position: relative;
+      z-index: 2;
+      background:
+        linear-gradient(135deg, rgba(201, 146, 42, 0.18), rgba(8, 4, 8, 0.98) 45%, rgba(14, 6, 16, 1)),
+        radial-gradient(ellipse at top right, rgba(201, 146, 42, 0.12), transparent 55%);
+      border-bottom: 1px solid rgba(201, 146, 42, 0.28);
+      padding: 4.5rem 2rem 4rem;
+    }
+    .gi-premiere-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .gi-premiere-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--font-ui, 'Montserrat', sans-serif);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gi-terracotta-light);
+      margin-bottom: 1rem;
+    }
+    .gi-premiere-kicker::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gi-terracotta-light);
+      box-shadow: 0 0 12px var(--gi-terracotta-glow);
+      animation: giPremierePulse 2s ease infinite;
+    }
+    .gi-premiere-title {
+      font-family: var(--font-display, 'Playfair Display', serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--gi-cream);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .gi-premiere-lead {
+      font-family: var(--font-body, 'Cormorant Garamond', serif);
+      font-size: 1.2rem;
+      color: rgba(248, 240, 227, 0.78);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 38rem;
+    }
+    .gi-premiere-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .gi-premiere-meta-item {
+      font-family: var(--font-ui, 'Montserrat', sans-serif);
+      font-size: 0.85rem;
+      color: rgba(248, 240, 227, 0.9);
+    }
+    .gi-premiere-meta-item span {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(248, 240, 227, 0.45);
+      margin-bottom: 0.2rem;
+    }
+    .gi-premiere-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .gi-premiere-note {
+      font-family: var(--font-body, 'Cormorant Garamond', serif);
+      font-size: 1.05rem;
+      color: rgba(248, 240, 227, 0.65);
+      line-height: 1.65;
+    }
+    .gi-premiere-note a {
+      color: var(--gi-terracotta-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .gi-premiere-cover {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(201, 146, 42, 0.22);
+    }
+    .gi-premiere-cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .gi-setlist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .gi-setlist-col h3 {
+      font-family: var(--font-display, 'Playfair Display', serif);
+      color: var(--gi-cream);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    .gi-setlist-col ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: setlist;
+    }
+    .gi-setlist-col ol.gi-setlist-second {
+      counter-reset: setlist 8;
+    }
+    .gi-setlist-col li {
+      counter-increment: setlist;
+      font-family: var(--font-body, 'Cormorant Garamond', serif);
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: rgba(248, 240, 227, 0.75);
+      padding: 0.65rem 0 0.65rem 2.2rem;
+      position: relative;
+      border-bottom: 1px solid rgba(248, 240, 227, 0.08);
+    }
+    .gi-setlist-col li::before {
+      content: counter(setlist);
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      font-family: var(--font-ui, 'Montserrat', sans-serif);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: var(--gi-terracotta-light);
+    }
+    .gi-performer-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, rgba(201, 146, 42, 0.2), rgba(14, 6, 16, 0.9));
+      color: var(--gi-cream);
+      font-family: var(--font-display, 'Playfair Display', serif);
+      font-size: 2.5rem;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 900px) {
+      .gi-premiere-inner,
+      .gi-setlist-grid {
+        grid-template-columns: 1fr;
+      }
+      .gi-premiere-banner {
+        padding: 3.5rem 1.25rem 3rem;
+      }
     }
 
     /* ============================================================
@@ -1031,14 +1195,13 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="gi-nav-links" id="giNavLinks">
+        <li><a href="#premiere">Premiere</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#performers">Artists</a></li>
-        <li><a href="#schedule">Schedule</a></li>
-        <li><a href="#tickets">Tickets</a></li>
-        <li><a href="#venue">Venue</a></li>
+        <li><a href="#setlist">Setlist</a></li>
         <li><a href="#history">History</a></li>
         <li><a href="#videos">Videos</a></li>
-        <li><a href="https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym" target="_blank" class="gi-nav-ticket-btn">Get Tickets</a></li>
+        <li><a href="https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky" target="_blank" rel="noopener" class="gi-nav-ticket-btn">Register Free</a></li>
       </ul>
     </div>
   </nav>
@@ -1048,24 +1211,53 @@
        ============================================================ -->
   <section class="gi-hero" id="top">
     <div class="gi-hero-content">
-      <p class="gi-hero-eyebrow">Baluji Music Foundation presents</p>
+      <p class="gi-hero-eyebrow">Baluji Music Foundation &amp; Melville Rodrigues present</p>
       <div class="gi-hero-date-badge">
-        <span class="gi-badge-date">Saturday, 20 June 2026</span>
+        <span class="gi-badge-date">Saturday, 1 August 2026 &middot; 16:30 BST</span>
         <span class="gi-badge-sep"></span>
-        <span class="gi-badge-venue">St. Stephen's Church, Dulwich, London</span>
+        <span class="gi-badge-venue">Online — YouTube Premiere</span>
       </div>
       <h1 class="gi-hero-title">Goan<br><em>Interactions</em></h1>
-      <p class="gi-hero-subtitle">An enchanting evening of timeless Goan Konkani and Portuguese music in a countryside setting in London</p>
+      <p class="gi-hero-subtitle">Grand YouTube Premiere of the London concert — international artists performing Goa's Konkani and Portuguese musical heritage</p>
       <div class="gi-hero-cta-group">
-        <a href="https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym" target="_blank" class="gi-btn-ticket">Book Tickets &rarr;</a>
-        <a href="#about" class="gi-btn-outline">Discover More</a>
+        <a href="https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky" target="_blank" rel="noopener" class="gi-btn-ticket">Register Free &rarr;</a>
+        <a href="#premiere" class="gi-btn-outline">Premiere Details</a>
       </div>
     </div>
     <div class="gi-hero-scroll">
-      <a href="#about">
+      <a href="#premiere">
         <span>Scroll</span>
         <div class="gi-scroll-arrow"></div>
       </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       YOUTUBE PREMIERE — TOP DETAILS
+       ============================================================ -->
+  <section class="gi-premiere-banner" id="premiere">
+    <div class="gi-premiere-inner">
+      <div>
+        <p class="gi-premiere-kicker">YouTube Premiere</p>
+        <h2 class="gi-premiere-title">Goan London Concert Grand YouTube Premiere</h2>
+        <p class="gi-premiere-lead">International artists perform Goan music. Now in its 6th year, Goan Interactions celebrates Goa's unique Konkani and Portuguese musical heritage — song, traditional mandos, Portuguese fado-adjacent numbers, and Indian classical improvisation reflecting Goa's history as a meeting point of India and Portugal.</p>
+        <div class="gi-premiere-meta">
+          <div class="gi-premiere-meta-item"><span>Date</span>Saturday, 1 August 2026</div>
+          <div class="gi-premiere-meta-item"><span>Time</span>16:30 BST</div>
+          <div class="gi-premiere-meta-item"><span>Where</span>Online</div>
+          <div class="gi-premiere-meta-item"><span>Admission</span>Free</div>
+        </div>
+        <div class="gi-premiere-actions">
+          <a href="https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky" target="_blank" rel="noopener" class="gi-btn-ticket">Register on Aalaap &rarr;</a>
+          <a href="../Goan%20Interactions%202026%20-%20Lyrics%20(8%20pages,%20blue).pdf" target="_blank" rel="noopener" class="gi-btn-outline">Download Lyrics</a>
+        </div>
+        <p class="gi-premiere-note">Please download the lyrics and print and sing along! Also available on <a href="https://drive.google.com/file/d/12Rj0wEoNekf--MNV_R-R4753pQ2qUO39/view?usp=drive_link" target="_blank" rel="noopener">Google Drive</a>. Brought to you by Melville Rodrigues and Baluji Music Foundation. Video by BGU Media.</p>
+      </div>
+      <div class="gi-premiere-cover">
+        <img src="../pictures/Goan Interactions YouTube Premiere Cover.webp"
+             alt="Goan London Concert Grand YouTube Premiere — 1 August 2026"
+             loading="eager">
+      </div>
     </div>
   </section>
 
@@ -1074,8 +1266,9 @@
        ============================================================ -->
   <section style="background:#0a0a0a; padding: 3rem 1rem; text-align:center;">
     <div style="max-width:700px; margin:0 auto;">
+      <p class="gi-section-eyebrow" style="margin-bottom:1rem;">From the London Concert</p>
       <img src="../pictures/New Goan Interactions Poster.png"
-           alt="Goa-Portuguesa Summer Concert 2026 — Saturday June 20, St. Stephen's Church South Dulwich"
+           alt="Goan Interactions 2026 — recorded at St. Stephen's Church, South Dulwich"
            style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 40px rgba(0,0,0,0.5);"
            loading="lazy">
     </div>
@@ -1089,8 +1282,8 @@
       <div class="gi-intro-text gi-reveal" style="max-width: 800px; margin: 0 auto;">
         <p class="gi-section-eyebrow">About the Concert</p>
         <h2 class="gi-section-title" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem);">A Celebration of Goa's Musical Heritage</h2>
-        <p>Following the grand success of Goan Interactions 2025, the Baluji Music Foundation in collaboration with Melville Rodrigues and Oscar Castellino bring to you an enchanting evening of timeless Goan Konkani and Portuguese tunes.</p>
-        <p>Celebrate Goa's unique European-Indian musical tapestry in a countryside-like London setting featuring an exceptional ensemble of world-class musicians. Authentic Goan snacks will be available during the interval.</p>
+        <p>Now in its 6th year, Goan Interactions celebrates Goa's unique Konkani and Portuguese musical heritage — an evening of song, traditional mandos, Portuguese fado-adjacent numbers, and Indian classical improvisation reflecting Goa's history as a meeting point of India and Portugal.</p>
+        <p>The London concert was brought to you by Melville Rodrigues and the Baluji Music Foundation, recorded at St. Stephen's Church, Dulwich. This page archives that evening and announces its Grand YouTube Premiere on 1 August 2026.</p>
         <div class="gi-intro-highlights">
           <div class="gi-highlight-item">
             <div class="gi-highlight-number">6</div>
@@ -1101,12 +1294,12 @@
             <div class="gi-highlight-label">Year Running</div>
           </div>
           <div class="gi-highlight-item">
-            <div class="gi-highlight-number">1.5</div>
-            <div class="gi-highlight-label">Hours of Music</div>
+            <div class="gi-highlight-number">15</div>
+            <div class="gi-highlight-label">Works on the Setlist</div>
           </div>
           <div class="gi-highlight-item">
-            <div class="gi-highlight-number">SE21</div>
-            <div class="gi-highlight-label">Dulwich, London</div>
+            <div class="gi-highlight-number">FREE</div>
+            <div class="gi-highlight-label">Online Premiere</div>
           </div>
         </div>
       </div>
@@ -1131,7 +1324,7 @@
           </div>
           <div class="gi-performer-info">
             <h3 class="gi-performer-name">Oscar Castellino</h3>
-            <p class="gi-performer-role">Baritone</p>
+            <p class="gi-performer-role">Baritone / Vocals</p>
             <p class="gi-performer-bio">International opera baritone who has performed in Goan Interactions since its inception, and takes up programming the concert in 2026 alongside Mark Troop.</p>
           </div>
         </div>
@@ -1148,18 +1341,6 @@
           </div>
         </div>
 
-        <!-- Baluji Shrivastav OBE -->
-        <div class="gi-performer-card gi-reveal">
-          <div class="gi-performer-img-wrap">
-            <img src="../pictures/Baluji Shrivastav OBE.jpg" alt="Baluji Shrivastav OBE" loading="lazy">
-          </div>
-          <div class="gi-performer-info">
-            <h3 class="gi-performer-name">Baluji Shrivastav OBE</h3>
-            <p class="gi-performer-role">Sitar</p>
-            <p class="gi-performer-bio">Legendary Indian classical musician, co-founder of Goan Interactions, and leader of the Baluji Music Foundation, bringing his mastery of the sitar and deep knowledge of South Asian music.</p>
-          </div>
-        </div>
-
         <!-- Chelsea D'Silva -->
         <div class="gi-performer-card gi-reveal">
           <div class="gi-performer-img-wrap">
@@ -1167,7 +1348,7 @@
           </div>
           <div class="gi-performer-info">
             <h3 class="gi-performer-name">Chelsea D'Silva</h3>
-            <p class="gi-performer-role">Vocalist</p>
+            <p class="gi-performer-role">Vocals</p>
             <p class="gi-performer-bio">A vibrant and versatile vocalist making her debut at Goan Interactions, bringing warmth and authenticity to the Goan musical tradition.</p>
           </div>
         </div>
@@ -1196,53 +1377,90 @@
           </div>
         </div>
 
+        <!-- Etienne Bartholomew -->
+        <div class="gi-performer-card gi-reveal">
+          <div class="gi-performer-img-wrap">
+            <div class="gi-performer-placeholder" aria-hidden="true">EB</div>
+          </div>
+          <div class="gi-performer-info">
+            <h3 class="gi-performer-name">Etienne Bartholomew</h3>
+            <p class="gi-performer-role">Sitar</p>
+            <p class="gi-performer-bio">Sitarist for Goan Interactions 2026, joining Manmohan Dogra for Indian classical improvisation on a popular Goan tune and weaving South Asian colour through the evening.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       SCHEDULE
+       SETLIST
        ============================================================ -->
-  <section class="gi-section" id="schedule">
+  <section class="gi-section" id="setlist">
     <div class="gi-container">
-      <p class="gi-section-eyebrow gi-reveal">The Evening</p>
-      <h2 class="gi-section-title gi-reveal">Event Schedule</h2>
-      <p class="gi-section-subtitle gi-reveal">An evening carefully crafted to immerse you in the sounds and flavours of Goa</p>
+      <p class="gi-section-eyebrow gi-reveal">The Programme</p>
+      <h2 class="gi-section-title gi-reveal">Setlist</h2>
+      <p class="gi-section-subtitle gi-reveal">The full programme from the London concert — print the lyrics and sing along at the premiere</p>
+
+      <div class="gi-setlist-grid gi-reveal">
+        <div class="gi-setlist-col">
+          <h3>First Half</h3>
+          <ol>
+            <li>Jinnen Maka Sogle Dile — Text: Manohar Rai Sardessai · Music: Oscar Castellino · Arr: Jason Quadros</li>
+            <li>Tuzo Mog — Lorna Cordeiro / Chris Perry</li>
+            <li>Tambde Rosa — Traditional Konkani Mando</li>
+            <li>On the Spring Wind (Instrumental) — Takashi Kikuchi</li>
+            <li>Encosta Tua Cabecinha — Paolo Borges</li>
+            <li>Noxibak Rodtam — Lorna Cordeiro / Chris Perry</li>
+            <li>Toch Mhojo Ganv — Text: Manohar Rai Sardessai · Music: Oscar Castellino · Arr: Jason Quadros</li>
+            <li>Ya Ya Maya Ya — Remo Fernandes</li>
+          </ol>
+        </div>
+        <div class="gi-setlist-col">
+          <h3>Second Half</h3>
+          <ol class="gi-setlist-second">
+            <li>Indian Classical Improvisation on a Popular Goan Tune (Instrumental) — Etienne Bartholomew &amp; Manmohan Dogra</li>
+            <li>Terra Mãe — Text: Laxman Rao Sardessai · Music: Oscar Castellino · Arr: Mark Troop</li>
+            <li>Você Não — Daniela Mercury</li>
+            <li>The Prayer — David Foster &amp; Carole Bayer Sager</li>
+            <li>Portuguese Medley — Traditional</li>
+            <li>Adeus Korcho — Torquato de Figueiredo</li>
+            <li>Susegado Goa — Text: Gabriel Pais · Music: Oscar Castellino · Arr: Mark Troop &amp; Jason Quadros</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PREMIERE / ORIGINAL EVENING
+       ============================================================ -->
+  <section class="gi-section gi-section-alt" id="schedule">
+    <div class="gi-container">
+      <p class="gi-section-eyebrow gi-reveal">When to Watch</p>
+      <h2 class="gi-section-title gi-reveal">Premiere Details</h2>
+      <p class="gi-section-subtitle gi-reveal">Join the free online premiere — then explore the archival record of the London evening below</p>
 
       <div class="gi-schedule-timeline gi-reveal">
         <div class="gi-schedule-item">
-          <div class="gi-schedule-time">5:30 PM</div>
+          <div class="gi-schedule-time">1 Aug</div>
           <div class="gi-schedule-desc">
-            <h4>Doors Open</h4>
-            <p>Arrive and settle in at the beautiful St. Stephen's Church</p>
+            <h4>YouTube Premiere</h4>
+            <p>Saturday 1 August 2026 · 16:30 BST · Online — free registration on Aalaap</p>
           </div>
         </div>
         <div class="gi-schedule-item">
-          <div class="gi-schedule-time">6:00 PM</div>
+          <div class="gi-schedule-time">Sing</div>
           <div class="gi-schedule-desc">
-            <h4>Concert Begins</h4>
-            <p>First half featuring beloved Konkani and Portuguese melodies</p>
+            <h4>Lyrics &amp; Sing-Along</h4>
+            <p>Download and print the lyrics so you can sing along from home</p>
           </div>
         </div>
         <div class="gi-schedule-item">
-          <div class="gi-schedule-time">6:50 PM</div>
+          <div class="gi-schedule-time">Archive</div>
           <div class="gi-schedule-desc">
-            <h4>Interval &amp; Refreshments</h4>
-            <p>Enjoy authentic Goan snacks and refreshments</p>
-          </div>
-        </div>
-        <div class="gi-schedule-item">
-          <div class="gi-schedule-time">7:25 PM</div>
-          <div class="gi-schedule-desc">
-            <h4>Second Half</h4>
-            <p>The concert continues with more treasured melodies</p>
-          </div>
-        </div>
-        <div class="gi-schedule-item">
-          <div class="gi-schedule-time">8:15 PM</div>
-          <div class="gi-schedule-desc">
-            <h4>Concert Concludes</h4>
-            <p>Meet the artists and share the evening's magic</p>
+            <h4>Originally performed in London</h4>
+            <p>Recorded at St. Stephen's Church, Dulwich — doors 5:30 PM, concert 6:00 PM on the night</p>
           </div>
         </div>
       </div>
@@ -1250,41 +1468,42 @@
   </section>
 
   <!-- ============================================================
-       TICKETS
+       REGISTER
        ============================================================ -->
   <section class="gi-tickets-section" id="tickets">
     <div class="gi-container">
-      <p class="gi-section-eyebrow">Book Your Place</p>
-      <h2 class="gi-section-title" style="color: var(--gi-cream);">Tickets</h2>
+      <p class="gi-section-eyebrow">Watch Free</p>
+      <h2 class="gi-section-title" style="color: var(--gi-cream);">Register for the Premiere</h2>
+      <p class="gi-section-subtitle" style="margin-bottom: 2rem;">No payment required — just a name and email on Aalaap</p>
 
       <div class="gi-tickets-cta">
-        <a href="https://www.ticketsource.co.uk/balujimusicfoundation/goan-interactions-2026/e-gpdvym" target="_blank" class="gi-btn-ticket">Book Tickets &rarr;</a>
+        <a href="https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky" target="_blank" rel="noopener" class="gi-btn-ticket">Register Free &rarr;</a>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       VENUE
+       VENUE (ARCHIVAL)
        ============================================================ -->
   <section class="gi-section" id="venue">
     <div class="gi-container">
-      <p class="gi-section-eyebrow gi-reveal">The Setting</p>
-      <h2 class="gi-section-title gi-reveal">Venue</h2>
+      <p class="gi-section-eyebrow gi-reveal">The Original Setting</p>
+      <h2 class="gi-section-title gi-reveal">London Concert Venue</h2>
 
       <div class="gi-venue-card gi-reveal">
         <div class="gi-venue-info">
           <h3>St. Stephen's Church</h3>
-          <p>A beautiful setting in Dulwich, offering an intimate and warm atmosphere perfect for this cultural celebration. The countryside-like surroundings of South London create a uniquely special ambience.</p>
+          <p>The 2026 concert was performed in Dulwich — an intimate, warm setting that gave the evening its countryside-in-London character. The YouTube premiere brings that same concert online.</p>
           <div class="gi-venue-detail">
             <span class="gi-venue-detail-icon">&#x1F4CD;</span>
             <span>College Road, Dulwich, London SE21 7HW</span>
           </div>
           <div class="gi-venue-detail">
-            <span class="gi-venue-detail-icon">&#x1F554;</span>
-            <span>Doors 5:30 PM &middot; Concert 6:00 PM</span>
+            <span class="gi-venue-detail-icon">&#x1F3A5;</span>
+            <span>Premiere online · 1 August 2026 · 16:30 BST</span>
           </div>
           <div class="gi-venue-snack-badge">
-            &#127835; Authentic Goan snacks available during the interval
+            Video by BGU Media
           </div>
         </div>
         <div class="gi-venue-map">
@@ -1411,7 +1630,7 @@
        ============================================================ -->
   <footer class="gi-footer">
     <div class="gi-footer-inner">
-      <span class="gi-footer-brand">Goan Interactions 2026</span>
+      <span class="gi-footer-brand">Goan Interactions 2026 — YouTube Premiere</span>
       <ul class="gi-footer-links">
         <li><a href="../index.html">Oscar Castellino</a></li>
         <li><a href="../index.html#events">All Events</a></li>
