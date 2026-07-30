@@ -4,32 +4,36 @@
    Version: 3.0
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Chakra+Petch:wght@400;500;600;700&family=Electrolize&family=Exo+2:wght@400;500;600;700;800&family=Michroma&family=Orbitron:wght@400;500;600;700;800&family=Oxanium:wght@300;400;500;600;700;800&family=Quantico:wght@400;700&family=Russo+One&family=Syncopate:wght@400;700&family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Oxanium:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================================
    CSS VARIABLES - ELEGANT OPERA THEME
    ============================================================ */
 :root {
-  /* Primary Colors — Burgundy Opera */
+  /* Primary Colors — Cosi outdoor gold + leaf accents */
   --color-gold: #C9922A;
   --color-gold-light: #E0B050;
   --color-gold-dark: #9A6E1A;
+  --color-leaf: #4FA87A;
+  --color-leaf-dark: #2F6B4F;
 
   /* Background Colors */
   --color-bg-primary: #080408;
   --color-bg-secondary: #100810;
   --color-bg-card: #0E0610;
   --color-bg-accent: #180C18;
+  /* Slightly darker Chrome Violet — site header */
+  --color-header-bg: #04030A;
 
-  /* Text Colors */
-  --color-text-primary: #FFF5E6;
-  --color-text-secondary: #BFA888;
-  --color-text-muted: #7A5548;
+  /* Text Colors — from outdoor Così event page */
+  --color-text-primary: #FFF8EE;
+  --color-text-secondary: rgba(255, 248, 238, 0.78);
+  --color-text-muted: rgba(255, 248, 238, 0.55);
 
   /* Accent Colors */
   --color-burgundy: #7B1B2E;
   --color-burgundy-light: #B03048;
-  --color-cream: #FFF5E6;
+  --color-cream: #FFF8EE;
 
   /* Gradients */
   --gradient-gold: linear-gradient(135deg, #7B1B2E 0%, #C9922A 50%, #E0B050 100%);
@@ -40,8 +44,8 @@
   --bg-dark: #080408;
   --bg-card: #0E0610;
   --accent-gold: #C9922A;
-  --text-light: #FFF5E6;
-  --text-muted: #BFA888;
+  --text-light: #FFF8EE;
+  --text-muted: rgba(255, 248, 238, 0.78);
   --font-heading: 'Michroma', sans-serif;
   
   /* Typography */
@@ -180,7 +184,7 @@ a:hover {
   right: 0;
   z-index: 1000;
   padding: var(--spacing-sm) var(--spacing-md);
-  background: rgba(8, 4, 8, 0.95);
+  background: rgba(4, 3, 10, 0.96);
   backdrop-filter: blur(10px);
   border-bottom: var(--border-subtle);
   transition: all var(--transition-smooth);
@@ -188,7 +192,7 @@ a:hover {
 
 .nav.scrolled {
   padding: var(--spacing-xs) var(--spacing-md);
-  background: rgba(8, 4, 8, 0.98);
+  background: rgba(4, 3, 10, 0.99);
 }
 
 .nav-container {
@@ -209,7 +213,7 @@ a:hover {
 }
 
 .nav-logo span {
-  color: var(--color-gold);
+  color: var(--color-leaf);
 }
 
 .nav-links {
@@ -297,7 +301,7 @@ a:hover {
     top: 70px;
     left: 0;
     right: 0;
-    background: rgba(8, 4, 8, 0.98);
+    background: rgba(4, 3, 10, 0.99);
     flex-direction: column;
     padding: var(--spacing-md);
     gap: var(--spacing-sm);
@@ -2192,138 +2196,4 @@ section {
   section {
     page-break-inside: avoid;
   }
-}
-
-/* ============================================================
-   TEMPORARY STYLE LAB (remove after final font/colour chosen)
-   ============================================================ */
-.style-lab {
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 9999;
-  font-family: var(--font-ui);
-}
-
-.style-lab-toggle {
-  border: 1px solid rgba(255,245,230,0.35);
-  background: rgba(8,4,8,0.82);
-  color: #FFF5E6;
-  border-radius: 999px;
-  padding: 0.75rem 1.1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-}
-
-.style-lab-drawer {
-  position: absolute;
-  right: 0;
-  bottom: 3.2rem;
-  width: min(360px, calc(100vw - 2rem));
-  max-height: min(72vh, 640px);
-  overflow: auto;
-  background: rgba(8,4,8,0.94);
-  border: 1px solid rgba(255,245,230,0.18);
-  border-radius: 16px;
-  padding: 1rem;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  backdrop-filter: blur(16px);
-}
-
-.style-lab-head {
-  display: grid;
-  gap: 0.25rem;
-  margin-bottom: 0.9rem;
-}
-
-.style-lab-head strong {
-  color: var(--color-gold);
-  font-size: 0.95rem;
-}
-
-.style-lab-head span {
-  color: rgba(255,245,230,0.65);
-  font-size: 0.78rem;
-  line-height: 1.4;
-}
-
-.style-lab section + section {
-  margin-top: 1rem;
-}
-
-.style-lab h3 {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255,245,230,0.7);
-  margin: 0 0 0.55rem;
-}
-
-.style-lab-grid {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.style-lab-grid.fonts {
-  grid-template-columns: 1fr 1fr;
-}
-
-.style-lab-grid.themes {
-  grid-template-columns: 1fr 1fr;
-}
-
-.style-lab-font,
-.style-lab-theme {
-  border: 1px solid rgba(255,245,230,0.16);
-  background: rgba(255,245,230,0.04);
-  color: #FFF5E6;
-  border-radius: 10px;
-  padding: 0.65rem 0.7rem;
-  cursor: pointer;
-  text-align: left;
-}
-
-.style-lab-font {
-  font-size: 0.85rem;
-}
-
-.style-lab-theme {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.style-lab-theme .swatch {
-  width: 1.15rem;
-  height: 1.15rem;
-  border-radius: 999px;
-  flex-shrink: 0;
-  border: 1px solid rgba(255,255,255,0.25);
-}
-
-.style-lab-theme .name {
-  font-size: 0.78rem;
-}
-
-.style-lab-font.is-active,
-.style-lab-theme.is-active {
-  border-color: var(--color-gold);
-  box-shadow: inset 0 0 0 1px var(--color-gold);
-  background: rgba(201,146,42,0.12);
-}
-
-.style-lab-reset {
-  width: 100%;
-  margin-top: 1rem;
-  border: 1px dashed rgba(255,245,230,0.3);
-  background: transparent;
-  color: rgba(255,245,230,0.75);
-  border-radius: 10px;
-  padding: 0.7rem;
-  cursor: pointer;
-  font-size: 0.78rem;
 }
