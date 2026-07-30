@@ -1,0 +1,17 @@
+---
+description: Demo first — never deploy to main unless Oscar explicitly says go live, push, or merge
+alwaysApply: true
+---
+
+# Demo first (mandatory)
+
+Always send Oscar a **demo version** of work (screenshots/artifacts in the PR, preview, or clear walkthrough).
+
+**Do not** push/merge to `main` or make the site live unless he explicitly says:
+- "go live", or
+- "push", or
+- "merge"
+
+Otherwise keep changes on a feature branch + draft PR.
+
+This rule also lives in `/AGENTS.md` for Claude and other agents.

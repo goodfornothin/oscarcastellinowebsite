@@ -106,9 +106,14 @@ These folders are **excluded in .gitignore** and will NOT be pushed to GitHub.
 
 ## 🚀 Deployment
 
-This site deploys automatically via **GitHub Pages**.
+This site deploys automatically via **GitHub Pages** from `main`.
 
-### To Deploy Changes:
+### Demo first (required for AI agents)
+Always send Oscar a **demo** (screenshots / PR preview).  
+**Do not** push or merge to `main` unless he explicitly says **go live**, **push**, or **merge**.  
+See `AGENTS.md` and `.cursor/rules/demo-first.mdc`.
+
+### To Deploy Changes (only when Oscar says go live / push / merge):
 ```bash
 git add .
 git commit -m "Description of changes"
