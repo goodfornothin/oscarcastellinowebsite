@@ -494,10 +494,6 @@
       panel.className = 'showcase-panel';
       panel.id = `showcase-${item.id || index}`;
 
-      const lead = item.lead || (item.highlights && item.highlights[0]) || '';
-      const credit = item.imageCredit
-        ? `<p class="showcase-credit">${escapeHtml(item.imageCredit)}</p>`
-        : '';
       const position = item.imagePosition || 'center center';
       const imageSrc = encodeURI(item.image || '');
 
@@ -513,19 +509,17 @@
         <div class="showcase-scrim" aria-hidden="true"></div>
         <div class="showcase-content">
           <div class="showcase-copy">
-            <p class="showcase-eyebrow">${escapeHtml(item.eyebrow || '')}</p>
-            <h2 class="showcase-title">${escapeHtml(item.title || '')}</h2>
-            <p class="showcase-role">${escapeHtml(item.role || '')}</p>
+            ${item.eyebrow ? `<p class="showcase-eyebrow">${escapeHtml(item.eyebrow)}</p>` : ''}
             <div class="showcase-meta">
               ${item.dateLabel ? `<span>${escapeHtml(item.dateLabel)}</span>` : ''}
               ${item.venue ? `<span>${escapeHtml(item.venue)}</span>` : ''}
             </div>
-            ${lead ? `<p class="showcase-lead">${escapeHtml(lead)}</p>` : ''}
+            ${item.role ? `<p class="showcase-role">${escapeHtml(item.role)}</p>` : ''}
             <div class="showcase-actions">
-              ${item.ctaLink ? `<a href="${escapeHtml(item.ctaLink)}" class="btn btn-primary">${escapeHtml(item.ctaLabel || 'Explore the Event')}</a>` : ''}
-              ${item.ticketLink ? `<a href="${escapeHtml(item.ticketLink)}" class="btn btn-outline" target="_blank" rel="noopener">${escapeHtml(item.ticketLabel || 'Tickets')}</a>` : ''}
+              ${item.ctaLink ? `<a href="${escapeHtml(item.ctaLink)}" class="btn btn-glass-primary">${escapeHtml(item.ctaLabel || 'Explore')}</a>` : ''}
+              ${item.ticketLink ? `<a href="${escapeHtml(item.ticketLink)}" class="btn btn-glass" target="_blank" rel="noopener">${escapeHtml(item.ticketLabel || 'Tickets')}</a>` : ''}
             </div>
-            ${credit}
+            <h2 class="showcase-title">${escapeHtml(item.title || '')}</h2>
           </div>
         </div>
       `;
