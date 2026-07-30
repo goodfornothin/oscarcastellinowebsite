@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press Gallery | Oscar Castellino — Downloadable Photos & Headshots</title>
+  <meta name="description" content="Downloadable press and performance gallery for Oscar Castellino. Includes Così fan tutte (Guglielmo, Barefoot Opera) and The Barber of Seville (Figaro, 2023). Please credit photographers.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://oscarcastellino.com/gallery.html">
+  <meta property="og:title" content="Press Gallery | Oscar Castellino">
+  <meta property="og:description" content="Downloadable photos for press and casting. Credit the photographer before use.">
+  <meta property="og:url" content="https://oscarcastellino.com/gallery.html">
+  <meta property="og:image" content="https://oscarcastellino.com/pictures/Oscar%20Castellino%20Smiling%20HD.jpg">
+  <link rel="icon" type="image/png" href="pictures/OscarBlack1.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Oscar <span>Castellino</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#videos">Videos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="nav-cta">Book Oscar</a>
+    </div>
+  </nav>
+
+  <header class="press-gallery-hero">
+    <div class="section-container">
+      <p class="eyebrow">Press &amp; Casting</p>
+      <h1 class="section-title">Photo Gallery</h1>
+      <p class="press-gallery-intro">
+        Browse and download performance and portrait images of Oscar Castellino.
+        Each download asks you to credit the photographer. Ideal for companies needing headshots and production stills.
+      </p>
+      <p class="press-gallery-notice" id="galleryNotice"></p>
+    </div>
+  </header>
+
+  <section class="gallery press-gallery-page" id="gallery">
+    <div class="section-container">
+      <div class="press-gallery-toolbar">
+        <div class="press-gallery-filters" id="galleryFilters" role="tablist" aria-label="Filter gallery by production"></div>
+        <label class="press-gallery-search">
+          <span class="visually-hidden">Search photos</span>
+          <input type="search" id="gallerySearch" placeholder="Search titles, roles, credits…">
+        </label>
+      </div>
+      <p class="press-gallery-count" id="galleryCount"></p>
+      <div class="gallery-grid press-gallery-grid" id="galleryGrid">
+        <p class="text-center text-muted">Loading gallery…</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Oscar <span>Castellino</span></a>
+        <p>International baritone · Press gallery for casting and media use</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Full Gallery</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="mailto:voice@oscarcastellino.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Credit</h4>
+        <ul>
+          <li>Always credit the photographer</li>
+          <li>Così images: @areyoutakingthepics</li>
+          <li><a href="mailto:voice@oscarcastellino.com">Ask about other credits</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Oscar Castellino. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</span>
+    <div class="lightbox-stage">
+      <img src="" alt="" id="lightboxImage">
+      <div class="lightbox-info">
+        <div id="lightboxCaption"></div>
+        <p id="lightboxCredit"></p>
+        <button type="button" class="btn btn-primary" id="lightboxDownload">Download with credit</button>
+      </div>
+    </div>
+    <span class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</span>
+  </div>
+
+  <script src="gallery.js"></script>
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    let allImages = [];
+    let visibleImages = [];
+    let activeCategory = 'all';
+    let searchQuery = '';
+    let lightboxApi = null;
+
+    function matchesFilters(image) {
+      const catOk = activeCategory === 'all' || image.category === activeCategory;
+      if (!catOk) return false;
+      if (!searchQuery) return true;
+      const hay = [image.title, image.description, image.production, image.role, image.credit, image.file]
+        .join(' ')
+        .toLowerCase();
+      return hay.includes(searchQuery);
+    }
+
+    function renderFilters(categories) {
+      const wrap = document.getElementById('galleryFilters');
+      wrap.innerHTML = '';
+      categories.forEach((cat) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'press-filter-btn' + (cat.id === activeCategory ? ' active' : '');
+        btn.textContent = cat.label;
+        btn.addEventListener('click', () => {
+          activeCategory = cat.id;
+          wrap.querySelectorAll('.press-filter-btn').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderGrid();
+        });
+        wrap.appendChild(btn);
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('galleryGrid');
+      visibleImages = allImages.filter(matchesFilters);
+      document.getElementById('galleryCount').textContent =
+        `${visibleImages.length} image${visibleImages.length === 1 ? '' : 's'}` +
+        (activeCategory !== 'all' || searchQuery ? ' matching your filters' : ' available for download');
+
+      grid.innerHTML = '';
+      if (!visibleImages.length) {
+        grid.innerHTML = '<p class="text-center text-muted">No images match those filters.</p>';
+        return;
+      }
+
+      lightboxApi = OscarGallery.setupLightbox(visibleImages);
+      visibleImages.forEach((image, index) => {
+        grid.appendChild(
+          OscarGallery.renderGalleryCard(image, {
+            onOpen: () => lightboxApi.open(index),
+          })
+        );
+      });
+    }
+
+    OscarGallery.loadGalleryData()
+      .then((data) => {
+        allImages = data.images || [];
+        document.getElementById('galleryNotice').textContent = data.notice || '';
+        renderFilters(data.categories || [{ id: 'all', label: 'All' }]);
+        renderGrid();
+      })
+      .catch(() => {
+        document.getElementById('galleryGrid').innerHTML =
+          '<p class="text-center text-muted">Unable to load the gallery right now.</p>';
+      });
+
+    document.getElementById('gallerySearch').addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderGrid();
+    });
+  </script>
+</body>
+</html>

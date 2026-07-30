@@ -66,7 +66,7 @@
       
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#videos">Videos</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -150,11 +150,17 @@
   <section class="gallery" id="gallery">
     <div class="section-container">
       <div class="section-header">
-        <p class="eyebrow">Visual Journey</p>
+        <p class="eyebrow">Press &amp; Performance</p>
         <h2 class="section-title">Gallery</h2>
+        <p class="section-subtitle" style="max-width:640px;margin:1rem auto 0;text-align:center;color:var(--color-text-secondary);">
+          Selected stills including Così fan tutte (Guglielmo, Barefoot Opera) and The Barber of Seville (Figaro, 2023). Downloadable for press — please credit the photographer.
+        </p>
       </div>
       <div class="gallery-grid" id="galleryGrid">
         <!-- Gallery items will be dynamically populated -->
+      </div>
+      <div class="gallery-cta-row">
+        <a href="gallery.html" class="btn btn-outline">View full press gallery</a>
       </div>
     </div>
   </section>
@@ -268,7 +274,7 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="biography.html">Full Biography</a></li>
@@ -304,10 +310,18 @@
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close" id="lightboxClose">&times;</span>
     <span class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</span>
-    <img src="" alt="" id="lightboxImage">
+    <div class="lightbox-stage">
+      <img src="" alt="" id="lightboxImage">
+      <div class="lightbox-info">
+        <div id="lightboxCaption"></div>
+        <p id="lightboxCredit"></p>
+        <button type="button" class="btn btn-primary" id="lightboxDownload">Download with credit</button>
+      </div>
+    </div>
     <span class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</span>
   </div>
 
+  <script src="gallery.js"></script>
   <script>
     // ============================================================
     // NAVIGATION
@@ -338,80 +352,26 @@
     });
 
     // ============================================================
-    // GALLERY DATA & RENDERING
+    // GALLERY PREVIEW (from gallery-data.json)
     // ============================================================
-    const galleryImages = [
-      { src: 'pictures/Oscar Grand arm stretched out at Bradford Opera.jpg', caption: 'Bradford Opera Performance', featured: true },
-      { src: 'pictures/Oscar Grant singing close-up at Concerto de Natal.jpg', caption: 'Concerto de Natal' },
-      { src: 'pictures/Oscar Leeds leader festival pensive look.jpg', caption: 'Leeds Lieder Festival' },
-      { src: 'pictures/Oscar closing eyes and looking up singing at Concerto de Natal.jpg', caption: 'Concerto de Natal' },
-      { src: 'pictures/Oscar Leeds leader festival powerful singing side view.jpg', caption: 'Leeds Lieder Festival' },
-      { src: 'pictures/Oscar smiling hands stretched out at Pegasus Christmas concert.JPG', caption: 'Pegasus Christmas Concert' },
-      { src: 'pictures/Oscar encouraging the audience at Concerto de Natal.jpg', caption: 'Concerto de Natal' },
-      { src: 'pictures/Oscar silhouette side view at Leeds lieder festival.jpg', caption: 'Leeds Lieder Festival', featured: true },
-      { src: 'pictures/Oscar powerful paws centred hand stretched up at Bradford Opera.jpg', caption: 'Bradford Opera' },
-      { src: 'pictures/Oscar Kommilitonen Welsh National Opera youth.jpg', caption: 'Welsh National Opera' },
-      { src: 'pictures/Oscar smiling looking sideways at Clissold Park.jpg', caption: 'Clissold Park' },
-      { src: 'pictures/OscarKonkaniPegasus.JPG', caption: 'Konkani Concert' },
-    ];
-
     const galleryGrid = document.getElementById('galleryGrid');
-    let currentGalleryIndex = 0;
+    let previewImages = [];
+    let lightboxApi = null;
 
-    function renderGallery() {
+    function renderGalleryPreview(allImages) {
+      const preferred = allImages.filter((img) => img.featured);
+      const fill = allImages.filter((img) => !img.featured);
+      previewImages = [...preferred, ...fill].slice(0, 12);
       galleryGrid.innerHTML = '';
-      galleryImages.forEach((img, index) => {
-        const item = document.createElement('div');
-        item.className = 'gallery-item' + (img.featured ? ' featured' : '');
-        item.innerHTML = `
-          <img src="${img.src}" alt="${img.caption}" loading="lazy">
-          <div class="gallery-caption">${img.caption}</div>
-        `;
-        item.addEventListener('click', () => openLightbox(index));
-        galleryGrid.appendChild(item);
+      lightboxApi = OscarGallery.setupLightbox(previewImages);
+      previewImages.forEach((image, index) => {
+        galleryGrid.appendChild(
+          OscarGallery.renderGalleryCard(image, {
+            onOpen: () => lightboxApi.open(index),
+          })
+        );
       });
     }
-
-    // ============================================================
-    // LIGHTBOX
-    // ============================================================
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-
-    function openLightbox(index) {
-      currentGalleryIndex = index;
-      lightboxImage.src = galleryImages[index].src;
-      lightboxImage.alt = galleryImages[index].caption;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function navigateLightbox(direction) {
-      currentGalleryIndex = (currentGalleryIndex + direction + galleryImages.length) % galleryImages.length;
-      lightboxImage.src = galleryImages[currentGalleryIndex].src;
-      lightboxImage.alt = galleryImages[currentGalleryIndex].caption;
-    }
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
-    lightboxNext.addEventListener('click', () => navigateLightbox(1));
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') navigateLightbox(-1);
-      if (e.key === 'ArrowRight') navigateLightbox(1);
-    });
 
     // ============================================================
     // VIDEO CAROUSEL
@@ -567,9 +527,6 @@
           document.getElementById('shortBiography').textContent = data.shortBiography;
         }
         
-        // Render gallery
-        renderGallery();
-        
         // Render videos
         if (data.featuredVideos && data.featuredVideos.length > 0) {
           initCarousel(data.featuredVideos);
@@ -629,6 +586,13 @@
       })
       .catch(error => {
         console.error('Error loading data:', error);
+      });
+
+    OscarGallery.loadGalleryData()
+      .then((galleryData) => renderGalleryPreview(galleryData.images || []))
+      .catch((error) => {
+        console.error('Error loading gallery:', error);
+        galleryGrid.innerHTML = '<p class="text-center text-muted">Gallery preview unavailable. <a href="gallery.html">Open full gallery</a>.</p>';
       });
 
     // ============================================================
