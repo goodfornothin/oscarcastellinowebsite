@@ -78,17 +78,8 @@
     </div>
   </nav>
 
-  <!-- Featured Event Showcase (priority content at top) -->
-  <section class="featured-events" id="featured-events">
-    <div class="featured-events-intro section-container">
-      <div class="section-header">
-        <p class="eyebrow">On Stage Now &amp; Coming Soon</p>
-        <h2 class="section-title">Featured Productions</h2>
-        <p class="section-subtitle">
-          Full-panel highlights for each production — step into the event page for cast, dates and tickets.
-        </p>
-      </div>
-    </div>
+  <!-- Featured Event Showcase (full-bleed banners, no section title) -->
+  <section class="featured-events" id="featured-events" aria-label="Featured events">
     <div class="showcase-stack" id="featuredShowcase">
       <!-- Featured panels populated from data.json -->
     </div>
@@ -507,26 +498,35 @@
       const credit = item.imageCredit
         ? `<p class="showcase-credit">${escapeHtml(item.imageCredit)}</p>`
         : '';
+      const position = item.imagePosition || 'center center';
+      const imageSrc = encodeURI(item.image || '');
 
       panel.innerHTML = `
-        <div class="showcase-media">
-          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="${index === 0 ? 'eager' : 'lazy'}">
+        <div class="showcase-media" aria-hidden="true">
+          <img
+            src="${imageSrc}"
+            alt="${escapeHtml(item.imageAlt || item.title)}"
+            style="object-position: ${escapeHtml(position)};"
+            loading="${index === 0 ? 'eager' : 'lazy'}"
+          >
         </div>
-        <div class="showcase-copy">
-          <div class="showcase-rank">Featured ${String(index + 1).padStart(2, '0')}</div>
-          <p class="showcase-eyebrow">${escapeHtml(item.eyebrow || '')}</p>
-          <h3>${escapeHtml(item.title || '')}</h3>
-          <p class="showcase-role">${escapeHtml(item.role || '')}</p>
-          <div class="showcase-meta">
-            ${item.dateLabel ? `<span>🗓 ${escapeHtml(item.dateLabel)}</span>` : ''}
-            ${item.venue ? `<span>📍 ${escapeHtml(item.venue)}</span>` : ''}
+        <div class="showcase-scrim" aria-hidden="true"></div>
+        <div class="showcase-content wrap">
+          <div class="showcase-panel-card">
+            <p class="showcase-eyebrow">${escapeHtml(item.eyebrow || '')}</p>
+            <h2 class="showcase-title">${escapeHtml(item.title || '')}</h2>
+            <p class="showcase-role">${escapeHtml(item.role || '')}</p>
+            <div class="showcase-meta">
+              ${item.dateLabel ? `<span>${escapeHtml(item.dateLabel)}</span>` : ''}
+              ${item.venue ? `<span>${escapeHtml(item.venue)}</span>` : ''}
+            </div>
+            <ul class="showcase-highlights">${highlights}</ul>
+            <div class="showcase-actions">
+              ${item.ctaLink ? `<a href="${escapeHtml(item.ctaLink)}" class="btn btn-primary">${escapeHtml(item.ctaLabel || 'Explore the Event')}</a>` : ''}
+              ${item.ticketLink ? `<a href="${escapeHtml(item.ticketLink)}" class="btn btn-outline" target="_blank" rel="noopener">${escapeHtml(item.ticketLabel || 'Tickets')}</a>` : ''}
+            </div>
+            ${credit}
           </div>
-          <ul class="showcase-highlights">${highlights}</ul>
-          <div class="showcase-actions">
-            ${item.ctaLink ? `<a href="${escapeHtml(item.ctaLink)}" class="btn btn-primary">${escapeHtml(item.ctaLabel || 'Explore the Event')}</a>` : ''}
-            ${item.ticketLink ? `<a href="${escapeHtml(item.ticketLink)}" class="btn btn-outline" target="_blank" rel="noopener">${escapeHtml(item.ticketLabel || 'Tickets')}</a>` : ''}
-          </div>
-          ${credit}
         </div>
       `;
 

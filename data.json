@@ -150,7 +150,7 @@
       "https://www.youtube.com/embed/VIDEO_ID"
     ],
     "tickets": {
-      "price": "\u00a320 / \u20ac25 / Free",
+      "price": "£20 / €25 / Free",
       "link": "https://ticketing-site.com/event-link"
     },
     "bookingLink": "https://direct-booking-link.com (alternative to tickets object)",
@@ -171,13 +171,14 @@
         "Performed in English · Running time 1 hour · Age guidance 14+",
         "Tickets £15–£39 · Post-show talk on 14 August"
       ],
-      "image": "pictures/Lowest of the Low Arcola Theatre 2026.jpg",
-      "imageAlt": "Lowest of the Low at Arcola Theatre",
-      "imageCredit": "Production imagery © Thomas Müller / courtesy Arcola Theatre",
+      "image": "pictures/Oscar powerful paws centred hand stretched up at Bradford Opera.jpg",
+      "imageAlt": "Oscar Castellino performing — portrait for Lowest of the Low",
+      "imageCredit": "",
       "ctaLabel": "Explore the Event",
       "ctaLink": "events/lowest-of-the-low-arcola-2026.html",
       "ticketLabel": "Book Tickets",
-      "ticketLink": "https://www.arcolatheatre.com/event/lowest-of-the-low/"
+      "ticketLink": "https://www.arcolatheatre.com/event/lowest-of-the-low/",
+      "imagePosition": "center 28%"
     },
     {
       "id": "cosi-outdoor",
@@ -192,13 +193,14 @@
         "Directed by Jenny Miller · Barefoot Opera ensemble",
         "General admission £38.62 · Doors from 4pm"
       ],
-      "image": "pictures/Cosi fan tutte Barefoot Opera - Oscar Castellino as Guglielmo - Dancing - credit @areyoutakingthepics.jpg",
-      "imageAlt": "Oscar Castellino as Guglielmo in Barefoot Opera's Così fan tutte",
+      "image": "pictures/Cosi fan tutte Barefoot Opera - Oscar Castellino as Guglielmo in pink waistcoat - credit @areyoutakingthepics.jpg",
+      "imageAlt": "Oscar Castellino as Guglielmo in Barefoot Opera’s Così fan tutte",
       "imageCredit": "Photo credit @areyoutakingthepics",
       "ctaLabel": "Explore the Event",
       "ctaLink": "events/cosi-fan-tutte-outdoor-crowhurst-2026.html",
       "ticketLabel": "Book Tickets",
-      "ticketLink": "https://www.eventbrite.com/e/outdoor-opera-cosi-fan-tutte-tickets-1986533539292?aff=oddtdtcreator"
+      "ticketLink": "https://www.eventbrite.com/e/outdoor-opera-cosi-fan-tutte-tickets-1986533539292?aff=oddtdtcreator",
+      "imagePosition": "center 45%"
     },
     {
       "id": "goan-interactions",
@@ -213,13 +215,14 @@
         "Download the lyrics and sing along",
         "Free to watch — register on Aalaap"
       ],
-      "image": "pictures/Goan Interactions YouTube Premiere Cover.webp",
-      "imageAlt": "Goan Interactions 2026 YouTube Premiere cover",
+      "image": "pictures/Oscar encouraging the audience at Concerto de Natal.jpg",
+      "imageAlt": "Oscar Castellino performing — Goan Interactions",
       "imageCredit": "",
       "ctaLabel": "Explore the Event",
       "ctaLink": "events/goan-interactions-2026.html",
       "ticketLabel": "Register Free",
-      "ticketLink": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky"
+      "ticketLink": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky",
+      "imagePosition": "center 35%"
     },
     {
       "id": "marriage-of-figaro",
@@ -240,12 +243,13 @@
       "ctaLabel": "Explore the Event",
       "ctaLink": "events/marriage-of-figaro-wiltons-2026.html",
       "ticketLabel": "Book Tickets",
-      "ticketLink": "https://wiltons.org.uk/booking/?event-id=7172&instances-id=342148"
+      "ticketLink": "https://wiltons.org.uk/booking/?event-id=7172&instances-id=342148",
+      "imagePosition": "center center"
     }
   ],
   "upcomingEvents": [
     {
-      "event": "Lowest of the Low \u2014 Oscar Castellino as Ali | Arcola Theatre UK Premiere",
+      "event": "Lowest of the Low — Oscar Castellino as Ali | Arcola Theatre UK Premiere",
       "eventId": "lowest-of-the-low-arcola-12-aug-2026",
       "eventPage": "events/lowest-of-the-low-arcola-2026.html",
       "date": "Wednesday, 12 August 2026",
@@ -256,13 +260,13 @@
       "description": "Forty years after the publication of Ganz Unten (Lowest of the Low), Günter Wallraff’s undercover experience as a Turkish migrant worker in 1980s West Germany is transformed into a documentary opera. Oscar Castellino performs the role of Ali in Arcola Theatre’s UK premiere, with music by Tuluğ Tırpan and direction/libretto by Mehmet Ergen. Performed in English. Running time 1 hour. Age guidance 14+.",
       "displayMedia": "Lowest of the Low Arcola Theatre 2026.jpg",
       "tickets": {
-        "price": "\u00a315 \u2013 \u00a339",
+        "price": "£15 – £39",
         "link": "https://www.arcolatheatre.com/book-online/394582"
       },
       "contactInfo": "Official event: https://www.arcolatheatre.com/event/lowest-of-the-low/ · For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "Lowest of the Low \u2014 Oscar Castellino as Ali | Arcola Theatre UK Premiere",
+      "event": "Lowest of the Low — Oscar Castellino as Ali | Arcola Theatre UK Premiere",
       "eventId": "lowest-of-the-low-arcola-13-aug-2026",
       "eventPage": "events/lowest-of-the-low-arcola-2026.html",
       "date": "Thursday, 13 August 2026",
@@ -273,13 +277,13 @@
       "description": "Forty years after the publication of Ganz Unten (Lowest of the Low), Günter Wallraff’s undercover experience as a Turkish migrant worker in 1980s West Germany is transformed into a documentary opera. Oscar Castellino performs the role of Ali in Arcola Theatre’s UK premiere.",
       "displayMedia": "Lowest of the Low Arcola Theatre 2026.jpg",
       "tickets": {
-        "price": "\u00a315 \u2013 \u00a339",
+        "price": "£15 – £39",
         "link": "https://www.arcolatheatre.com/book-online/394583"
       },
       "contactInfo": "Official event: https://www.arcolatheatre.com/event/lowest-of-the-low/ · For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "Lowest of the Low \u2014 Oscar Castellino as Ali | Arcola Theatre UK Premiere (Post-show talk)",
+      "event": "Lowest of the Low — Oscar Castellino as Ali | Arcola Theatre UK Premiere (Post-show talk)",
       "eventId": "lowest-of-the-low-arcola-14-aug-2026",
       "eventPage": "events/lowest-of-the-low-arcola-2026.html",
       "date": "Friday, 14 August 2026",
@@ -290,13 +294,13 @@
       "description": "UK premiere of Lowest of the Low at Arcola Theatre. Oscar Castellino as Ali. Post-show talk with Mehmet Ergen and the Centre for Investigative Journalism immediately following the performance.",
       "displayMedia": "Lowest of the Low Arcola Theatre 2026.jpg",
       "tickets": {
-        "price": "\u00a315 \u2013 \u00a339",
+        "price": "£15 – £39",
         "link": "https://www.arcolatheatre.com/book-online/394584"
       },
       "contactInfo": "Official event: https://www.arcolatheatre.com/event/lowest-of-the-low/ · For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "Lowest of the Low \u2014 Oscar Castellino as Ali | Arcola Theatre UK Premiere",
+      "event": "Lowest of the Low — Oscar Castellino as Ali | Arcola Theatre UK Premiere",
       "eventId": "lowest-of-the-low-arcola-15-aug-2026",
       "eventPage": "events/lowest-of-the-low-arcola-2026.html",
       "date": "Saturday, 15 August 2026",
@@ -307,13 +311,13 @@
       "description": "UK premiere of Lowest of the Low at Arcola Theatre. Oscar Castellino as Ali.",
       "displayMedia": "Lowest of the Low Arcola Theatre 2026.jpg",
       "tickets": {
-        "price": "\u00a315 \u2013 \u00a339",
+        "price": "£15 – £39",
         "link": "https://www.arcolatheatre.com/book-online/394585"
       },
       "contactInfo": "Official event: https://www.arcolatheatre.com/event/lowest-of-the-low/ · For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "Cos\u00ec fan tutte \u2014 Outdoor Opera | Oscar Castellino as Guglielmo | Crowhurst Place",
+      "event": "Così fan tutte — Outdoor Opera | Oscar Castellino as Guglielmo | Crowhurst Place",
       "eventId": "cosi-fan-tutte-outdoor-crowhurst-5-sep-2026",
       "eventPage": "events/cosi-fan-tutte-outdoor-crowhurst-2026.html",
       "date": "Saturday, 5 September 2026",
@@ -324,57 +328,61 @@
       "description": "Experience Barefoot Opera’s fresh take on Mozart and Da Ponte’s effervescent comedy outdoors at Crowhurst Place on the Big Wood Estate — a privately owned Tudor mansion and estate in Lingfield. In this production, Don Alfonso is a scientist bent on testing his thesis: ‘All women are like that’. Oscar Castellino sings Guglielmo / Ensemble. Directed by Jenny Miller. Doors open from 4pm; performance at 5pm. General admission £38.62.",
       "displayMedia": "Cosi fan tutte Barefoot Opera - Oscar Castellino as Guglielmo - Dancing - credit @areyoutakingthepics.jpg",
       "tickets": {
-        "price": "\u00a338.62",
+        "price": "£38.62",
         "link": "https://www.eventbrite.com/e/outdoor-opera-cosi-fan-tutte-tickets-1986533539292?aff=oddtdtcreator"
       },
       "contactInfo": "Details: https://barefootopera.com/event/cosi-fan-tutte/ · For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "Cos\u00ec fan tutte?! \u2014 Oscar Castellino as Guglielmo | Grimeborn Opera Festival",
+      "event": "Così fan tutte?! — Oscar Castellino as Guglielmo | Grimeborn Opera Festival",
       "eventId": "cosi-fan-tutte-grimeborn-21-jul-2026",
       "eventPage": "events/cosi-fan-tutte-grimeborn-2026.html",
       "date": "Tuesday, 21 July 2026",
       "time": "7:30 PM",
-      "venue": "Arcola Theatre \u2014 Studio 1",
+      "venue": "Arcola Theatre — Studio 1",
       "address": "24 Ashwin Street, London E8 3DL",
-      "information": "Oscar Castellino sings the role of Guglielmo in the Red Cast of Barefoot Opera's bold new production of Mozart's Cos\u00ec fan tutte, directed by Jenny Miller, as part of the Grimeborn Opera Festival. Oscar performs on 21 & 24 July only.",
-      "description": "Oscar Castellino takes on the role of Guglielmo in the Red Cast of Barefoot Opera's daring new production of Mozart's Cos\u00ec fan tutte, directed by Jenny Miller, as part of the celebrated Grimeborn Opera Festival at Arcola Theatre. In this reimagined production, Don Alfonso is a scientist bent on testing his thesis \u2014 a group of prototype humans are pushed through a series of experiments in human behaviour, asking urgent questions about love, loyalty and what it means to be human.\n\nPlease note: Oscar Castellino performs in the Red Cast on 21 & 24 July only. The production also runs on 22 & 25 July with the alternate cast.",
+      "information": "Oscar Castellino sings the role of Guglielmo in the Red Cast of Barefoot Opera's bold new production of Mozart's Così fan tutte, directed by Jenny Miller, as part of the Grimeborn Opera Festival. Oscar performs on 21 & 24 July only.",
+      "description": "Oscar Castellino takes on the role of Guglielmo in the Red Cast of Barefoot Opera's daring new production of Mozart's Così fan tutte, directed by Jenny Miller, as part of the celebrated Grimeborn Opera Festival at Arcola Theatre. In this reimagined production, Don Alfonso is a scientist bent on testing his thesis — a group of prototype humans are pushed through a series of experiments in human behaviour, asking urgent questions about love, loyalty and what it means to be human.\n\nPlease note: Oscar Castellino performs in the Red Cast on 21 & 24 July only. The production also runs on 22 & 25 July with the alternate cast.",
       "displayMedia": "Cosi fan tutte Barefoot Opera - Oscar Castellino as Guglielmo - Dancing - credit @areyoutakingthepics.jpg",
       "tickets": {
-        "price": "\u00a315 \u2013 \u00a339",
+        "price": "£15 – £39",
         "link": "https://www.arcolatheatre.com/book-online/394378/"
       },
-      "contactInfo": "Part of the Grimeborn Opera Festival 2026 (15 July \u2013 5 September). For enquiries contact voice@oscarcastellino.com"
+      "contactInfo": "Part of the Grimeborn Opera Festival 2026 (15 July – 5 September). For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "Cos\u00ec fan tutte?! \u2014 Oscar Castellino as Guglielmo | Grimeborn Opera Festival",
+      "event": "Così fan tutte?! — Oscar Castellino as Guglielmo | Grimeborn Opera Festival",
       "eventId": "cosi-fan-tutte-grimeborn-24-jul-2026",
       "eventPage": "events/cosi-fan-tutte-grimeborn-2026.html",
       "date": "Friday, 24 July 2026",
       "time": "7:30 PM",
-      "venue": "Arcola Theatre \u2014 Studio 1",
+      "venue": "Arcola Theatre — Studio 1",
       "address": "24 Ashwin Street, London E8 3DL",
-      "information": "Oscar Castellino sings the role of Guglielmo in the Red Cast of Barefoot Opera's bold new production of Mozart's Cos\u00ec fan tutte, directed by Jenny Miller, as part of the Grimeborn Opera Festival. Oscar performs on 21 & 24 July only.",
-      "description": "Oscar Castellino takes on the role of Guglielmo in the Red Cast of Barefoot Opera's daring new production of Mozart's Cos\u00ec fan tutte, directed by Jenny Miller, as part of the celebrated Grimeborn Opera Festival at Arcola Theatre. In this reimagined production, Don Alfonso is a scientist bent on testing his thesis \u2014 a group of prototype humans are pushed through a series of experiments in human behaviour, asking urgent questions about love, loyalty and what it means to be human.\n\nPlease note: Oscar Castellino performs in the Red Cast on 21 & 24 July only. The production also runs on 22 & 25 July with the alternate cast.",
+      "information": "Oscar Castellino sings the role of Guglielmo in the Red Cast of Barefoot Opera's bold new production of Mozart's Così fan tutte, directed by Jenny Miller, as part of the Grimeborn Opera Festival. Oscar performs on 21 & 24 July only.",
+      "description": "Oscar Castellino takes on the role of Guglielmo in the Red Cast of Barefoot Opera's daring new production of Mozart's Così fan tutte, directed by Jenny Miller, as part of the celebrated Grimeborn Opera Festival at Arcola Theatre. In this reimagined production, Don Alfonso is a scientist bent on testing his thesis — a group of prototype humans are pushed through a series of experiments in human behaviour, asking urgent questions about love, loyalty and what it means to be human.\n\nPlease note: Oscar Castellino performs in the Red Cast on 21 & 24 July only. The production also runs on 22 & 25 July with the alternate cast.",
       "displayMedia": "Cosi fan tutte Barefoot Opera - Oscar Castellino as Guglielmo - Military - credit @areyoutakingthepics.jpg",
       "tickets": {
-        "price": "\u00a315 \u2013 \u00a339",
+        "price": "£15 – £39",
         "link": "https://www.arcolatheatre.com/book-online/394380/"
       },
-      "contactInfo": "Part of the Grimeborn Opera Festival 2026 (15 July \u2013 5 September). For enquiries contact voice@oscarcastellino.com"
+      "contactInfo": "Part of the Grimeborn Opera Festival 2026 (15 July – 5 September). For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "The Marriage of Figaro \u2014 Oscar Castellino as The Count | Wilton's Music Hall",
+      "event": "The Marriage of Figaro — Oscar Castellino as The Count | Wilton's Music Hall",
       "eventId": "marriage-of-figaro-wiltons-23-nov-2026",
       "eventPage": "events/marriage-of-figaro-wiltons-2026.html",
       "date": "Monday, 23 November 2026",
       "time": "7:30 PM",
       "venue": "Wilton's Music Hall",
       "address": "Graces Alley, London E1 8JB",
-      "information": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's Marriage of Figaro at the iconic Wilton's Music Hall \u2014 relocated to 1970s Bradford and reorchestrated to weave together Western and Indian classical traditions.",
+      "information": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's Marriage of Figaro at the iconic Wilton's Music Hall — relocated to 1970s Bradford and reorchestrated to weave together Western and Indian classical traditions.",
       "description": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's The Marriage of Figaro at the iconic Wilton's Music Hall. Adapted by poet and broadcaster Ian McMillan and directed by Alex Chisholm, this production relocates Mozart's comic masterpiece to 1970s Bradford, blending Yorkshire dialect with a score reorchestrated by Ben Crick to incorporate both Western and Indian classical traditions. Starring Oscar Castellino, Natasha Agarwal, and Kanchana Jaishakar.",
       "displayMedia": "Marriage-of-Figaro- Oscar as count Bradford Opera Festival Wiltons music hall.jpg",
-      "artists": ["Oscar Castellino", "Natasha Agarwal", "Kanchana Jaishakar"],
+      "artists": [
+        "Oscar Castellino",
+        "Natasha Agarwal",
+        "Kanchana Jaishakar"
+      ],
       "tickets": {
         "price": "See website",
         "link": "https://wiltons.org.uk/booking/?event-id=7172&instances-id=342148"
@@ -382,17 +390,21 @@
       "contactInfo": "For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "The Marriage of Figaro \u2014 Oscar Castellino as The Count | Wilton's Music Hall",
+      "event": "The Marriage of Figaro — Oscar Castellino as The Count | Wilton's Music Hall",
       "eventId": "marriage-of-figaro-wiltons-24-nov-2026",
       "eventPage": "events/marriage-of-figaro-wiltons-2026.html",
       "date": "Tuesday, 24 November 2026",
       "time": "7:30 PM",
       "venue": "Wilton's Music Hall",
       "address": "Graces Alley, London E1 8JB",
-      "information": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's Marriage of Figaro at the iconic Wilton's Music Hall \u2014 relocated to 1970s Bradford and reorchestrated to weave together Western and Indian classical traditions.",
+      "information": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's Marriage of Figaro at the iconic Wilton's Music Hall — relocated to 1970s Bradford and reorchestrated to weave together Western and Indian classical traditions.",
       "description": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's The Marriage of Figaro at the iconic Wilton's Music Hall. Adapted by poet and broadcaster Ian McMillan and directed by Alex Chisholm, this production relocates Mozart's comic masterpiece to 1970s Bradford, blending Yorkshire dialect with a score reorchestrated by Ben Crick to incorporate both Western and Indian classical traditions. Starring Oscar Castellino, Natasha Agarwal, and Kanchana Jaishakar.",
       "displayMedia": "Marriage-of-Figaro- Oscar as count Bradford Opera Festival Wiltons music hall.jpg",
-      "artists": ["Oscar Castellino", "Natasha Agarwal", "Kanchana Jaishakar"],
+      "artists": [
+        "Oscar Castellino",
+        "Natasha Agarwal",
+        "Kanchana Jaishakar"
+      ],
       "tickets": {
         "price": "See website",
         "link": "https://wiltons.org.uk/booking/?event-id=7172&instances-id=342149"
@@ -400,17 +412,21 @@
       "contactInfo": "For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "The Marriage of Figaro \u2014 Oscar Castellino as The Count | Wilton's Music Hall",
+      "event": "The Marriage of Figaro — Oscar Castellino as The Count | Wilton's Music Hall",
       "eventId": "marriage-of-figaro-wiltons-25-nov-2026",
       "eventPage": "events/marriage-of-figaro-wiltons-2026.html",
       "date": "Wednesday, 25 November 2026",
       "time": "7:30 PM",
       "venue": "Wilton's Music Hall",
       "address": "Graces Alley, London E1 8JB",
-      "information": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's Marriage of Figaro at the iconic Wilton's Music Hall \u2014 relocated to 1970s Bradford and reorchestrated to weave together Western and Indian classical traditions.",
+      "information": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's Marriage of Figaro at the iconic Wilton's Music Hall — relocated to 1970s Bradford and reorchestrated to weave together Western and Indian classical traditions.",
       "description": "Oscar Castellino plays the role of The Count in Bradford Opera Festival's acclaimed production of Mozart's The Marriage of Figaro at the iconic Wilton's Music Hall. Adapted by poet and broadcaster Ian McMillan and directed by Alex Chisholm, this production relocates Mozart's comic masterpiece to 1970s Bradford, blending Yorkshire dialect with a score reorchestrated by Ben Crick to incorporate both Western and Indian classical traditions. Starring Oscar Castellino, Natasha Agarwal, and Kanchana Jaishakar.",
       "displayMedia": "Marriage-of-Figaro- Oscar as count Bradford Opera Festival Wiltons music hall.jpg",
-      "artists": ["Oscar Castellino", "Natasha Agarwal", "Kanchana Jaishakar"],
+      "artists": [
+        "Oscar Castellino",
+        "Natasha Agarwal",
+        "Kanchana Jaishakar"
+      ],
       "tickets": {
         "price": "See website",
         "link": "https://wiltons.org.uk/booking/?event-id=7172&instances-id=342150"
@@ -418,15 +434,15 @@
       "contactInfo": "For enquiries contact voice@oscarcastellino.com"
     },
     {
-      "event": "LISBON CONCERT Oscar Castellino | Voz de \u00d3pera de Goa",
-      "information": "ENGLISH: Join acclaimed baritone Oscar Castellino and pianist Rodrigo Ayala for a concert that unites the grandeur of opera with the soul of Goa. Enjoy a unique program of beloved lyrical arias and traditional Luso-Goan and Konkani songs, creating a musical bridge between two cultures united by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.\nPORTUGU\u00caS: Junte-se ao aclamado bar\u00edtono Oscar Castellino e ao pianista Rodrigo Ayala para um espet\u00e1culo que une a grandiosidade da \u00f3pera \u00e0 alma de Goa. Para ouvir, um programa singular de \u00e1rias l\u00edricas bem conhecidas do p\u00fablico e can\u00e7\u00f5es tradicionais luso-goesas e Konkani, criando uma ponte musical entre duas culturas unidas pela hist\u00f3ria. Dos palcos da Royal Opera House \u00e0s margens do Mar Ar\u00e1bico, viva a experi\u00eancia de uma voz que transporta as tradi\u00e7\u00f5es l\u00edricas da Europa e o cora\u00e7\u00e3o de Goa.",
+      "event": "LISBON CONCERT Oscar Castellino | Voz de Ópera de Goa",
+      "information": "ENGLISH: Join acclaimed baritone Oscar Castellino and pianist Rodrigo Ayala for a concert that unites the grandeur of opera with the soul of Goa. Enjoy a unique program of beloved lyrical arias and traditional Luso-Goan and Konkani songs, creating a musical bridge between two cultures united by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.\nPORTUGUÊS: Junte-se ao aclamado barítono Oscar Castellino e ao pianista Rodrigo Ayala para um espetáculo que une a grandiosidade da ópera à alma de Goa. Para ouvir, um programa singular de árias líricas bem conhecidas do público e canções tradicionais luso-goesas e Konkani, criando uma ponte musical entre duas culturas unidas pela história. Dos palcos da Royal Opera House às margens do Mar Arábico, viva a experiência de uma voz que transporta as tradições líricas da Europa e o coração de Goa.",
       "eventId": "lisbon-fundacao-oriente-2026",
       "eventPage": "events/lisbon-fundacao-oriente-2026.html",
       "date": "Sunday, 8 March 2026",
       "time": "18:00 (6pm)",
-      "venue": "Audit\u00f3rio Funda\u00e7\u00e3o Oriente",
-      "address": "Avenida Bras\u00edlia, Doca de Alc\u00e2ntara (Norte) | 1350-352 Lisboa, Portugal",
-      "description": "ENGLISH: Oscar Castellino, baritone, and Rodrigo Ayala, piano.\nDuration: 90 minutes with a 10-minute interval.\nAudience: Ages 6 and up.\nCapacity: 355 seats.\nPrice: \u20ac15 (discounts available).\n\nPORTUGU\u00caS: Oscar Castellino, bar\u00edtono, e Rodrigo Ayala, piano.\nDura\u00e7\u00e3o: 90 minutos com intervalo de 10 minutos.\nP\u00fablico-alvo: M/6 anos.\nLota\u00e7\u00e3o: 355 lugares.\nPre\u00e7o: \u20ac15 (descontos em vigor).",
+      "venue": "Auditório Fundação Oriente",
+      "address": "Avenida Brasília, Doca de Alcântara (Norte) | 1350-352 Lisboa, Portugal",
+      "description": "ENGLISH: Oscar Castellino, baritone, and Rodrigo Ayala, piano.\nDuration: 90 minutes with a 10-minute interval.\nAudience: Ages 6 and up.\nCapacity: 355 seats.\nPrice: €15 (discounts available).\n\nPORTUGUÊS: Oscar Castellino, barítono, e Rodrigo Ayala, piano.\nDuração: 90 minutos com intervalo de 10 minutos.\nPúblico-alvo: M/6 anos.\nLotação: 355 lugares.\nPreço: €15 (descontos em vigor).",
       "photo": "OscarBlack1.png",
       "artists": [
         "Oscar Castellino (Baritone)",
@@ -439,7 +455,7 @@
         "Piano Solo",
         "O Lisbona | Donizetti",
         "Food is my Fantasy | Verdi, Kordo",
-        "Ab\u00e1-Logum | Waldemar Henrique",
+        "Abá-Logum | Waldemar Henrique",
         "Malaika | Adam Salim",
         "Encosta tua Cabecinha | Paulo Borges",
         "Piano Solo",
@@ -449,10 +465,10 @@
       ],
       "videos": [],
       "tickets": {
-        "price": "\u20ac15 (discounts available)",
+        "price": "€15 (discounts available)",
         "link": "https://www.foriente.pt/detalhe.php?id=7279F145-FE79-4350-9567-DBA85BFC7140&area=espectaculos"
       },
-      "contactInfo": "ENGLISH: For enquiries contact voice@oscarcastellino.com or info@foriente.pt.\nPORTUGU\u00caS: Para informa\u00e7\u00f5es contacte voice@oscarcastellino.com ou info@foriente.pt."
+      "contactInfo": "ENGLISH: For enquiries contact voice@oscarcastellino.com or info@foriente.pt.\nPORTUGUÊS: Para informações contacte voice@oscarcastellino.com ou info@foriente.pt."
     },
     {
       "event": "Concerto de Natal 2026",
@@ -520,7 +536,7 @@
       "time": "18:30 Doors Open, 19:15 Concert Start",
       "venue": "Catholic Church of Immaculate Conception",
       "address": "114 Mount Street, Mayfair, London W1K 3AH",
-      "description": "Tickets \u00a325 on door. Pre-booking \u00a320. To avoid platform fees the charity have requested direct bank transfer to\n THE GOAN WELFARE SOCIETY UK, \nAcc No: 01435981\nSort Code: 402230\nReference: MUSIC followed by YOUR NAME\nPlease email me at voice@oscarcastellino.com after paying, stating how much you have transfered and how many tickets you would like and I will confirm within a day.",
+      "description": "Tickets £25 on door. Pre-booking £20. To avoid platform fees the charity have requested direct bank transfer to\n THE GOAN WELFARE SOCIETY UK, \nAcc No: 01435981\nSort Code: 402230\nReference: MUSIC followed by YOUR NAME\nPlease email me at voice@oscarcastellino.com after paying, stating how much you have transfered and how many tickets you would like and I will confirm within a day.",
       "photo": "christmas-interations-poster.jpg",
       "artists": [
         "Oscar Castellino",
@@ -536,7 +552,7 @@
         "https://www.youtube.com/embed/o2rs2eyD_5U"
       ],
       "tickets": {
-        "price": "\u00a320 until Nov 27, \u00a325 on door",
+        "price": "£20 until Nov 27, £25 on door",
         "link": null
       },
       "contactInfo": "Tickets at the door."
@@ -547,7 +563,7 @@
       "bookingLink": "https://www.eventbrite.com/e/gabriel-faures-requiem-and-music-by-wa-mozart-and-mervyn-burtch-tickets-1864405841059"
     },
     {
-      "event": "NOV 16: Soloist at Faure Requiem, 6 pm at Margam Abbey tickets at door \u00a37",
+      "event": "NOV 16: Soloist at Faure Requiem, 6 pm at Margam Abbey tickets at door £7",
       "date": "Sunday, November 16, 2025",
       "bookingLink": "https://www.facebook.com/MargamAbbey/posts/music-at-the-abbey-faure-requiem-sunday-16th-november-at-6pm-with-welsh-and-ital/824128563708478/"
     },
@@ -575,7 +591,7 @@
         "https://www.youtube.com/embed/xqLvZfuNtkc"
       ],
       "tickets": {
-        "price": "\u00a3 20 for the concert. The rest can be booked separately",
+        "price": "£ 20 for the concert. The rest can be booked separately",
         "link": "https://luma.com/bf0h30u7"
       },
       "contactInfo": null
