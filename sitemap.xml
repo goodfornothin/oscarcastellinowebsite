@@ -58,6 +58,16 @@
   <url>
     <loc>https://oscarcastellino.com/events/marriage-of-figaro-wiltons-2026.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://oscarcastellino.com/events/lowest-of-the-low-arcola-2026.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://oscarcastellino.com/events/cosi-fan-tutte-outdoor-crowhurst-2026.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
 </urlset>

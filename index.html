@@ -65,9 +65,10 @@
       </button>
       
       <ul class="nav-links" id="navLinks">
+        <li><a href="#featured-events">Events</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="#events">Events</a></li>
+        <li><a href="#events">All Dates</a></li>
         <li><a href="#videos">Videos</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -76,6 +77,22 @@
       <a href="#contact" class="nav-cta">Book Oscar</a>
     </div>
   </nav>
+
+  <!-- Featured Event Showcase (priority content at top) -->
+  <section class="featured-events" id="featured-events">
+    <div class="featured-events-intro section-container">
+      <div class="section-header">
+        <p class="eyebrow">On Stage Now &amp; Coming Soon</p>
+        <h2 class="section-title">Featured Productions</h2>
+        <p class="section-subtitle">
+          Full-panel highlights for each production — step into the event page for cast, dates and tickets.
+        </p>
+      </div>
+    </div>
+    <div class="showcase-stack" id="featuredShowcase">
+      <!-- Featured panels populated from data.json -->
+    </div>
+  </section>
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
@@ -88,7 +105,7 @@
       <h1 class="hero-title">Oscar Castellino</h1>
       <p class="hero-subtitle">"Rising star in the operatic world" — BBC News</p>
       <div class="hero-cta-group">
-        <a href="#events" class="btn btn-primary">Upcoming Events</a>
+        <a href="#featured-events" class="btn btn-primary">Back to Featured Events</a>
         <a href="#contact" class="btn btn-outline">Book for Your Event</a>
       </div>
     </div>
@@ -169,8 +186,8 @@
   <section class="events" id="events">
     <div class="section-container">
       <div class="section-header">
-        <p class="eyebrow">Live Performances</p>
-        <h2 class="section-title">Upcoming Events</h2>
+        <p class="eyebrow">Full Calendar</p>
+        <h2 class="section-title">All Upcoming Dates</h2>
       </div>
       <div class="events-grid" id="eventsGrid">
         <!-- Events will be dynamically populated -->
@@ -273,9 +290,10 @@
       <div class="footer-links">
         <h4>Quick Links</h4>
         <ul>
+          <li><a href="#featured-events">Featured Events</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="#events">Events</a></li>
+          <li><a href="#events">All Dates</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="biography.html">Full Biography</a></li>
         </ul>
@@ -471,6 +489,50 @@
       return null;
     }
 
+    function escapeHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function renderShowcasePanel(item, index) {
+      const panel = document.createElement('article');
+      panel.className = 'showcase-panel';
+      panel.id = `showcase-${item.id || index}`;
+
+      const highlights = (item.highlights || []).map((line) => `<li>${escapeHtml(line)}</li>`).join('');
+      const credit = item.imageCredit
+        ? `<p class="showcase-credit">${escapeHtml(item.imageCredit)}</p>`
+        : '';
+
+      panel.innerHTML = `
+        <div class="showcase-media">
+          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="${index === 0 ? 'eager' : 'lazy'}">
+        </div>
+        <div class="showcase-copy">
+          <div class="showcase-rank">Featured ${String(index + 1).padStart(2, '0')}</div>
+          <p class="showcase-eyebrow">${escapeHtml(item.eyebrow || '')}</p>
+          <h3>${escapeHtml(item.title || '')}</h3>
+          <p class="showcase-role">${escapeHtml(item.role || '')}</p>
+          <div class="showcase-meta">
+            ${item.dateLabel ? `<span>🗓 ${escapeHtml(item.dateLabel)}</span>` : ''}
+            ${item.venue ? `<span>📍 ${escapeHtml(item.venue)}</span>` : ''}
+          </div>
+          <ul class="showcase-highlights">${highlights}</ul>
+          <div class="showcase-actions">
+            ${item.ctaLink ? `<a href="${escapeHtml(item.ctaLink)}" class="btn btn-primary">${escapeHtml(item.ctaLabel || 'Explore the Event')}</a>` : ''}
+            ${item.ticketLink ? `<a href="${escapeHtml(item.ticketLink)}" class="btn btn-outline" target="_blank" rel="noopener">${escapeHtml(item.ticketLabel || 'Tickets')}</a>` : ''}
+          </div>
+          ${credit}
+        </div>
+      `;
+
+      return panel;
+    }
+
     function renderEventCard(event, isPast = false) {
       const parsedDate = parseEventDate(event.date);
       const month = parsedDate ? monthLabels[parsedDate.getMonth()] : '—';
@@ -530,6 +592,15 @@
         // Render videos
         if (data.featuredVideos && data.featuredVideos.length > 0) {
           initCarousel(data.featuredVideos);
+        }
+
+        // Featured production showcase panels (homepage priority order)
+        const showcaseRoot = document.getElementById('featuredShowcase');
+        if (showcaseRoot && Array.isArray(data.featuredShowcase) && data.featuredShowcase.length) {
+          showcaseRoot.innerHTML = '';
+          data.featuredShowcase.forEach((item, index) => {
+            showcaseRoot.appendChild(renderShowcasePanel(item, index));
+          });
         }
         
         // Process events
