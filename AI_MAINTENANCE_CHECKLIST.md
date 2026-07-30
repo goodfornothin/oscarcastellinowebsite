@@ -109,9 +109,10 @@ These folders are **excluded in .gitignore** and will NOT be pushed to GitHub.
 This site deploys automatically via **GitHub Pages** from `main`.
 
 ### Demo first (required for AI agents)
-Always send Oscar a **demo** (screenshots / PR preview).  
+Always send Oscar a **demo** — preferably a **clickable preview link** from the feature branch, plus screenshots.  
 **Do not** push or merge to `main` unless he explicitly says **go live**, **push**, or **merge**.  
-See `AGENTS.md` and `.cursor/rules/demo-first.mdc`.
+See `AGENTS.md` and `.cursor/rules/demo-first.mdc`.  
+Longer term: set up a dedicated demo-site / preview-URL system so every change gets its own review link.
 
 ### To Deploy Changes (only when Oscar says go live / push / merge):
 ```bash

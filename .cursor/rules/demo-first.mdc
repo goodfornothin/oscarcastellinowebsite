@@ -1,11 +1,15 @@
 ---
-description: Demo first — never deploy to main unless Oscar explicitly says go live, push, or merge
+description: Demo first with a preview link — never deploy to main unless Oscar says go live, push, or merge
 alwaysApply: true
 ---
 
 # Demo first (mandatory)
 
-Always send Oscar a **demo version** of work (screenshots/artifacts in the PR, preview, or clear walkthrough).
+Always send Oscar a **demo** before anything is live.
+
+**Preferred:** spin up a **clickable preview link** (temporary demo site from the feature branch) he can open in a browser. Also attach screenshots/artifacts in the PR.
+
+Until a dedicated demo-hosting system exists, still try to publish a preview URL; if that is impossible, use screenshots + PR walkthrough and say a preview link was not available.
 
 **Do not** push/merge to `main` or make the site live unless he explicitly says:
 - "go live", or
@@ -14,4 +18,4 @@ Always send Oscar a **demo version** of work (screenshots/artifacts in the PR, p
 
 Otherwise keep changes on a feature branch + draft PR.
 
-This rule also lives in `/AGENTS.md` for Claude and other agents.
+Full policy: `/AGENTS.md` (for Claude and other agents too).
