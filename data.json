@@ -178,7 +178,8 @@
       "ctaLink": "events/lowest-of-the-low-arcola-2026.html",
       "ticketLabel": "Book Tickets",
       "ticketLink": "https://www.arcolatheatre.com/event/lowest-of-the-low/",
-      "imagePosition": "center center"
+      "imagePosition": "center center",
+      "lead": "UK premiere of a documentary opera — Oscar Castellino as Ali."
     },
     {
       "id": "cosi-outdoor",
@@ -200,7 +201,8 @@
       "ctaLink": "events/cosi-fan-tutte-outdoor-crowhurst-2026.html",
       "ticketLabel": "Book Tickets",
       "ticketLink": "https://www.eventbrite.com/e/outdoor-opera-cosi-fan-tutte-tickets-1986533539292?aff=oddtdtcreator",
-      "imagePosition": "center center"
+      "imagePosition": "center center",
+      "lead": "Outdoor Mozart at Crowhurst Place — Oscar Castellino as Guglielmo."
     },
     {
       "id": "goan-interactions",
@@ -222,7 +224,8 @@
       "ctaLink": "events/goan-interactions-2026.html",
       "ticketLabel": "Register Free",
       "ticketLink": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky",
-      "imagePosition": "center center"
+      "imagePosition": "center center",
+      "lead": "Free YouTube premiere of Goan Konkani and Portuguese music."
     },
     {
       "id": "marriage-of-figaro",
@@ -244,7 +247,8 @@
       "ctaLink": "events/marriage-of-figaro-wiltons-2026.html",
       "ticketLabel": "Book Tickets",
       "ticketLink": "https://wiltons.org.uk/booking/?event-id=7172&instances-id=342148",
-      "imagePosition": "center center"
+      "imagePosition": "center center",
+      "lead": "Mozart in 1970s Bradford — Oscar Castellino as The Count."
     }
   ],
   "upcomingEvents": [

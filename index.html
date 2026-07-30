@@ -494,7 +494,7 @@
       panel.className = 'showcase-panel';
       panel.id = `showcase-${item.id || index}`;
 
-      const highlights = (item.highlights || []).map((line) => `<li>${escapeHtml(line)}</li>`).join('');
+      const lead = item.lead || (item.highlights && item.highlights[0]) || '';
       const credit = item.imageCredit
         ? `<p class="showcase-credit">${escapeHtml(item.imageCredit)}</p>`
         : '';
@@ -520,7 +520,7 @@
               ${item.dateLabel ? `<span>${escapeHtml(item.dateLabel)}</span>` : ''}
               ${item.venue ? `<span>${escapeHtml(item.venue)}</span>` : ''}
             </div>
-            <ul class="showcase-highlights">${highlights}</ul>
+            ${lead ? `<p class="showcase-lead">${escapeHtml(lead)}</p>` : ''}
             <div class="showcase-actions">
               ${item.ctaLink ? `<a href="${escapeHtml(item.ctaLink)}" class="btn btn-primary">${escapeHtml(item.ctaLabel || 'Explore the Event')}</a>` : ''}
               ${item.ticketLink ? `<a href="${escapeHtml(item.ticketLink)}" class="btn btn-outline" target="_blank" rel="noopener">${escapeHtml(item.ticketLabel || 'Tickets')}</a>` : ''}
