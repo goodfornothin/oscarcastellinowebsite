@@ -205,29 +205,6 @@
       "lead": "Outdoor Mozart at Crowhurst Place — Oscar Castellino as Guglielmo."
     },
     {
-      "id": "goan-interactions",
-      "eyebrow": "Free Online Premiere",
-      "title": "Goan Interactions 2026",
-      "role": "Goan London Concert Grand YouTube Premiere",
-      "dateLabel": "Saturday 1 August 2026 · 16:30 BST",
-      "venue": "Online — YouTube Premiere",
-      "highlights": [
-        "6th year celebrating Goan Konkani and Portuguese musical heritage",
-        "International artists including Oscar Castellino",
-        "Download the lyrics and sing along",
-        "Free to watch — register on Aalaap"
-      ],
-      "image": "pictures/banners/goan-oscar-encouraging-banner.jpg",
-      "imageAlt": "Oscar Castellino performing — Goan Interactions",
-      "imageCredit": "",
-      "ctaLabel": "Explore the Event",
-      "ctaLink": "events/goan-interactions-2026.html",
-      "ticketLabel": "Register Free",
-      "ticketLink": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky",
-      "imagePosition": "center center",
-      "lead": "Free YouTube premiere of Goan Konkani and Portuguese music."
-    },
-    {
       "id": "marriage-of-figaro",
       "eyebrow": "Bradford Opera Festival · Wilton’s Music Hall",
       "title": "The Marriage of Figaro",
@@ -502,35 +479,52 @@
       "bookingLink": "https://www.district.in/play/concerto-de-natal-dec14-2025-buy-tickets?fbclid=PAb21jcAOHhi5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcIY2FsbHNpdGUCMTUAAafk5JDI27larvhBFs4hzqdK7mr-ZS4-EViC9acDXO3XOECnfDM3kF1sqFZ1TA_aem_jUTgF_i6wxbzrxs4Y4IRuQ"
     },
     {
-      "event": "Goan London Concert Grand YouTube Premiere",
-      "information": "Free online YouTube premiere of Goan Interactions 2026 — international artists performing Goan Konkani and Portuguese music. Download the lyrics and sing along!",
+      "event": "Goa Portuguesa Concerts London — formerly Goan Interactions 2026",
+      "information": "Archive of the Goa Portuguesa / Goan Interactions London summer concert. Watch the 20 June 2026 recording on YouTube and explore artists from across the series.",
       "eventId": "goan-interactions-2026",
       "eventPage": "events/goan-interactions-2026.html",
-      "date": "Saturday, August 1, 2026",
-      "time": "16:30 BST",
-      "venue": "Online — YouTube Premiere",
-      "address": "Online",
-      "description": "Now in its 6th year, Goan Interactions celebrates Goa's unique Konkani and Portuguese musical heritage — an evening of song, traditional mandos, Portuguese fado-adjacent numbers, and Indian classical improvisation. The Grand YouTube Premiere of the London concert streams free on 1 August 2026 at 16:30 BST. Brought to you by Melville Rodrigues and Baluji Music Foundation. Video by BGU Media. Artists: Oscar Castellino, Mark Troop, Chelsea D'Silva, Takashi Kikuchi, Manmohan Dogra, Etienne Bartholomew.",
-      "displayMedia": "Goan Interactions YouTube Premiere Cover.webp",
+      "date": "Saturday, June 20, 2026",
+      "time": "18:00",
+      "venue": "St. Stephen's Church, Dulwich",
+      "address": "College Road, Dulwich, London SE21 7HW",
+      "description": "Goa Portuguesa Concerts London (formerly Goan Interactions) — organised by Melville Rodrigues, the Baluji Music Foundation and Oscar Castellino. The 20 June 2026 concert at St. Stephen's Church, Dulwich is available on YouTube. Artists: Oscar Castellino, Chelsea D'Silva, Mark Troop, Takashi Kikuchi, Manmohan Dogra, Etienne Bartholomew. Earlier editions featured Patricia Rozario, Baluji Shrivastav OBE, Yusuf Ali Khan and Sofia Bagulho.",
+      "displayMedia": "New Goan Interactions Poster.png",
       "artists": [
         "Oscar Castellino",
-        "Mark Troop",
         "Chelsea D'Silva",
+        "Mark Troop",
         "Takashi Kikuchi",
         "Manmohan Dogra",
-        "Etienne Bartholomew"
+        "Etienne Bartholomew",
+        "Baluji Shrivastav OBE",
+        "Patricia Rozario",
+        "Yusuf Ali Khan",
+        "Sofia Bagulho"
       ],
       "program": [
         "First Half: Jinnen Maka Sogle Dile; Tuzo Mog; Tambde Rosa; On the Spring Wind; Encosta Tua Cabecinha; Noxibak Rodtam; Toch Mhojo Ganv; Ya Ya Maya Ya",
         "Second Half: Indian Classical Improvisation; Terra Mae; Voce Nao; The Prayer; Portuguese Medley; Adeus Korcho; Susegado Goa"
       ],
-      "videos": [],
+      "videos": [
+        {
+          "title": "Goa Portuguesa Summer Concert London — 20 June 2026",
+          "url": "https://www.youtube.com/watch?v=JMfbJL49Yi8"
+        },
+        {
+          "title": "Goan Interactions 2025 — First Half",
+          "url": "https://www.youtube.com/watch?v=-pz8kMvOro4"
+        },
+        {
+          "title": "Goan Interactions 2025 — Second Half",
+          "url": "https://www.youtube.com/watch?v=R7bKGdIMKcE"
+        }
+      ],
       "tickets": {
-        "price": "Free — register on Aalaap",
-        "link": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky"
+        "price": "Concert archive — watch free on YouTube",
+        "link": "https://www.youtube.com/watch?v=JMfbJL49Yi8"
       },
-      "bookingLink": "https://aalaap.app/r/goan-london-concert-grand-youtube-premiere-mcky",
-      "contactInfo": "Please download the lyrics and print and sing along. For enquiries contact voice@oscarcastellino.com"
+      "bookingLink": "https://www.youtube.com/watch?v=JMfbJL49Yi8",
+      "contactInfo": "For enquiries contact voice@oscarcastellino.com"
     },
     {
       "event": "NOV 28 GOAN Christmas Concert Mayfair",
@@ -617,6 +611,26 @@
       "date": "Friday, October 17, 2025",
       "information": "This is a Barefoot Opera production at the Wooburn Festival. Bourne End Community Centre, Wakeman Road, Bourne End SL8 5SX",
       "bookingLink": "https://wooburn.com/etn/barefoot-opera-lucia-di-lammermoor/"
+    }
+  ],
+  "projects": [
+    {
+      "id": "goa-portuguesa-concerts-london",
+      "title": "Goa Portuguesa Concerts London",
+      "subtitle": "Formerly Goan Interactions",
+      "description": "Archive of past London summer concerts celebrating Goan Konkani and Portuguese music — organised by the Baluji Music Foundation with Melville Rodrigues and Oscar Castellino. Watch the 20 June 2026 concert and earlier editions.",
+      "date": "20 June 2026 (latest)",
+      "venue": "St. Stephen's Church, Dulwich, London",
+      "image": "pictures/New Goan Interactions Poster.png",
+      "page": "events/goan-interactions-2026.html",
+      "tags": [
+        "Concert",
+        "Goan Music",
+        "Archive",
+        "Konkani",
+        "Portuguese",
+        "YouTube"
+      ]
     }
   ]
 }

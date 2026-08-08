@@ -69,6 +69,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#events">All Dates</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#videos">Videos</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -194,6 +195,19 @@
     </div>
   </section>
 
+  <!-- Projects / Archives -->
+  <section class="events" id="projects" style="background: var(--bg-card, #0E0610);">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="eyebrow">Archives &amp; Series</p>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="events-grid" id="projectsGrid">
+        <!-- Projects will be dynamically populated -->
+      </div>
+    </div>
+  </section>
+
   <!-- Videos Section -->
   <section class="videos" id="videos">
     <div class="section-container">
@@ -285,6 +299,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="#events">All Dates</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="biography.html">Full Biography</a></li>
         </ul>
@@ -647,6 +662,33 @@
           pastEvents.slice(0, 5).forEach(event => {
             pastEventsGrid.appendChild(renderEventCard(event, true));
           });
+        }
+
+        // Render projects / concert archives
+        const projectsGrid = document.getElementById('projectsGrid');
+        if (projectsGrid) {
+          if (data.projects && data.projects.length > 0) {
+            data.projects.forEach(project => {
+              const card = document.createElement('div');
+              card.className = 'event-card animate-on-scroll';
+              card.innerHTML = `
+                ${project.image ? `<div class="event-image"><img src="${project.image}" alt="${project.title}" loading="lazy"></div>` : ''}
+                <div class="event-content">
+                  <h3>${project.page ? `<a href="${project.page}">${project.title}</a>` : project.title}</h3>
+                  <div class="event-meta">
+                    ${project.subtitle ? `<span>${project.subtitle}</span>` : ''}
+                    ${project.date ? `<span>${project.date}</span>` : ''}
+                    ${project.venue ? `<span>${project.venue}</span>` : ''}
+                  </div>
+                  ${project.description ? `<p class="event-description">${project.description}</p>` : ''}
+                  ${project.page ? `<a href="${project.page}" class="btn btn-outline">View Project</a>` : ''}
+                </div>
+              `;
+              projectsGrid.appendChild(card);
+            });
+          } else {
+            projectsGrid.innerHTML = '<p class="text-center text-muted">Concert archives coming soon.</p>';
+          }
         }
       })
       .catch(error => {
