@@ -159,6 +159,27 @@
   },
   "featuredShowcase": [
     {
+      "id": "brixton-opera-gala",
+      "eyebrow": "Open-Air · 55-Piece Orchestra · Free Entry",
+      "title": "Grand Brixton Opera Gala",
+      "role": "Oscar Castellino as Featured Soloist",
+      "dateLabel": "Sat 22 Aug · Sun 23 Aug 2026",
+      "venue": "Cleaver Square & Brockwell Park, London",
+      "highlights": [
+        "Brixton Chamber Orchestra × Pegasus Opera Company",
+        "Oscar sings Rossini, Strauss & Puccini under the open sky",
+        "Sat 22 Aug 6:30pm · Cleaver Square SE11",
+        "Sun 23 Aug 3:00pm · Brockwell Park SE24 · Free entry"
+      ],
+      "image": "pictures/Oscar smiling hands stretched out at Pegasus Christmas concert.JPG",
+      "imageAlt": "Oscar Castellino performing at a Pegasus Opera concert",
+      "imageCredit": "",
+      "ticketLabel": "Book Tickets",
+      "ticketLink": "events/brixton-opera-gala-2026.html",
+      "imagePosition": "center top",
+      "lead": "Oscar Castellino soloists in this free open-air opera spectacular."
+    },
+    {
       "id": "lowest-of-the-low",
       "eyebrow": "UK Premiere · Arcola Theatre",
       "title": "Lowest of the Low",
@@ -174,10 +195,8 @@
       "image": "pictures/banners/figaro-pondering-banner.jpg",
       "imageAlt": "Oscar Castellino as Figaro — pondering",
       "imageCredit": "",
-      "ctaLabel": "Explore the Event",
-      "ctaLink": "events/lowest-of-the-low-arcola-2026.html",
       "ticketLabel": "Book Tickets",
-      "ticketLink": "https://www.arcolatheatre.com/event/lowest-of-the-low/",
+      "ticketLink": "events/lowest-of-the-low-arcola-2026.html",
       "imagePosition": "center center",
       "lead": "UK premiere of a documentary opera — Oscar Castellino as Ali."
     },
@@ -197,10 +216,8 @@
       "image": "pictures/banners/cosi-guglielmo-pink-waistcoat-banner.jpg",
       "imageAlt": "Oscar Castellino as Guglielmo in pink waistcoat — Così fan tutte",
       "imageCredit": "Photo credit @areyoutakingthepics",
-      "ctaLabel": "Explore the Event",
-      "ctaLink": "events/cosi-fan-tutte-outdoor-crowhurst-2026.html",
       "ticketLabel": "Book Tickets",
-      "ticketLink": "https://www.eventbrite.com/e/outdoor-opera-cosi-fan-tutte-tickets-1986533539292?aff=oddtdtcreator",
+      "ticketLink": "events/cosi-fan-tutte-outdoor-crowhurst-2026.html",
       "imagePosition": "center center",
       "lead": "Outdoor Mozart at Crowhurst Place — Oscar Castellino as Guglielmo."
     },
@@ -220,10 +237,8 @@
       "image": "pictures/banners/marriage-figaro-count-banner.jpg",
       "imageAlt": "Oscar Castellino as The Count in Marriage of Figaro",
       "imageCredit": "Bradford Opera Festival · Wilton’s Music Hall",
-      "ctaLabel": "Explore the Event",
-      "ctaLink": "events/marriage-of-figaro-wiltons-2026.html",
       "ticketLabel": "Book Tickets",
-      "ticketLink": "https://wiltons.org.uk/booking/?event-id=7172&instances-id=342148",
+      "ticketLink": "events/marriage-of-figaro-wiltons-2026.html",
       "imagePosition": "center center",
       "lead": "Mozart in 1970s Bradford — Oscar Castellino as The Count."
     }

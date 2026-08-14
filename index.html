@@ -531,8 +531,7 @@
             </div>
             ${item.role ? `<p class="showcase-role">${escapeHtml(item.role)}</p>` : ''}
             <div class="showcase-actions">
-              ${item.ctaLink ? `<a href="${escapeHtml(item.ctaLink)}" class="btn btn-glass-primary">${escapeHtml(item.ctaLabel || 'Explore')}</a>` : ''}
-              ${item.ticketLink ? `<a href="${escapeHtml(item.ticketLink)}" class="btn btn-glass" target="_blank" rel="noopener">${escapeHtml(item.ticketLabel || 'Tickets')}</a>` : ''}
+              ${item.ticketLink ? `<a href="${escapeHtml(item.ticketLink)}" class="btn btn-glass-primary">${escapeHtml(item.ticketLabel || 'Book Tickets')}</a>` : ''}
             </div>
             <h2 class="showcase-title">${escapeHtml(item.title || '')}</h2>
           </div>
