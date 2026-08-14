@@ -159,6 +159,26 @@
   },
   "upcomingEvents": [
     {
+      "eventId": "brixton-opera-gala-22-aug-2026",
+      "event": "Grand Brixton Opera Gala — Cleaver Square",
+      "date": "22 August 2026",
+      "venue": "Cleaver Square, Kennington SE11",
+      "time": "6:30 PM",
+      "information": "Oscar Castellino features as soloist in this spectacular open-air opera gala with a 55-piece orchestra and Pegasus Opera Company. Rossini · Strauss · Puccini. Free entry.",
+      "eventPage": "events/brixton-opera-gala-2026.html",
+      "bookingLink": "https://www.ticketsource.com/booking/select/bxrleyzrdnrr"
+    },
+    {
+      "eventId": "brixton-opera-gala-23-aug-2026",
+      "event": "Grand Brixton Opera Gala — Brockwell Park",
+      "date": "23 August 2026",
+      "venue": "Brockwell Park, London SE24",
+      "time": "3:00 PM",
+      "information": "Oscar Castellino features as soloist in this spectacular open-air opera gala with a 55-piece orchestra and Pegasus Opera Company. Rossini · Strauss · Puccini. Free entry.",
+      "eventPage": "events/brixton-opera-gala-2026.html",
+      "bookingLink": "https://www.ticketsource.com/booking/select/bxrleyzrdnrr"
+    },
+    {
       "event": "LISBON CONCERT Oscar Castellino | Voz de \u00d3pera de Goa",
       "information": "ENGLISH: Join acclaimed baritone Oscar Castellino and pianist Rodrigo Ayala for a concert that unites the grandeur of opera with the soul of Goa. Enjoy a unique program of beloved lyrical arias and traditional Luso-Goan and Konkani songs, creating a musical bridge between two cultures united by history. From the stages of the Royal Opera House to the shores of the Arabian Sea, experience a voice that carries the lyric traditions of Europe and the heart of Goa.\nPORTUGU\u00caS: Junte-se ao aclamado bar\u00edtono Oscar Castellino e ao pianista Rodrigo Ayala para um espet\u00e1culo que une a grandiosidade da \u00f3pera \u00e0 alma de Goa. Para ouvir, um programa singular de \u00e1rias l\u00edricas bem conhecidas do p\u00fablico e can\u00e7\u00f5es tradicionais luso-goesas e Konkani, criando uma ponte musical entre duas culturas unidas pela hist\u00f3ria. Dos palcos da Royal Opera House \u00e0s margens do Mar Ar\u00e1bico, viva a experi\u00eancia de uma voz que transporta as tradi\u00e7\u00f5es l\u00edricas da Europa e o cora\u00e7\u00e3o de Goa.",
       "eventId": "lisbon-fundacao-oriente-2026",
