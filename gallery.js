@@ -117,9 +117,10 @@
   }
 
   async function triggerDownload(image) {
-    const filename = image.file || image.src.split('/').pop() || 'oscar-castellino.jpg';
+    const downloadSrc = image.hiresSrc || image.src;
+    const filename = image.file || downloadSrc.split('/').pop() || 'oscar-castellino.jpg';
     try {
-      const response = await fetch(image.src);
+      const response = await fetch(downloadSrc);
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -131,7 +132,7 @@
       URL.revokeObjectURL(url);
     } catch (err) {
       const a = document.createElement('a');
-      a.href = image.src;
+      a.href = downloadSrc;
       a.download = filename;
       a.target = '_blank';
       a.rel = 'noopener';
