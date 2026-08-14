@@ -298,6 +298,26 @@
       "contactInfo": "Official event: https://www.arcolatheatre.com/event/lowest-of-the-low/ · For enquiries contact voice@oscarcastellino.com"
     },
     {
+      "eventId": "brixton-opera-gala-22-aug-2026",
+      "event": "Grand Brixton Opera Gala — Cleaver Square",
+      "date": "22 August 2026",
+      "venue": "Cleaver Square, Kennington SE11",
+      "time": "6:30 PM",
+      "information": "Oscar Castellino features as soloist in this spectacular open-air opera gala with a 55-piece orchestra and Pegasus Opera Company. Rossini · Strauss · Puccini. Free entry.",
+      "eventPage": "events/brixton-opera-gala-2026.html",
+      "bookingLink": "https://www.ticketsource.com/booking/select/bxrleyzrdnrr"
+    },
+    {
+      "eventId": "brixton-opera-gala-23-aug-2026",
+      "event": "Grand Brixton Opera Gala — Brockwell Park",
+      "date": "23 August 2026",
+      "venue": "Brockwell Park, London SE24",
+      "time": "3:00 PM",
+      "information": "Oscar Castellino features as soloist in this spectacular open-air opera gala with a 55-piece orchestra and Pegasus Opera Company. Rossini · Strauss · Puccini. Free entry.",
+      "eventPage": "events/brixton-opera-gala-2026.html",
+      "bookingLink": "https://www.ticketsource.com/booking/select/bxrleyzrdnrr"
+    },
+    {
       "event": "Così fan tutte — Outdoor Opera | Oscar Castellino as Guglielmo | Crowhurst Place",
       "eventId": "cosi-fan-tutte-outdoor-crowhurst-5-sep-2026",
       "eventPage": "events/cosi-fan-tutte-outdoor-crowhurst-2026.html",
