@@ -80,9 +80,9 @@
       "hiresSrc": "pictures/hires/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali with Lou Strenger and Owain Gwynfryn - credit Selin Şenköken.jpg"
     },
     {
-      "id": "lowest-of-the-low-arcola-oscar-castellino-as-ali-credit-selin-1",
-      "file": "Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken 1.jpg",
-      "src": "pictures/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken 1.jpg",
+      "id": "lowest-of-the-low-arcola-oscar-castellino-as-ali-credit-selin",
+      "file": "Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken.jpg",
+      "src": "pictures/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken.jpg",
       "title": "Ali — Production still",
       "description": "Oscar Castellino as Ali in Lowest of the Low at Arcola Theatre. Photo credit Selin Şenköken.",
       "production": "Lowest of the Low — Arcola Theatre (UK Premiere)",
@@ -94,24 +94,7 @@
       "creditNotice": "Please credit the photographer: Selin Şenköken",
       "featured": false,
       "downloadable": true,
-      "hiresSrc": "pictures/hires/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken 1.jpg"
-    },
-    {
-      "id": "lowest-of-the-low-arcola-oscar-castellino-as-ali-credit-selin-2",
-      "file": "Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken 2.jpg",
-      "src": "pictures/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken 2.jpg",
-      "title": "Ali — Production still (alternate)",
-      "description": "Oscar Castellino as Ali in Lowest of the Low at Arcola Theatre. Photo credit Selin Şenköken.",
-      "production": "Lowest of the Low — Arcola Theatre (UK Premiere)",
-      "role": "Ali",
-      "year": "2026",
-      "category": "lowest-of-the-low",
-      "categoryLabel": "Lowest of the Low",
-      "credit": "Selin Şenköken",
-      "creditNotice": "Please credit the photographer: Selin Şenköken",
-      "featured": false,
-      "downloadable": true,
-      "hiresSrc": "pictures/hires/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken 2.jpg"
+      "hiresSrc": "pictures/hires/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken.jpg"
     },
     {
       "id": "cosi-fan-tutte-barefoot-opera-oscar-castellino-as-guglielmo-dancing-credit-areyo",
