@@ -284,6 +284,32 @@
     .ll-footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid rgba(107,138,158,0.15); }
     .ll-footer a { color: #C9922A; text-decoration: none; font-size: 0.85rem; }
 
+    .ll-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .ll-gallery figure {
+      margin: 0;
+      background: rgba(12,16,20,0.9);
+      border: 1px solid rgba(107,138,158,0.25);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .ll-gallery img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+    .ll-gallery figcaption {
+      padding: 0.75rem 1rem;
+      font-size: 0.72rem;
+      color: rgba(255,245,230,0.45);
+      border-top: 1px solid rgba(107,138,158,0.15);
+    }
+
     @media (max-width: 600px) {
       .ll-hero { min-height: 70vh; padding-top: 6rem; }
     }
@@ -443,6 +469,33 @@
 
   <hr class="ll-divider">
 
+  <div class="ll-section-wide">
+    <p class="ll-label">Production Photos</p>
+    <h2>On stage at Arcola Theatre</h2>
+    <p>Performance photography from the UK premiere run of <em>Lowest of the Low</em>, featuring Oscar Castellino as Ali.</p>
+    <div class="ll-gallery">
+      <figure>
+        <img src="../pictures/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali with Ryan Wichert - credit Selin Şenköken.jpg" alt="Oscar Castellino as Ali with Ryan Wichert as Günter Wallraff in Lowest of the Low" loading="lazy">
+        <figcaption>Oscar Castellino as Ali with Ryan Wichert · © Selin Şenköken</figcaption>
+      </figure>
+      <figure>
+        <img src="../pictures/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali with Lou Strenger and Owain Gwynfryn - credit Selin Şenköken.jpg" alt="Oscar Castellino as Ali with Lou Strenger and Owain Gwynfryn in Lowest of the Low" loading="lazy">
+        <figcaption>Oscar Castellino as Ali with Lou Strenger and Owain Gwynfryn · © Selin Şenköken</figcaption>
+      </figure>
+      <figure>
+        <img src="../pictures/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken 1.jpg" alt="Oscar Castellino as Ali in Lowest of the Low at Arcola Theatre" loading="lazy">
+        <figcaption>Oscar Castellino as Ali · © Selin Şenköken</figcaption>
+      </figure>
+      <figure>
+        <img src="../pictures/Lowest of the Low Arcola Theatre - Oscar Castellino as Ali - credit Selin Şenköken 2.jpg" alt="Oscar Castellino as Ali in Lowest of the Low — alternate production still" loading="lazy">
+        <figcaption>Oscar Castellino as Ali · © Selin Şenköken</figcaption>
+      </figure>
+    </div>
+    <p style="margin-top:1.2rem;font-size:0.78rem;color:rgba(255,245,230,0.4);">More press images available in the <a href="../gallery.html" style="color:#C9922A;">photo gallery</a>.</p>
+  </div>
+
+  <hr class="ll-divider">
+
   <div class="ll-section">
     <p class="ll-label">The Venue</p>
     <h2>Arcola Theatre</h2>
@@ -471,7 +524,8 @@
     <p class="ll-sources">
       Sources:
       <a href="https://www.arcolatheatre.com/event/lowest-of-the-low/" target="_blank" rel="noopener">Arcola Theatre — Lowest of the Low</a>
-      · Production photos © Thomas Müller
+      · Production photos © Thomas Müller (hero imagery)
+      · Performance photos © Selin Şenköken
     </p>
   </div>
 
