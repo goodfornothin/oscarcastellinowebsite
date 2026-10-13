@@ -159,6 +159,27 @@
   },
   "featuredShowcase": [
     {
+      "id": "marriage-of-figaro",
+      "eyebrow": "Bradford Opera Festival · Wilton’s Music Hall",
+      "title": "The Marriage of Figaro",
+      "role": "Oscar Castellino as The Count",
+      "dateLabel": "23–25 November 2026 · 7:30pm",
+      "venue": "Wilton’s Music Hall, London",
+      "highlights": [
+        "Mozart relocated to 1970s Bradford",
+        "Adapted by Ian McMillan · Directed by Alex Chisholm",
+        "Score reorchestrated to weave Western and Indian classical traditions",
+        "Three performances at the iconic Wilton’s Music Hall"
+      ],
+      "image": "pictures/banners/marriage-figaro-count-banner.jpg",
+      "imageAlt": "Oscar Castellino as The Count in Marriage of Figaro",
+      "imageCredit": "Bradford Opera Festival · Wilton’s Music Hall",
+      "ticketLabel": "Book Tickets",
+      "ticketLink": "events/marriage-of-figaro-wiltons-2026.html",
+      "imagePosition": "center center",
+      "lead": "Mozart in 1970s Bradford — Oscar Castellino as The Count."
+    },
+    {
       "id": "brixton-opera-gala",
       "eyebrow": "Open-Air · 55-Piece Orchestra · Free Entry",
       "title": "Grand Brixton Opera Gala",
@@ -220,27 +241,6 @@
       "ticketLink": "events/cosi-fan-tutte-outdoor-crowhurst-2026.html",
       "imagePosition": "center center",
       "lead": "Outdoor Mozart at Crowhurst Place — Oscar Castellino as Guglielmo."
-    },
-    {
-      "id": "marriage-of-figaro",
-      "eyebrow": "Bradford Opera Festival · Wilton’s Music Hall",
-      "title": "The Marriage of Figaro",
-      "role": "Oscar Castellino as The Count",
-      "dateLabel": "23–25 November 2026 · 7:30pm",
-      "venue": "Wilton’s Music Hall, London",
-      "highlights": [
-        "Mozart relocated to 1970s Bradford",
-        "Adapted by Ian McMillan · Directed by Alex Chisholm",
-        "Score reorchestrated to weave Western and Indian classical traditions",
-        "Three performances at the iconic Wilton’s Music Hall"
-      ],
-      "image": "pictures/banners/marriage-figaro-count-banner.jpg",
-      "imageAlt": "Oscar Castellino as The Count in Marriage of Figaro",
-      "imageCredit": "Bradford Opera Festival · Wilton’s Music Hall",
-      "ticketLabel": "Book Tickets",
-      "ticketLink": "events/marriage-of-figaro-wiltons-2026.html",
-      "imagePosition": "center center",
-      "lead": "Mozart in 1970s Bradford — Oscar Castellino as The Count."
     }
   ],
   "upcomingEvents": [
