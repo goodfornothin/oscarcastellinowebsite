@@ -176,7 +176,8 @@
 
     .fig-dates-row { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
     .fig-dates-row.fig-dates-tour { margin-bottom: 1.4rem; }
-    .fig-book-here { margin-bottom: 1.6rem; }
+    .fig-date-unit { display: flex; flex-direction: column; align-items: stretch; }
+    .fig-date-city { font-weight: 700; text-align: center; color: #FFF5E6; margin-bottom: 0.45rem; font-size: 0.95rem; }
     .fig-date-card {
       background: rgba(123,27,46,0.12); border: 1px solid rgba(123,27,46,0.4);
       border-radius: 10px; padding: 1.2rem 1.8rem; text-align: center; min-width: 160px;
@@ -332,48 +333,72 @@
     <p class="fig-hero-sub">Mozart's greatest comedy relocated to 1970s Bradford — where Yorkshire wit meets Indian classical music, and an aristocrat's arrogance meets its match.</p>
 
     <div class="fig-dates-row">
-      <div class="fig-date-card">
-        <div class="day">Monday</div>
-        <div class="date">23 Nov 2026</div>
-        <div class="time">7:30 PM</div>
-        <a href="https://wiltons.org.uk/booking/?event-id=7172&instances-id=342148" target="_blank" class="btn">Book Tickets</a>
+      <div class="fig-date-unit">
+        <div class="fig-date-city">London</div>
+        <div class="fig-date-card">
+          <div class="day">Monday</div>
+          <div class="date">23 Nov 2026</div>
+          <div class="time">7:30 PM</div>
+          <a href="https://wiltons.org.uk/booking/?event-id=7172&instances-id=342148" target="_blank" class="btn">Book Tickets</a>
+        </div>
       </div>
-      <div class="fig-date-card">
-        <div class="day">Tuesday</div>
-        <div class="date">24 Nov 2026</div>
-        <div class="time">7:30 PM</div>
-        <a href="https://wiltons.org.uk/booking/?event-id=7172&instances-id=342149" target="_blank" class="btn">Book Tickets</a>
+      <div class="fig-date-unit">
+        <div class="fig-date-city">London</div>
+        <div class="fig-date-card">
+          <div class="day">Tuesday</div>
+          <div class="date">24 Nov 2026</div>
+          <div class="time">7:30 PM</div>
+          <a href="https://wiltons.org.uk/booking/?event-id=7172&instances-id=342149" target="_blank" class="btn">Book Tickets</a>
+        </div>
       </div>
-      <div class="fig-date-card">
-        <div class="day">Wednesday</div>
-        <div class="date">25 Nov 2026</div>
-        <div class="time">7:30 PM</div>
-        <a href="https://wiltons.org.uk/booking/?event-id=7172&instances-id=342150" target="_blank" class="btn">Book Tickets</a>
+      <div class="fig-date-unit">
+        <div class="fig-date-city">London</div>
+        <div class="fig-date-card">
+          <div class="day">Wednesday</div>
+          <div class="date">25 Nov 2026</div>
+          <div class="time">7:30 PM</div>
+          <a href="https://wiltons.org.uk/booking/?event-id=7172&instances-id=342150" target="_blank" class="btn">Book Tickets</a>
+        </div>
       </div>
     </div>
     <div class="fig-dates-row fig-dates-tour">
-      <div class="fig-date-card">
-        <div class="day">Tuesday</div>
-        <div class="date">17 Nov 2026</div>
-        <div class="time">7:30 PM · Bradford Arts Centre</div>
+      <div class="fig-date-unit">
+        <div class="fig-date-city">Bradford</div>
+        <div class="fig-date-card">
+          <div class="day">Tuesday</div>
+          <div class="date">17 Nov 2026</div>
+          <div class="time">7:30 PM · Bradford Arts Centre</div>
+          <a href="https://bdartscentre.co.uk/whats-on/events/bradford-opera-festival-the-marriage-of-figaro/" target="_blank" class="btn">Book Tickets</a>
+        </div>
       </div>
-      <div class="fig-date-card">
-        <div class="day">Wednesday</div>
-        <div class="date">18 Nov 2026</div>
-        <div class="time">7:30 PM · Bradford Arts Centre</div>
+      <div class="fig-date-unit">
+        <div class="fig-date-city">Bradford</div>
+        <div class="fig-date-card">
+          <div class="day">Wednesday</div>
+          <div class="date">18 Nov 2026</div>
+          <div class="time">7:30 PM · Bradford Arts Centre</div>
+          <a href="https://bdartscentre.co.uk/whats-on/events/bradford-opera-festival-the-marriage-of-figaro/" target="_blank" class="btn">Book Tickets</a>
+        </div>
       </div>
-      <div class="fig-date-card">
-        <div class="day">Friday</div>
-        <div class="date">20 Nov 2026</div>
-        <div class="time">7:30 PM · Slung Low</div>
+      <div class="fig-date-unit">
+        <div class="fig-date-city">Leeds</div>
+        <div class="fig-date-card">
+          <div class="day">Friday</div>
+          <div class="date">20 Nov 2026</div>
+          <div class="time">7:30 PM · Slung Low</div>
+          <a href="https://www.slunglow.org/shows/" target="_blank" class="btn">Book Tickets</a>
+        </div>
       </div>
-      <div class="fig-date-card">
-        <div class="day">Saturday</div>
-        <div class="date">21 Nov 2026</div>
-        <div class="time">7:30 PM · Skipton Town Hall</div>
+      <div class="fig-date-unit">
+        <div class="fig-date-city">Skipton</div>
+        <div class="fig-date-card">
+          <div class="day">Saturday</div>
+          <div class="date">21 Nov 2026</div>
+          <div class="time">7:30 PM · Skipton Town Hall</div>
+          <a href="https://skiptontownhall.co.uk/whats-on/the-marriage-of-figaro/" target="_blank" class="btn">Book Tickets</a>
+        </div>
       </div>
     </div>
-    <a href="https://bradfordoperafestival.com/the-marriage-of-figaro/" target="_blank" rel="noopener" class="fig-cta-btn fig-book-here">Book here</a>
     <p class="fig-scroll-hint">Synopsis · Cast · Arias · Fun Facts · Wilton's History</p>
   </section>
 
